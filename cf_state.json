@@ -2,7 +2,7 @@
   "last_api_update_time": 1782097852.883415,
   "last_top100_time": 1782097855.2512372,
   "last_top20_time": 1782097855.9535308,
-  "last_top5_time": 1782099999.186315,
+  "last_top5_time": 1782101195.4555924,
   "last_switch_time": {
     "cf": 0.0
   },
@@ -18,11 +18,11 @@
     "cf": {
       "Dianxin": {
         "cname": "jobsdb.com",
-        "count": 3
+        "count": 4
       },
       "Yidong": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 3
+        "count": 4
       },
       "Liantong": {
         "cname": "zeas.top",
@@ -30,7 +30,7 @@
       },
       "default_view": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 3
+        "count": 4
       }
     }
   },
@@ -54,7 +54,7 @@
         "cf.877771.xyz": 30
       },
       "Liantong": {
-        "zeas.top": 54,
+        "zeas.top": 55,
         "npmjs.com": 30,
         "www.npmjs.com": 35,
         "ping.ctrl.li": 35,
