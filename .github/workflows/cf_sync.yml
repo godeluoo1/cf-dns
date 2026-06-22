@@ -28,19 +28,28 @@ jobs:
           pip install -r requirements.txt
 
 
+      - name: Fetch State from State Branch
+        run: |
+          git fetch origin state || echo "State branch does not exist yet."
+          git checkout origin/state -- cf_state.json || echo "No state file found."
+
       - name: Run Sync Script
         env:
           HUAWEICLOUD_AK: ${{ secrets.HUAWEICLOUD_AK }}
           HUAWEICLOUD_SK: ${{ secrets.HUAWEICLOUD_SK }}
         run: python cf.py
 
-      - name: Commit and Push State
+      - name: Prepare State Directory
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add cf_state.json
-          # 如果文件有变更则提交，避免空提交报错
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto sync cf_state.json [skip ci]" && git push)
+          mkdir -p state_out
+          cp cf_state.json state_out/ || echo "No state file to push"
+
+      - name: Push State to State Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./state_out
+          publish_branch: state
 
       - name: Prepare Public Directory
         run: |

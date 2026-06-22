@@ -1,3 +1,5 @@
 status.html
 public/
 run_output.log
+cf_state.json
+state_out/
