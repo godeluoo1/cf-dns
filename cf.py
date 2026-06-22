@@ -899,7 +899,7 @@ def fetch_and_calc_stats(domain_item, token, monitor_type=1, max_retries=3):
     
     url = f"https://vps789.com/public/getVpsPoints?vpsId={vps_id}&type={monitor_type}"
     expected_points = 72 if monitor_type == 0 else 30
-    span = 7 if monitor_type == 0 else 10 # EMA span: 24h用7(alpha 0.25)，30d用10(alpha 0.18)
+    span = 7 if monitor_type == 0 else 20 # EMA span: 24h用7(alpha 0.25)，30d用20(alpha 0.095)
     
     req = urllib.request.Request(
         url,
@@ -1039,18 +1039,18 @@ def calc_score(loss, jitter, latency):
     """新评分公式：丢包极高惩罚 + 抖动权重 + 延迟辅助"""
     return 1000 * loss + 50 * jitter + 0.7 * latency
 
-def sort_domains(domains, mode, max_loss_threshold=3.0):
+def sort_domains(domains, mode, max_loss_threshold=10.0):
     # 过滤掉不含新版指标的旧版缓存数据
     valid_domains = [x for x in domains if "dxLossEma" in x]
     if not valid_domains:
         return domains
     
     if mode == 1: # 默认综合线路
-        filtered = [x for x in valid_domains if max(x.get("dxLossEma", 100), x.get("ydLossEma", 100), x.get("ltLossEma", 100)) <= max_loss_threshold]
+        filtered = [x for x in valid_domains if x.get("avgLoss", 100) <= max_loss_threshold]
         target_list = filtered if filtered else valid_domains
         target_list.sort(key=lambda x: calc_score(
-            max(x.get("dxLossEma", 100), x.get("ydLossEma", 100), x.get("ltLossEma", 100)),
-            max(x.get("dxJitter", 0), x.get("ydJitter", 0), x.get("ltJitter", 0)),
+            x.get("avgLoss", 100),
+            x.get("avgJitter", 0),
             x.get("avgLatency", 9999)
         ))
         return target_list
@@ -1246,7 +1246,10 @@ def run_top5_and_decision(state_manager):
         
         health_res = bulk_dns_check(list(all_unique_ips))
         
-        state_manager.state["top5_pool"].setdefault(sub_domain, {})
+        if isinstance(state_manager.state["top5_pool"].get(sub_domain), list):
+            state_manager.state["top5_pool"][sub_domain] = {}
+        else:
+            state_manager.state["top5_pool"].setdefault(sub_domain, {})
         line_new_t5 = {}
         for line_code, t5_ips in line_t5_ips.items():
             new_t5 = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t5_ips]
@@ -1355,6 +1358,12 @@ def run_top20_check(state_manager):
         top100_data = state_manager.state.setdefault("top100_pool", {}).get(sub_domain, {})
         if not top100_data: continue
 
+        state_manager.state.setdefault("top20_pool", {})
+        if isinstance(state_manager.state["top20_pool"].get(sub_domain), list):
+            state_manager.state["top20_pool"][sub_domain] = {}
+        else:
+            state_manager.state["top20_pool"].setdefault(sub_domain, {})
+
         lines_keys = ["Dianxin", "Yidong", "Liantong", "default_view"]
         
         line_t20_ips = {}
@@ -1371,7 +1380,7 @@ def run_top20_check(state_manager):
             line_t20_ips[line_code] = t20_ips
             all_unique_ips.update(t20_ips)
 
-            old_pool_data = state_manager.state.setdefault("top20_pool", {}).setdefault(sub_domain, {})
+            old_pool_data = state_manager.state["top20_pool"][sub_domain]
             old_t20_ips = [item["ip"] for item in (old_pool_data if isinstance(old_pool_data, list) else old_pool_data.get(line_code, []))]
             
             for old_ip in old_t20_ips:
@@ -1421,7 +1430,11 @@ def run_top100_check(state_manager):
 
         health_res = bulk_dns_check(list(all_unique_ips))
         
-        state_manager.state.setdefault("top100_pool", {}).setdefault(sub_domain, {})
+        state_manager.state.setdefault("top100_pool", {})
+        if isinstance(state_manager.state["top100_pool"].get(sub_domain), list):
+            state_manager.state["top100_pool"][sub_domain] = {}
+        else:
+            state_manager.state["top100_pool"].setdefault(sub_domain, {})
         for line_code, ips in line_t100_ips.items():
             state_manager.state["top100_pool"][sub_domain][line_code] = [
                 {"ip": ip, "healthy": health_res.get(ip, False)} for ip in ips
@@ -1457,7 +1470,7 @@ def main():
             
             for m_type in set(SUB_DOMAINS_CONFIG.values()):
                 suffix = "30day" if m_type == 1 else "24h"
-                with ThreadPoolExecutor(max_workers=15) as executor:
+                with ThreadPoolExecutor(max_workers=30) as executor:
                     futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in new_candidates}
                     for future in as_completed(futures):
                         try:
