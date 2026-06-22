@@ -1252,8 +1252,9 @@ def run_top5_and_decision(state_manager):
             new_t5 = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t5_ips]
             line_new_t5[line_code] = new_t5
             
-            old_pool = state_manager.state["top5_pool"][sub_domain].get(line_code, [])
-            old_t5_ips = [item["ip"] for item in (old_pool if isinstance(old_pool, list) else old_pool)]
+            old_pool_raw = state_manager.state["top5_pool"][sub_domain]
+            old_pool = old_pool_raw.get(line_code, []) if isinstance(old_pool_raw, dict) else []
+            old_t5_ips = [item["ip"] for item in old_pool]
             
             state_manager.state["top5_pool"][sub_domain][line_code] = new_t5
             
