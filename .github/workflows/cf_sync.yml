@@ -27,14 +27,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Restore State Cache
-        id: cache-state
-        uses: actions/cache/restore@v4
-        with:
-          path: cf_state.json
-          key: cf-state-${{ hashFiles('cf_state.json') }}
-          restore-keys: |
-            cf-state-
 
       - name: Run Sync Script
         env:
@@ -42,12 +34,13 @@ jobs:
           HUAWEICLOUD_SK: ${{ secrets.HUAWEICLOUD_SK }}
         run: python cf.py
 
-      - name: Save State Cache
-        uses: actions/cache/save@v4
-        if: always() # 确保脚本报错或中断时依然能保存当前状态，以便下一次承接
-        with:
-          path: cf_state.json
-          key: cf-state-${{ github.run_id }}
+      - name: Commit and Push State
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add cf_state.json
+          # 如果文件有变更则提交，避免空提交报错
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto sync cf_state.json [skip ci]" && git push)
 
       - name: Deploy Status Page to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

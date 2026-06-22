@@ -276,92 +276,90 @@ def generate_visual_html(state_manager, filename="status.html"):
     <title>CF 智能优选 CNAME 状态面板</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --bg-color: #080C14;
-            --card-bg: rgba(18, 26, 44, 0.7);
-            --card-border: rgba(255, 255, 255, 0.06);
-            --text-main: #E2E8F0;
-            --text-muted: #64748B;
-            --color-primary: #00F2FE;
-            --color-success: #10B981;
-            --color-warning: #F59E0B;
-            --color-danger: #EF4444;
-            --loss-ok: #10B981;
-            --loss-warn: #F59E0B;
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.4);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-hover: rgba(255, 255, 255, 0.15);
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --color-primary: #38BDF8;
+            --color-primary-glow: rgba(56, 189, 248, 0.5);
+            --color-success: #34D399;
+            --color-warning: #FBBF24;
+            --color-danger: #F87171;
+            --loss-ok: #34D399;
+            --loss-warn: #FBBF24;
         }}
 
-        * {{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }}
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
         body {{
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(0, 242, 254, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(79, 172, 254, 0.05) 0px, transparent 50%);
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.04), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(167, 139, 250, 0.04), transparent 25%);
             background-attachment: fixed;
             color: var(--text-main);
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             min-height: 100vh;
-            padding: 2rem 1.5rem;
-            line-height: 1.5;
+            padding: 3rem 1.5rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }}
 
-        .container {{
-            max-width: 1200px;
-            margin: 0 auto;
-        }}
+        .container {{ max-width: 1200px; margin: 0 auto; }}
 
         header {{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease-out;
         }}
 
         .logo-section h1 {{
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #38BDF8 0%, #A78BFA 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
 
         .logo-section p {{
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-top: 0.25rem;
+            margin-top: 0.35rem;
+            font-weight: 400;
         }}
 
-        .system-meta {{
-            text-align: right;
-        }}
+        .system-meta {{ text-align: right; }}
 
         .meta-badge {{
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.25);
             color: var(--color-success);
-            padding: 0.35rem 0.75rem;
+            padding: 0.4rem 0.85rem;
             border-radius: 9999px;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             font-weight: 600;
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.15);
         }}
 
         .meta-item {{
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
             font-family: 'JetBrains Mono', monospace;
+            opacity: 0.8;
         }}
 
         .grid-layout {{
@@ -370,289 +368,206 @@ def generate_visual_html(state_manager, filename="status.html"):
             gap: 1.5rem;
             align-items: start;
         }}
-
-        @media (min-width: 900px) {{
-            .grid-layout {{
-                grid-template-columns: 2fr 1fr;
-            }}
-        }}
+        @media (min-width: 900px) {{ .grid-layout {{ grid-template-columns: 2fr 1fr; }} }}
 
         .card {{
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }}
-
-        .card-subdomain {{
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            animation: fadeInUp 0.8s ease-out backwards;
             margin-bottom: 1.5rem;
+        }}
+        .card:hover {{
+            border-color: var(--card-border-hover);
         }}
 
         .card-header-sub {{
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-bottom: 1rem;
+            padding-bottom: 1.25rem;
         }}
 
-        .subdomain-title {{
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: #FFFFFF;
-        }}
+        .subdomain-title {{ font-size: 1.4rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.5px; }}
 
-        .badge {{
+        .badge-dim {{
             display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            color: #9CA3AF;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
             font-size: 0.75rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            margin-top: 0.25rem;
+            margin-top: 0.4rem;
             font-weight: 500;
         }}
 
-        .badge-dim {{
-            background: rgba(255, 255, 255, 0.06);
-            color: #94A3B8;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }}
-
         .pool-status-mini {{
-            font-size: 0.8125rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
+            font-weight: 500;
         }}
 
-        .indicator {{
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }}
-
-        .blink-green {{
-            background-color: var(--color-success);
-            box-shadow: 0 0 8px var(--color-success);
-            animation: pulse-green 2s infinite;
-        }}
+        .indicator {{ width: 8px; height: 8px; border-radius: 50%; display: inline-block; }}
+        .blink-green {{ background-color: var(--color-success); box-shadow: 0 0 10px var(--color-success); animation: pulse-green 2s infinite; }}
 
         @keyframes pulse-green {{
-            0% {{ transform: scale(0.95); opacity: 0.5; }}
-            50% {{ transform: scale(1.1); opacity: 1; }}
-            100% {{ transform: scale(0.95); opacity: 0.5; }}
+            0% {{ transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }}
+            70% {{ transform: scale(1); box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }}
+            100% {{ transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }}
         }}
 
-        .lines-container {{
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }}
+        .lines-container {{ display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.75rem; }}
 
         .line-row {{
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            padding: 1rem;
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 1.15rem;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
         }}
-
         .line-row:hover {{
             background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
         }}
 
-        .line-info {{
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            min-width: 0;
-        }}
+        .line-info {{ display: flex; align-items: center; gap: 1rem; min-width: 0; }}
 
         .line-icon {{
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }}
 
-        .line-name {{
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #F1F5F9;
-        }}
-
+        .line-name {{ font-size: 0.95rem; font-weight: 600; color: #F1F5F9; letter-spacing: 0.5px; }}
         .line-cname {{
-            font-size: 0.8125rem;
+            font-size: 0.8rem;
             font-family: 'JetBrains Mono', monospace;
             color: var(--text-muted);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            margin-top: 0.15rem;
+            margin-top: 0.25rem;
         }}
 
-        .line-metrics {{
-            display: flex;
-            gap: 1.5rem;
-            flex-shrink: 0;
-        }}
-
-        .metric-item {{
-            text-align: right;
-        }}
+        .line-metrics {{ display: flex; gap: 2rem; flex-shrink: 0; }}
+        .metric-item {{ text-align: right; }}
 
         .metric-label {{
             display: block;
-            font-size: 0.6875rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            font-weight: 600;
         }}
-
         .metric-val {{
             display: block;
-            font-size: 0.9375rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--color-primary);
             font-family: 'JetBrains Mono', monospace;
-            margin-top: 0.15rem;
+            margin-top: 0.2rem;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
         }}
 
-        .telecom .line-icon {{ background: rgba(59, 130, 246, 0.1); color: #3B82F6; }}
-        .mobile .line-icon {{ background: rgba(16, 185, 129, 0.1); color: #10B981; }}
-        .unicom .line-icon {{ background: rgba(245, 158, 11, 0.1); color: #F59E0B; }}
-        .default .line-icon {{ background: rgba(139, 92, 246, 0.1); color: #8B5CF6; }}
+        .telecom .line-icon {{ background: rgba(56, 189, 248, 0.1); color: #38BDF8; border-color: rgba(56, 189, 248, 0.2); }}
+        .mobile .line-icon {{ background: rgba(52, 211, 153, 0.1); color: #34D399; border-color: rgba(52, 211, 153, 0.2); }}
+        .unicom .line-icon {{ background: rgba(251, 191, 36, 0.1); color: #FBBF24; border-color: rgba(251, 191, 36, 0.2); }}
+        .default .line-icon {{ background: rgba(167, 139, 250, 0.1); color: #A78BFA; border-color: rgba(167, 139, 250, 0.2); }}
 
         .pools-grid {{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
+            gap: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 1.25rem;
+            padding-top: 1.5rem;
         }}
 
         .pool-box {{
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: background 0.3s;
         }}
+        .pool-box:hover {{ background: rgba(0, 0, 0, 0.3); }}
 
-        .pool-box-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }}
+        .pool-box-header {{ display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.6rem; font-weight: 500; }}
+        .pool-ratio {{ font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-main); }}
 
-        .pool-ratio {{
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            color: var(--text-main);
-        }}
-
-        .progress-bar-bg {{
-            height: 4px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2px;
-            overflow: hidden;
-        }}
-
+        .progress-bar-bg {{ height: 5px; background: rgba(255, 255, 255, 0.05); border-radius: 3px; overflow: hidden; }}
         .progress-bar-fill {{
             height: 100%;
-            background: linear-gradient(90deg, #00F2FE 0%, #4FACFE 100%);
-            border-radius: 2px;
-            transition: width 0.5s ease;
+            background: linear-gradient(90deg, #38BDF8 0%, #A78BFA 100%);
+            border-radius: 3px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
         }}
 
-        .card-logs-title {{
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }}
+        .card-logs-title {{ font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: #FFFFFF; display: flex; align-items: center; gap: 0.6rem; letter-spacing: 0.5px; }}
 
         .logs-container {{
-            max-height: 520px;
+            max-height: 600px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            padding-right: 0.25rem;
+            gap: 0.6rem;
+            padding-right: 0.5rem;
         }}
-
-        .logs-container::-webkit-scrollbar {{
-            width: 4px;
-        }}
-
-        .logs-container::-webkit-scrollbar-thumb {{
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-        }}
+        .logs-container::-webkit-scrollbar {{ width: 5px; }}
+        .logs-container::-webkit-scrollbar-thumb {{ background: rgba(255, 255, 255, 0.15); border-radius: 3px; }}
+        .logs-container::-webkit-scrollbar-thumb:hover {{ background: rgba(255, 255, 255, 0.25); }}
 
         .log-item {{
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            padding: 0.6rem 0.8rem;
-            border-radius: 6px;
-            border-left: 3px solid transparent;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border-left: 4px solid transparent;
             word-break: break-all;
-            background: rgba(0, 0, 0, 0.12);
+            background: rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }}
+        .log-item:hover {{ transform: translateX(2px); }}
+
+        .log-item-info {{ border-left-color: var(--text-muted); color: #CBD5E1; }}
+        .log-item-success {{ border-left-color: var(--color-success); color: #6EE7B7; background: rgba(52, 211, 153, 0.05); }}
+        .log-item-warning {{ border-left-color: var(--color-warning); color: #FDE047; background: rgba(251, 191, 36, 0.05); }}
+        .log-item-danger {{ border-left-color: var(--color-danger); color: #FCA5A5; background: rgba(248, 113, 113, 0.08); animation: pulse-red 2s infinite; }}
+
+        @keyframes pulse-red {{
+            0% {{ box-shadow: inset 0 0 0 rgba(248, 113, 113, 0); }}
+            50% {{ box-shadow: inset 2px 0 10px rgba(248, 113, 113, 0.2); }}
+            100% {{ box-shadow: inset 0 0 0 rgba(248, 113, 113, 0); }}
         }}
 
-        .log-item-info {{
-            border-left-color: var(--text-muted);
-            color: #94A3B8;
-        }}
+        .no-logs {{ text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 3rem 0; font-weight: 500; }}
 
-        .log-item-success {{
-            border-left-color: var(--color-success);
-            color: #A7F3D0;
-            background: rgba(16, 185, 129, 0.05);
-        }}
-
-        .log-item-warning {{
-            border-left-color: var(--color-warning);
-            color: #FDE68A;
-            background: rgba(245, 158, 11, 0.05);
-        }}
-
-        .log-item-danger {{
-            border-left-color: var(--color-danger);
-            color: #FCA5A5;
-            background: rgba(239, 68, 68, 0.05);
-            animation: flash-red 2s infinite;
-        }}
-
-        @keyframes flash-red {{
-            0% {{ background-color: rgba(239, 68, 68, 0.05); }}
-            50% {{ background-color: rgba(239, 68, 68, 0.12); }}
-            100% {{ background-color: rgba(239, 68, 68, 0.05); }}
-        }}
-
-        .no-logs {{
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8125rem;
-            padding: 2rem 0;
-        }}
+        @keyframes fadeInDown {{ from {{ opacity: 0; transform: translateY(-15px); }} to {{ opacity: 1; transform: translateY(0); }} }}
+        @keyframes fadeInUp {{ from {{ opacity: 0; transform: translateY(15px); }} to {{ opacity: 1; transform: translateY(0); }} }}
     </style>
 </head>
 <body>
@@ -660,14 +575,14 @@ def generate_visual_html(state_manager, filename="status.html"):
         <header>
             <div class="logo-section">
                 <h1>Cloudflare 智能优选监控</h1>
-                <p>三网全自动漏斗体检 & 故障快速熔断系统 (EMA加权版)</p>
+                <p>三网全自动漏斗体检 & 故障快速熔断系统</p>
             </div>
             <div class="system-meta">
                 <span class="meta-badge">
                     <span class="indicator blink-green"></span> 正常守候中
                 </span>
-                <div class="meta-item">最后检测：{last_update}</div>
-                <div class="meta-item">大池API更新：{api_time_str}</div>
+                <div class="meta-item">本地检测：{last_update}</div>
+                <div class="meta-item">大池更新：{api_time_str}</div>
             </div>
         </header>
 
@@ -676,7 +591,7 @@ def generate_visual_html(state_manager, filename="status.html"):
                 {subdomains_html}
             </div>
             <div class="side-column">
-                <div class="card">
+                <div class="card" style="animation-delay: 0.2s;">
                     <h2 class="card-logs-title">📋 核心大事件日志</h2>
                     <div class="logs-container">
                         {logs_html}
