@@ -172,30 +172,30 @@ def generate_visual_html(state_manager, filename="status.html"):
                 rep_color = "var(--color-warning)"
             
             lines_data.append(f"""
-                <div class="line-row {color_cls}">
+                <div class="line-row {color_cls}" data-sub="{sub}" data-line="{line_key}">
                     <div class="line-info">
                         <span class="line-icon">{icon}</span>
                         <div>
                             <div class="line-name">{line_name}</div>
-                            <div class="line-cname" title="{cname}">{cname}</div>
+                            <div class="line-cname cname-val" title="{cname}">{cname}</div>
                         </div>
                     </div>
                     <div class="line-metrics">
                         <div class="metric-item">
                             <span class="metric-label">EMA延迟</span>
-                            <span class="metric-val">{latency_str}</span>
+                            <span class="metric-val latency-val">{latency_str}</span>
                         </div>
                         <div class="metric-item">
                             <span class="metric-label">抖动</span>
-                            <span class="metric-val">{jitter_str}</span>
+                            <span class="metric-val jitter-val">{jitter_str}</span>
                         </div>
                         <div class="metric-item">
                             <span class="metric-label">EMA丢包</span>
-                            <span class="metric-val" style="color: {loss_color}">{loss_str}</span>
+                            <span class="metric-val loss-val" style="color: {loss_color}">{loss_str}</span>
                         </div>
                         <div class="metric-item">
                             <span class="metric-label">信誉分</span>
-                            <span class="metric-val" style="color: {rep_color}">{reputation}</span>
+                            <span class="metric-val rep-val" style="color: {rep_color}">{reputation}</span>
                         </div>
                     </div>
                 </div>
@@ -271,7 +271,6 @@ def generate_visual_html(state_manager, filename="status.html"):
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CF 智能优选 CNAME 状态面板</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -600,6 +599,54 @@ def generate_visual_html(state_manager, filename="status.html"):
             </div>
         </div>
     </div>
+
+<script>
+async function pollUpdate() {{
+    try {{
+        const res = await fetch('./state_snapshot.json?t=' + Date.now());
+        if (!res.ok) throw new Error();
+        const newState = await res.json();
+        reconcile(newState);
+    }} catch(e) {{}}
+    setTimeout(pollUpdate, 60000);
+}}
+
+function updateEl(el, val, color) {{
+    if (!el || el.textContent === String(val)) return;
+    el.textContent = val;
+    if (color) el.style.color = color;
+    el.classList.add('updated');
+    setTimeout(() => el.classList.remove('updated'), 600);
+}}
+
+function reconcile(newState) {{
+    if (!newState.data) return;
+    for (const [sub, lines] of Object.entries(newState.data)) {{
+        for (const [line_key, stats] of Object.entries(lines)) {{
+            const row = document.querySelector(`.line-row[data-sub="${{sub}}"][data-line="${{line_key}}"]`);
+            if (row) {{
+                const cnameEl = row.querySelector('.cname-val');
+                if (cnameEl && cnameEl.textContent !== stats.cname) {{
+                    cnameEl.textContent = stats.cname;
+                    cnameEl.title = stats.cname;
+                }}
+                updateEl(row.querySelector('.latency-val'), stats.latency);
+                updateEl(row.querySelector('.jitter-val'), stats.jitter);
+                updateEl(row.querySelector('.loss-val'), stats.loss, stats.loss_color);
+                updateEl(row.querySelector('.rep-val'), stats.reputation, stats.rep_color);
+            }}
+        }}
+    }}
+}}
+
+const style = document.createElement('style');
+style.textContent = `
+    .metric-val.updated {{ animation: number-tick 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }}
+    @keyframes number-tick {{ 0% {{ transform: translateY(-4px); opacity: 0.3; }} 60% {{ transform: translateY(1px); }} 100% {{ transform: translateY(0); opacity: 1; }} }}
+`;
+document.head.appendChild(style);
+setTimeout(pollUpdate, 60000);
+</script>
 </body>
 </html>
 """
@@ -613,6 +660,40 @@ def generate_visual_html(state_manager, filename="status.html"):
     try:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(html_content)
+        
+        # 额外生成前端所需的轻量级快照
+        snapshot_data = {"ts": current_time, "data": {}}
+        for sub, monitor_type in SUB_DOMAINS_CONFIG.items():
+            snapshot_data["data"][sub] = {}
+            champs = state_manager.state.get("champions", {}).get(sub, {
+                "Dianxin": "N/A", "Yidong": "N/A", "Liantong": "N/A", "default_view": "N/A"
+            })
+            for line_key in ["Dianxin", "Yidong", "Liantong", "default_view"]:
+                cname = champs.get(line_key, "N/A")
+                latency, loss, jitter = get_cname_stats(cname, sub, line_key)
+                reputation = get_reputation(sub, line_key, cname) if cname != "N/A" else 0
+                
+                latency_str = f"{latency} ms" if isinstance(latency, (int, float)) and latency < 9999 else str(latency)
+                loss_str = f"{loss} %" if isinstance(loss, (int, float)) else str(loss)
+                jitter_str = f"{jitter} ms" if isinstance(jitter, (int, float)) else str(jitter)
+                
+                loss_color = "var(--loss-ok)"
+                if isinstance(loss, (int, float)):
+                    if loss > 5.0: loss_color = "var(--color-danger)"
+                    elif loss > 1.0: loss_color = "var(--loss-warn)"
+                
+                rep_color = "var(--color-success)"
+                if reputation < 30: rep_color = "var(--color-danger)"
+                elif reputation < 60: rep_color = "var(--color-warning)"
+                
+                snapshot_data["data"][sub][line_key] = {
+                    "cname": cname, "latency": latency_str, "loss": loss_str, "jitter": jitter_str,
+                    "reputation": reputation, "loss_color": loss_color, "rep_color": rep_color
+                }
+        snapshot_path = os.path.join(state_dir, "state_snapshot.json") if state_dir else "state_snapshot.json"
+        with open(snapshot_path, 'w', encoding='utf-8') as f:
+            json.dump(snapshot_data, f, ensure_ascii=False)
+
     except Exception as e:
         print(f"❌ 生成看板页面失败: {e}")
 
