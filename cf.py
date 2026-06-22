@@ -109,7 +109,15 @@ def generate_visual_html(state_manager, filename="status.html"):
         return "N/A", "N/A", "N/A"
 
     def get_pool_health(sub_domain, pool_name):
-        pool = state_manager.state.get(pool_name, {}).get(sub_domain, [])
+        pool_data = state_manager.state.get(pool_name, {}).get(sub_domain, {})
+        if not pool_data:
+            return 0, 0, 0.0
+        if isinstance(pool_data, list):
+            pool = pool_data
+        else:
+            pool = []
+            for line_list in pool_data.values():
+                pool.extend(line_list)
         if not pool:
             return 0, 0, 0.0
         total = len(pool)
@@ -693,6 +701,12 @@ def generate_visual_html(state_manager, filename="status.html"):
     except Exception as e:
         print(f"❌ 生成看板页面失败: {e}")
 
+def get_pool_list(state, pool_name, sub_domain, line_code):
+    pool_data = state.get(pool_name, {}).get(sub_domain, {})
+    if isinstance(pool_data, list):
+        return pool_data
+    return pool_data.get(line_code, [])
+
 # ==================== 本地状态机管理器 ====================
 class StateManager:
     def __init__(self, state_file="cf_state.json"):
@@ -1162,9 +1176,9 @@ def run_meltdown_with_fallback(state_manager):
             
             backup_cname = None
             pools = [
-                ("Top5", state_manager.state.get("top5_pool", {}).get(sub_domain, [])),
-                ("Top20", state_manager.state.get("top20_pool", {}).get(sub_domain, [])),
-                ("Top100", state_manager.state.get("top100_pool", {}).get(sub_domain, []))
+                ("Top5", get_pool_list(state_manager.state, "top5_pool", sub_domain, line_code)),
+                ("Top20", get_pool_list(state_manager.state, "top20_pool", sub_domain, line_code)),
+                ("Top100", get_pool_list(state_manager.state, "top100_pool", sub_domain, line_code))
             ]
             
             for pool_name, pool_list in pools:
@@ -1179,7 +1193,7 @@ def run_meltdown_with_fallback(state_manager):
                 if backup_cname: break
             
             if not backup_cname:
-                t5 = state_manager.state.get("top5_pool", {}).get(sub_domain, [])
+                t5 = get_pool_list(state_manager.state, "top5_pool", sub_domain, line_code)
                 backup_cname = t5[0]["ip"] if t5 else cname
 
             if backup_cname != cname:
@@ -1211,57 +1225,78 @@ def run_top5_and_decision(state_manager):
     now = time.time()
 
     for sub_domain, monitor_type in SUB_DOMAINS_CONFIG.items():
-        t20 = state_manager.state.setdefault("top20_pool", {}).get(sub_domain, [])
-        if not t20:
-            t20 = state_manager.state.setdefault("top100_pool", {}).get(sub_domain, [])
+        top20_data = state_manager.state.setdefault("top20_pool", {}).get(sub_domain, {})
+        top100_data = state_manager.state.setdefault("top100_pool", {}).get(sub_domain, {})
         
-        t5_ips = [item["ip"] for item in t20[:5]]
-        if not t5_ips: continue
-
-        health_res = bulk_dns_check(t5_ips)
-        new_t5 = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t5_ips]
-        # 处理落选 Top5 的惩罚（必须在覆盖前读取旧数据）
-        old_t5_ips = [item["ip"] for item in state_manager.state.get("top5_pool", {}).get(sub_domain, [])]
-        state_manager.state["top5_pool"][sub_domain] = new_t5
+        lines_keys = ["Dianxin", "Yidong", "Liantong", "default_view"]
         
-        for old_ip in old_t5_ips:
-            if old_ip not in t5_ips:
-                for line in ["Dianxin", "Yidong", "Liantong", "default_view"]:
-                    state_manager.update_reputation(sub_domain, line, old_ip, -5)
+        line_t5_ips = {}
+        all_unique_ips = set()
+        for line_code in lines_keys:
+            t20_line = top20_data if isinstance(top20_data, list) else top20_data.get(line_code, [])
+            if not t20_line:
+                t20_line = top100_data if isinstance(top100_data, list) else top100_data.get(line_code, [])
+            
+            t5_ips = [item["ip"] for item in t20_line[:5]]
+            if t5_ips:
+                line_t5_ips[line_code] = t5_ips
+                all_unique_ips.update(t5_ips)
+                
+        if not all_unique_ips: continue
+        
+        health_res = bulk_dns_check(list(all_unique_ips))
+        
+        state_manager.state["top5_pool"].setdefault(sub_domain, {})
+        line_new_t5 = {}
+        for line_code, t5_ips in line_t5_ips.items():
+            new_t5 = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t5_ips]
+            line_new_t5[line_code] = new_t5
+            
+            old_pool = state_manager.state["top5_pool"][sub_domain].get(line_code, [])
+            old_t5_ips = [item["ip"] for item in (old_pool if isinstance(old_pool, list) else old_pool)]
+            
+            state_manager.state["top5_pool"][sub_domain][line_code] = new_t5
+            
+            for old_ip in old_t5_ips:
+                if old_ip not in t5_ips:
+                    state_manager.update_reputation(sub_domain, line_code, old_ip, -5)
 
         champs = state_manager.state["champions"].setdefault(sub_domain, {})
         lead_counts = state_manager.state["consecutive_lead_counts"].setdefault(sub_domain, {})
         last_switch = state_manager.state["last_switch_time"].setdefault(sub_domain, 0.0)
         candidates = state_manager.state.get("candidates", [])
         key_suffix = "30day" if monitor_type == 1 else "24h"
-        
-        healthy_candidates_stats = []
-        for t5_item in new_t5:
-            if t5_item["healthy"]:
-                for c in candidates:
-                    if c["ip"] == t5_item["ip"]:
-                        if stat := c.get(f"data_{key_suffix}"):
-                            healthy_candidates_stats.append(stat)
-                        break
-        
-        if not healthy_candidates_stats:
-            print(f"  ⚠️ {sub_domain} Top5 无健康备选。")
-            continue
 
-        lines = {
-            "Dianxin": ("电信", sort_domains(list(healthy_candidates_stats), 2)[0]['ip']),
-            "Yidong": ("移动", sort_domains(list(healthy_candidates_stats), 3)[0]['ip']),
-            "Liantong": ("联通", sort_domains(list(healthy_candidates_stats), 4)[0]['ip']),
-            "default_view": ("默认", sort_domains(list(healthy_candidates_stats), 1)[0]['ip'])
+        lines_modes = {
+            "Dianxin": (2, "电信"),
+            "Yidong": (3, "移动"),
+            "Liantong": (4, "联通"),
+            "default_view": (1, "默认")
         }
 
-        for line_code, (line_name, best_cname) in lines.items():
+        for line_code, (mode, line_name) in lines_modes.items():
+            new_t5 = line_new_t5.get(line_code, [])
+            if not new_t5: continue
+            
+            healthy_candidates_stats = []
+            for t5_item in new_t5:
+                if t5_item["healthy"]:
+                    for c in candidates:
+                        if c["ip"] == t5_item["ip"]:
+                            if stat := c.get(f"data_{key_suffix}"):
+                                healthy_candidates_stats.append(stat)
+                            break
+            
+            if not healthy_candidates_stats:
+                print(f"  ⚠️ {sub_domain} {line_name} Top5 无健康备选。")
+                continue
+
+            best_cname = sort_domains(list(healthy_candidates_stats), mode)[0]['ip']
             current_champ = champs.get(line_code, "")
             
-            # 现任冠军仍在 Top5 健康池内则 +1 信誉分
             if current_champ in [x["ip"] for x in new_t5 if x["healthy"]]:
                 state_manager.update_reputation(sub_domain, line_code, current_champ, 1)
-            
+
             if not current_champ or current_champ == "N/A":
                 champs[line_code] = best_cname
                 lead_counts[line_code] = {"cname": best_cname, "count": 0}
@@ -1280,11 +1315,10 @@ def run_top5_and_decision(state_manager):
                 l_info["cname"] = best_cname
                 l_info["count"] = 1
 
-            # 联合判定决策逻辑
             current_rep = state_manager.state["reputation_scores"].get(sub_domain, {}).get(line_code, {}).get(current_champ, 50)
             best_rep = state_manager.state["reputation_scores"].get(sub_domain, {}).get(line_code, {}).get(best_cname, 50)
             cooldown_elapsed = now - last_switch
-            
+
             print(f"  🕒 {sub_domain} {line_name}: 挑战者 [{best_cname}](信誉{best_rep}) 领先 现任 [{current_champ}](信誉{current_rep}) 次数: {l_info['count']}/3")
 
             allow_switch = False
@@ -1317,22 +1351,40 @@ def run_top5_and_decision(state_manager):
 def run_top20_check(state_manager):
     print("\n[Top20 热池体检中...]")
     for sub_domain in SUB_DOMAINS_CONFIG.keys():
-        t100 = state_manager.state.setdefault("top100_pool", {}).get(sub_domain, [])
-        if not t100: continue
+        top100_data = state_manager.state.setdefault("top100_pool", {}).get(sub_domain, {})
+        if not top100_data: continue
+
+        lines_keys = ["Dianxin", "Yidong", "Liantong", "default_view"]
         
-        t20_ips = [item["ip"] for item in t100 if item.get("healthy", True)][:20]
-        if len(t20_ips) < 10:
-            t20_ips = [item["ip"] for item in t100][:20]
+        line_t20_ips = {}
+        all_unique_ips = set()
+        
+        for line_code in lines_keys:
+            t100_line = top100_data if isinstance(top100_data, list) else top100_data.get(line_code, [])
+            if not t100_line: continue
 
-        # 跌出 Top20 惩罚
-        old_t20_ips = [item["ip"] for item in state_manager.state.setdefault("top20_pool", {}).get(sub_domain, [])]
-        for old_ip in old_t20_ips:
-            if old_ip not in t20_ips:
-                for line in ["Dianxin", "Yidong", "Liantong", "default_view"]:
-                    state_manager.update_reputation(sub_domain, line, old_ip, -15)
+            t20_ips = [item["ip"] for item in t100_line if item.get("healthy", True)][:20]
+            if len(t20_ips) < 10:
+                t20_ips = [item["ip"] for item in t100_line][:20]
+            
+            line_t20_ips[line_code] = t20_ips
+            all_unique_ips.update(t20_ips)
 
-        health_res = bulk_dns_check(t20_ips)
-        state_manager.state["top20_pool"][sub_domain] = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t20_ips]
+            old_pool_data = state_manager.state.setdefault("top20_pool", {}).setdefault(sub_domain, {})
+            old_t20_ips = [item["ip"] for item in (old_pool_data if isinstance(old_pool_data, list) else old_pool_data.get(line_code, []))]
+            
+            for old_ip in old_t20_ips:
+                if old_ip not in t20_ips:
+                    state_manager.update_reputation(sub_domain, line_code, old_ip, -15)
+
+        if not all_unique_ips: continue
+        health_res = bulk_dns_check(list(all_unique_ips))
+        
+        state_manager.state.setdefault("top20_pool", {}).setdefault(sub_domain, {})
+        for line_code, ips in line_t20_ips.items():
+            state_manager.state["top20_pool"][sub_domain][line_code] = [
+                {"ip": ip, "healthy": health_res.get(ip, False)} for ip in ips
+            ]
         
     state_manager.state["last_top20_time"] = time.time()
     state_manager.save()
@@ -1351,11 +1403,28 @@ def run_top100_check(state_manager):
         domains_for_sort = [c.get(f"data_{key_suffix}") for c in candidates_clean if c.get(f"data_{key_suffix}")]
         if not domains_for_sort: continue
 
-        sorted_def = sort_domains(list(domains_for_sort), 1)
-        t100_ips = [item["ip"] for item in sorted_def[:100]]
+        lines_modes = {
+            "Dianxin": 2,
+            "Yidong": 3,
+            "Liantong": 4,
+            "default_view": 1
+        }
+        
+        line_t100_ips = {}
+        all_unique_ips = set()
+        for line_code, mode in lines_modes.items():
+            sorted_def = sort_domains(list(domains_for_sort), mode)
+            ips = [item["ip"] for item in sorted_def[:100]]
+            line_t100_ips[line_code] = ips
+            all_unique_ips.update(ips)
 
-        health_res = bulk_dns_check(t100_ips)
-        state_manager.state.setdefault("top100_pool", {})[sub_domain] = [{"ip": ip, "healthy": health_res.get(ip, False)} for ip in t100_ips]
+        health_res = bulk_dns_check(list(all_unique_ips))
+        
+        state_manager.state.setdefault("top100_pool", {}).setdefault(sub_domain, {})
+        for line_code, ips in line_t100_ips.items():
+            state_manager.state["top100_pool"][sub_domain][line_code] = [
+                {"ip": ip, "healthy": health_res.get(ip, False)} for ip in ips
+            ]
         
     state_manager.state["last_top100_time"] = time.time()
     state_manager.save()
