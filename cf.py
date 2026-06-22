@@ -1512,7 +1512,10 @@ def main():
 
     if force_cascade or not state_manager.state.get("top5_pool") or (now - state_manager.state.get("last_top5_time", 0.0) >= 600):
         run_top5_and_decision(state_manager)
-        print("✓ 本周期级联漏斗体检与决策完成。")
+    
+    # 强制每次运行结束都重新生成一次最新的网页和快照，以确保 Actions 每次运行时即使没有状态更新，也能生成 status.html
+    generate_visual_html(state_manager)
+    print("✓ 本周期级联漏斗体检与决策完成。")
 
 if __name__ == '__main__':
     port_str = os.environ.get("PORT")
