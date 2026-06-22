@@ -42,9 +42,13 @@ jobs:
           # 如果文件有变更则提交，避免空提交报错
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto sync cf_state.json [skip ci]" && git push)
 
+      - name: Prepare Public Directory
+        run: |
+          mkdir -p public
+          cp status.html public/
+
       - name: Deploy Status Page to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_files: status.html
+          publish_dir: ./public
