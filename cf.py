@@ -11,7 +11,7 @@ import ipaddress
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# 🛡️ 全局并发错峰锁和请求时间戳，确保多线程调用 API 时每个请求发起之间至少间隔 80ms
+# 🛡️ 全局并发错峰锁和请求时间戳，确保多线程调用 API 时每个请求发起之间至少间隔 250ms
 _req_lock = threading.Lock()
 _last_req_time = 0.0
 
@@ -20,8 +20,8 @@ def _rate_limit_sleep():
     with _req_lock:
         now = time.time()
         elapsed = now - _last_req_time
-        if elapsed < 0.08:
-            time.sleep(0.08 - elapsed)
+        if elapsed < 0.25:
+            time.sleep(0.25 - elapsed)
         _last_req_time = time.time()
 
 # 尝试导入解密模块并做兼容处理
@@ -89,6 +89,7 @@ def log_event(state_manager, message):
     print(log_line)
 
 def generate_visual_html(state_manager, filename="status.html"):
+    current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     def get_cname_stats(cname, sub_domain, line_key):
         candidates = state_manager.state.get("candidates", [])
         monitor_type = SUB_DOMAINS_CONFIG.get(sub_domain, 0)
@@ -997,6 +998,15 @@ def fetch_and_calc_stats(domain_item, token, monitor_type=1, max_retries=3):
                     "avgJitter": round(avg_jitter, 2)
                 }
         except Exception as e:
+            is_rate_limited = False
+            if hasattr(e, 'code') and e.code == 429:
+                is_rate_limited = True
+            
+            if is_rate_limited:
+                time.sleep(2.0)
+            else:
+                time.sleep(0.5)
+                
             if attempt == max_retries - 1:
                 print(f"  ⚠️ 获取域名 {domain_name} 测速历史失败 (已重试 {max_retries} 次): {e}")
     return None
@@ -1462,11 +1472,24 @@ def main():
             black_list = {f"{sub}.{DOMAIN}" if sub != "@" else DOMAIN for sub in SUB_DOMAINS_CONFIG.keys()}
             raw_domains = [item for item in raw_domains if item.get("ip") not in black_list]
             
-            new_candidates = [{"id": item.get("id"), "ip": item.get("ip"), "data_30day": None, "data_24h": None} for item in raw_domains]
+            # 保留历史缓存数据：将原有的 candidates 转换为 map 快速检索
+            old_candidates_map = {c["ip"]: c for c in state_manager.state.get("candidates", []) if isinstance(c, dict) and "ip" in c}
+            
+            new_candidates = []
+            for item in raw_domains:
+                ip = item.get("ip")
+                old_c = old_candidates_map.get(ip, {})
+                new_candidates.append({
+                    "id": item.get("id"),
+                    "ip": ip,
+                    "data_30day": old_c.get("data_30day"),
+                    "data_24h": old_c.get("data_24h")
+                })
             
             for m_type in set(SUB_DOMAINS_CONFIG.values()):
                 suffix = "30day" if m_type == 1 else "24h"
-                with ThreadPoolExecutor(max_workers=30) as executor:
+                # 降低并发线程至 5，极大地减少频繁触发 WAF 并发墙拦截概率
+                with ThreadPoolExecutor(max_workers=5) as executor:
                     futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in new_candidates}
                     for future in as_completed(futures):
                         try:
