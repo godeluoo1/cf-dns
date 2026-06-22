@@ -1,107 +1,62 @@
-# 🛰️ Cloudflare 智能优选 CNAME 系统
+# 🚀 Cloudflare 智能优选 DNS 监控与分流系统
 
-基于 VPS789.com 平台三网历史数据，全自动选出丢包最低、抖动最小、三网综合最优的 Cloudflare 优选域名，并通过华为云 DNS API 实现电信/移动/联通三网智能分流。
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/godeluoo1/cf-dns/cf_sync.yml?label=CF%20Sync)
+![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## 🏗️ 核心架构
+基于 VPS789 平台历史大数据，全自动选出丢包最低、抖动最小、三网综合最优的 Cloudflare 优选 IP/CNAME。并通过华为云 DNS API 实现电信、移动、联通三网智能分流。
 
-```
-600 个候选域名 (VPS789 API)
-        │
-        ▼ 黑名单 + DNS + CF IP 过滤
-   ┌────────────┐
-   │  Top 100   │ ← 6 小时刷新
-   └─────┬──────┘
-         ▼ DNS 健康体检
-   ┌────────────┐
-   │  Top 20    │ ← 1 小时刷新
-   └─────┬──────┘
-         ▼ 综合评分筛选
-   ┌────────────┐
-   │  Top 5     │ ← 每次执行检查
-   └─────┬──────┘
-         ▼ 连续领先3次 + 冷却30min + 信誉分联合判定
-   ┌────────────┐
-   │ Champion   │ → 华为云 DNS 同步
-   └────────────┘
-```
+配合 **GitHub Actions 全自动化** 和 **高颜值可视化监控看板**，彻底解放双手，实现 DNS 容灾的“自动驾驶”。
 
-## ⚡ 核心特性
+🔗 **[点击查看在线高颜值监控看板](https://godeluoo1.github.io/cf-dns/status.html)**
 
-| 特性 | 说明 |
-|------|------|
-| **EMA 加权评分** | 近 7 天数据权重显著高于历史数据 |
-| **评分公式** | `1000×丢包 + 50×抖动 + 0.7×延迟`，稳定性远优先于速度 |
-| **三网独立统计** | 电信/移动/联通各自计算延迟、丢包、抖动、失联次数 |
-| **信誉分机制** | 历史冠军信用评价 + 降级审查体系 |
-| **防抖切换** | 连续 3 次领先 + 30 分钟冷却期 |
-| **DNS 熔断** | 实时检测冠军存活，逐级 Top5→Top20→Top100 降级 |
-| **状态持久化** | 跨运行保持所有状态，支持重启恢复 |
+## ✨ 核心特性
 
-## 🚀 部署方式
+- 🌌 **极致视觉体验**: 自动生成“深空玻璃拟物风 (Glassmorphism)”的监控面板，自带悬浮微动效、数据渐变高亮与红绿灯熔断警告。
+- 🤖 **全自动托管 (GitHub Actions)**: 抛弃繁琐的 VPS 部署，完全免费托管在 GitHub Actions。每 6 小时自动苏醒抓取数据并部署网页，测试数据会通过 Commit 自动永久保存！
+- ⚖️ **EMA 加权评分模型**: `1000×丢包 + 50×抖动 + 0.7×延迟`，近 7 天数据权重显著高于历史，更注重大池稳定性。
+- 🛡️ **严格防抖与熔断**: 候选节点需“连续 3 次领先”才能上位，现任节点一旦失联，立刻从 Top5→Top20→Top100 逐级降级熔断。
+- 🗃️ **三网满编备用池**: 为电信、联通、移动及综合默认线路分别构建独立的 Top100 备用节点池，冗余度极高。
 
-### 方案 A：在 Northflank / Render 等云平台运行（推荐）
+## 🏗️ 核心漏斗架构
 
-1. 新建一个 **Web Service**（不要选 Job），连接你的 GitHub 私有仓库。
-2. 平台会自动根据根目录下的 `Dockerfile` 自动构建和启动服务。
-3. 在环境变量中添加：
-   * `HUAWEICLOUD_AK` - 华为云 Access Key
-   * `HUAWEICLOUD_SK` - 华为云 Secret Key
-   * `PORT` - 服务运行端口（如 `8080`，容器会自动在此端口启动 Web 看板服务）
-   * `STATE_DIR` -（可选）设置为 `/data`。并在平台挂载一个 `1GB` 的持久化卷 (Volume) 到 `/data`，这可以确保容器重启后测速数据状态不丢失。
-
-### 方案 B：在 VPS 上持续运行（Docker/Python 守护进程模式）
-
-你可以使用 Docker 容器或直接通过 Python 守护进程持续在 VPS 后台运行：
-
-#### 方法 1：使用 Docker 运行
-```bash
-# 1. 构建 Docker 镜像
-docker build -t cf-dns-sync .
-
-# 2. 启动容器（挂载状态卷并启动 8080 看板端口）
-docker run -d \
-  --name cf-sync \
-  -p 8080:8080 \
-  -e HUAWEICLOUD_AK="你的AK" \
-  -e HUAWEICLOUD_SK="你的SK" \
-  -e PORT=8080 \
-  -e STATE_DIR="/data" \
-  -v /root/cf-data:/data \
-  --restart always \
-  cf-dns-sync
+```mermaid
+graph TD
+    A[600+ 候选域名池] -->|丢包过滤 & EMA 综合测速| B(Top 100 备用大池)
+    B -->|高频探活体检| C(Top 20 优选池)
+    C -->|信誉分评估| D(Top 5 热点池)
+    D -->|连续3次领先 + 熔断冷却| E((🏅 最终冠军 IP))
+    E -->|API 自动下发| F[华为云 DNS 智能解析]
 ```
 
-#### 方法 2：直接使用 Python 守护运行
-```bash
-# 安装依赖
-pip3 install -r requirements.txt
+## 🚀 极简部署方案 (推荐: GitHub Actions 完全免费版)
 
-# 设置环境变量并使用 nohup 在后台死循环运行
-export HUAWEICLOUD_AK="你的AK"
-export HUAWEICLOUD_SK="你的SK"
-export PORT=8080
-export STATE_DIR="/root/cf-data"
+这是目前最优雅的运行方式，**零服务器成本**，数据永久保存：
 
-nohup python3 cf.py > cf_run.log 2>&1 &
-```
+1. **Fork/Clone** 本仓库到你的私人账户（**强烈建议设置为 Private 仓库**，保护你的 API 密钥）。
+2. 去你的 GitHub 仓库设置 `Settings` -> `Secrets and variables` -> `Actions`，添加以下环境变量：
+   - `HUAWEICLOUD_AK` : 华为云 Access Key
+   - `HUAWEICLOUD_SK` : 华为云 Secret Key
+3. 赋予 GitHub Actions 读写权限：进入 `Settings` -> `Actions` -> `General` -> 勾选 `Read and write permissions`。
+4. 去 `Actions` 页面手动点击 **Run workflow** 触发一次。
+5. 去 `Settings` -> `Pages`，将 Source 设置为 `Deploy from a branch`，Branch 选择 `gh-pages` 目录选 `/ (root)`。
+6. 等待几分钟，你的炫酷监控面板就自动上线了！
 
-## ⚙️ 配置
+## ⚙️ 个性化配置
 
-在 `cf.py` 顶部配置：
+在 `cf.py` 顶部修改你的专属域名和监测敏感度：
 
 ```python
-DOMAIN = "blogluo.eu.org"  # 你的主域名
+DOMAIN = "你的主域名.com"
 
 # 每个子域名独立配置测速维度
 SUB_DOMAINS_CONFIG = {
-    "vip": 1,  # 30 天长期稳定维度
-    "l": 0,    # 24 小时高灵敏维度
+    "cf": 1,  # 使用 30 天长期稳定维度 (推荐给建站)
+    "vip": 0, # 使用 24 小时高灵敏维度 (推荐给代理)
 }
 ```
 
 ## 🔒 安全须知
-
-- **AK/SK 必须通过环境变量或 GitHub Secrets 注入**，代码中不包含任何硬编码凭证
-- 仓库**必须设置为 Private**
-- 定期轮换华为云 AK/SK
-- 1
+- 绝对不要在代码中硬编码任何 AK/SK。
+- 必须通过 GitHub Secrets 注入凭证。
+- 定期在云服务商后台轮换你的 API 密钥。
