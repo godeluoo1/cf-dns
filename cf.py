@@ -10,6 +10,14 @@ import threading
 import ipaddress
 import math
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import warnings
+
+# 过滤并忽略过时的 TripleDES 警告，保持日志干净
+try:
+    from cryptography.utils import CryptographyDeprecationWarning
+    warnings.filterwarnings("ignore", category=CryptographyDeprecationWarning)
+except ImportError:
+    pass
 
 # 🛡️ 全局并发错峰锁和请求时间戳，确保多线程调用 API 时每个请求发起之间至少间隔 250ms
 _req_lock = threading.Lock()
@@ -800,14 +808,20 @@ CLOUDFLARE_NETWORKS = [ipaddress.ip_network(net) for net in [
     "104.24.0.0/14", "172.64.0.0/13", "131.0.72.0/22"
 ]]
 
+_cf_ip_cache = {}
+
 def is_ip_cloudflare(ip_str):
+    if ip_str in _cf_ip_cache:
+        return _cf_ip_cache[ip_str]
     try:
         ip = ipaddress.ip_address(ip_str)
         for net in CLOUDFLARE_NETWORKS:
             if ip in net:
+                _cf_ip_cache[ip_str] = True
                 return True
     except Exception:
         pass
+    _cf_ip_cache[ip_str] = False
     return False
 
 # DNS 存活健康体检函数：使用国内阿里 DNS 223.5.5.5 进行验证
@@ -826,6 +840,9 @@ def is_domain_resolvable(domain, max_attempts=2):
                 ips = [str(rdata) for rdata in answers]
                 if ips:
                     break
+            except (dns.resolver.NoNameservers, dns.exception.Timeout):
+                # 针对超时或暂无DNS服务的抖动进行温和退避，避免误熔断
+                time.sleep(0.5)
             except Exception:
                 pass
                 
@@ -909,9 +926,11 @@ def fetch_and_calc_stats(domain_item, token, monitor_type=1, max_retries=3):
         try:
             with urllib.request.urlopen(req, timeout=5) as response:
                 if response.status != 200:
+                    time.sleep(1.0)  # 加上冷却，避免重试闪击
                     continue
                 res_data = json.loads(response.read().decode('utf-8'))
                 if res_data.get("code") != 0:
+                    time.sleep(1.0)  # 加上冷却，避免重试闪击
                     continue
                 points = res_data.get("data", [])
                 if not points:
@@ -1113,7 +1132,8 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         record_request.type = "CNAME"
         record_response = client.list_record_sets_with_line(record_request)
         
-        existing_records = {r.line: r for r in record_response.recordsets}
+        # 统一将线路标识转换为小写存入，防止不同 SDK/接口大小写不一致导致判断失效
+        existing_records = {r.line.lower(): r for r in record_response.recordsets if r.line}
 
         target_lines = {
             "Dianxin": ("中国电信 线路", ct_cname),
@@ -1125,8 +1145,8 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         for line_code, (line_name, target_val) in target_lines.items():
             if not target_val: continue
             new_val = target_val.strip().rstrip(".")
-            if line_code in existing_records:
-                record_item = existing_records[line_code]
+            if line_code.lower() in existing_records:
+                record_item = existing_records[line_code.lower()]
                 old_val = record_item.records[0].strip().rstrip(".") if record_item.records else ""
                 
                 if old_val == new_val:
