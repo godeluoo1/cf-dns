@@ -27,12 +27,12 @@ jobs:
       - name: Run Fetch Script
         run: python fetch_ips.py
 
-      - name: Deploy Clean IPs to 'ips' Branch
+      - name: Deploy Clean IPs to 'bestcf' Branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./bestcf_out
-          publish_branch: ips
+          publish_branch: bestcf
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Automated Cloudflare IPs update'

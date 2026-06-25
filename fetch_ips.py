@@ -274,17 +274,14 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     # 写入文件
-    with open(os.path.join(output_dir, "cmcc.txt"), "w", encoding="utf-8") as f:
+    with open(os.path.join(output_dir, "移动.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(cm_clean))
         
-    with open(os.path.join(output_dir, "cucc.txt"), "w", encoding="utf-8") as f:
+    with open(os.path.join(output_dir, "联通.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(cu_clean))
         
-    with open(os.path.join(output_dir, "ctcc.txt"), "w", encoding="utf-8") as f:
+    with open(os.path.join(output_dir, "电信.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(ct_clean))
-        
-    with open(os.path.join(output_dir, "default.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(def_clean))
         
     print(f"\n🎉 干净的 IP 列表已成功写入至 '{output_dir}/' 目录下！")
 
