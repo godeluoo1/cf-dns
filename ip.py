@@ -348,11 +348,21 @@ def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips, def_ips):
         
         existing_records = {r.line: r for r in record_response.recordsets}
 
+        # 1. 彻底删除不在 ALLOWED_LINES 列表里的其他所有线路的旧 A 记录 (包括以前的 default_view 默认保底线)
+        ALLOWED_LINES = {"Dianxin", "Yidong", "Liantong"}
+        for line_code, record_item in existing_records.items():
+            if line_code not in ALLOWED_LINES:
+                print(f"  🗑️ 清理: 检测到废弃的线路记录 [{line_code}] {record_item.records}，正在彻底删除...")
+                delete_req = DeleteRecordSetRequest()
+                delete_req.zone_id = zone_id
+                delete_req.recordset_id = record_item.id
+                client.delete_record_set(delete_req)
+                print(f"  ✅ 清理: 废弃的 [{line_code}] 记录删除成功。")
+
         target_lines = {
             "Dianxin": ("中国电信 线路", ct_ips),
             "Yidong": ("中国移动 线路", cm_ips),
-            "Liantong": ("中国联通 线路", cu_ips),
-            "default_view": ("默认保底 线路", def_ips)
+            "Liantong": ("中国联通 线路", cu_ips)
         }
 
         for line_code, (line_name, target_ips) in target_lines.items():
@@ -362,7 +372,7 @@ def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips, def_ips):
             
             new_ips = [ip.strip() for ip in target_ips if ip.strip()]
             
-            # 1. 彻底删除旧记录（如果存在）
+            # 2. 彻底删除旧记录（如果存在）
             if line_code in existing_records:
                 record_item = existing_records[line_code]
                 print(f"  🗑️ {line_name}: 检测到旧记录 {record_item.records}，正在彻底删除...")
