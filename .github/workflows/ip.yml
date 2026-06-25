@@ -23,8 +23,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Run Fetch Script
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Fetch and Sync Script
+        env:
+          HUAWEICLOUD_AK: ${{ secrets.HUAWEICLOUD_AK }}
+          HUAWEICLOUD_SK: ${{ secrets.HUAWEICLOUD_SK }}
         run: python ip.py
 
       - name: Deploy Clean IPs to 'bestcf' Branch
