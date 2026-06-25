@@ -34,6 +34,23 @@ def fetch_bestcf_ips(max_retries=3):
         "default_view": "default.txt"
     }
     
+    # 检查本地是否存在 bestcf_out 文件夹且包含所有文件，若是则直接使用本地文件（方便本地测试与开发）
+    local_dir = "bestcf_out"
+    if os.path.isdir(local_dir) and all(os.path.isfile(os.path.join(local_dir, fn)) for fn in files.values()):
+        print(f"  📂 检测到本地目录 '{local_dir}' 且文件完整，直接从本地加载候选 IP...")
+        bestcf_data = {}
+        for line_code, filename in files.items():
+            filepath = os.path.join(local_dir, filename)
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:
+                    ips = [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
+                bestcf_data[line_code] = ips
+                print(f"  📥 [本地] 成功获取 {line_code} 候选 IP 数: {len(ips)}")
+            except Exception as e:
+                print(f"  ❌ 读取本地 {filepath} 失败: {e}")
+                bestcf_data[line_code] = []
+        return bestcf_data
+
     owner_repo = "godeluoo1/cf-dns"
     branch = "ips"
     
