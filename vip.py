@@ -26,39 +26,62 @@ SUB_DOMAIN = "vip"
 REGION = "cn-east-3"
 
 def fetch_bestcf_ips(max_retries=3):
-    urls = {
-        "Dianxin": "https://github.com/DustinWin/BestCF/releases/latest/download/ctcc-ip.txt",
-        "Yidong": "https://github.com/DustinWin/BestCF/releases/latest/download/cmcc-ip.txt",
-        "Liantong": "https://github.com/DustinWin/BestCF/releases/latest/download/cucc-ip.txt",
-        "default_view": "https://github.com/DustinWin/BestCF/releases/latest/download/bestcf-ip.txt"
+    # 优先使用 GitHub Raw 链接，如果失败会自动回退到 jsDelivr CDN
+    files = {
+        "Dianxin": "ctcc.txt",
+        "Yidong": "cmcc.txt",
+        "Liantong": "cucc.txt",
+        "default_view": "default.txt"
     }
+    
+    owner_repo = "godeluoo1/cf-dns"
+    branch = "ips"
+    
     bestcf_data = {}
-    for line_code, url in urls.items():
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
+    for line_code, filename in files.items():
+        primary_url = f"https://raw.githubusercontent.com/{owner_repo}/{branch}/{filename}"
+        fallback_url = f"https://cdn.jsdelivr.net/gh/{owner_repo}@{branch}/{filename}"
+        
         success = False
+        content = None
+        
         for attempt in range(max_retries):
+            # 尝试一：Primary URL
             try:
-                with urllib.request.urlopen(req, timeout=10) as response:
+                req = urllib.request.Request(primary_url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
+                with urllib.request.urlopen(req, timeout=8) as response:
                     if response.status == 200:
                         content = response.read().decode('utf-8')
-                        ips = []
-                        for line in content.splitlines():
-                            line = line.strip()
-                            if not line:
-                                continue
-                            ip_part = line.split('#')[0].strip()
-                            if ":" in ip_part:
-                                ip_part = ip_part.split(":")[0].strip()
-                            if ip_part:
-                                ips.append(ip_part)
-                        bestcf_data[line_code] = ips
                         success = True
                         break
-            except Exception:
-                time.sleep(1)
-        if not success:
-            print(f"  ⚠️ 获取 BestCF {line_code} 候选 IP 失败。")
+            except Exception as e_primary:
+                print(f"  ⚠️ 尝试从 GitHub Raw 下载 {filename} 失败: {e_primary}，尝试 CDN...")
+                # 尝试二：Fallback URL
+                try:
+                    req = urllib.request.Request(fallback_url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
+                    with urllib.request.urlopen(req, timeout=8) as response:
+                        if response.status == 200:
+                            content = response.read().decode('utf-8')
+                            success = True
+                            break
+                except Exception as e_fallback:
+                    print(f"  ❌ 从 CDN 下载 {filename} 也失败: {e_fallback}")
+            
+            time.sleep(1)
+            
+        if success and content:
+            ips = []
+            for line in content.splitlines():
+                ip = line.strip()
+                # 我们的 txt 里面本来就是干净的纯 IP，但为了健壮性我们还是加一下基本格式校验
+                if ip and not ip.startswith("#") and ":" not in ip:
+                    ips.append(ip)
+            bestcf_data[line_code] = ips
+            print(f"  📥 成功获取 {line_code} 候选 IP 数: {len(ips)}")
+        else:
+            print(f"  ⚠️ 无法获取 {line_code} 的候选 IP 列表。")
             bestcf_data[line_code] = []
+            
     return bestcf_data
 
 def tcp_ping(ip, port=443, timeout=1.5):

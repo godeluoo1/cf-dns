@@ -3,3 +3,6 @@ public/
 run_output.log
 cf_state.json
 state_out/
+bestcf_out/
+cf.py.bak
+state_snapshot.json
