@@ -98,17 +98,16 @@ def generate_visual_html(state_manager, filename="status.html"):
             if c.get("ip") == cname:
                 data = c.get(f"data_{key_suffix}")
                 if data:
-                    is_bestcf = data.get("is_bestcf_source", False) or c.get("is_bestcf", False)
                     if line_key == "Dianxin":
-                        return data.get("dxLatencyEma", 9999.0), data.get("dxLossEma", 100.0), data.get("dxJitter", 0.0), is_bestcf
+                        return data.get("dxLatencyEma", 9999.0), data.get("dxLossEma", 100.0), data.get("dxJitter", 0.0)
                     elif line_key == "Yidong":
-                        return data.get("ydLatencyEma", 9999.0), data.get("ydLossEma", 100.0), data.get("ydJitter", 0.0), is_bestcf
+                        return data.get("ydLatencyEma", 9999.0), data.get("ydLossEma", 100.0), data.get("ydJitter", 0.0)
                     elif line_key == "Liantong":
-                        return data.get("ltLatencyEma", 9999.0), data.get("ltLossEma", 100.0), data.get("ltJitter", 0.0), is_bestcf
+                        return data.get("ltLatencyEma", 9999.0), data.get("ltLossEma", 100.0), data.get("ltJitter", 0.0)
                     else:
-                        return data.get("avgLatency", 9999.0), data.get("avgLoss", 100.0), data.get("avgJitter", 0.0), is_bestcf
+                        return data.get("avgLatency", 9999.0), data.get("avgLoss", 100.0), data.get("avgJitter", 0.0)
                 break
-        return "N/A", "N/A", "N/A", False
+        return "N/A", "N/A", "N/A"
 
     def get_pool_health(sub_domain, pool_name):
         pool_data = state_manager.state.get(pool_name, {}).get(sub_domain, {})
@@ -153,7 +152,7 @@ def generate_visual_html(state_manager, filename="status.html"):
             ("default_view", "默认保底", "🛡️", "default")
         ]:
             cname = champs.get(line_key, "N/A")
-            latency, loss, jitter, is_bestcf = get_cname_stats(cname, sub, line_key)
+            latency, loss, jitter = get_cname_stats(cname, sub, line_key)
             reputation = get_reputation(sub, line_key, cname) if cname != "N/A" else 0
             
             latency_str = f"{latency} ms" if isinstance(latency, (int, float)) and latency < 9999 else str(latency)
@@ -173,15 +172,13 @@ def generate_visual_html(state_manager, filename="status.html"):
             elif reputation < 60:
                 rep_color = "var(--color-warning)"
             
-            bestcf_badge = '<span class="bestcf-tag" style="background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #000; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; margin-left: 6px; display: inline-block; box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); vertical-align: middle;">BestCF</span>' if is_bestcf else ''
-
             lines_data.append(f"""
                 <div class="line-row {color_cls}" data-sub="{sub}" data-line="{line_key}">
                     <div class="line-info">
                         <span class="line-icon">{icon}</span>
                         <div>
                             <div class="line-name">{line_name}</div>
-                            <div class="line-cname cname-val" title="{cname}">{cname}{bestcf_badge}</div>
+                            <div class="line-cname cname-val" title="{cname}">{cname}</div>
                         </div>
                     </div>
                     <div class="line-metrics">
@@ -674,7 +671,7 @@ setTimeout(pollUpdate, 60000);
             })
             for line_key in ["Dianxin", "Yidong", "Liantong", "default_view"]:
                 cname = champs.get(line_key, "N/A")
-                latency, loss, jitter, is_bestcf = get_cname_stats(cname, sub, line_key)
+                latency, loss, jitter = get_cname_stats(cname, sub, line_key)
                 reputation = get_reputation(sub, line_key, cname) if cname != "N/A" else 0
                 
                 latency_str = f"{latency} ms" if isinstance(latency, (int, float)) and latency < 9999 else str(latency)
@@ -692,8 +689,7 @@ setTimeout(pollUpdate, 60000);
                 
                 snapshot_data["data"][sub][line_key] = {
                     "cname": cname, "latency": latency_str, "loss": loss_str, "jitter": jitter_str,
-                    "reputation": reputation, "loss_color": loss_color, "rep_color": rep_color,
-                    "is_bestcf": is_bestcf
+                    "reputation": reputation, "loss_color": loss_color, "rep_color": rep_color
                 }
         snapshot_path = os.path.join(state_dir, "state_snapshot.json") if state_dir else "state_snapshot.json"
         with open(snapshot_path, 'w', encoding='utf-8') as f:
@@ -1014,78 +1010,6 @@ def fetch_and_calc_stats(domain_item, token, monitor_type=1, max_retries=3):
             if attempt == max_retries - 1:
                 print(f"  ⚠️ 获取域名 {domain_name} 测速历史失败 (已重试 {max_retries} 次): {e}")
     return None
-
-# ==================== BestCF 优选数据源获取 ====================
-def fetch_bestcf_ips(max_retries=3):
-    urls = {
-        "Dianxin": "https://github.com/DustinWin/BestCF/releases/latest/download/ctcc-ip.txt",
-        "Yidong": "https://github.com/DustinWin/BestCF/releases/latest/download/cmcc-ip.txt",
-        "Liantong": "https://github.com/DustinWin/BestCF/releases/latest/download/cucc-ip.txt",
-        "default_view": "https://github.com/DustinWin/BestCF/releases/latest/download/bestcf-ip.txt"
-    }
-    bestcf_data = {}
-    for line_code, url in urls.items():
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
-        success = False
-        for attempt in range(max_retries):
-            try:
-                with urllib.request.urlopen(req, timeout=10) as response:
-                    if response.status == 200:
-                        content = response.read().decode('utf-8')
-                        ips = []
-                        for line in content.splitlines():
-                            line = line.strip()
-                            if not line:
-                                continue
-                            ip_part = line.split('#')[0].strip()
-                            if ":" in ip_part:
-                                ip_part = ip_part.split(":")[0].strip()
-                            if ip_part:
-                                ips.append(ip_part)
-                        bestcf_data[line_code] = ips
-                        success = True
-                        break
-            except Exception:
-                time.sleep(1)
-        if not success:
-            print(f"  ⚠️ 获取 BestCF {line_code} 候选 IP 失败。")
-            bestcf_data[line_code] = []
-    return bestcf_data
-
-def make_mock_stats(ip, target_line, rank=0):
-    # 根据排名 rank (从0开始)，给以微小递增的延迟和丢包，保留 BestCF 官方的排序推荐
-    base_latency = 80.0 + rank * 0.2  # 每低一名延迟增加 0.2ms
-    base_loss = 0.0 + (rank // 10) * 0.1 # 每低十名丢包率增加 0.1%
-    base_jitter = 1.0 + rank * 0.05
-    
-    # 较差的非匹配运营商
-    bad_latency = 350.0 + rank * 0.5
-    bad_loss = 10.0 + (rank // 5) * 0.5
-    bad_jitter = 15.0 + rank * 0.1
-
-    dx_lat, dx_loss, dx_jit = (base_latency, base_loss, base_jitter) if target_line == "Dianxin" else (bad_latency, bad_loss, bad_jitter)
-    yd_lat, yd_loss, yd_jit = (base_latency, base_loss, base_jitter) if target_line == "Yidong" else (bad_latency, bad_loss, bad_jitter)
-    lt_lat, lt_loss, lt_jit = (base_latency, base_loss, base_jitter) if target_line == "Liantong" else (bad_latency, bad_loss, bad_jitter)
-    
-    if target_line == "default_view":
-        dx_lat, dx_loss, dx_jit = (base_latency + 10.0, base_loss, base_jitter)
-        yd_lat, yd_loss, yd_jit = (base_latency + 10.0, base_loss, base_jitter)
-        lt_lat, lt_loss, lt_jit = (base_latency + 10.0, base_loss, base_jitter)
-        
-    avg_latency = (dx_lat + yd_lat + lt_lat) / 3
-    avg_loss = (dx_loss + yd_loss + lt_loss) / 3
-    avg_jitter = (dx_jit + yd_jit + lt_jit) / 3
-
-    return {
-        "ip": ip,
-        "dxLatencyEma": round(dx_lat, 2), "dxLossEma": round(dx_loss, 2), "dxJitter": round(dx_jit, 2),
-        "ydLatencyEma": round(yd_lat, 2), "ydLossEma": round(yd_loss, 2), "ydJitter": round(yd_jit, 2),
-        "ltLatencyEma": round(lt_lat, 2), "ltLossEma": round(lt_loss, 2), "ltJitter": round(lt_jit, 2),
-        "avgLatency": round(avg_latency, 2),
-        "avgLoss": round(avg_loss, 2),
-        "avgJitter": round(avg_jitter, 2),
-        "is_bestcf_source": True
-    }
 
 # ==================== 候选池获取 ====================
 def get_all_cf_domains(token, max_retries=3):
@@ -1544,35 +1468,6 @@ def main():
     if not state_manager.state.get("candidates") or (now - state_manager.state.get("last_api_update_time", 0.0) >= 21600):
         log_event(state_manager, "🔄 开始刷新大池测速数据...")
         raw_domains = get_all_cf_domains(token)
-        if raw_domains is None:
-            raw_domains = []
-            
-        bestcf_ips_map = fetch_bestcf_ips()
-        
-        # 融合 BestCF 优选 IP 数据源到大池中
-        bestcf_added_count = 0
-        for line_code, ips in bestcf_ips_map.items():
-            for ip_idx, ip in enumerate(ips):
-                # 判断是否与 vps789 数据重合
-                match_item = next((item for item in raw_domains if item.get("ip") == ip), None)
-                if match_item:
-                    match_item["is_bestcf"] = True
-                    match_item["bestcf_line"] = line_code
-                    match_item["bestcf_rank"] = ip_idx
-                else:
-                    # 属于 BestCF 独占优选
-                    raw_domains.append({
-                        "id": f"bestcf_{line_code}_{ip.replace('.', '_')}",
-                        "ip": ip,
-                        "is_bestcf": True,
-                        "bestcf_line": line_code,
-                        "bestcf_rank": ip_idx
-                    })
-                    bestcf_added_count += 1
-                    
-        if bestcf_added_count > 0:
-            print(f"  📥 从 BestCF 数据源额外融合了 {bestcf_added_count} 个独家优选 IP")
-            
         if raw_domains:
             black_list = {f"{sub}.{DOMAIN}" if sub != "@" else DOMAIN for sub in SUB_DOMAINS_CONFIG.keys()}
             raw_domains = [item for item in raw_domains if item.get("ip") not in black_list]
@@ -1587,38 +1482,22 @@ def main():
                 new_candidates.append({
                     "id": item.get("id"),
                     "ip": ip,
-                    "is_bestcf": item.get("is_bestcf", False),
-                    "bestcf_line": item.get("bestcf_line", None),
-                    "bestcf_rank": item.get("bestcf_rank", 0),
                     "data_30day": old_c.get("data_30day"),
                     "data_24h": old_c.get("data_24h")
                 })
             
-            # 区分需要网络拉取和直接填充 mock 的候选对象
-            api_candidates = [c for c in new_candidates if not (c.get("is_bestcf") and c.get("id", "").startswith("bestcf_"))]
-            mock_candidates = [c for c in new_candidates if c.get("is_bestcf") and c.get("id", "").startswith("bestcf_")]
-            
-            # 对 mock_candidates 直接填充优质虚拟统计指标，并融入 rank 排名倾斜，无需发送网络请求
-            for c in mock_candidates:
-                c["data_30day"] = make_mock_stats(c["ip"], c["bestcf_line"], c.get("bestcf_rank", 0))
-                c["data_24h"] = make_mock_stats(c["ip"], c["bestcf_line"], c.get("bestcf_rank", 0))
-                
             for m_type in set(SUB_DOMAINS_CONFIG.values()):
                 suffix = "30day" if m_type == 1 else "24h"
                 # 降低并发线程至 5，极大地减少频繁触发 WAF 并发墙拦截概率
-                if api_candidates:
-                    with ThreadPoolExecutor(max_workers=5) as executor:
-                        futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in api_candidates}
-                        for future in as_completed(futures):
-                            try:
-                                if res := future.result():
-                                    target_c = next((c for c in api_candidates if c["ip"] == res["ip"]), {})
-                                    if target_c:
-                                        res["is_bestcf_source"] = target_c.get("is_bestcf", False)
-                                        target_c[f"data_{suffix}"] = res
-                            except Exception as e:
-                                print(f"  ⚠️ 处理域名测速数据异常: {e}")
-                                
+                with ThreadPoolExecutor(max_workers=5) as executor:
+                    futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in new_candidates}
+                    for future in as_completed(futures):
+                        try:
+                            if res := future.result():
+                                next((c for c in new_candidates if c["ip"] == res["ip"]), {})[f"data_{suffix}"] = res
+                        except Exception as e:
+                            print(f"  ⚠️ 处理域名测速数据异常: {e}")
+                            
             state_manager.state["candidates"] = new_candidates
             state_manager.state["last_api_update_time"] = time.time()
             log_event(state_manager, "✅ candidates 测速缓存已刷新。")
