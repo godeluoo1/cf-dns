@@ -1,0 +1,38 @@
+name: Cloudflare Fetch IPs
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 每 6 小时自动抓取一次
+  workflow_dispatch:       # 允许手动触发
+
+concurrency:
+  group: fetch-ips-workflow
+  cancel-in-progress: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 必须赋予写入仓库分支的权限
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Fetch Script
+        run: python fetch_ips.py
+
+      - name: Deploy Clean IPs to 'ips' Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./bestcf_out
+          publish_branch: ips
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Automated Cloudflare IPs update'
