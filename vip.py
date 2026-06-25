@@ -74,16 +74,16 @@ def tcp_ping(ip, port=443, timeout=1.5):
         return ip, False, 9999.0
 
 def evaluate_line_ips(ips, line_name):
-    """并发测试列表里的 IP 活性并按本地 TCP 延迟排序，取前 5 个最快的"""
+    """并发测试列表里的 IP 活性并按本地 TCP 延迟排序，同步所有健康 IP"""
     if not ips:
         return []
     
     print(f"  ⚡️ 正在测试 {line_name} 的 {len(ips)} 个候选 IP 的本地 443 端口连通性...")
     checked_ips = []
     
-    # 限制 10 线程并发测速
+    # 限制 10 线程并发测速，测试全部候选 IP
     with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(tcp_ping, ip): ip for ip in ips[:15]} # 对排名前 15 的 IP 进行本地校验
+        futures = {executor.submit(tcp_ping, ip): ip for ip in ips}
         for future in as_completed(futures):
             try:
                 ip, healthy, latency = future.result()
@@ -95,9 +95,9 @@ def evaluate_line_ips(ips, line_name):
     # 按照延迟从小到大排序
     checked_ips.sort(key=lambda x: x["latency"])
     
-    # 取前 5 个
-    final_ips = [x["ip"] for x in checked_ips[:5]]
-    print(f"  ✅ {line_name} 本地健康 IP 排序结果（前 5 名）: {final_ips}")
+    # 提取所有健康的 IP
+    final_ips = [x["ip"] for x in checked_ips]
+    print(f"  ✅ {line_name} 本地健康 IP 排序与过滤结果（全部共 {len(final_ips)} 个）: {final_ips}")
     return final_ips
 
 def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips, def_ips):
