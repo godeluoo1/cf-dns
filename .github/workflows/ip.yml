@@ -25,7 +25,7 @@ jobs:
           python-version: '3.11'
 
       - name: Run Fetch Script
-        run: python fetch_ips.py
+        run: python ip.py
 
       - name: Deploy Clean IPs to 'bestcf' Branch
         uses: peaceiris/actions-gh-pages@v4
