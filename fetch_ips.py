@@ -283,6 +283,9 @@ def main():
     with open(os.path.join(output_dir, "电信.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(ct_clean))
         
+    with open(os.path.join(output_dir, "默认.txt"), "w", encoding="utf-8") as f:
+        f.write("\n".join(def_clean))
+        
     print(f"\n🎉 干净的 IP 列表已成功写入至 '{output_dir}/' 目录下！")
 
 if __name__ == '__main__':
