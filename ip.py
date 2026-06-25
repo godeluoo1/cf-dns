@@ -1,6 +1,7 @@
 import urllib.request
 import json
 import re
+import os
 
 # 尝试导入华为云 SDK
 HUAWEI_SDK_AVAILABLE = False
