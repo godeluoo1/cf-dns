@@ -3,23 +3,8 @@ import json
 import re
 import os
 
-# 尝试导入华为云 SDK
-HUAWEI_SDK_AVAILABLE = False
-try:
-    from huaweicloudsdkcore.auth.credentials import BasicCredentials
-    from huaweicloudsdkdns.v2 import *
-    from huaweicloudsdkdns.v2.model import * 
-    from huaweicloudsdkdns.v2.region.dns_region import DnsRegion
-    HUAWEI_SDK_AVAILABLE = True
-except ImportError:
-    pass
-
-HUAWEICLOUD_AK = os.environ.get("HUAWEICLOUD_AK", "")
-HUAWEICLOUD_SK = os.environ.get("HUAWEICLOUD_SK", "")
-
-DOMAIN = "blogluo.eu.org"
-SUB_DOMAIN = "vip"
-REGION = "cn-east-3"
+# 规避系统代理：强制绕过代理，直接请求以避免测速受代理影响或触发 API 拦截
+os.environ['no_proxy'] = '*'
 
 # IPv4 正则校验
 IPV4_PATTERN = re.compile(r'^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$')
@@ -28,7 +13,7 @@ def is_valid_ipv4(ip):
     return bool(IPV4_PATTERN.match(ip))
 
 def http_get(url, timeout=10):
-    """标准的 HTTP GET 请求，添加了 User-Agent 以防止被拦截"""
+    """标准的 HTTP GET 请求，添加了 User-Agent"""
     req = urllib.request.Request(
         url,
         headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
@@ -61,40 +46,8 @@ def http_post_json(url, payload_dict, timeout=10):
         print(f"  ❌ POST 请求失败 {url}: {e}")
     return None
 
-def fetch_cmliu():
-    """1. 从 CMLiu 优选平台抓取 IP"""
-    print("🛰️ 正在从 CMLiu 优选源抓取...")
-    results = {"CM": [], "CU": [], "CT": []}
-    
-    # 移动
-    cm_content = http_get("https://cf.090227.xyz/cmcc?ips=30")
-    if cm_content:
-        for line in cm_content.splitlines():
-            ip = line.split('#')[0].strip()
-            if is_valid_ipv4(ip):
-                results["CM"].append(ip)
-                
-    # 联通
-    cu_content = http_get("https://cf.090227.xyz/cu?ips=30")
-    if cu_content:
-        for line in cu_content.splitlines():
-            ip = line.split('#')[0].strip()
-            if is_valid_ipv4(ip):
-                results["CU"].append(ip)
-                
-    # 电信
-    ct_content = http_get("https://cf.090227.xyz/ct?ips=30")
-    if ct_content:
-        for line in ct_content.splitlines():
-            ip = line.split('#')[0].strip()
-            if is_valid_ipv4(ip):
-                results["CT"].append(ip)
-                
-    print(f"  ✅ CMLiu 获取结果: 移动={len(results['CM'])} 联通={len(results['CU'])} 电信={len(results['CT'])}")
-    return results
-
 def fetch_vps789():
-    """2. 从 VPS789 优选 API 抓取 IP"""
+    """1. 从 VPS789 优选 API 抓取 IP"""
     print("🛰️ 正在从 VPS789 优选源抓取...")
     results = {"CM": [], "CU": [], "CT": [], "default": []}
     
@@ -103,7 +56,7 @@ def fetch_vps789():
     if line_content:
         try:
             data = json.loads(line_content)
-            if data.get("code") == 200:
+            if data.get("code") in (0, 200):
                 inner_data = data.get("data", {})
                 for ip_obj in inner_data.get("CM", []):
                     ip = ip_obj.get("ip", "").strip()
@@ -125,7 +78,7 @@ def fetch_vps789():
     if top_content:
         try:
             data = json.loads(top_content)
-            if data.get("code") == 200:
+            if data.get("code") in (0, 200):
                 for ip_obj in data.get("data", {}).get("good", []):
                     ip = ip_obj.get("ip", "").strip()
                     if is_valid_ipv4(ip):
@@ -137,7 +90,7 @@ def fetch_vps789():
     return results
 
 def fetch_cfyes():
-    """3. 从 Hostmonit (CFYes) 抓取 IP"""
+    """2. 从 Hostmonit (CFYes) 抓取 IP"""
     print("🛰️ 正在从 CFYes (Hostmonit) 优选源抓取...")
     results = {"CM": [], "CU": [], "CT": []}
     
@@ -161,58 +114,6 @@ def fetch_cfyes():
     print(f"  ✅ CFYes 获取结果: 移动={len(results['CM'])} 联通={len(results['CU'])} 电信={len(results['CT'])}")
     return results
 
-def fetch_wetest():
-    """4. 从 WeTest HTML 页面抓取 IP"""
-    print("🛰️ 正在从 WeTest 优选源网页抓取...")
-    results = {"CM": [], "CU": [], "CT": []}
-    
-    html = http_get("https://www.wetest.vip/page/cloudflare/address_v4.html")
-    if html:
-        # 使用正则表达式匹配表格行里的 线路名称 和 优选地址
-        # 匹配 <td data-label="线路名称">移动</td> ... <td data-label="优选地址">104.20.62.222</td>
-        pattern = re.compile(
-            r'<td\s+data-label="线路名称"\s*>\s*([^<]+?)\s*</td>\s*<td\s+data-label="优选地址"\s*>\s*([^<]+?)\s*</td>',
-            re.IGNORECASE | re.DOTALL
-        )
-        matches = pattern.findall(html)
-        for line_name, ip in matches:
-            ip = ip.strip()
-            line_name = line_name.strip()
-            if is_valid_ipv4(ip):
-                if "移动" in line_name:
-                    results["CM"].append(ip)
-                elif "联通" in line_name:
-                    results["CU"].append(ip)
-                elif "电信" in line_name:
-                    results["CT"].append(ip)
-                    
-    print(f"  ✅ WeTest 获取结果: 移动={len(results['CM'])} 联通={len(results['CU'])} 电信={len(results['CT'])}")
-    return results
-
-def fetch_other_defaults():
-    """5. 从 CFSpeedTest 和 IPDB 抓取混合默认 IP"""
-    print("🛰️ 正在从 CFSpeedTest 和 IPDB 优选源抓取默认列表...")
-    default_ips = []
-    
-    # CFSpeedTest
-    speed_content = http_get("https://ip.164746.xyz/ipTop10.html")
-    if speed_content:
-        for ip in speed_content.split(','):
-            ip = ip.strip()
-            if is_valid_ipv4(ip):
-                default_ips.append(ip)
-                
-    # IPDB bestcfv4
-    ipdb_content = http_get("https://ipdb.api.030101.xyz/?type=bestcfv4")
-    if ipdb_content:
-        for line in ipdb_content.splitlines():
-            ip = line.strip()
-            if is_valid_ipv4(ip):
-                default_ips.append(ip)
-                
-    print(f"  ✅ CFSpeedTest/IPDB 获取结果: 默认={len(default_ips)}")
-    return default_ips
-
 def main():
     print("==================================================")
     print("🚀 开始全网 Cloudflare 优选 IPv4 自动化抓取、过滤与去重")
@@ -224,16 +125,7 @@ def main():
     ct_all = []
     def_all = []
     
-    # 1. 抓取 CMLiu
-    try:
-        res = fetch_cmliu()
-        cm_all.extend(res["CM"])
-        cu_all.extend(res["CU"])
-        ct_all.extend(res["CT"])
-    except Exception as e:
-        print(f"  ⚠️ 抓取 CMLiu 异常: {e}")
-        
-    # 2. 抓取 VPS789
+    # 1. 抓取 VPS789
     try:
         res = fetch_vps789()
         cm_all.extend(res["CM"])
@@ -243,7 +135,7 @@ def main():
     except Exception as e:
         print(f"  ⚠️ 抓取 VPS789 异常: {e}")
         
-    # 3. 抓取 CFYes
+    # 2. 抓取 CFYes
     try:
         res = fetch_cfyes()
         cm_all.extend(res["CM"])
@@ -252,22 +144,11 @@ def main():
     except Exception as e:
         print(f"  ⚠️ 抓取 CFYes 异常: {e}")
         
-    # 4. 抓取 WeTest
-    try:
-        res = fetch_wetest()
-        cm_all.extend(res["CM"])
-        cu_all.extend(res["CU"])
-        ct_all.extend(res["CT"])
-    except Exception as e:
-        print(f"  ⚠️ 抓取 WeTest 异常: {e}")
-        
-    # 5. 抓取 CFSpeedTest & IPDB 默认列表
-    try:
-        res_def = fetch_other_defaults()
-        def_all.extend(res_def)
-    except Exception as e:
-        print(f"  ⚠️ 抓取 CFSpeedTest/IPDB 异常: {e}")
-        
+    # 将所有默认/未分类的 IP 合并进三网候选列表
+    cm_all.extend(def_all)
+    cu_all.extend(def_all)
+    ct_all.extend(def_all)
+    
     # 三网 IP 也应该包含进混合默认列表里作为备选
     def_all.extend(cm_all)
     def_all.extend(cu_all)
@@ -305,95 +186,6 @@ def main():
         f.write("\n".join(def_clean))
         
     print(f"\n🎉 干净的 IP 列表已成功写入至 '{output_dir}/' 目录下！")
-    
-    # 将最新优选 IP 同步推送到华为云 DNS，执行“先删后建”彻底替换策略
-    sync_to_huaweicloud(SUB_DOMAIN, ct_clean, cm_clean, cu_clean, def_clean)
-
-def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips, def_ips):
-    if not HUAWEI_SDK_AVAILABLE:
-        print(f"\n⚠️ 未检测到华为云 SDK，同步 {sub_domain}.{DOMAIN} 跳过。")
-        return
-    if not HUAWEICLOUD_AK or not HUAWEICLOUD_SK or not DOMAIN:
-        print(f"\n⚠️ 未配置华为云 AK/SK 或域名，同步 {sub_domain}.{DOMAIN} 跳过。")
-        return
-
-    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 到华为云 DNS (采用彻底覆盖模式)...")
-    try:
-        credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
-        client = DnsClient.new_builder() \
-            .with_credentials(credentials) \
-            .with_region(DnsRegion.value_of(REGION)) \
-            .build()
-        
-        zone_request = ListPublicZonesRequest()
-        zone_response = client.list_public_zones(zone_request)
-        zone_id = None
-        domain_dot = DOMAIN if DOMAIN.endswith(".") else DOMAIN + "."
-        for zone in zone_response.zones:
-            if zone.name == domain_dot:
-                zone_id = zone.id
-                break
-        if not zone_id:
-            print(f"❌ 同步失败：未找到主域名 {DOMAIN} 的解析 Zone。")
-            return
-
-        full_name = domain_dot if sub_domain == "@" else f"{sub_domain}.{domain_dot}"
-        
-        # 查询现有的 A 记录列表
-        record_request = ListRecordSetsWithLineRequest()
-        record_request.zone_id = zone_id
-        record_request.name = full_name
-        record_request.type = "A"
-        record_response = client.list_record_sets_with_line(record_request)
-        
-        existing_records = {r.line: r for r in record_response.recordsets}
-
-        # 1. 彻底删除不在 ALLOWED_LINES 列表里的其他所有线路的旧 A 记录 (包括以前的 default_view 默认保底线)
-        ALLOWED_LINES = {"Dianxin", "Yidong", "Liantong"}
-        for line_code, record_item in existing_records.items():
-            if line_code not in ALLOWED_LINES:
-                print(f"  🗑️ 清理: 检测到废弃的线路记录 [{line_code}] {record_item.records}，正在彻底删除...")
-                delete_req = DeleteRecordSetRequest()
-                delete_req.zone_id = zone_id
-                delete_req.recordset_id = record_item.id
-                client.delete_record_set(delete_req)
-                print(f"  ✅ 清理: 废弃的 [{line_code}] 记录删除成功。")
-
-        target_lines = {
-            "Dianxin": ("中国电信 线路", ct_ips),
-            "Yidong": ("中国移动 线路", cm_ips),
-            "Liantong": ("中国联通 线路", cu_ips)
-        }
-
-        for line_code, (line_name, target_ips) in target_lines.items():
-            if not target_ips:
-                print(f"  ⚠️ {line_name}: 没有健康的 IP 可供同步，跳过。")
-                continue
-            
-            new_ips = [ip.strip() for ip in target_ips if ip.strip()]
-            
-            # 2. 彻底删除旧记录（如果存在）
-            if line_code in existing_records:
-                record_item = existing_records[line_code]
-                print(f"  🗑️ {line_name}: 检测到旧记录 {record_item.records}，正在彻底删除...")
-                delete_req = DeleteRecordSetRequest()
-                delete_req.zone_id = zone_id
-                delete_req.recordset_id = record_item.id
-                client.delete_record_set(delete_req)
-                print(f"  ✅ {line_name}: 旧记录删除成功。")
-            
-            # 2. 重新创建新记录
-            print(f"  ➕ {line_name}: 正在创建全新解析，指向 IP 列表 {new_ips}...")
-            create_req = CreateRecordSetWithLineRequest()
-            create_req.zone_id = zone_id
-            create_req.body = CreateRecordSetWithLineRequestBody(
-                type="A", name=full_name, ttl=300, weight=1, records=new_ips, line=line_code
-            )
-            client.create_record_set_with_line(create_req)
-            print(f"  ✅ {line_name}: 全新多值 A 记录创建成功！")
-            
-    except Exception as e:
-        print(f"❌ 华为云 API 同步出错: {e}")
 
 if __name__ == '__main__':
     main()
