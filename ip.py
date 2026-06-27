@@ -3,6 +3,24 @@ import json
 import re
 import os
 
+# 尝试导入华为云 SDK
+HUAWEI_SDK_AVAILABLE = False
+try:
+    from huaweicloudsdkcore.auth.credentials import BasicCredentials
+    from huaweicloudsdkdns.v2 import *
+    from huaweicloudsdkdns.v2.model import * 
+    from huaweicloudsdkdns.v2.region.dns_region import DnsRegion
+    HUAWEI_SDK_AVAILABLE = True
+except ImportError:
+    pass
+
+HUAWEICLOUD_AK = os.environ.get("HUAWEICLOUD_AK", "")
+HUAWEICLOUD_SK = os.environ.get("HUAWEICLOUD_SK", "")
+
+DOMAIN = "blogluo.eu.org"
+SUB_DOMAIN = "vip"
+REGION = "cn-east-3"
+
 # 规避系统代理：强制绕过代理，直接请求以避免测速受代理影响或触发 API 拦截
 os.environ['no_proxy'] = '*'
 
@@ -156,6 +174,95 @@ def main():
         f.write("\n".join(ct_clean))
         
     print(f"\n🎉 干净的 IP 列表已成功写入至 '{output_dir}/' 目录下！")
+    
+    # 将最新优选 IP 同步推送到华为云 DNS，执行“先删后建”彻底替换策略 (无默认保底线)
+    sync_to_huaweicloud(SUB_DOMAIN, ct_clean, cm_clean, cu_clean)
+
+def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips):
+    if not HUAWEI_SDK_AVAILABLE:
+        print(f"\n⚠️ 未检测到华为云 SDK，同步 {sub_domain}.{DOMAIN} 跳过。")
+        return
+    if not HUAWEICLOUD_AK or not HUAWEICLOUD_SK or not DOMAIN:
+        print(f"\n⚠️ 未配置华为云 AK/SK 或域名，同步 {sub_domain}.{DOMAIN} 跳过。")
+        return
+
+    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 到华为云 DNS (采用彻底覆盖模式)...")
+    try:
+        credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
+        client = DnsClient.new_builder() \
+            .with_credentials(credentials) \
+            .with_region(DnsRegion.value_of(REGION)) \
+            .build()
+        
+        zone_request = ListPublicZonesRequest()
+        zone_response = client.list_public_zones(zone_request)
+        zone_id = None
+        domain_dot = DOMAIN if DOMAIN.endswith(".") else DOMAIN + "."
+        for zone in zone_response.zones:
+            if zone.name == domain_dot:
+                zone_id = zone.id
+                break
+        if not zone_id:
+            print(f"❌ 同步失败：未找到主域名 {DOMAIN} 的解析 Zone。")
+            return
+
+        full_name = domain_dot if sub_domain == "@" else f"{sub_domain}.{domain_dot}"
+        
+        # 查询现有的 A 记录列表
+        record_request = ListRecordSetsWithLineRequest()
+        record_request.zone_id = zone_id
+        record_request.name = full_name
+        record_request.type = "A"
+        record_response = client.list_record_sets_with_line(record_request)
+        
+        existing_records = {r.line: r for r in record_response.recordsets}
+
+        # 1. 彻底删除不在 ALLOWED_LINES 列表里的其他所有线路的旧 A 记录 (包括以前的 default_view 默认保底线)
+        ALLOWED_LINES = {"Dianxin", "Yidong", "Liantong"}
+        for line_code, record_item in existing_records.items():
+            if line_code not in ALLOWED_LINES:
+                print(f"  🗑️ 清理: 检测到废弃的线路记录 [{line_code}] {record_item.records}，正在彻底删除...")
+                delete_req = DeleteRecordSetRequest()
+                delete_req.zone_id = zone_id
+                delete_req.recordset_id = record_item.id
+                client.delete_record_set(delete_req)
+                print(f"  ✅ 清理: 废弃的 [{line_code}] 记录删除成功。")
+
+        target_lines = {
+            "Dianxin": ("中国电信 线路", ct_ips),
+            "Yidong": ("中国移动 线路", cm_ips),
+            "Liantong": ("中国联通 线路", cu_ips)
+        }
+
+        for line_code, (line_name, target_ips) in target_lines.items():
+            if not target_ips:
+                print(f"  ⚠️ {line_name}: 没有健康的 IP 可供同步，跳过。")
+                continue
+            
+            new_ips = [ip.strip() for ip in target_ips if ip.strip()]
+            
+            # 2. 彻底删除旧记录（如果存在）
+            if line_code in existing_records:
+                record_item = existing_records[line_code]
+                print(f"  🗑️ {line_name}: 检测到旧记录 {record_item.records}，正在彻底删除...")
+                delete_req = DeleteRecordSetRequest()
+                delete_req.zone_id = zone_id
+                delete_req.recordset_id = record_item.id
+                client.delete_record_set(delete_req)
+                print(f"  ✅ {line_name}: 旧记录删除成功。")
+            
+            # 3. 重新创建新记录
+            print(f"  ➕ {line_name}: 正在创建全新解析，指向 IP 列表 {new_ips}...")
+            create_req = CreateRecordSetWithLineRequest()
+            create_req.zone_id = zone_id
+            create_req.body = CreateRecordSetWithLineRequestBody(
+                type="A", name=full_name, ttl=300, weight=1, records=new_ips, line=line_code
+            )
+            client.create_record_set_with_line(create_req)
+            print(f"  ✅ {line_name}: 全新多值 A 记录创建成功！")
+            
+    except Exception as e:
+        print(f"❌ 华为云 API 同步出错: {e}")
 
 if __name__ == '__main__':
     main()
