@@ -49,7 +49,7 @@ def http_post_json(url, payload_dict, timeout=10):
 def fetch_vps789():
     """1. 从 VPS789 优选 API 抓取 IP"""
     print("🛰️ 正在从 VPS789 优选源抓取...")
-    results = {"CM": [], "CU": [], "CT": [], "default": []}
+    results = {"CM": [], "CU": [], "CT": []}
     
     # 分线路 IP
     line_content = http_get("https://vps789.com/openApi/cfIpApi")
@@ -73,20 +73,7 @@ def fetch_vps789():
         except Exception as e:
             print(f"  ❌ 解析 VPS789 分线路 JSON 失败: {e}")
             
-    # 混合默认优选 (CF Top 20)
-    top_content = http_get("https://vps789.com/openApi/cfIpTop20")
-    if top_content:
-        try:
-            data = json.loads(top_content)
-            if data.get("code") in (0, 200):
-                for ip_obj in data.get("data", {}).get("good", []):
-                    ip = ip_obj.get("ip", "").strip()
-                    if is_valid_ipv4(ip):
-                        results["default"].append(ip)
-        except Exception as e:
-            print(f"  ❌ 解析 VPS789 默认优选 JSON 失败: {e}")
-            
-    print(f"  ✅ VPS789 获取结果: 移动={len(results['CM'])} 联通={len(results['CU'])} 电信={len(results['CT'])} 默认={len(results['default'])}")
+    print(f"  ✅ VPS789 获取结果: 移动={len(results['CM'])} 联通={len(results['CU'])} 电信={len(results['CT'])}")
     return results
 
 def fetch_cfyes():
@@ -123,7 +110,6 @@ def main():
     cm_all = []
     cu_all = []
     ct_all = []
-    def_all = []
     
     # 1. 抓取 VPS789
     try:
@@ -131,7 +117,6 @@ def main():
         cm_all.extend(res["CM"])
         cu_all.extend(res["CU"])
         ct_all.extend(res["CT"])
-        def_all.extend(res["default"])
     except Exception as e:
         print(f"  ⚠️ 抓取 VPS789 异常: {e}")
         
@@ -144,21 +129,10 @@ def main():
     except Exception as e:
         print(f"  ⚠️ 抓取 CFYes 异常: {e}")
         
-    # 将所有默认/未分类的 IP 合并进三网候选列表
-    cm_all.extend(def_all)
-    cu_all.extend(def_all)
-    ct_all.extend(def_all)
-    
-    # 三网 IP 也应该包含进混合默认列表里作为备选
-    def_all.extend(cm_all)
-    def_all.extend(cu_all)
-    def_all.extend(ct_all)
-    
     # 过滤、去重、排序
     cm_clean = sorted(list(set([ip for ip in cm_all if is_valid_ipv4(ip)])))
     cu_clean = sorted(list(set([ip for ip in cu_all if is_valid_ipv4(ip)])))
     ct_clean = sorted(list(set([ip for ip in ct_all if is_valid_ipv4(ip)])))
-    def_clean = sorted(list(set([ip for ip in def_all if is_valid_ipv4(ip)])))
     
     print("\n==================================================")
     print("📊 过滤去重统计 (去重前 -> 去重后)")
@@ -166,7 +140,6 @@ def main():
     print(f"  中国移动 CMCC: {len(cm_all)} -> {len(cm_clean)}")
     print(f"  中国联通 CUCC: {len(cu_all)} -> {len(cu_clean)}")
     print(f"  中国电信 CTCC: {len(ct_all)} -> {len(ct_clean)}")
-    print(f"  混合默认 DEFAULT: {len(def_all)} -> {len(def_clean)}")
     
     # 创建输出目录
     output_dir = "bestcf_out"
@@ -181,9 +154,6 @@ def main():
         
     with open(os.path.join(output_dir, "电信.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(ct_clean))
-        
-    with open(os.path.join(output_dir, "默认.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(def_clean))
         
     print(f"\n🎉 干净的 IP 列表已成功写入至 '{output_dir}/' 目录下！")
 
