@@ -186,7 +186,7 @@ def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips):
         print(f"\n⚠️ 未配置华为云 AK/SK 或域名，同步 {sub_domain}.{DOMAIN} 跳过。")
         return
 
-    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 到华为云 DNS (采用彻底覆盖模式)...")
+    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 到华为云 DNS (采用增量更新覆盖模式)...")
     try:
         credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
         client = DnsClient.new_builder() \
@@ -217,21 +217,12 @@ def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips):
         
         existing_records = {r.line: r for r in record_response.recordsets}
 
-        # 1. 彻底删除不在 ALLOWED_LINES 列表里的其他所有线路的旧 A 记录 (包括以前的 default_view 默认保底线)
-        ALLOWED_LINES = {"Dianxin", "Yidong", "Liantong"}
-        for line_code, record_item in existing_records.items():
-            if line_code not in ALLOWED_LINES:
-                print(f"  🗑️ 清理: 检测到废弃的线路记录 [{line_code}] {record_item.records}，正在彻底删除...")
-                delete_req = DeleteRecordSetRequest()
-                delete_req.zone_id = zone_id
-                delete_req.recordset_id = record_item.id
-                client.delete_record_set(delete_req)
-                print(f"  ✅ 清理: 废弃的 [{line_code}] 记录删除成功。")
-
+        # 默认保底线路复用电信的 IP，以满足“不要混合默认”且保证 DNS 安全（不删除 default_view 线路，防止其他网络解析失败）
         target_lines = {
             "Dianxin": ("中国电信 线路", ct_ips),
             "Yidong": ("中国移动 线路", cm_ips),
-            "Liantong": ("中国联通 线路", cu_ips)
+            "Liantong": ("中国联通 线路", cu_ips),
+            "default_view": ("默认保底 线路", ct_ips)
         }
 
         for line_code, (line_name, target_ips) in target_lines.items():
@@ -241,25 +232,32 @@ def sync_to_huaweicloud(sub_domain, ct_ips, cm_ips, cu_ips):
             
             new_ips = [ip.strip() for ip in target_ips if ip.strip()]
             
-            # 2. 彻底删除旧记录（如果存在）
             if line_code in existing_records:
                 record_item = existing_records[line_code]
-                print(f"  🗑️ {line_name}: 检测到旧记录 {record_item.records}，正在彻底删除...")
-                delete_req = DeleteRecordSetRequest()
-                delete_req.zone_id = zone_id
-                delete_req.recordset_id = record_item.id
-                client.delete_record_set(delete_req)
-                print(f"  ✅ {line_name}: 旧记录删除成功。")
-            
-            # 3. 重新创建新记录
-            print(f"  ➕ {line_name}: 正在创建全新解析，指向 IP 列表 {new_ips}...")
-            create_req = CreateRecordSetWithLineRequest()
-            create_req.zone_id = zone_id
-            create_req.body = CreateRecordSetWithLineRequestBody(
-                type="A", name=full_name, ttl=300, weight=1, records=new_ips, line=line_code
-            )
-            client.create_record_set_with_line(create_req)
-            print(f"  ✅ {line_name}: 全新多值 A 记录创建成功！")
+                old_ips = [ip.strip() for ip in record_item.records]
+                
+                # 比对已有的 IP 列表和新 IP 列表是否内容完全一致 (无视顺序)
+                if set(old_ips) == set(new_ips):
+                    print(f"  👉 {line_name}: 解析已是最新 {old_ips}，无需修改。")
+                else:
+                    print(f"  🔄 {line_name}: 变更 {old_ips} ➡️ {new_ips}，正在更新...")
+                    update_req = UpdateRecordSetRequest()
+                    update_req.zone_id = zone_id
+                    update_req.recordset_id = record_item.id
+                    update_req.body = UpdateRecordSetReq(
+                        name=full_name, type="A", ttl=300, records=new_ips
+                    )
+                    client.update_record_set(update_req)
+                    print(f"  ✅ {line_name} 批量 A 记录修改成功！")
+            else:
+                print(f"  ➕ {line_name}: 创建解析指向多 IP 列表 {new_ips}...")
+                create_req = CreateRecordSetWithLineRequest()
+                create_req.zone_id = zone_id
+                create_req.body = CreateRecordSetWithLineRequestBody(
+                    type="A", name=full_name, ttl=300, weight=1, records=new_ips, line=line_code
+                )
+                client.create_record_set_with_line(create_req)
+                print(f"  ✅ {line_name} 批量 A 记录创建成功！")
             
     except Exception as e:
         print(f"❌ 华为云 API 同步出错: {e}")
