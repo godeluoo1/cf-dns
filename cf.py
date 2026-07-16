@@ -1047,7 +1047,25 @@ def fetch_and_calc_stats(domain_item, token, monitor_type=1, max_retries=3):
                 time.sleep(0.5)
                 
             if attempt == max_retries - 1:
-                print(f"  ⚠️ 获取域名 {domain_name} 测速历史失败 (已重试 {max_retries} 次): {e}")
+                # 兜底保底逻辑：如果 API 被限流或超时拿不到历史点，直接使用 domain_item 原生包含的周期平均统计数据拼装返回，防止优质域名丢失！
+                try:
+                    return {
+                        "ip": domain_name,
+                        "dxLatencyEma": float(domain_item.get("dxLatencyAvg", 9999.0) if domain_item.get("dxLatencyAvg") is not None else 9999.0),
+                        "dxLossEma": float(domain_item.get("dxPkgLostRateAvg", 100.0) if domain_item.get("dxPkgLostRateAvg") is not None else 100.0),
+                        "dxJitter": 0.0,
+                        "ydLatencyEma": float(domain_item.get("ydLatencyAvg", 9999.0) if domain_item.get("ydLatencyAvg") is not None else 9999.0),
+                        "ydLossEma": float(domain_item.get("ydPkgLostRateAvg", 100.0) if domain_item.get("ydPkgLostRateAvg") is not None else 100.0),
+                        "ydJitter": 0.0,
+                        "ltLatencyEma": float(domain_item.get("ltLatencyAvg", 9999.0) if domain_item.get("ltLatencyAvg") is not None else 9999.0),
+                        "ltLossEma": float(domain_item.get("ltPkgLostRateAvg", 100.0) if domain_item.get("ltPkgLostRateAvg") is not None else 100.0),
+                        "ltJitter": 0.0,
+                        "avgLatency": float(domain_item.get("avgLatency", 9999.0) if domain_item.get("avgLatency") is not None else 9999.0),
+                        "avgLoss": float(domain_item.get("avgPkgLostRate", 100.0) if domain_item.get("avgPkgLostRate") is not None else 100.0),
+                        "avgJitter": 0.0
+                    }
+                except Exception:
+                    pass
     return None
 
 # ==================== 候选池获取 ====================
@@ -1608,7 +1626,7 @@ def main():
     force_cascade = not os.environ.get("PORT")
     
     # 1. API 大池数据 6h 刷新
-    if not state_manager.state.get("candidates") or (now - state_manager.state.get("last_api_update_time", 0.0) >= 21600):
+    if force_cascade or not state_manager.state.get("candidates") or (now - state_manager.state.get("last_api_update_time", 0.0) >= 21600):
         log_event(state_manager, "🔄 开始刷新大池测速数据...")
         raw_domains = get_all_cf_domains(token)
         if raw_domains:
