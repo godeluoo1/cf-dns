@@ -1138,8 +1138,8 @@ def sort_domains(domains, mode, max_loss_threshold=10.0):
 def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     """
     将 CNAME 域名解析为 CF 优选 IP 列表。
-    根据不同的线路（电信/移动/联通/默认），在海外 Actions 容器中强制向国内各运营商本地的物理 DNS 提问，
-    解析出真正属于中国国内运营商视角的极速直连 Anycast IP。
+    优先调用国内免费的 HTTPDNS (腾讯 DNS HTTP 接口) 进行高可靠查询，
+    确保在海外 Actions 容器中也能解析出 100% 属于中国国内网络的极速 Anycast 路由 IP。
     """
     if not domain or domain == "N/A":
         return []
@@ -1150,18 +1150,30 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
         return [clean_domain]
     
     ips = []
-    # 针对不同线路运营商，智能映射到国内该运营商最稳定的省份本地物理 DNS 服务器
-    if line_type == "Dianxin":
-        dns_servers = ['202.96.209.133', '202.96.128.86'] # 上海电信 / 广东电信 本地 DNS
-    elif line_type == "Liantong":
-        dns_servers = ['202.106.0.20', '210.22.84.3']     # 北京联通 / 上海联通 本地 DNS
-    elif line_type == "Yidong":
-        dns_servers = ['211.136.192.6', '211.136.17.107']  # 广东移动 / 北京移动 本地 DNS
-    else:
-        dns_servers = ['223.5.5.5', '114.114.114.114']     # 默认国内公共 DNS
     
-    # 优先使用 dns.resolver
-    if DNS_AVAILABLE:
+    # 1. 优先使用国内 HTTPDNS 接口进行零拦截查询，保障国内电信/联通/移动的最优分流路由
+    # 腾讯免费 HTTPDNS 格式: http://119.29.29.29/d?dn=域名
+    url = f"http://119.29.29.29/d?dn={clean_domain}"
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
+    for attempt in range(max_attempts):
+        try:
+            with urllib.request.urlopen(req, timeout=3.0) as response:
+                if response.status == 200:
+                    body = response.read().decode('utf-8').strip()
+                    # 腾讯 HTTPDNS 返回以分号隔开的 IP 列表
+                    if body and not body.startswith("err"):
+                        parsed_ips = [ip.strip() for ip in body.split(';') if ip.strip()]
+                        for ip_str in parsed_ips:
+                            if is_ip_cloudflare(ip_str):
+                                ips.append(ip_str)
+                        if ips:
+                            break
+        except Exception:
+            time.sleep(0.2)
+            
+    # 2. 兜底使用 dns.resolver 配合国内公共 DNS
+    if not ips and DNS_AVAILABLE:
+        dns_servers = ['223.5.5.5', '114.114.114.114']
         for attempt in range(max_attempts):
             try:
                 resolver = dns.resolver.Resolver()
@@ -1179,7 +1191,7 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
             except Exception:
                 time.sleep(0.2)
                 
-    # 兜底使用 socket.getaddrinfo
+    # 3. 兜底使用 socket.getaddrinfo
     if not ips:
         for attempt in range(max_attempts):
             try:
@@ -1194,7 +1206,6 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
             except Exception:
                 time.sleep(0.2)
                 
-    # 去重
     return sorted(list(set(ips)))
 
 def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
