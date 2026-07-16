@@ -1229,7 +1229,8 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                 print(f"  ⚠️ {line_name}: 解析域名 [{orig_cname}] 到 IP 失败，为保护现有解析不中断，跳过更新。")
                 continue
             
-            new_ips = [ip.strip() for ip in target_ips if ip.strip()]
+            # 限制最多 10 个 IP，防止超过华为云单条记录最多 50 个 IP 的限制导致 API 报错 (DNS.0308)
+            new_ips = [ip.strip() for ip in target_ips if ip.strip()][:10]
             
             if line_code.lower() in existing_records:
                 record_item = existing_records[line_code.lower()]
