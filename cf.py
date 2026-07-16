@@ -1239,14 +1239,12 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                 if set(old_ips) == set(new_ips):
                     print(f"  👉 {line_name}: 解析已是最新 {old_ips}，无需修改。")
                 else:
-                    print(f"  🔄 {line_name}: 变更 {old_ips} ➡️ {new_ips}，正在更新...")
                     update_req = UpdateRecordSetRequest()
                     update_req.zone_id = zone_id
                     update_req.recordset_id = record_item.id
                     update_req.body = UpdateRecordSetReq(
                         name=full_name, type="A", ttl=300, records=new_ips
                     )
-                    client.update_req = update_req # 修正为标准 API 调用格式
                     client.update_record_set(update_req)
                     print(f"  ✅ {line_name} 批量 A 记录修改成功！")
                     time.sleep(0.35)  # 错峰延时防华为云 QPS 限流
