@@ -1473,10 +1473,11 @@ def run_top5_and_decision(state_manager):
 
             allow_switch = False
             if l_info["count"] >= 3 and cooldown_elapsed >= 1800:
-                if best_rep >= 60 or current_rep < 30:
+                # 优化防抖逻辑：只要挑战者比现任信誉度高，或者现任信誉度偏低，连续领先3次均允许直接替换
+                if best_rep > current_rep or current_rep < 40 or best_rep >= 60:
                     allow_switch = True
                 else:
-                    print(f"  🛡️ {sub_domain} {line_name}: 挑战者信誉不足({best_rep}<60) 且现任健康({current_rep}>=30)，拒绝替换。")
+                    print(f"  🛡️ {sub_domain} {line_name}: 挑战者信誉不足({best_rep}<={current_rep}) 且现任尚可({current_rep}>=40)，拒绝替换。")
 
             if allow_switch:
                 log_event(state_manager, f"🔥 防抖达成！{sub_domain} {line_name} 切换为 [{best_cname}]")
