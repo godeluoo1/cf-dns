@@ -1135,10 +1135,11 @@ def sort_domains(domains, mode, max_loss_threshold=10.0):
     return valid_domains  # 兜底：未知 mode 返回原始列表
 
 # ==================== 华为云 DNS 自动同步 ====================
-def resolve_domain_to_ips(domain, max_attempts=3):
+def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     """
     将 CNAME 域名解析为 CF 优选 IP 列表。
-    添加多 DNS 服务器解析容错及 Cloudflare IP 过滤，确保返回的都是健康的 CF 优选 IP。
+    根据不同的线路（电信/移动/联通/默认），在海外 Actions 容器中强制向国内各运营商本地的物理 DNS 提问，
+    解析出真正属于中国国内运营商视角的极速直连 Anycast IP。
     """
     if not domain or domain == "N/A":
         return []
@@ -1149,7 +1150,15 @@ def resolve_domain_to_ips(domain, max_attempts=3):
         return [clean_domain]
     
     ips = []
-    dns_servers = ['223.5.5.5', '114.114.114.114', '116.116.116.116', '101.226.4.6']
+    # 针对不同线路运营商，智能映射到国内该运营商最稳定的省份本地物理 DNS 服务器
+    if line_type == "Dianxin":
+        dns_servers = ['202.96.209.133', '202.96.128.86'] # 上海电信 / 广东电信 本地 DNS
+    elif line_type == "Liantong":
+        dns_servers = ['202.106.0.20', '210.22.84.3']     # 北京联通 / 上海联通 本地 DNS
+    elif line_type == "Yidong":
+        dns_servers = ['211.136.192.6', '211.136.17.107']  # 广东移动 / 北京移动 本地 DNS
+    else:
+        dns_servers = ['223.5.5.5', '114.114.114.114']     # 默认国内公共 DNS
     
     # 优先使用 dns.resolver
     if DNS_AVAILABLE:
@@ -1199,10 +1208,10 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
     print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 最优解析到华为云公网 DNS...")
     
     # 将 CNAME 优选域名解析为具体的 IP 列表
-    ct_ips = resolve_domain_to_ips(ct_cname)
-    cm_ips = resolve_domain_to_ips(cm_cname)
-    cu_ips = resolve_domain_to_ips(cu_cname)
-    def_ips = resolve_domain_to_ips(def_cname)
+    ct_ips = resolve_domain_to_ips(ct_cname, "Dianxin")
+    cm_ips = resolve_domain_to_ips(cm_cname, "Yidong")
+    cu_ips = resolve_domain_to_ips(cu_cname, "Liantong")
+    def_ips = resolve_domain_to_ips(def_cname, "default")
 
     target_lines = {
         "Dianxin": ("中国电信 线路", ct_ips, ct_cname),
