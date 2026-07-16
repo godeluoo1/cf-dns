@@ -1435,6 +1435,37 @@ def run_top5_and_decision(state_manager):
                 l_info["count"] = 1
 
             current_rep = state_manager.state["reputation_scores"].get(sub_domain, {}).get(line_code, {}).get(current_champ, 50)
+            
+            # 引入现任真实网络质量体检：如果测速显示延迟/丢包极差，即使 DNS 可达，也不再享受防抖保护
+            is_current_poor = False
+            current_stat = None
+            for c in candidates:
+                if c["ip"] == current_champ:
+                    current_stat = c.get(f"data_{key_suffix}")
+                    break
+            
+            if current_stat:
+                curr_lat, curr_loss = 0.0, 0.0
+                if mode == 1:
+                    curr_lat = current_stat.get("avgLatency", 0.0)
+                    curr_loss = current_stat.get("avgLoss", 0.0)
+                elif mode == 2:
+                    curr_lat = current_stat.get("dxLatencyEma", 0.0)
+                    curr_loss = current_stat.get("dxLossEma", 0.0)
+                elif mode == 3:
+                    curr_lat = current_stat.get("ydLatencyEma", 0.0)
+                    curr_loss = current_stat.get("ydLossEma", 0.0)
+                elif mode == 4:
+                    curr_lat = current_stat.get("ltLatencyEma", 0.0)
+                    curr_loss = current_stat.get("ltLossEma", 0.0)
+                
+                # 若延迟 > 250ms 或 丢包率 > 8.0%，判定为差节点
+                if curr_lat > 250.0 or curr_loss > 8.0:
+                    is_current_poor = True
+                    print(f"  ⚠️ {sub_domain} {line_name}: 现任 [{current_champ}] 测速表现差(延迟 {curr_lat}ms, 丢包 {curr_loss}%)，临时降低其信誉防抖保护门槛。")
+            
+            if is_current_poor:
+                current_rep = min(current_rep, 20)
             best_rep = state_manager.state["reputation_scores"].get(sub_domain, {}).get(line_code, {}).get(best_cname, 50)
             cooldown_elapsed = now - last_switch
 
