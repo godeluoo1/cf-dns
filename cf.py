@@ -1604,7 +1604,7 @@ def main():
     run_meltdown_with_fallback(state_manager)
     
     now = time.time()
-    force_cascade = False
+    force_cascade = not os.environ.get("PORT")
     
     # 1. API 大池数据 6h 刷新
     if not state_manager.state.get("candidates") or (now - state_manager.state.get("last_api_update_time", 0.0) >= 21600):
