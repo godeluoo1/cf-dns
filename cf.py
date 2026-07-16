@@ -1139,7 +1139,8 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     """
     将 CNAME 域名解析为 CF 优选 IP 列表。
     优先调用国内免费的 HTTPDNS (腾讯 DNS HTTP 接口) 进行高可靠查询，
-    确保在海外 Actions 容器中也能解析出 100% 属于中国国内网络的极速 Anycast 路由 IP。
+    通过传入对应国内运营商段的 client_ip 解决海外 Actions 容器解析偏差，
+    确保 100% 解析出真正属于中国国内电信/联通/移动视角的极速 Anycast 路由 IP。
     """
     if not domain or domain == "N/A":
         return []
@@ -1151,9 +1152,17 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     
     ips = []
     
-    # 1. 优先使用国内 HTTPDNS 接口进行零拦截查询，保障国内电信/联通/移动的最优分流路由
-    # 腾讯免费 HTTPDNS 格式: http://119.29.29.29/d?dn=域名
-    url = f"http://119.29.29.29/d?dn={clean_domain}"
+    # 针对不同运营商，传入其国内骨干网的典型客户端 IP 视角进行 HTTPDNS 精准查询
+    client_ip = "121.33.0.1"  # 默认广东电信
+    if line_type == "Dianxin":
+        client_ip = "121.33.0.1"   # 广东电信
+    elif line_type == "Yidong":
+        client_ip = "120.196.0.1"  # 广东移动
+    elif line_type == "Liantong":
+        client_ip = "120.80.0.1"   # 广东联通
+        
+    # 1. 优先使用国内 HTTPDNS 接口进行精准分流查询
+    url = f"http://119.29.29.29/d?dn={clean_domain}&ip={client_ip}"
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
     for attempt in range(max_attempts):
         try:
