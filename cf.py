@@ -100,8 +100,7 @@ def generate_visual_html(state_manager, filename="status.html"):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     def get_cname_stats(cname, sub_domain, line_key):
         candidates = state_manager.state.get("candidates", [])
-        monitor_type = SUB_DOMAINS_CONFIG.get(sub_domain, 0)
-        key_suffix = "30day" if monitor_type == 1 else "24h"
+        key_suffix = "30day"
         for c in candidates:
             if c.get("ip") == cname:
                 data = c.get(f"data_{key_suffix}")
@@ -1431,7 +1430,7 @@ def run_top5_and_decision(state_manager):
         lead_counts = state_manager.state["consecutive_lead_counts"].setdefault(sub_domain, {})
         last_switch = state_manager.state["last_switch_time"].setdefault(sub_domain, 0.0)
         candidates = state_manager.state.get("candidates", [])
-        key_suffix = "30day" if monitor_type == 1 else "24h"
+        key_suffix = "30day"
 
         lines_modes = {
             "Dianxin": (2, "电信"),
@@ -1602,7 +1601,7 @@ def run_top100_check(state_manager):
     candidates_clean = [item for item in candidates if item.get("ip") not in black_list]
 
     for sub_domain, monitor_type in SUB_DOMAINS_CONFIG.items():
-        key_suffix = "30day" if monitor_type == 1 else "24h"
+        key_suffix = "30day"
         
         domains_for_sort = [c.get(f"data_{key_suffix}") for c in candidates_clean if c.get(f"data_{key_suffix}")]
         if not domains_for_sort: continue
@@ -1654,9 +1653,9 @@ def main():
     now = time.time()
     force_cascade = not os.environ.get("PORT")
     
-    # 1. API 大池数据 6h 刷新
+    # 1. API 大池数据 6h 刷新 (只拉取 30天 优选指标，彻底移除 24h 抓取)
     if force_cascade or not state_manager.state.get("candidates") or (now - state_manager.state.get("last_api_update_time", 0.0) >= 21600):
-        log_event(state_manager, "🔄 开始刷新大池测速数据...")
+        log_event(state_manager, "🔄 开始刷新大池测速数据 (30天历史模式)...")
         raw_domains = get_all_cf_domains(token)
         if raw_domains:
             black_list = {f"{sub}.{DOMAIN}" if sub != "@" else DOMAIN for sub in SUB_DOMAINS_CONFIG.keys()}
@@ -1672,21 +1671,19 @@ def main():
                 new_candidates.append({
                     "id": item.get("id"),
                     "ip": ip,
-                    "data_30day": old_c.get("data_30day"),
-                    "data_24h": old_c.get("data_24h")
+                    "data_30day": old_c.get("data_30day")
                 })
             
-            for m_type in set(SUB_DOMAINS_CONFIG.values()):
-                suffix = "30day" if m_type == 1 else "24h"
-                # 降低并发线程至 5，极大地减少频繁触发 WAF 并发墙拦截概率
-                with ThreadPoolExecutor(max_workers=5) as executor:
-                    futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in new_candidates}
-                    for future in as_completed(futures):
-                        try:
-                            if res := future.result():
-                                next((c for c in new_candidates if c["ip"] == res["ip"]), {})[f"data_{suffix}"] = res
-                        except Exception as e:
-                            print(f"  ⚠️ 处理域名测速数据异常: {e}")
+            m_type = 1 # 强行锁定 30 天优选维度类型
+            # 降低并发线程至 5，极大地减少频繁触发 WAF 并发墙拦截概率
+            with ThreadPoolExecutor(max_workers=5) as executor:
+                futures = {executor.submit(fetch_and_calc_stats, item, token, m_type, 2): item for item in new_candidates}
+                for future in as_completed(futures):
+                    try:
+                        if res := future.result():
+                            next((c for c in new_candidates if c["ip"] == res["ip"]), {})["data_30day"] = res
+                    except Exception as e:
+                        print(f"  ⚠️ 处理域名测速数据异常: {e}")
                             
             state_manager.state["candidates"] = new_candidates
             state_manager.state["last_api_update_time"] = time.time()
