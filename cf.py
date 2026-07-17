@@ -1098,8 +1098,13 @@ def get_all_cf_domains(token, max_retries=3):
 
 # ==================== 综合评分与排序 ====================
 def calc_score(loss, jitter, latency):
-    """新评分公式：丢包极高惩罚 + 抖动权重 + 延迟辅助"""
-    return 1000 * loss + 50 * jitter + 0.7 * latency
+    """
+    智能优选评分公式：
+    由于 max_loss_threshold=10.0 已强制截断了高丢包黑洞，
+    在此安全前提下，以“极致低延迟体验”为最高导向，降低抖动和微小丢包的过度惩罚，
+    确保 60ms 级别的低延迟节点能以压倒性优势击败 180ms 级别的平庸节点。
+    """
+    return 80.0 * loss + 3.0 * jitter + 1.5 * latency
 
 def sort_domains(domains, mode, max_loss_threshold=10.0):
     # 过滤掉不含新版指标的旧版缓存数据
