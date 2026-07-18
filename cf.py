@@ -528,6 +528,17 @@ def sort_domains(domains, mode, max_loss_threshold=10.0):
         return target_list
     return valid_domains  # 兜底：未知 mode 返回原始列表
 
+def get_score_for_mode(x, mode):
+    if mode == 1:
+        return calc_score(x.get("avgLoss", 100), x.get("avgJitter", 0), x.get("avgLatency", 9999))
+    elif mode == 2:
+        return calc_score(x.get("dxLossEma", 100), x.get("dxJitter", 0), x.get("dxLatencyEma", 9999))
+    elif mode == 3:
+        return calc_score(x.get("ydLossEma", 100), x.get("ydJitter", 0), x.get("ydLatencyEma", 9999))
+    elif mode == 4:
+        return calc_score(x.get("ltLossEma", 100), x.get("ltJitter", 0), x.get("ltLatencyEma", 9999))
+    return 99999.0
+
 # ==================== 华为云 DNS 自动同步 ====================
 def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     """
@@ -853,6 +864,7 @@ def run_top5_and_decision(state_manager):
 
             best_cname = sort_domains(list(healthy_candidates_stats), mode)[0]['ip']
             current_champ = champs.get(line_code, "")
+            print(f"  ⚔️ {sub_domain} {line_name} 决选: 当前 Top 1 挑战者 [{best_cname}]，现任冠军 [{current_champ or '无'}]")
             
             if current_champ in [x["ip"] for x in new_t5 if x["healthy"]]:
                 state_manager.update_reputation(sub_domain, line_code, current_champ, 1)
@@ -983,6 +995,8 @@ def run_top20_check(state_manager):
             state_manager.state["top20_pool"][sub_domain][line_code] = [
                 {"ip": ip, "healthy": health_res.get(ip, False)} for ip in ips
             ]
+            healthy_top3 = [item["ip"] for item in state_manager.state["top20_pool"][sub_domain][line_code] if item["healthy"]][:3]
+            print(f"  🛡️ {sub_domain} {line_code} 活性健康前三: {', '.join(healthy_top3)}")
         
     state_manager.state["last_top20_time"] = time.time()
     state_manager.save()
@@ -1015,6 +1029,20 @@ def run_top100_check(state_manager):
             ips = [item["ip"] for item in sorted_def[:100]]
             line_t100_ips[line_code] = ips
             all_unique_ips.update(ips)
+            
+            top3_msgs = []
+            for item in sorted_def[:3]:
+                score = get_score_for_mode(item, mode)
+                if mode == 1:
+                    lat, loss = item.get("avgLatency", 9999), item.get("avgLoss", 100)
+                elif mode == 2:
+                    lat, loss = item.get("dxLatencyEma", 9999), item.get("dxLossEma", 100)
+                elif mode == 3:
+                    lat, loss = item.get("ydLatencyEma", 9999), item.get("ydLossEma", 100)
+                elif mode == 4:
+                    lat, loss = item.get("ltLatencyEma", 9999), item.get("ltLossEma", 100)
+                top3_msgs.append(f"[{item['ip']}](延迟{lat:.1f}ms,丢包{loss:.1f}%,得分{score:.1f})")
+            print(f"  📊 {sub_domain} {line_code} 大池排名前三: {', '.join(top3_msgs)}")
 
         health_res = bulk_dns_check(list(all_unique_ips))
         
