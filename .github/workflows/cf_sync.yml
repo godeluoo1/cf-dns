@@ -13,8 +13,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # 无状态，仅需要只读权限即可！
-    timeout-minutes: 10
+      contents: write # 显式赋予 GitHub Actions 写入 state 分支的权限
+    timeout-minutes: 15   # 防止 API 挂起导致白白消耗免费额度
     
     steps:
       - name: Checkout repository
@@ -24,15 +24,32 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          cache: 'pip' # 自动缓存 pip 依赖
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Fetch State from State Branch
+        run: |
+          git fetch origin state || echo "State branch does not exist yet."
+          git checkout origin/state -- cf_state.json || echo "No state file found."
+
       - name: Run Sync Script
         env:
           HUAWEICLOUD_AK: ${{ secrets.HUAWEICLOUD_AK }}
           HUAWEICLOUD_SK: ${{ secrets.HUAWEICLOUD_SK }}
         run: python cf.py
+
+      - name: Prepare State Directory
+        run: |
+          mkdir -p state_out
+          cp cf_state.json state_out/ || echo "No state file to push"
+
+      - name: Push State to State Branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./state_out
+          publish_branch: state
