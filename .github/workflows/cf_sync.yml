@@ -13,7 +13,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 显式赋予 GitHub Actions 写入 gh-pages 分支的权限
+      contents: write # 显式赋予 GitHub Actions 写入 state 分支的权限
     timeout-minutes: 15   # 防止 API 挂起导致白白消耗免费额度
     
     steps:
@@ -30,7 +30,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
 
       - name: Fetch State from State Branch
         run: |
@@ -54,14 +53,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./state_out
           publish_branch: state
-
-      - name: Prepare Public Directory
-        run: |
-          mkdir -p public
-          cp status.html public/
-
-      - name: Deploy Status Page to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
