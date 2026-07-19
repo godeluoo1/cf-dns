@@ -695,7 +695,7 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                 # 华为云 CNAME 记录值需要确保符合规范
                 new_value = [clean_cname]
                 
-                # 2.1 检查是否存在同线路的 A 记录，如果有，必须物理删除以防 CNAME 写入冲突
+                # 2.1 检查是否存在同线路 of A 记录，如果有，必须物理删除以防 CNAME 写入冲突
                 if line_code.lower() in existing_a_records:
                     a_record_item = existing_a_records[line_code.lower()]
                     print(f"  🧹 {line_name}: 检测到同线路存量 A 记录 [{a_record_item.records}]，正在清理以避免 CNAME 冲突...")
@@ -704,7 +704,8 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                         del_req.zone_id = zone_id
                         del_req.recordset_id = a_record_item.id
                         client.delete_record_set(del_req)
-                        time.sleep(0.35)
+                        print(f"  ⏳ 已发送 A 记录删除指令，强行物理等待 3.0 秒以避开华为云缓存延迟...")
+                        time.sleep(3.0)  # 给华为云 3 秒时间做物理注销
                     except Exception as del_err:
                         # 记录不存在则说明已经被清理，直接忽略错误继续写入 CNAME
                         if "DNS.0313" not in str(del_err):
