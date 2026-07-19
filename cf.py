@@ -686,52 +686,60 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         existing_cname_records = {r.line.lower(): r for r in record_response_cname.recordsets if r.line}
 
         for line_code, (line_name, target_cname) in target_lines.items():
-            if not target_cname or target_cname == "N/A":
-                print(f"  ⚠️ {line_name}: 冠军 CNAME 为空，跳过更新。")
-                continue
-            
-            clean_cname = target_cname.strip()
-            # 华为云 CNAME 记录值需要确保符合规范
-            new_value = [clean_cname]
-            
-            # 2.1 检查是否存在同线路的 A 记录，如果有，必须物理删除以防 CNAME 写入冲突
-            if line_code.lower() in existing_a_records:
-                a_record_item = existing_a_records[line_code.lower()]
-                print(f"  🧹 {line_name}: 检测到同线路存量 A 记录 [{a_record_item.records}]，正在清理以避免 CNAME 冲突...")
-                del_req = DeleteRecordSetRequest()
-                del_req.zone_id = zone_id
-                del_req.recordset_id = a_record_item.id
-                client.delete_record_set(del_req)
-                time.sleep(0.35)
-            
-            # 2.2 处理 CNAME 记录的创建与更新
-            if line_code.lower() in existing_cname_records:
-                cname_item = existing_cname_records[line_code.lower()]
-                old_value = [v.strip() for v in cname_item.records]
+            try:
+                if not target_cname or target_cname == "N/A":
+                    print(f"  ⚠️ {line_name}: 冠军 CNAME 为空，跳过更新。")
+                    continue
                 
-                # 如果已有的 CNAME 值和新的最优冠军 CNAME 一致，跳过
-                if old_value == new_value:
-                    print(f"  👉 {line_name}: 解析已是最新 CNAME {old_value}，无需修改。")
+                clean_cname = target_cname.strip()
+                # 华为云 CNAME 记录值需要确保符合规范
+                new_value = [clean_cname]
+                
+                # 2.1 检查是否存在同线路的 A 记录，如果有，必须物理删除以防 CNAME 写入冲突
+                if line_code.lower() in existing_a_records:
+                    a_record_item = existing_a_records[line_code.lower()]
+                    print(f"  🧹 {line_name}: 检测到同线路存量 A 记录 [{a_record_item.records}]，正在清理以避免 CNAME 冲突...")
+                    try:
+                        del_req = DeleteRecordSetRequest()
+                        del_req.zone_id = zone_id
+                        del_req.recordset_id = a_record_item.id
+                        client.delete_record_set(del_req)
+                        time.sleep(0.35)
+                    except Exception as del_err:
+                        # 记录不存在则说明已经被清理，直接忽略错误继续写入 CNAME
+                        if "DNS.0313" not in str(del_err):
+                            raise del_err
+                
+                # 2.2 处理 CNAME 记录的创建与更新
+                if line_code.lower() in existing_cname_records:
+                    cname_item = existing_cname_records[line_code.lower()]
+                    old_value = [v.strip() for v in cname_item.records]
+                    
+                    # 如果已有的 CNAME 值和新的最优冠军 CNAME 一致，跳过
+                    if old_value == new_value:
+                        print(f"  👉 {line_name}: 解析已是最新 CNAME {old_value}，无需修改。")
+                    else:
+                        update_req = UpdateRecordSetRequest()
+                        update_req.zone_id = zone_id
+                        update_req.recordset_id = cname_item.id
+                        update_req.body = UpdateRecordSetReq(
+                            name=full_name, type="CNAME", ttl=300, records=new_value
+                        )
+                        client.update_record_set(update_req)
+                        print(f"  ✅ {line_name} 智能 CNAME 记录修改成功！➔ {clean_cname}")
+                        time.sleep(0.35)
                 else:
-                    update_req = UpdateRecordSetRequest()
-                    update_req.zone_id = zone_id
-                    update_req.recordset_id = cname_item.id
-                    update_req.body = UpdateRecordSetReq(
-                        name=full_name, type="CNAME", ttl=300, records=new_value
+                    print(f"  ➕ {line_name}: 创建智能 CNAME 解析指向 {clean_cname}...")
+                    create_req = CreateRecordSetWithLineRequest()
+                    create_req.zone_id = zone_id
+                    create_req.body = CreateRecordSetWithLineRequestBody(
+                        type="CNAME", name=full_name, ttl=300, weight=1, records=new_value, line=line_code
                     )
-                    client.update_record_set(update_req)
-                    print(f"  ✅ {line_name} 智能 CNAME 记录修改成功！➔ {clean_cname}")
+                    client.create_record_set_with_line(create_req)
+                    print(f"  ✅ {line_name} 智能 CNAME 记录创建成功！")
                     time.sleep(0.35)
-            else:
-                print(f"  ➕ {line_name}: 创建智能 CNAME 解析指向 {clean_cname}...")
-                create_req = CreateRecordSetWithLineRequest()
-                create_req.zone_id = zone_id
-                create_req.body = CreateRecordSetWithLineRequestBody(
-                    type="CNAME", name=full_name, ttl=300, weight=1, records=new_value, line=line_code
-                )
-                client.create_record_set_with_line(create_req)
-                print(f"  ✅ {line_name} 智能 CNAME 记录创建成功！")
-                time.sleep(0.35)
+            except Exception as line_err:
+                print(f"  ❌ 同步 {line_name} 时出错: {line_err}，跳过该线路继续处理其它线路。")
     except Exception as e:
         print(f"❌ 华为云 API 同步出错: {e}")
 
