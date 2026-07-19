@@ -635,12 +635,20 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
 
     print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 智能分流 CNAME 到华为云公网 DNS...")
     
-    target_lines = {
-        "Dianxin": ("中国电信 线路", ct_cname),
-        "Yidong": ("中国移动 线路", cm_cname),
-        "Liantong": ("中国联通 线路", cu_cname),
-        "default_view": ("默认保底 线路", def_cname)
-    }
+    # 针对 cfs (美国特化)，只同步默认保底线路以保证直连美西 Anycast 路由不绕路亚洲；针对 cf，同步所有三网及默认线路
+    if sub_domain == "cfs":
+        target_lines = {
+            "default_view": ("默认保底 线路", def_cname)
+        }
+        clean_extra_lines = True
+    else:
+        target_lines = {
+            "Dianxin": ("中国电信 线路", ct_cname),
+            "Yidong": ("中国移动 线路", cm_cname),
+            "Liantong": ("中国联通 线路", cu_cname),
+            "default_view": ("默认保底 线路", def_cname)
+        }
+        clean_extra_lines = False
 
     try:
         credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
@@ -648,7 +656,7 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
             .with_credentials(credentials) \
             .with_region(DnsRegion.value_of(REGION)) \
             .build()
-        
+         
         zone_request = ListPublicZonesRequest()
         zone_response = client.list_public_zones(zone_request)
         zone_id = None
@@ -662,7 +670,7 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
             return
 
         full_name = domain_dot if sub_domain == "@" else f"{sub_domain}.{domain_dot}"
-        
+         
         # 1. 查询现有的 A 记录列表 (仅作列表分析，不提前全局删除)
         record_request_a = ListRecordSetsWithLineRequest()
         record_request_a.zone_id = zone_id
@@ -678,6 +686,34 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         record_request_cname.type = "CNAME"
         record_response_cname = client.list_record_sets_with_line(record_request_cname)
         existing_cname_records = {r.line.lower(): r for r in record_response_cname.recordsets if r.line}
+
+        # 1.1 如果是美国特化子域名 cfs，则清扫三网细分线路，强制回归单一“全网默认”以保护美西回程不绕道亚太机房
+        if clean_extra_lines:
+            for extra_line in ["dianxin", "yidong", "liantong"]:
+                # 清扫 CNAME 记录
+                if extra_line in existing_cname_records:
+                    rec_item = existing_cname_records[extra_line]
+                    print(f"  🧹 发现 cfs 子域名下多余的 [{extra_line}] CNAME 记录，正在执行物理清理以修复美西路由绕洋延迟...")
+                    try:
+                        del_req = DeleteRecordSetRequest()
+                        del_req.zone_id = zone_id
+                        del_req.recordset_id = rec_item.id
+                        client.delete_record_set(del_req)
+                        time.sleep(0.3)
+                    except Exception as del_err:
+                        print(f"  ⚠️ 清理多余 CNAME 记录 [{rec_item.id}] 失败: {del_err}")
+                # 清扫 A 记录
+                if extra_line in existing_a_records:
+                    rec_item = existing_a_records[extra_line]
+                    print(f"  🧹 发现 cfs 子域名下多余的 [{extra_line}] A 记录，正在执行物理清理...")
+                    try:
+                        del_req = DeleteRecordSetRequest()
+                        del_req.zone_id = zone_id
+                        del_req.recordset_id = rec_item.id
+                        client.delete_record_set(del_req)
+                        time.sleep(0.3)
+                    except Exception as del_err:
+                        print(f"  ⚠️ 清理多余 A 记录 [{rec_item.id}] 失败: {del_err}")
         
         for line_code, (line_name, target_cname) in target_lines.items():
             try:
