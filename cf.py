@@ -635,18 +635,12 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
 
     print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 智能分流 CNAME 到华为云公网 DNS...")
     
-    # 针对 cfs (美国特化)，只同步默认保底线路；针对 cf，同步所有三网及默认线路
-    if sub_domain == "cfs":
-        target_lines = {
-            "default_view": ("默认保底 线路", def_cname)
-        }
-    else:
-        target_lines = {
-            "Dianxin": ("中国电信 线路", ct_cname),
-            "Yidong": ("中国移动 线路", cm_cname),
-            "Liantong": ("中国联通 线路", cu_cname),
-            "default_view": ("默认保底 线路", def_cname)
-        }
+    target_lines = {
+        "Dianxin": ("中国电信 线路", ct_cname),
+        "Yidong": ("中国移动 线路", cm_cname),
+        "Liantong": ("中国联通 线路", cu_cname),
+        "default_view": ("默认保底 线路", def_cname)
+    }
 
     try:
         credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
