@@ -633,30 +633,19 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         print(f"\n⚠️ 未配置华为云 AK/SK 或域名，同步 {sub_domain}.{DOMAIN} 跳过。")
         return
 
-    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 最优解析到华为云公网 DNS...")
+    print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 智能分流 CNAME 到华为云公网 DNS...")
     
-    # 将 CNAME 优选域名解析为具体的 IP 列表
-    # 针对 cfs (美国特化)，默认线路在解析时指定为 "usa"，强制不走国内 HTTPDNS 注入，且只同步默认线路
+    # 针对 cfs (美国特化)，只同步默认保底线路；针对 cf，同步所有三网及默认线路
     if sub_domain == "cfs":
-        ct_ips = []
-        cm_ips = []
-        cu_ips = []
-        def_ips = resolve_domain_to_ips(def_cname, "usa")
-        
         target_lines = {
-            "default_view": ("默认保底 线路", def_ips, def_cname)
+            "default_view": ("默认保底 线路", def_cname)
         }
     else:
-        ct_ips = resolve_domain_to_ips(ct_cname, "Dianxin")
-        cm_ips = resolve_domain_to_ips(cm_cname, "Yidong")
-        cu_ips = resolve_domain_to_ips(cu_cname, "Liantong")
-        def_ips = resolve_domain_to_ips(def_cname, "default")
-
         target_lines = {
-            "Dianxin": ("中国电信 线路", ct_ips, ct_cname),
-            "Yidong": ("中国移动 线路", cm_ips, cm_cname),
-            "Liantong": ("中国联通 线路", cu_ips, cu_cname),
-            "default_view": ("默认保底 线路", def_ips, def_cname)
+            "Dianxin": ("中国电信 线路", ct_cname),
+            "Yidong": ("中国移动 线路", cm_cname),
+            "Liantong": ("中国联通 线路", cu_cname),
+            "default_view": ("默认保底 线路", def_cname)
         }
 
     try:
@@ -680,51 +669,69 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
 
         full_name = domain_dot if sub_domain == "@" else f"{sub_domain}.{domain_dot}"
         
-        # 查询现有的 A 记录列表
-        record_request = ListRecordSetsWithLineRequest()
-        record_request.zone_id = zone_id
-        record_request.name = full_name
-        record_request.type = "A"
-        record_response = client.list_record_sets_with_line(record_request)
-        
-        # 统一将线路标识转换为小写存入，防止不同 SDK/接口大小写不一致导致判断失效
-        existing_records = {r.line.lower(): r for r in record_response.recordsets if r.line}
+        # 1. 查询现有的 A 记录列表 (用于清理历史残留，防 CNAME 冲突)
+        record_request_a = ListRecordSetsWithLineRequest()
+        record_request_a.zone_id = zone_id
+        record_request_a.name = full_name
+        record_request_a.type = "A"
+        record_response_a = client.list_record_sets_with_line(record_request_a)
+        existing_a_records = {r.line.lower(): r for r in record_response_a.recordsets if r.line}
 
-        for line_code, (line_name, target_ips, orig_cname) in target_lines.items():
-            if not target_ips:
-                print(f"  ⚠️ {line_name}: 解析域名 [{orig_cname}] 到 IP 失败，为保护现有解析不中断，跳过更新。")
+        # 2. 查询现有的 CNAME 记录列表
+        record_request_cname = ListRecordSetsWithLineRequest()
+        record_request_cname.zone_id = zone_id
+        record_request_cname.name = full_name
+        record_request_cname.type = "CNAME"
+        record_response_cname = client.list_record_sets_with_line(record_request_cname)
+        existing_cname_records = {r.line.lower(): r for r in record_response_cname.recordsets if r.line}
+
+        for line_code, (line_name, target_cname) in target_lines.items():
+            if not target_cname or target_cname == "N/A":
+                print(f"  ⚠️ {line_name}: 冠军 CNAME 为空，跳过更新。")
                 continue
             
-            # 限制最多 10 个 IP，防止超过华为云单条记录最多 50 个 IP 的限制导致 API 报错 (DNS.0308)
-            new_ips = [ip.strip() for ip in target_ips if ip.strip()][:10]
+            clean_cname = target_cname.strip()
+            # 华为云 CNAME 记录值需要确保符合规范
+            new_value = [clean_cname]
             
-            if line_code.lower() in existing_records:
-                record_item = existing_records[line_code.lower()]
-                old_ips = [ip.strip() for ip in record_item.records]
+            # 2.1 检查是否存在同线路的 A 记录，如果有，必须物理删除以防 CNAME 写入冲突
+            if line_code.lower() in existing_a_records:
+                a_record_item = existing_a_records[line_code.lower()]
+                print(f"  🧹 {line_name}: 检测到同线路存量 A 记录 [{a_record_item.records}]，正在清理以避免 CNAME 冲突...")
+                del_req = DeleteRecordSetRequest()
+                del_req.zone_id = zone_id
+                del_req.recordset_id = a_record_item.id
+                client.delete_record_set(del_req)
+                time.sleep(0.35)
+            
+            # 2.2 处理 CNAME 记录的创建与更新
+            if line_code.lower() in existing_cname_records:
+                cname_item = existing_cname_records[line_code.lower()]
+                old_value = [v.strip() for v in cname_item.records]
                 
-                # 比对已有的 IP 列表和新 IP 列表是否内容完全一致 (无视顺序)
-                if set(old_ips) == set(new_ips):
-                    print(f"  👉 {line_name}: 解析已是最新 {old_ips}，无需修改。")
+                # 如果已有的 CNAME 值和新的最优冠军 CNAME 一致，跳过
+                if old_value == new_value:
+                    print(f"  👉 {line_name}: 解析已是最新 CNAME {old_value}，无需修改。")
                 else:
                     update_req = UpdateRecordSetRequest()
                     update_req.zone_id = zone_id
-                    update_req.recordset_id = record_item.id
+                    update_req.recordset_id = cname_item.id
                     update_req.body = UpdateRecordSetReq(
-                        name=full_name, type="A", ttl=300, records=new_ips
+                        name=full_name, type="CNAME", ttl=300, records=new_value
                     )
                     client.update_record_set(update_req)
-                    print(f"  ✅ {line_name} 批量 A 记录修改成功！")
-                    time.sleep(0.35)  # 错峰延时防华为云 QPS 限流
+                    print(f"  ✅ {line_name} 智能 CNAME 记录修改成功！➔ {clean_cname}")
+                    time.sleep(0.35)
             else:
-                print(f"  ➕ {line_name}: 创建解析指向多 IP 列表 {new_ips}...")
+                print(f"  ➕ {line_name}: 创建智能 CNAME 解析指向 {clean_cname}...")
                 create_req = CreateRecordSetWithLineRequest()
                 create_req.zone_id = zone_id
                 create_req.body = CreateRecordSetWithLineRequestBody(
-                    type="A", name=full_name, ttl=300, weight=1, records=new_ips, line=line_code
+                    type="CNAME", name=full_name, ttl=300, weight=1, records=new_value, line=line_code
                 )
                 client.create_record_set_with_line(create_req)
-                print(f"  ✅ {line_name} 批量 A 记录创建成功！")
-                time.sleep(0.35)  # 错峰延时防华为云 QPS 限流
+                print(f"  ✅ {line_name} 智能 CNAME 记录创建成功！")
+                time.sleep(0.35)
     except Exception as e:
         print(f"❌ 华为云 API 同步出错: {e}")
 
