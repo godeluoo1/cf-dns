@@ -669,13 +669,28 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
 
         full_name = domain_dot if sub_domain == "@" else f"{sub_domain}.{domain_dot}"
         
-        # 1. 查询现有的 A 记录列表 (用于清理历史残留，防 CNAME 冲突)
+        # 1. 全局物理清扫该域名下的所有存量 A 记录 (彻底杜绝 A 与 CNAME 冲突)
         record_request_a = ListRecordSetsWithLineRequest()
         record_request_a.zone_id = zone_id
         record_request_a.name = full_name
         record_request_a.type = "A"
         record_response_a = client.list_record_sets_with_line(record_request_a)
-        existing_a_records = {r.line.lower(): r for r in record_response_a.recordsets if r.line}
+        
+        if record_response_a.recordsets:
+            print(f"  🧹 发现该域名下存在历史 A 记录，正在启动全局清理...")
+            for a_rec in record_response_a.recordsets:
+                print(f"  🗑️ 清理 [{a_rec.line}] 线路下的存量 A 记录 {a_rec.records}...")
+                try:
+                    del_req = DeleteRecordSetRequest()
+                    del_req.zone_id = zone_id
+                    del_req.recordset_id = a_rec.id
+                    client.delete_record_set(del_req)
+                except Exception as del_err:
+                    if "DNS.0313" not in str(del_err):
+                        print(f"  ⚠️ 清理 A 记录 [{a_rec.id}] 失败: {del_err}")
+            
+            print(f"  ⏳ 强行物理等待 3.5 秒，确保华为云彻底抹去 A 记录的全网缓存...")
+            time.sleep(3.5)
 
         # 2. 查询现有的 CNAME 记录列表
         record_request_cname = ListRecordSetsWithLineRequest()
@@ -684,7 +699,7 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
         record_request_cname.type = "CNAME"
         record_response_cname = client.list_record_sets_with_line(record_request_cname)
         existing_cname_records = {r.line.lower(): r for r in record_response_cname.recordsets if r.line}
-
+        
         for line_code, (line_name, target_cname) in target_lines.items():
             try:
                 if not target_cname or target_cname == "N/A":
@@ -694,22 +709,6 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                 clean_cname = target_cname.strip()
                 # 华为云 CNAME 记录值需要确保符合规范
                 new_value = [clean_cname]
-                
-                # 2.1 检查是否存在同线路 of A 记录，如果有，必须物理删除以防 CNAME 写入冲突
-                if line_code.lower() in existing_a_records:
-                    a_record_item = existing_a_records[line_code.lower()]
-                    print(f"  🧹 {line_name}: 检测到同线路存量 A 记录 [{a_record_item.records}]，正在清理以避免 CNAME 冲突...")
-                    try:
-                        del_req = DeleteRecordSetRequest()
-                        del_req.zone_id = zone_id
-                        del_req.recordset_id = a_record_item.id
-                        client.delete_record_set(del_req)
-                        print(f"  ⏳ 已发送 A 记录删除指令，强行物理等待 3.0 秒以避开华为云缓存延迟...")
-                        time.sleep(3.0)  # 给华为云 3 秒时间做物理注销
-                    except Exception as del_err:
-                        # 记录不存在则说明已经被清理，直接忽略错误继续写入 CNAME
-                        if "DNS.0313" not in str(del_err):
-                            raise del_err
                 
                 # 2.2 处理 CNAME 记录的创建与更新
                 if line_code.lower() in existing_cname_records:
