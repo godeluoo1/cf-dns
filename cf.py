@@ -684,7 +684,8 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
                     del_req = DeleteRecordSetRequest()
                     del_req.zone_id = zone_id
                     del_req.recordset_id = a_rec.id
-                    client.delete_record_set(del_req)
+                    resp = client.delete_record_set(del_req)
+                    print(f"  👉 API 删除响应: {resp.to_dict() if hasattr(resp, 'to_dict') else str(resp)}")
                 except Exception as del_err:
                     if "DNS.0313" not in str(del_err):
                         print(f"  ⚠️ 清理 A 记录 [{a_rec.id}] 失败: {del_err}")
