@@ -79,6 +79,7 @@ REGION = "cn-east-3"               # 华为云DNS解析服务区，默认即可
 # 1: 近30天数据 (按月优选，适合注重长期稳定性的服务)
 SUB_DOMAINS_CONFIG = {
     "cf": 1,      # cf.blogluo.eu.org 按月 (30天) 优选
+    "cfs": 1,     # cfs.blogluo.eu.org 针对美国 (只写入默认保底线路)
 }
 # =========================================================================
 
@@ -557,33 +558,35 @@ def resolve_domain_to_ips(domain, line_type="default", max_attempts=3):
     
     ips = []
     
-    # 针对不同运营商，传入其国内骨干网的典型客户端 IP 视角进行 HTTPDNS 精准查询
-    client_ip = "121.33.0.1"  # 默认广东电信
-    if line_type == "Dianxin":
-        client_ip = "121.33.0.1"   # 广东电信
-    elif line_type == "Yidong":
-        client_ip = "120.196.0.1"  # 广东移动
-    elif line_type == "Liantong":
-        client_ip = "120.80.0.1"   # 广东联通
-        
-    # 1. 优先使用国内 HTTPDNS 接口进行精准分流查询
-    url = f"http://119.29.29.29/d?dn={clean_domain}&ip={client_ip}"
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
-    for attempt in range(max_attempts):
-        try:
-            with urllib.request.urlopen(req, timeout=3.0) as response:
-                if response.status == 200:
-                    body = response.read().decode('utf-8').strip()
-                    # 腾讯 HTTPDNS 返回以分号隔开的 IP 列表
-                    if body and not body.startswith("err"):
-                        parsed_ips = [ip.strip() for ip in body.split(';') if ip.strip()]
-                        for ip_str in parsed_ips:
-                            if is_ip_cloudflare(ip_str):
-                                ips.append(ip_str)
-                        if ips:
-                            break
-        except Exception:
-            time.sleep(0.2)
+    # 如果是针对美国的解析，跳过国内 HTTPDNS 注入，直接使用本地 DNS 解析
+    if line_type != "usa":
+        # 针对不同运营商，传入其国内骨干网的典型客户端 IP 视角进行 HTTPDNS 精准查询
+        client_ip = "121.33.0.1"  # 默认广东电信
+        if line_type == "Dianxin":
+            client_ip = "121.33.0.1"   # 广东电信
+        elif line_type == "Yidong":
+            client_ip = "120.196.0.1"  # 广东移动
+        elif line_type == "Liantong":
+            client_ip = "120.80.0.1"   # 广东联通
+            
+        # 1. 优先使用国内 HTTPDNS 接口进行精准分流查询
+        url = f"http://119.29.29.29/d?dn={clean_domain}&ip={client_ip}"
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}, method='GET')
+        for attempt in range(max_attempts):
+            try:
+                with urllib.request.urlopen(req, timeout=3.0) as response:
+                    if response.status == 200:
+                        body = response.read().decode('utf-8').strip()
+                        # 腾讯 HTTPDNS 返回以分号隔开的 IP 列表
+                        if body and not body.startswith("err"):
+                            parsed_ips = [ip.strip() for ip in body.split(';') if ip.strip()]
+                            for ip_str in parsed_ips:
+                                if is_ip_cloudflare(ip_str):
+                                    ips.append(ip_str)
+                            if ips:
+                                break
+            except Exception:
+                time.sleep(0.2)
             
     # 2. 兜底使用 dns.resolver 配合国内公共 DNS
     if not ips and DNS_AVAILABLE:
@@ -633,17 +636,28 @@ def sync_to_huaweicloud(sub_domain, ct_cname, cm_cname, cu_cname, def_cname):
     print(f"\n[同步] 正在自动同步 {sub_domain}.{DOMAIN} 最优解析到华为云公网 DNS...")
     
     # 将 CNAME 优选域名解析为具体的 IP 列表
-    ct_ips = resolve_domain_to_ips(ct_cname, "Dianxin")
-    cm_ips = resolve_domain_to_ips(cm_cname, "Yidong")
-    cu_ips = resolve_domain_to_ips(cu_cname, "Liantong")
-    def_ips = resolve_domain_to_ips(def_cname, "default")
+    # 针对 cfs (美国特化)，默认线路在解析时指定为 "usa"，强制不走国内 HTTPDNS 注入，且只同步默认线路
+    if sub_domain == "cfs":
+        ct_ips = []
+        cm_ips = []
+        cu_ips = []
+        def_ips = resolve_domain_to_ips(def_cname, "usa")
+        
+        target_lines = {
+            "default_view": ("默认保底 线路", def_ips, def_cname)
+        }
+    else:
+        ct_ips = resolve_domain_to_ips(ct_cname, "Dianxin")
+        cm_ips = resolve_domain_to_ips(cm_cname, "Yidong")
+        cu_ips = resolve_domain_to_ips(cu_cname, "Liantong")
+        def_ips = resolve_domain_to_ips(def_cname, "default")
 
-    target_lines = {
-        "Dianxin": ("中国电信 线路", ct_ips, ct_cname),
-        "Yidong": ("中国移动 线路", cm_ips, cm_cname),
-        "Liantong": ("中国联通 线路", cu_ips, cu_cname),
-        "default_view": ("默认保底 线路", def_ips, def_cname)
-    }
+        target_lines = {
+            "Dianxin": ("中国电信 线路", ct_ips, ct_cname),
+            "Yidong": ("中国移动 线路", cm_ips, cm_cname),
+            "Liantong": ("中国联通 线路", cu_ips, cu_cname),
+            "default_view": ("默认保底 线路", def_ips, def_cname)
+        }
 
     try:
         credentials = BasicCredentials(HUAWEICLOUD_AK, HUAWEICLOUD_SK)
