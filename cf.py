@@ -1233,9 +1233,3 @@ if __name__ == '__main__':
             time.sleep(1200)
     else:
         main()
-        # 将抓取筛选出的 600+ 优选 IP 保存到本地 ip.txt 文件
-def save_ips_to_txt(ip_list, filename="ip.txt"):
-    with open(filename, "w", encoding="utf-8") as f:
-        for item in ip_list:
-            f.write(f"{item}\n")
-    print(f"✅ 已成功导出 {len(ip_list)} 个优选 IP 到 {filename}")
