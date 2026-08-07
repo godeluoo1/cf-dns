@@ -1,11 +1,11 @@
 {
   "last_api_update_time": 1786070030.5057554,
-  "last_top100_time": 1786070118.5722551,
-  "last_top20_time": 1786070121.3142118,
-  "last_top5_time": 1786070122.032591,
+  "last_top100_time": 1786086626.8224123,
+  "last_top20_time": 1786086629.4171042,
+  "last_top5_time": 1786086641.0557098,
   "last_switch_time": {
     "cf": 1784708821.4655242,
-    "cfs": 1786005303.1257315
+    "cfs": 1786086629.4351118
   },
   "champions": {
     "cf": {
@@ -17,7 +17,7 @@
     "cfs": {
       "Dianxin": "www.oopt.eu.cc",
       "Yidong": "newsroom.avalara.com",
-      "Liantong": "gitlab.com",
+      "Liantong": "tt.78607323.xyz",
       "default_view": "komga.aqua-aria.company"
     }
   },
@@ -29,15 +29,15 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 6
+        "count": 7
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
-        "count": 2
+        "count": 3
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 10
+        "count": 11
       }
     },
     "cfs": {
@@ -47,15 +47,15 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 6
+        "count": 7
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
-        "count": 2
+        "count": 0
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 10
+        "count": 11
       }
     }
   },
@@ -454,7 +454,7 @@
         "cdn.555586.xyz": 15,
         "cmcc.090227.xyz": 5,
         "op.chinwa.eu.cc": 35,
-        "gitlab.com": 23,
+        "gitlab.com": 24,
         "go1.dematic.com": 5,
         "chrono24.com": 20,
         "cmcc.hw.090227.xyz": 20,
@@ -13534,7 +13534,7 @@
         },
         {
           "ip": "mming.ggff.net",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "www.crazygames.fr",
@@ -15144,7 +15144,7 @@
         },
         {
           "ip": "mming.ggff.net",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "www.crazygames.fr",
@@ -16528,8 +16528,6 @@
     }
   },
   "logs": [
-    "[2026-07-25 19:05:51] ✅ candidates 测速缓存已刷新。",
-    "[2026-07-26 02:30:15] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-26 02:33:53] ✅ candidates 测速缓存已刷新。",
     "[2026-07-26 08:21:49] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-26 08:25:57] ✅ candidates 测速缓存已刷新。",
@@ -16627,6 +16625,8 @@
     "[2026-08-06 23:55:09] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-06 23:58:04] ✅ candidates 测速缓存已刷新。",
     "[2026-08-07 02:30:20] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-07 02:33:50] ✅ candidates 测速缓存已刷新。"
+    "[2026-08-07 02:33:50] ✅ candidates 测速缓存已刷新。",
+    "[2026-08-07 07:10:07] 🔄 开始刷新大池测速数据 (30天历史模式)...",
+    "[2026-08-07 07:10:29] 🔥 防抖达成！cfs 联通 切换为 [tt.78607323.xyz]"
   ]
 }
