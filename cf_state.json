@@ -1,8 +1,8 @@
 {
   "last_api_update_time": 1786070030.5057554,
-  "last_top100_time": 1786192893.8773088,
-  "last_top20_time": 1786192903.1136205,
-  "last_top5_time": 1786192903.567237,
+  "last_top100_time": 1786214022.659975,
+  "last_top20_time": 1786214032.966992,
+  "last_top5_time": 1786214033.788839,
   "last_switch_time": {
     "cf": 1784708821.4655242,
     "cfs": 1786086629.4351118
@@ -29,15 +29,15 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 12
+        "count": 13
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
-        "count": 8
+        "count": 9
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 16
+        "count": 17
       }
     },
     "cfs": {
@@ -47,7 +47,7 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 12
+        "count": 13
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
@@ -55,7 +55,7 @@
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 16
+        "count": 17
       }
     }
   },
@@ -322,7 +322,7 @@
         "131.youxuan.cf.090227.xyz": 5,
         "cfyx.aliyun.20237737.xyz": 45,
         "cf.xycf.asia": 35,
-        "cdn.667891.xyz": 5,
+        "cdn.667891.xyz": 0,
         "cf.090227.xyz": 35,
         "download.yunzhongzhuan.com": 35
       },
@@ -429,7 +429,7 @@
         "bbs.alipansou.com": 38,
         "cf.877774.xyz": 20,
         "newsroom.avalara.com": 0,
-        "tt.78607323.xyz": 10,
+        "tt.78607323.xyz": 11,
         "11.cf.3666888.xyz": 0,
         "www.gov.il": 35,
         "cf.xycf.asia": 0,
@@ -12536,7 +12536,7 @@
         },
         {
           "ip": "download.yunzhongzhuan.com",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "cdn.ddeed.de",
@@ -14158,7 +14158,7 @@
         },
         {
           "ip": "cdn.667891.xyz",
-          "healthy": true
+          "healthy": false
         },
         {
           "ip": "131.youxuan.cf.090227.xyz",
@@ -15372,7 +15372,7 @@
         },
         {
           "ip": "cdn.667891.xyz",
-          "healthy": true
+          "healthy": false
         },
         {
           "ip": "yx.cf.090227.xyz",
@@ -15757,15 +15757,15 @@
           "healthy": true
         },
         {
+          "ip": "download.yunzhongzhuan.com",
+          "healthy": false
+        },
+        {
           "ip": "cdn.ddeed.de",
           "healthy": true
         },
         {
           "ip": "cf.nyanya.moe",
-          "healthy": true
-        },
-        {
-          "ip": "cdn.667891.xyz",
           "healthy": true
         }
       ],
@@ -16095,8 +16095,8 @@
           "healthy": true
         },
         {
-          "ip": "cdn.667891.xyz",
-          "healthy": false
+          "ip": "131.youxuan.cf.090227.xyz",
+          "healthy": true
         }
       ],
       "Yidong": [
@@ -16530,7 +16530,6 @@
     }
   },
   "logs": [
-    "[2026-07-26 19:05:57] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-26 19:08:36] ✅ candidates 测速缓存已刷新。",
     "[2026-07-27 02:37:54] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-27 02:40:52] ✅ candidates 测速缓存已刷新。",
@@ -16629,6 +16628,7 @@
     "[2026-08-07 18:51:19] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-08 01:18:46] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-08 06:45:23] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-08 12:40:14] 🔄 开始刷新大池测速数据 (30天历史模式)..."
+    "[2026-08-08 12:40:14] 🔄 开始刷新大池测速数据 (30天历史模式)...",
+    "[2026-08-08 18:32:20] 🔄 开始刷新大池测速数据 (30天历史模式)..."
   ]
 }
