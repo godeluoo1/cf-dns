@@ -1,8 +1,8 @@
 {
   "last_api_update_time": 1786070030.5057554,
-  "last_top100_time": 1786152004.7398155,
-  "last_top20_time": 1786152013.4883306,
-  "last_top5_time": 1786152014.0892828,
+  "last_top100_time": 1786171567.2643452,
+  "last_top20_time": 1786171575.1923006,
+  "last_top5_time": 1786171580.832032,
   "last_switch_time": {
     "cf": 1784708821.4655242,
     "cfs": 1786086629.4351118
@@ -29,15 +29,15 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 10
+        "count": 11
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
-        "count": 6
+        "count": 7
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 14
+        "count": 15
       }
     },
     "cfs": {
@@ -47,7 +47,7 @@
       },
       "Yidong": {
         "cname": "img.856518.xyz",
-        "count": 10
+        "count": 11
       },
       "Liantong": {
         "cname": "tt.78607323.xyz",
@@ -55,7 +55,7 @@
       },
       "default_view": {
         "cname": "img.856518.xyz",
-        "count": 14
+        "count": 15
       }
     }
   },
@@ -85,7 +85,8 @@
         "cfyx.aliyun.20237737.xyz": 45,
         "131.youxuan.cf.090227.xyz": 5,
         "cf.xycf.asia": 35,
-        "cf.090227.xyz": 35
+        "cf.090227.xyz": 35,
+        "download.yunzhongzhuan.com": 35
       },
       "Yidong": {
         "newsroom.avalara.com": 79,
@@ -322,7 +323,8 @@
         "cfyx.aliyun.20237737.xyz": 45,
         "cf.xycf.asia": 35,
         "cdn.667891.xyz": 5,
-        "cf.090227.xyz": 35
+        "cf.090227.xyz": 35,
+        "download.yunzhongzhuan.com": 35
       },
       "Yidong": {
         "newsroom.avalara.com": 79,
@@ -427,7 +429,7 @@
         "bbs.alipansou.com": 38,
         "cf.877774.xyz": 20,
         "newsroom.avalara.com": 0,
-        "tt.78607323.xyz": 8,
+        "tt.78607323.xyz": 9,
         "11.cf.3666888.xyz": 0,
         "www.gov.il": 35,
         "cf.xycf.asia": 0,
@@ -12534,7 +12536,7 @@
         },
         {
           "ip": "download.yunzhongzhuan.com",
-          "healthy": true
+          "healthy": false
         },
         {
           "ip": "cdn.ddeed.de",
@@ -13534,7 +13536,7 @@
         },
         {
           "ip": "mming.ggff.net",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "www.crazygames.fr",
@@ -14144,7 +14146,7 @@
         },
         {
           "ip": "download.yunzhongzhuan.com",
-          "healthy": true
+          "healthy": false
         },
         {
           "ip": "cdn.ddeed.de",
@@ -15144,7 +15146,7 @@
         },
         {
           "ip": "mming.ggff.net",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "www.crazygames.fr",
@@ -15755,15 +15757,15 @@
           "healthy": true
         },
         {
-          "ip": "download.yunzhongzhuan.com",
-          "healthy": true
-        },
-        {
           "ip": "cdn.ddeed.de",
           "healthy": true
         },
         {
           "ip": "cf.nyanya.moe",
+          "healthy": true
+        },
+        {
+          "ip": "cdn.667891.xyz",
           "healthy": true
         }
       ],
@@ -16085,15 +16087,15 @@
           "healthy": true
         },
         {
-          "ip": "download.yunzhongzhuan.com",
-          "healthy": false
-        },
-        {
           "ip": "cdn.ddeed.de",
           "healthy": true
         },
         {
           "ip": "cf.nyanya.moe",
+          "healthy": true
+        },
+        {
+          "ip": "cdn.667891.xyz",
           "healthy": true
         }
       ],
@@ -16528,7 +16530,6 @@
     }
   },
   "logs": [
-    "[2026-07-26 13:13:39] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-26 13:18:07] ✅ candidates 测速缓存已刷新。",
     "[2026-07-26 19:05:57] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-07-26 19:08:36] ✅ candidates 测速缓存已刷新。",
@@ -16627,6 +16628,7 @@
     "[2026-08-07 07:10:29] 🔥 防抖达成！cfs 联通 切换为 [tt.78607323.xyz]",
     "[2026-08-07 12:55:43] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-07 18:51:19] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-08 01:18:46] 🔄 开始刷新大池测速数据 (30天历史模式)..."
+    "[2026-08-08 01:18:46] 🔄 开始刷新大池测速数据 (30天历史模式)...",
+    "[2026-08-08 06:45:23] 🔄 开始刷新大池测速数据 (30天历史模式)..."
   ]
 }
