@@ -1,8 +1,8 @@
 {
   "last_api_update_time": 1786970404.9084702,
-  "last_top100_time": 1786970429.6907732,
-  "last_top20_time": 1786970436.0174587,
-  "last_top5_time": 1786970439.3708725,
+  "last_top100_time": 1786991682.8656507,
+  "last_top20_time": 1786991689.4929202,
+  "last_top5_time": 1786991690.6697872,
   "last_switch_time": {
     "cf": 1786431949.1710293,
     "cfs": 1786431949.1710293
@@ -29,15 +29,15 @@
       },
       "Yidong": {
         "cname": "cf.92555.xyz",
-        "count": 4
+        "count": 5
       },
       "Liantong": {
         "cname": "ping.ctrl.li",
-        "count": 16
+        "count": 17
       },
       "default_view": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 28
+        "count": 29
       }
     },
     "cfs": {
@@ -47,15 +47,15 @@
       },
       "Yidong": {
         "cname": "cf.92555.xyz",
-        "count": 4
+        "count": 5
       },
       "Liantong": {
         "cname": "ping.ctrl.li",
-        "count": 16
+        "count": 17
       },
       "default_view": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 28
+        "count": 29
       }
     }
   },
@@ -294,7 +294,7 @@
         "cfip-ct.stoeaves.us.ci": 35,
         "www.udacity.com": 35,
         "www.ntu.edu.com": 35,
-        "doro.lol": 75,
+        "doro.lol": 76,
         "www.hdmoli.com": 35,
         "101yaoye.com": 35,
         "test2.509666.xyz": 20,
@@ -588,7 +588,7 @@
         "www.udacity.com": 35,
         "www.ntu.edu.com": 35,
         "prizepicks.com": 35,
-        "doro.lol": 75,
+        "doro.lol": 76,
         "www.hdmoli.com": 35,
         "101yaoye.com": 35,
         "test2.509666.xyz": 20,
@@ -15120,7 +15120,7 @@
         },
         {
           "ip": "freeyx.cloudflare88.eu.org",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "funko.com",
@@ -16508,7 +16508,6 @@
     }
   },
   "logs": [
-    "[2026-08-04 19:27:26] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-04 19:31:38] ✅ candidates 测速缓存已刷新。",
     "[2026-08-05 02:10:19] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-05 02:14:22] ✅ candidates 测速缓存已刷新。",
@@ -16607,6 +16606,7 @@
     "[2026-08-17 06:47:30] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-17 06:51:09] ✅ candidates 测速缓存已刷新。",
     "[2026-08-17 12:36:45] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-17 12:40:04] ✅ candidates 测速缓存已刷新。"
+    "[2026-08-17 12:40:04] ✅ candidates 测速缓存已刷新。",
+    "[2026-08-17 18:33:45] 🔄 开始刷新大池测速数据 (30天历史模式)..."
   ]
 }
