@@ -1,8 +1,8 @@
 {
-  "last_api_update_time": 1786949469.3231769,
-  "last_top100_time": 1786949528.26717,
-  "last_top20_time": 1786949539.508937,
-  "last_top5_time": 1786949545.3741474,
+  "last_api_update_time": 1786970404.9084702,
+  "last_top100_time": 1786970429.6907732,
+  "last_top20_time": 1786970436.0174587,
+  "last_top5_time": 1786970439.3708725,
   "last_switch_time": {
     "cf": 1786431949.1710293,
     "cfs": 1786431949.1710293
@@ -29,15 +29,15 @@
       },
       "Yidong": {
         "cname": "cf.92555.xyz",
-        "count": 3
+        "count": 4
       },
       "Liantong": {
         "cname": "ping.ctrl.li",
-        "count": 15
+        "count": 16
       },
       "default_view": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 27
+        "count": 28
       }
     },
     "cfs": {
@@ -47,15 +47,15 @@
       },
       "Yidong": {
         "cname": "cf.92555.xyz",
-        "count": 3
+        "count": 4
       },
       "Liantong": {
         "cname": "ping.ctrl.li",
-        "count": 15
+        "count": 16
       },
       "default_view": {
         "cname": "auto.dolby.dpdns.org",
-        "count": 27
+        "count": 28
       }
     }
   },
@@ -294,7 +294,7 @@
         "cfip-ct.stoeaves.us.ci": 35,
         "www.udacity.com": 35,
         "www.ntu.edu.com": 35,
-        "doro.lol": 74,
+        "doro.lol": 75,
         "www.hdmoli.com": 35,
         "101yaoye.com": 35,
         "test2.509666.xyz": 20,
@@ -588,7 +588,7 @@
         "www.udacity.com": 35,
         "www.ntu.edu.com": 35,
         "prizepicks.com": 35,
-        "doro.lol": 74,
+        "doro.lol": 75,
         "www.hdmoli.com": 35,
         "101yaoye.com": 35,
         "test2.509666.xyz": 20,
@@ -657,99 +657,71 @@
   },
   "candidates": [
     {
-      "id": 37541,
-      "ip": "cf.1o.ee",
+      "id": 43265,
+      "ip": "prompt.gzcrtw.com",
       "data_30day": {
-        "ip": "cf.1o.ee",
-        "dxLatencyEma": 101.99,
-        "dxLossEma": 1.63,
-        "dxJitter": 69.03,
-        "ydLatencyEma": 114.18,
-        "ydLossEma": 3.92,
-        "ydJitter": 45.66,
-        "ltLatencyEma": 180.85,
-        "ltLossEma": 0.48,
-        "ltJitter": 4.23,
-        "avgLatency": 132.34,
-        "avgLoss": 2.01,
-        "avgJitter": 39.64
-      }
-    },
-    {
-      "id": 36703,
-      "ip": "8.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "8.cf.3666888.xyz",
-        "dxLatencyEma": 70.17,
-        "dxLossEma": 0.21,
-        "dxJitter": 12.04,
-        "ydLatencyEma": 75.39,
-        "ydLossEma": 2.03,
-        "ydJitter": 20.42,
-        "ltLatencyEma": 179.21,
-        "ltLossEma": 0.69,
-        "ltJitter": 6.07,
-        "avgLatency": 108.26,
-        "avgLoss": 0.98,
-        "avgJitter": 12.84
-      }
-    },
-    {
-      "id": 36697,
-      "ip": "1.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "1.cf.3666888.xyz",
-        "dxLatencyEma": 70.02,
-        "dxLossEma": 0.08,
-        "dxJitter": 9.22,
-        "ydLatencyEma": 75.39,
-        "ydLossEma": 1.71,
-        "ydJitter": 21.26,
-        "ltLatencyEma": 178.76,
-        "ltLossEma": 0.39,
-        "ltJitter": 6.22,
-        "avgLatency": 108.06,
-        "avgLoss": 0.73,
-        "avgJitter": 12.23
-      }
-    },
-    {
-      "id": 49021,
-      "ip": "cf.neko.cloudflaree.eu.org",
-      "data_30day": {
-        "ip": "cf.neko.cloudflaree.eu.org",
-        "dxLatencyEma": 906.16,
-        "dxLossEma": 17.12,
-        "dxJitter": 2444.96,
-        "ydLatencyEma": 892.26,
-        "ydLossEma": 18.11,
-        "ydJitter": 2451.15,
-        "ltLatencyEma": 975.26,
-        "ltLossEma": 17.08,
-        "ltJitter": 2401.24,
-        "avgLatency": 924.56,
-        "avgLoss": 17.44,
-        "avgJitter": 2432.45
-      }
-    },
-    {
-      "id": 46055,
-      "ip": "edgeone.gh-proxy.org",
-      "data_30day": {
-        "ip": "edgeone.gh-proxy.org",
-        "dxLatencyEma": 93.05,
-        "dxLossEma": 0.96,
-        "dxJitter": 24.68,
-        "ydLatencyEma": 75.19,
-        "ydLossEma": 2.11,
-        "ydJitter": 21.29,
-        "ltLatencyEma": 178.78,
-        "ltLossEma": 0.5,
-        "ltJitter": 3.82,
-        "avgLatency": 115.67,
+        "ip": "prompt.gzcrtw.com",
+        "dxLatencyEma": 93.4,
+        "dxLossEma": 0.74,
+        "dxJitter": 25.0,
+        "ydLatencyEma": 74.82,
+        "ydLossEma": 2.09,
+        "ydJitter": 20.97,
+        "ltLatencyEma": 179.77,
+        "ltLossEma": 0.73,
+        "ltJitter": 4.28,
+        "avgLatency": 116.0,
         "avgLoss": 1.19,
-        "avgJitter": 16.6
+        "avgJitter": 16.75
       }
+    },
+    {
+      "id": 36109,
+      "ip": "fw8je9.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "fw8je9.cf.3666888.xyz",
+        "dxLatencyEma": 69.95,
+        "dxLossEma": 0.06,
+        "dxJitter": 11.76,
+        "ydLatencyEma": 76.05,
+        "ydLossEma": 2.1,
+        "ydJitter": 20.88,
+        "ltLatencyEma": 179.01,
+        "ltLossEma": 0.55,
+        "ltJitter": 6.95,
+        "avgLatency": 108.34,
+        "avgLoss": 0.9,
+        "avgJitter": 13.2
+      }
+    },
+    {
+      "id": 29843,
+      "ip": "cmcc.vvvv.ee",
+      "data_30day": {
+        "ip": "cmcc.vvvv.ee",
+        "dxLatencyEma": 65.27,
+        "dxLossEma": 0.0,
+        "dxJitter": 5.09,
+        "ydLatencyEma": 77.23,
+        "ydLossEma": 2.28,
+        "ydJitter": 20.95,
+        "ltLatencyEma": 182.4,
+        "ltLossEma": 0.12,
+        "ltJitter": 3.63,
+        "avgLatency": 108.3,
+        "avgLoss": 0.8,
+        "avgJitter": 9.89
+      }
+    },
+    {
+      "id": 56092,
+      "ip": "www.dbs.com.sg",
+      "data_30day": null
+    },
+    {
+      "id": 52521,
+      "ip": "cdn.wzkf88.com",
+      "data_30day": null
     },
     {
       "id": 44961,
@@ -790,41 +762,22 @@
       }
     },
     {
-      "id": 43931,
-      "ip": "cdn.ddeed.de",
+      "id": 43264,
+      "ip": "api.gzcrtw.com",
       "data_30day": {
-        "ip": "cdn.ddeed.de",
-        "dxLatencyEma": 68.18,
+        "ip": "api.gzcrtw.com",
+        "dxLatencyEma": 68.73,
         "dxLossEma": 0.0,
-        "dxJitter": 3.93,
-        "ydLatencyEma": 75.37,
-        "ydLossEma": 2.07,
-        "ydJitter": 21.6,
-        "ltLatencyEma": 181.39,
-        "ltLossEma": 0.55,
-        "ltJitter": 4.43,
-        "avgLatency": 108.31,
-        "avgLoss": 0.87,
-        "avgJitter": 9.99
-      }
-    },
-    {
-      "id": 43265,
-      "ip": "prompt.gzcrtw.com",
-      "data_30day": {
-        "ip": "prompt.gzcrtw.com",
-        "dxLatencyEma": 93.4,
-        "dxLossEma": 0.74,
-        "dxJitter": 25.0,
-        "ydLatencyEma": 74.82,
-        "ydLossEma": 2.09,
-        "ydJitter": 20.97,
-        "ltLatencyEma": 179.77,
-        "ltLossEma": 0.73,
-        "ltJitter": 4.28,
-        "avgLatency": 116.0,
-        "avgLoss": 1.19,
-        "avgJitter": 16.75
+        "dxJitter": 4.77,
+        "ydLatencyEma": 74.64,
+        "ydLossEma": 2.29,
+        "ydJitter": 21.61,
+        "ltLatencyEma": 181.35,
+        "ltLossEma": 0.74,
+        "ltJitter": 3.77,
+        "avgLatency": 108.24,
+        "avgLoss": 1.01,
+        "avgJitter": 10.05
       }
     },
     {
@@ -847,60 +800,41 @@
       }
     },
     {
-      "id": 43258,
-      "ip": "www.xflash.vip",
+      "id": 43259,
+      "ip": "www.vastnovel.com",
       "data_30day": {
-        "ip": "www.xflash.vip",
-        "dxLatencyEma": 92.61,
-        "dxLossEma": 0.96,
-        "dxJitter": 24.4,
-        "ydLatencyEma": 74.79,
-        "ydLossEma": 1.67,
-        "ydJitter": 21.33,
-        "ltLatencyEma": 179.63,
-        "ltLossEma": 0.77,
-        "ltJitter": 4.36,
-        "avgLatency": 115.68,
-        "avgLoss": 1.13,
-        "avgJitter": 16.7
+        "ip": "www.vastnovel.com",
+        "dxLatencyEma": 92.98,
+        "dxLossEma": 0.8,
+        "dxJitter": 24.85,
+        "ydLatencyEma": 76.62,
+        "ydLossEma": 2.5,
+        "ydJitter": 19.33,
+        "ltLatencyEma": 179.76,
+        "ltLossEma": 0.53,
+        "ltJitter": 4.04,
+        "avgLatency": 116.45,
+        "avgLoss": 1.28,
+        "avgJitter": 16.07
       }
     },
     {
-      "id": 43255,
-      "ip": "doro.lol",
+      "id": 41133,
+      "ip": "cfplus.255520.xyz",
       "data_30day": {
-        "ip": "doro.lol",
-        "dxLatencyEma": 65.62,
-        "dxLossEma": 0.04,
-        "dxJitter": 8.89,
-        "ydLatencyEma": 76.28,
-        "ydLossEma": 1.64,
-        "ydJitter": 20.11,
-        "ltLatencyEma": 182.4,
-        "ltLossEma": 0.0,
-        "ltJitter": 4.54,
-        "avgLatency": 108.1,
-        "avgLoss": 0.56,
-        "avgJitter": 11.18
-      }
-    },
-    {
-      "id": 38253,
-      "ip": "www.xiaoshuofen.com",
-      "data_30day": {
-        "ip": "www.xiaoshuofen.com",
-        "dxLatencyEma": 94.63,
-        "dxLossEma": 0.9,
-        "dxJitter": 24.88,
-        "ydLatencyEma": 75.3,
-        "ydLossEma": 2.1,
-        "ydJitter": 20.89,
-        "ltLatencyEma": 180.02,
-        "ltLossEma": 0.62,
-        "ltJitter": 4.32,
-        "avgLatency": 116.65,
-        "avgLoss": 1.21,
-        "avgJitter": 16.7
+        "ip": "cfplus.255520.xyz",
+        "dxLatencyEma": 675.13,
+        "dxLossEma": 12.29,
+        "dxJitter": 2007.08,
+        "ydLatencyEma": 679.39,
+        "ydLossEma": 13.92,
+        "ydJitter": 2006.03,
+        "ltLatencyEma": 700.88,
+        "ltLossEma": 11.63,
+        "ltJitter": 1822.83,
+        "avgLatency": 685.13,
+        "avgLoss": 12.61,
+        "avgJitter": 1945.31
       }
     },
     {
@@ -920,6 +854,25 @@
         "avgLatency": 108.38,
         "avgLoss": 0.97,
         "avgJitter": 9.89
+      }
+    },
+    {
+      "id": 37541,
+      "ip": "cf.1o.ee",
+      "data_30day": {
+        "ip": "cf.1o.ee",
+        "dxLatencyEma": 101.99,
+        "dxLossEma": 1.63,
+        "dxJitter": 69.03,
+        "ydLatencyEma": 114.18,
+        "ydLossEma": 3.92,
+        "ydJitter": 45.66,
+        "ltLatencyEma": 180.85,
+        "ltLossEma": 0.48,
+        "ltJitter": 4.23,
+        "avgLatency": 132.34,
+        "avgLoss": 2.01,
+        "avgJitter": 39.64
       }
     },
     {
@@ -980,6 +933,25 @@
       }
     },
     {
+      "id": 36703,
+      "ip": "8.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "8.cf.3666888.xyz",
+        "dxLatencyEma": 70.17,
+        "dxLossEma": 0.21,
+        "dxJitter": 12.04,
+        "ydLatencyEma": 75.39,
+        "ydLossEma": 2.03,
+        "ydJitter": 20.42,
+        "ltLatencyEma": 179.21,
+        "ltLossEma": 0.69,
+        "ltJitter": 6.07,
+        "avgLatency": 108.26,
+        "avgLoss": 0.98,
+        "avgJitter": 12.84
+      }
+    },
+    {
       "id": 36702,
       "ip": "7.cf.3666888.xyz",
       "data_30day": {
@@ -1037,41 +1009,41 @@
       }
     },
     {
-      "id": 36109,
-      "ip": "fw8je9.cf.3666888.xyz",
+      "id": 36697,
+      "ip": "1.cf.3666888.xyz",
       "data_30day": {
-        "ip": "fw8je9.cf.3666888.xyz",
-        "dxLatencyEma": 69.95,
-        "dxLossEma": 0.06,
-        "dxJitter": 11.76,
-        "ydLatencyEma": 76.05,
-        "ydLossEma": 2.1,
-        "ydJitter": 20.88,
-        "ltLatencyEma": 179.01,
-        "ltLossEma": 0.55,
-        "ltJitter": 6.95,
-        "avgLatency": 108.34,
-        "avgLoss": 0.9,
-        "avgJitter": 13.2
+        "ip": "1.cf.3666888.xyz",
+        "dxLatencyEma": 70.02,
+        "dxLossEma": 0.08,
+        "dxJitter": 9.22,
+        "ydLatencyEma": 75.39,
+        "ydLossEma": 1.71,
+        "ydJitter": 21.26,
+        "ltLatencyEma": 178.76,
+        "ltLossEma": 0.39,
+        "ltJitter": 6.22,
+        "avgLatency": 108.06,
+        "avgLoss": 0.73,
+        "avgJitter": 12.23
       }
     },
     {
-      "id": 36108,
-      "ip": "avido.cf.3666888.xyz",
+      "id": 36112,
+      "ip": "hfqek.cf.3666888.xyz",
       "data_30day": {
-        "ip": "avido.cf.3666888.xyz",
-        "dxLatencyEma": 70.79,
-        "dxLossEma": 0.11,
-        "dxJitter": 11.63,
-        "ydLatencyEma": 75.63,
-        "ydLossEma": 1.83,
-        "ydJitter": 20.62,
-        "ltLatencyEma": 178.8,
-        "ltLossEma": 0.56,
-        "ltJitter": 6.21,
-        "avgLatency": 108.41,
-        "avgLoss": 0.83,
-        "avgJitter": 12.82
+        "ip": "hfqek.cf.3666888.xyz",
+        "dxLatencyEma": 70.28,
+        "dxLossEma": 0.15,
+        "dxJitter": 13.82,
+        "ydLatencyEma": 75.35,
+        "ydLossEma": 1.94,
+        "ydJitter": 21.56,
+        "ltLatencyEma": 178.97,
+        "ltLossEma": 0.48,
+        "ltJitter": 6.51,
+        "avgLatency": 108.2,
+        "avgLoss": 0.86,
+        "avgJitter": 13.96
       }
     },
     {
@@ -1129,25 +1101,6 @@
         "avgLatency": 108.29,
         "avgLoss": 0.89,
         "avgJitter": 13.11
-      }
-    },
-    {
-      "id": 34805,
-      "ip": "cf1s.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "cf1s.cf.3666888.xyz",
-        "dxLatencyEma": 70.31,
-        "dxLossEma": 0.14,
-        "dxJitter": 12.85,
-        "ydLatencyEma": 76.27,
-        "ydLossEma": 1.96,
-        "ydJitter": 21.31,
-        "ltLatencyEma": 178.81,
-        "ltLossEma": 0.59,
-        "ltJitter": 6.28,
-        "avgLatency": 108.46,
-        "avgLoss": 0.9,
-        "avgJitter": 13.48
       }
     },
     {
@@ -1227,6 +1180,25 @@
       }
     },
     {
+      "id": 34796,
+      "ip": "cdn.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "cdn.cf.3666888.xyz",
+        "dxLatencyEma": 70.74,
+        "dxLossEma": 0.12,
+        "dxJitter": 12.93,
+        "ydLatencyEma": 76.41,
+        "ydLossEma": 2.07,
+        "ydJitter": 21.32,
+        "ltLatencyEma": 178.67,
+        "ltLossEma": 0.67,
+        "ltJitter": 6.3,
+        "avgLatency": 108.61,
+        "avgLoss": 0.95,
+        "avgJitter": 13.52
+      }
+    },
+    {
       "id": 34564,
       "ip": "a.lma.de5.net",
       "data_30day": {
@@ -1243,25 +1215,6 @@
         "avgLatency": 108.47,
         "avgLoss": 0.84,
         "avgJitter": 9.79
-      }
-    },
-    {
-      "id": 32014,
-      "ip": "www.jimdo.com",
-      "data_30day": {
-        "ip": "www.jimdo.com",
-        "dxLatencyEma": 93.26,
-        "dxLossEma": 0.83,
-        "dxJitter": 24.28,
-        "ydLatencyEma": 76.2,
-        "ydLossEma": 2.07,
-        "ydJitter": 20.81,
-        "ltLatencyEma": 182.64,
-        "ltLossEma": 0.68,
-        "ltJitter": 4.7,
-        "avgLatency": 117.37,
-        "avgLoss": 1.19,
-        "avgJitter": 16.6
       }
     },
     {
@@ -1284,22 +1237,22 @@
       }
     },
     {
-      "id": 31770,
-      "ip": "dnew.cc",
+      "id": 31205,
+      "ip": "nexusmods.com",
       "data_30day": {
-        "ip": "dnew.cc",
-        "dxLatencyEma": 93.27,
-        "dxLossEma": 0.84,
-        "dxJitter": 24.0,
-        "ydLatencyEma": 75.24,
-        "ydLossEma": 1.9,
-        "ydJitter": 20.56,
-        "ltLatencyEma": 182.74,
-        "ltLossEma": 0.42,
-        "ltJitter": 5.81,
-        "avgLatency": 117.08,
-        "avgLoss": 1.05,
-        "avgJitter": 16.79
+        "ip": "nexusmods.com",
+        "dxLatencyEma": 94.34,
+        "dxLossEma": 0.81,
+        "dxJitter": 25.47,
+        "ydLatencyEma": 75.67,
+        "ydLossEma": 2.22,
+        "ydJitter": 21.15,
+        "ltLatencyEma": 180.86,
+        "ltLossEma": 0.59,
+        "ltJitter": 5.73,
+        "avgLatency": 116.96,
+        "avgLoss": 1.21,
+        "avgJitter": 17.45
       }
     },
     {
@@ -1322,44 +1275,6 @@
       }
     },
     {
-      "id": 30813,
-      "ip": "bbs.alipansou.com",
-      "data_30day": {
-        "ip": "bbs.alipansou.com",
-        "dxLatencyEma": 68.6,
-        "dxLossEma": 0.0,
-        "dxJitter": 3.51,
-        "ydLatencyEma": 75.17,
-        "ydLossEma": 2.02,
-        "ydJitter": 21.11,
-        "ltLatencyEma": 181.14,
-        "ltLossEma": 0.55,
-        "ltJitter": 3.71,
-        "avgLatency": 108.3,
-        "avgLoss": 0.86,
-        "avgJitter": 9.44
-      }
-    },
-    {
-      "id": 30546,
-      "ip": "cf.3666888.xyz",
-      "data_30day": {
-        "ip": "cf.3666888.xyz",
-        "dxLatencyEma": 70.32,
-        "dxLossEma": 0.12,
-        "dxJitter": 10.66,
-        "ydLatencyEma": 75.74,
-        "ydLossEma": 1.82,
-        "ydJitter": 22.13,
-        "ltLatencyEma": 179.25,
-        "ltLossEma": 0.46,
-        "ltJitter": 6.54,
-        "avgLatency": 108.44,
-        "avgLoss": 0.8,
-        "avgJitter": 13.11
-      }
-    },
-    {
       "id": 29971,
       "ip": "cf.godns.cc",
       "data_30day": {
@@ -1376,44 +1291,6 @@
         "avgLatency": 108.67,
         "avgLoss": 0.94,
         "avgJitter": 9.91
-      }
-    },
-    {
-      "id": 29843,
-      "ip": "cmcc.vvvv.ee",
-      "data_30day": {
-        "ip": "cmcc.vvvv.ee",
-        "dxLatencyEma": 65.27,
-        "dxLossEma": 0.0,
-        "dxJitter": 5.09,
-        "ydLatencyEma": 77.23,
-        "ydLossEma": 2.28,
-        "ydJitter": 20.95,
-        "ltLatencyEma": 182.4,
-        "ltLossEma": 0.12,
-        "ltJitter": 3.63,
-        "avgLatency": 108.3,
-        "avgLoss": 0.8,
-        "avgJitter": 9.89
-      }
-    },
-    {
-      "id": 29391,
-      "ip": "store.ubi.com",
-      "data_30day": {
-        "ip": "store.ubi.com",
-        "dxLatencyEma": 94.67,
-        "dxLossEma": 0.79,
-        "dxJitter": 24.92,
-        "ydLatencyEma": 76.38,
-        "ydLossEma": 1.85,
-        "ydJitter": 21.78,
-        "ltLatencyEma": 178.05,
-        "ltLossEma": 0.58,
-        "ltJitter": 4.11,
-        "avgLatency": 116.37,
-        "avgLoss": 1.07,
-        "avgJitter": 16.94
       }
     },
     {
@@ -1455,6 +1332,25 @@
       }
     },
     {
+      "id": 28084,
+      "ip": "cu.877774.xyz",
+      "data_30day": {
+        "ip": "cu.877774.xyz",
+        "dxLatencyEma": 94.58,
+        "dxLossEma": 0.86,
+        "dxJitter": 25.01,
+        "ydLatencyEma": 77.39,
+        "ydLossEma": 2.21,
+        "ydJitter": 21.33,
+        "ltLatencyEma": 180.89,
+        "ltLossEma": 0.66,
+        "ltJitter": 5.67,
+        "avgLatency": 117.62,
+        "avgLoss": 1.24,
+        "avgJitter": 17.34
+      }
+    },
+    {
       "id": 21422,
       "ip": "cf-cname.xingpingcn.top",
       "data_30day": {
@@ -1491,16 +1387,6 @@
         "avgLoss": 2.67,
         "avgJitter": 40.33
       }
-    },
-    {
-      "id": 56092,
-      "ip": "www.dbs.com.sg",
-      "data_30day": null
-    },
-    {
-      "id": 52521,
-      "ip": "cdn.wzkf88.com",
-      "data_30day": null
     },
     {
       "id": 49581,
@@ -1541,22 +1427,60 @@
       }
     },
     {
-      "id": 46107,
-      "ip": "1.cloudflare.19931110.xyz",
+      "id": 49020,
+      "ip": "cf.neko.cloudd.eu.org",
       "data_30day": {
-        "ip": "1.cloudflare.19931110.xyz",
-        "dxLatencyEma": 78.76,
-        "dxLossEma": 2.71,
-        "dxJitter": 33.69,
-        "ydLatencyEma": 77.87,
-        "ydLossEma": 2.29,
-        "ydJitter": 20.71,
-        "ltLatencyEma": 185.97,
-        "ltLossEma": 0.45,
-        "ltJitter": 4.64,
-        "avgLatency": 114.2,
-        "avgLoss": 1.82,
-        "avgJitter": 19.68
+        "ip": "cf.neko.cloudd.eu.org",
+        "dxLatencyEma": 905.17,
+        "dxLossEma": 17.44,
+        "dxJitter": 2445.51,
+        "ydLatencyEma": 892.4,
+        "ydLossEma": 18.47,
+        "ydJitter": 2450.8,
+        "ltLatencyEma": 975.88,
+        "ltLossEma": 17.0,
+        "ltJitter": 2401.07,
+        "avgLatency": 924.48,
+        "avgLoss": 17.64,
+        "avgJitter": 2432.46
+      }
+    },
+    {
+      "id": 48115,
+      "ip": "cdn.fiatnorm.us.kg",
+      "data_30day": {
+        "ip": "cdn.fiatnorm.us.kg",
+        "dxLatencyEma": 397.27,
+        "dxLossEma": 7.21,
+        "dxJitter": 1488.35,
+        "ydLatencyEma": 372.48,
+        "ydLossEma": 7.68,
+        "ydJitter": 1499.86,
+        "ltLatencyEma": 438.84,
+        "ltLossEma": 6.98,
+        "ltJitter": 1485.0,
+        "avgLatency": 402.86,
+        "avgLoss": 7.29,
+        "avgJitter": 1491.07
+      }
+    },
+    {
+      "id": 46055,
+      "ip": "edgeone.gh-proxy.org",
+      "data_30day": {
+        "ip": "edgeone.gh-proxy.org",
+        "dxLatencyEma": 93.05,
+        "dxLossEma": 0.96,
+        "dxJitter": 24.68,
+        "ydLatencyEma": 75.19,
+        "ydLossEma": 2.11,
+        "ydJitter": 21.29,
+        "ltLatencyEma": 178.78,
+        "ltLossEma": 0.5,
+        "ltJitter": 3.82,
+        "avgLatency": 115.67,
+        "avgLoss": 1.19,
+        "avgJitter": 16.6
       }
     },
     {
@@ -1579,22 +1503,22 @@
       }
     },
     {
-      "id": 43264,
-      "ip": "api.gzcrtw.com",
+      "id": 43931,
+      "ip": "cdn.ddeed.de",
       "data_30day": {
-        "ip": "api.gzcrtw.com",
-        "dxLatencyEma": 68.73,
+        "ip": "cdn.ddeed.de",
+        "dxLatencyEma": 68.18,
         "dxLossEma": 0.0,
-        "dxJitter": 4.77,
-        "ydLatencyEma": 74.64,
-        "ydLossEma": 2.29,
-        "ydJitter": 21.61,
-        "ltLatencyEma": 181.35,
-        "ltLossEma": 0.74,
-        "ltJitter": 3.77,
-        "avgLatency": 108.24,
-        "avgLoss": 1.01,
-        "avgJitter": 10.05
+        "dxJitter": 3.93,
+        "ydLatencyEma": 75.37,
+        "ydLossEma": 2.07,
+        "ydJitter": 21.6,
+        "ltLatencyEma": 181.39,
+        "ltLossEma": 0.55,
+        "ltJitter": 4.43,
+        "avgLatency": 108.31,
+        "avgLoss": 0.87,
+        "avgJitter": 9.99
       }
     },
     {
@@ -1655,41 +1579,60 @@
       }
     },
     {
-      "id": 43259,
-      "ip": "www.vastnovel.com",
+      "id": 43258,
+      "ip": "www.xflash.vip",
       "data_30day": {
-        "ip": "www.vastnovel.com",
-        "dxLatencyEma": 92.98,
-        "dxLossEma": 0.8,
-        "dxJitter": 24.85,
-        "ydLatencyEma": 76.62,
-        "ydLossEma": 2.5,
-        "ydJitter": 19.33,
-        "ltLatencyEma": 179.76,
-        "ltLossEma": 0.53,
-        "ltJitter": 4.04,
-        "avgLatency": 116.45,
-        "avgLoss": 1.28,
-        "avgJitter": 16.07
+        "ip": "www.xflash.vip",
+        "dxLatencyEma": 92.61,
+        "dxLossEma": 0.96,
+        "dxJitter": 24.4,
+        "ydLatencyEma": 74.79,
+        "ydLossEma": 1.67,
+        "ydJitter": 21.33,
+        "ltLatencyEma": 179.63,
+        "ltLossEma": 0.77,
+        "ltJitter": 4.36,
+        "avgLatency": 115.68,
+        "avgLoss": 1.13,
+        "avgJitter": 16.7
       }
     },
     {
-      "id": 41133,
-      "ip": "cfplus.255520.xyz",
+      "id": 43257,
+      "ip": "dongbanghong.com",
       "data_30day": {
-        "ip": "cfplus.255520.xyz",
-        "dxLatencyEma": 675.13,
-        "dxLossEma": 12.29,
-        "dxJitter": 2007.08,
-        "ydLatencyEma": 679.39,
-        "ydLossEma": 13.92,
-        "ydJitter": 2006.03,
-        "ltLatencyEma": 700.88,
-        "ltLossEma": 11.63,
-        "ltJitter": 1822.83,
-        "avgLatency": 685.13,
-        "avgLoss": 12.61,
-        "avgJitter": 1945.31
+        "ip": "dongbanghong.com",
+        "dxLatencyEma": 93.22,
+        "dxLossEma": 0.82,
+        "dxJitter": 24.12,
+        "ydLatencyEma": 75.67,
+        "ydLossEma": 2.07,
+        "ydJitter": 20.9,
+        "ltLatencyEma": 179.96,
+        "ltLossEma": 0.55,
+        "ltJitter": 4.28,
+        "avgLatency": 116.28,
+        "avgLoss": 1.15,
+        "avgJitter": 16.43
+      }
+    },
+    {
+      "id": 43255,
+      "ip": "doro.lol",
+      "data_30day": {
+        "ip": "doro.lol",
+        "dxLatencyEma": 65.62,
+        "dxLossEma": 0.04,
+        "dxJitter": 8.89,
+        "ydLatencyEma": 76.28,
+        "ydLossEma": 1.64,
+        "ydJitter": 20.11,
+        "ltLatencyEma": 182.4,
+        "ltLossEma": 0.0,
+        "ltJitter": 4.54,
+        "avgLatency": 108.1,
+        "avgLoss": 0.56,
+        "avgJitter": 11.18
       }
     },
     {
@@ -1712,6 +1655,25 @@
       }
     },
     {
+      "id": 39685,
+      "ip": "cdn.091224.xyz",
+      "data_30day": {
+        "ip": "cdn.091224.xyz",
+        "dxLatencyEma": 81.92,
+        "dxLossEma": 0.21,
+        "dxJitter": 18.05,
+        "ydLatencyEma": 76.95,
+        "ydLossEma": 2.25,
+        "ydJitter": 19.18,
+        "ltLatencyEma": 189.96,
+        "ltLossEma": 0.55,
+        "ltJitter": 7.98,
+        "avgLatency": 116.28,
+        "avgLoss": 1.0,
+        "avgJitter": 15.07
+      }
+    },
+    {
       "id": 39491,
       "ip": "cdn.7zz.cn",
       "data_30day": {
@@ -1728,6 +1690,44 @@
         "avgLatency": 107.52,
         "avgLoss": 1.19,
         "avgJitter": 11.93
+      }
+    },
+    {
+      "id": 38253,
+      "ip": "www.xiaoshuofen.com",
+      "data_30day": {
+        "ip": "www.xiaoshuofen.com",
+        "dxLatencyEma": 94.63,
+        "dxLossEma": 0.9,
+        "dxJitter": 24.88,
+        "ydLatencyEma": 75.3,
+        "ydLossEma": 2.1,
+        "ydJitter": 20.89,
+        "ltLatencyEma": 180.02,
+        "ltLossEma": 0.62,
+        "ltJitter": 4.32,
+        "avgLatency": 116.65,
+        "avgLoss": 1.21,
+        "avgJitter": 16.7
+      }
+    },
+    {
+      "id": 38090,
+      "ip": "www.galgamex.net",
+      "data_30day": {
+        "ip": "www.galgamex.net",
+        "dxLatencyEma": 69.22,
+        "dxLossEma": 0.17,
+        "dxJitter": 11.44,
+        "ydLatencyEma": 75.08,
+        "ydLossEma": 2.19,
+        "ydJitter": 20.99,
+        "ltLatencyEma": 179.57,
+        "ltLossEma": 0.59,
+        "ltJitter": 6.81,
+        "avgLatency": 107.96,
+        "avgLoss": 0.98,
+        "avgJitter": 13.08
       }
     },
     {
@@ -1750,6 +1750,44 @@
       }
     },
     {
+      "id": 37341,
+      "ip": "yg2.ygkkk.dpdns.org",
+      "data_30day": {
+        "ip": "yg2.ygkkk.dpdns.org",
+        "dxLatencyEma": 1633.57,
+        "dxLossEma": 31.93,
+        "dxJitter": 2356.38,
+        "ydLatencyEma": 1619.49,
+        "ydLossEma": 32.83,
+        "ydJitter": 2364.93,
+        "ltLatencyEma": 546.57,
+        "ltLossEma": 8.67,
+        "ltJitter": 1222.71,
+        "avgLatency": 1266.54,
+        "avgLoss": 24.48,
+        "avgJitter": 1981.34
+      }
+    },
+    {
+      "id": 36706,
+      "ip": "11.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "11.cf.3666888.xyz",
+        "dxLatencyEma": 70.91,
+        "dxLossEma": 0.13,
+        "dxJitter": 14.29,
+        "ydLatencyEma": 76.13,
+        "ydLossEma": 1.93,
+        "ydJitter": 21.06,
+        "ltLatencyEma": 179.47,
+        "ltLossEma": 0.7,
+        "ltJitter": 6.3,
+        "avgLatency": 108.84,
+        "avgLoss": 0.92,
+        "avgJitter": 13.88
+      }
+    },
+    {
       "id": 36704,
       "ip": "9.cf.3666888.xyz",
       "data_30day": {
@@ -1766,6 +1804,25 @@
         "avgLatency": 108.03,
         "avgLoss": 0.8,
         "avgJitter": 12.51
+      }
+    },
+    {
+      "id": 36701,
+      "ip": "6.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "6.cf.3666888.xyz",
+        "dxLatencyEma": 72.67,
+        "dxLossEma": 0.2,
+        "dxJitter": 15.77,
+        "ydLatencyEma": 75.42,
+        "ydLossEma": 2.23,
+        "ydJitter": 21.42,
+        "ltLatencyEma": 178.72,
+        "ltLossEma": 0.58,
+        "ltJitter": 5.97,
+        "avgLatency": 108.94,
+        "avgLoss": 1.0,
+        "avgJitter": 14.39
       }
     },
     {
@@ -1788,22 +1845,41 @@
       }
     },
     {
-      "id": 36112,
-      "ip": "hfqek.cf.3666888.xyz",
+      "id": 36111,
+      "ip": "eteaf.cf.3666888.xyz",
       "data_30day": {
-        "ip": "hfqek.cf.3666888.xyz",
-        "dxLatencyEma": 70.28,
-        "dxLossEma": 0.15,
-        "dxJitter": 13.82,
-        "ydLatencyEma": 75.35,
-        "ydLossEma": 1.94,
-        "ydJitter": 21.56,
-        "ltLatencyEma": 178.97,
-        "ltLossEma": 0.48,
-        "ltJitter": 6.51,
-        "avgLatency": 108.2,
-        "avgLoss": 0.86,
-        "avgJitter": 13.96
+        "ip": "eteaf.cf.3666888.xyz",
+        "dxLatencyEma": 69.16,
+        "dxLossEma": 0.12,
+        "dxJitter": 10.96,
+        "ydLatencyEma": 75.67,
+        "ydLossEma": 1.91,
+        "ydJitter": 21.14,
+        "ltLatencyEma": 179.3,
+        "ltLossEma": 0.61,
+        "ltJitter": 6.02,
+        "avgLatency": 108.04,
+        "avgLoss": 0.88,
+        "avgJitter": 12.71
+      }
+    },
+    {
+      "id": 36108,
+      "ip": "avido.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "avido.cf.3666888.xyz",
+        "dxLatencyEma": 70.79,
+        "dxLossEma": 0.11,
+        "dxJitter": 11.63,
+        "ydLatencyEma": 75.63,
+        "ydLossEma": 1.83,
+        "ydJitter": 20.62,
+        "ltLatencyEma": 178.8,
+        "ltLossEma": 0.56,
+        "ltJitter": 6.21,
+        "avgLatency": 108.41,
+        "avgLoss": 0.83,
+        "avgJitter": 12.82
       }
     },
     {
@@ -1845,22 +1921,22 @@
       }
     },
     {
-      "id": 34880,
-      "ip": "cloudflare.rainyfall.com",
+      "id": 34805,
+      "ip": "cf1s.cf.3666888.xyz",
       "data_30day": {
-        "ip": "cloudflare.rainyfall.com",
-        "dxLatencyEma": 87.1,
-        "dxLossEma": 0.82,
-        "dxJitter": 19.48,
-        "ydLatencyEma": 75.63,
-        "ydLossEma": 2.21,
-        "ydJitter": 21.5,
-        "ltLatencyEma": 179.29,
-        "ltLossEma": 0.67,
-        "ltJitter": 4.99,
-        "avgLatency": 114.01,
-        "avgLoss": 1.23,
-        "avgJitter": 15.32
+        "ip": "cf1s.cf.3666888.xyz",
+        "dxLatencyEma": 70.31,
+        "dxLossEma": 0.14,
+        "dxJitter": 12.85,
+        "ydLatencyEma": 76.27,
+        "ydLossEma": 1.96,
+        "ydJitter": 21.31,
+        "ltLatencyEma": 178.81,
+        "ltLossEma": 0.59,
+        "ltJitter": 6.28,
+        "avgLatency": 108.46,
+        "avgLoss": 0.9,
+        "avgJitter": 13.48
       }
     },
     {
@@ -1883,22 +1959,60 @@
       }
     },
     {
-      "id": 34796,
-      "ip": "cdn.cf.3666888.xyz",
+      "id": 34800,
+      "ip": "hk.cf.3666888.xyz",
       "data_30day": {
-        "ip": "cdn.cf.3666888.xyz",
-        "dxLatencyEma": 70.74,
-        "dxLossEma": 0.12,
-        "dxJitter": 12.93,
-        "ydLatencyEma": 76.41,
+        "ip": "hk.cf.3666888.xyz",
+        "dxLatencyEma": 70.44,
+        "dxLossEma": 0.15,
+        "dxJitter": 12.13,
+        "ydLatencyEma": 74.11,
+        "ydLossEma": 2.06,
+        "ydJitter": 20.04,
+        "ltLatencyEma": 179.24,
+        "ltLossEma": 0.47,
+        "ltJitter": 6.68,
+        "avgLatency": 107.93,
+        "avgLoss": 0.89,
+        "avgJitter": 12.95
+      }
+    },
+    {
+      "id": 32014,
+      "ip": "www.jimdo.com",
+      "data_30day": {
+        "ip": "www.jimdo.com",
+        "dxLatencyEma": 93.26,
+        "dxLossEma": 0.83,
+        "dxJitter": 24.28,
+        "ydLatencyEma": 76.2,
         "ydLossEma": 2.07,
-        "ydJitter": 21.32,
-        "ltLatencyEma": 178.67,
-        "ltLossEma": 0.67,
-        "ltJitter": 6.3,
-        "avgLatency": 108.61,
-        "avgLoss": 0.95,
-        "avgJitter": 13.52
+        "ydJitter": 20.81,
+        "ltLatencyEma": 182.64,
+        "ltLossEma": 0.68,
+        "ltJitter": 4.7,
+        "avgLatency": 117.37,
+        "avgLoss": 1.19,
+        "avgJitter": 16.6
+      }
+    },
+    {
+      "id": 31770,
+      "ip": "dnew.cc",
+      "data_30day": {
+        "ip": "dnew.cc",
+        "dxLatencyEma": 93.27,
+        "dxLossEma": 0.84,
+        "dxJitter": 24.0,
+        "ydLatencyEma": 75.24,
+        "ydLossEma": 1.9,
+        "ydJitter": 20.56,
+        "ltLatencyEma": 182.74,
+        "ltLossEma": 0.42,
+        "ltJitter": 5.81,
+        "avgLatency": 117.08,
+        "avgLoss": 1.05,
+        "avgJitter": 16.79
       }
     },
     {
@@ -1921,22 +2035,41 @@
       }
     },
     {
-      "id": 31205,
-      "ip": "nexusmods.com",
+      "id": 30813,
+      "ip": "bbs.alipansou.com",
       "data_30day": {
-        "ip": "nexusmods.com",
-        "dxLatencyEma": 94.34,
-        "dxLossEma": 0.81,
-        "dxJitter": 25.47,
-        "ydLatencyEma": 75.67,
-        "ydLossEma": 2.22,
-        "ydJitter": 21.15,
-        "ltLatencyEma": 180.86,
-        "ltLossEma": 0.59,
-        "ltJitter": 5.73,
-        "avgLatency": 116.96,
-        "avgLoss": 1.21,
-        "avgJitter": 17.45
+        "ip": "bbs.alipansou.com",
+        "dxLatencyEma": 68.6,
+        "dxLossEma": 0.0,
+        "dxJitter": 3.51,
+        "ydLatencyEma": 75.17,
+        "ydLossEma": 2.02,
+        "ydJitter": 21.11,
+        "ltLatencyEma": 181.14,
+        "ltLossEma": 0.55,
+        "ltJitter": 3.71,
+        "avgLatency": 108.3,
+        "avgLoss": 0.86,
+        "avgJitter": 9.44
+      }
+    },
+    {
+      "id": 30546,
+      "ip": "cf.3666888.xyz",
+      "data_30day": {
+        "ip": "cf.3666888.xyz",
+        "dxLatencyEma": 70.32,
+        "dxLossEma": 0.12,
+        "dxJitter": 10.66,
+        "ydLatencyEma": 75.74,
+        "ydLossEma": 1.82,
+        "ydJitter": 22.13,
+        "ltLatencyEma": 179.25,
+        "ltLossEma": 0.46,
+        "ltJitter": 6.54,
+        "avgLatency": 108.44,
+        "avgLoss": 0.8,
+        "avgJitter": 13.11
       }
     },
     {
@@ -1978,22 +2111,22 @@
       }
     },
     {
-      "id": 28084,
-      "ip": "cu.877774.xyz",
+      "id": 29391,
+      "ip": "store.ubi.com",
       "data_30day": {
-        "ip": "cu.877774.xyz",
-        "dxLatencyEma": 94.58,
-        "dxLossEma": 0.86,
-        "dxJitter": 25.01,
-        "ydLatencyEma": 77.39,
-        "ydLossEma": 2.21,
-        "ydJitter": 21.33,
-        "ltLatencyEma": 180.89,
-        "ltLossEma": 0.66,
-        "ltJitter": 5.67,
-        "avgLatency": 117.62,
-        "avgLoss": 1.24,
-        "avgJitter": 17.34
+        "ip": "store.ubi.com",
+        "dxLatencyEma": 94.67,
+        "dxLossEma": 0.79,
+        "dxJitter": 24.92,
+        "ydLatencyEma": 76.38,
+        "ydLossEma": 1.85,
+        "ydJitter": 21.78,
+        "ltLatencyEma": 178.05,
+        "ltLossEma": 0.58,
+        "ltJitter": 4.11,
+        "avgLatency": 116.37,
+        "avgLoss": 1.07,
+        "avgJitter": 16.94
       }
     },
     {
@@ -2054,25 +2187,6 @@
       }
     },
     {
-      "id": 48115,
-      "ip": "cdn.fiatnorm.us.kg",
-      "data_30day": {
-        "ip": "cdn.fiatnorm.us.kg",
-        "dxLatencyEma": 397.27,
-        "dxLossEma": 7.21,
-        "dxJitter": 1488.35,
-        "ydLatencyEma": 372.48,
-        "ydLossEma": 7.68,
-        "ydJitter": 1499.86,
-        "ltLatencyEma": 438.84,
-        "ltLossEma": 6.98,
-        "ltJitter": 1485.0,
-        "avgLatency": 402.86,
-        "avgLoss": 7.29,
-        "avgJitter": 1491.07
-      }
-    },
-    {
       "id": 44099,
       "ip": "cfip-ct.stoeaves.us.ci",
       "data_30day": {
@@ -2089,25 +2203,6 @@
         "avgLatency": 124.35,
         "avgLoss": 1.63,
         "avgJitter": 17.07
-      }
-    },
-    {
-      "id": 43257,
-      "ip": "dongbanghong.com",
-      "data_30day": {
-        "ip": "dongbanghong.com",
-        "dxLatencyEma": 93.22,
-        "dxLossEma": 0.82,
-        "dxJitter": 24.12,
-        "ydLatencyEma": 75.67,
-        "ydLossEma": 2.07,
-        "ydJitter": 20.9,
-        "ltLatencyEma": 179.96,
-        "ltLossEma": 0.55,
-        "ltJitter": 4.28,
-        "avgLatency": 116.28,
-        "avgLoss": 1.15,
-        "avgJitter": 16.43
       }
     },
     {
@@ -2130,25 +2225,6 @@
       }
     },
     {
-      "id": 39685,
-      "ip": "cdn.091224.xyz",
-      "data_30day": {
-        "ip": "cdn.091224.xyz",
-        "dxLatencyEma": 81.92,
-        "dxLossEma": 0.21,
-        "dxJitter": 18.05,
-        "ydLatencyEma": 76.95,
-        "ydLossEma": 2.25,
-        "ydJitter": 19.18,
-        "ltLatencyEma": 189.96,
-        "ltLossEma": 0.55,
-        "ltJitter": 7.98,
-        "avgLatency": 116.28,
-        "avgLoss": 1.0,
-        "avgJitter": 15.07
-      }
-    },
-    {
       "id": 39116,
       "ip": "www.bangbenjiaju.com",
       "data_30day": {
@@ -2165,25 +2241,6 @@
         "avgLatency": 111.69,
         "avgLoss": 2.2,
         "avgJitter": 35.95
-      }
-    },
-    {
-      "id": 38090,
-      "ip": "www.galgamex.net",
-      "data_30day": {
-        "ip": "www.galgamex.net",
-        "dxLatencyEma": 69.22,
-        "dxLossEma": 0.17,
-        "dxJitter": 11.44,
-        "ydLatencyEma": 75.08,
-        "ydLossEma": 2.19,
-        "ydJitter": 20.99,
-        "ltLatencyEma": 179.57,
-        "ltLossEma": 0.59,
-        "ltJitter": 6.81,
-        "avgLatency": 107.96,
-        "avgLoss": 0.98,
-        "avgJitter": 13.08
       }
     },
     {
@@ -2206,79 +2263,22 @@
       }
     },
     {
-      "id": 37341,
-      "ip": "yg2.ygkkk.dpdns.org",
+      "id": 34880,
+      "ip": "cloudflare.rainyfall.com",
       "data_30day": {
-        "ip": "yg2.ygkkk.dpdns.org",
-        "dxLatencyEma": 1633.57,
-        "dxLossEma": 31.93,
-        "dxJitter": 2356.38,
-        "ydLatencyEma": 1619.49,
-        "ydLossEma": 32.83,
-        "ydJitter": 2364.93,
-        "ltLatencyEma": 546.57,
-        "ltLossEma": 8.67,
-        "ltJitter": 1222.71,
-        "avgLatency": 1266.54,
-        "avgLoss": 24.48,
-        "avgJitter": 1981.34
-      }
-    },
-    {
-      "id": 36706,
-      "ip": "11.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "11.cf.3666888.xyz",
-        "dxLatencyEma": 70.91,
-        "dxLossEma": 0.13,
-        "dxJitter": 14.29,
-        "ydLatencyEma": 76.13,
-        "ydLossEma": 1.93,
-        "ydJitter": 21.06,
-        "ltLatencyEma": 179.47,
-        "ltLossEma": 0.7,
-        "ltJitter": 6.3,
-        "avgLatency": 108.84,
-        "avgLoss": 0.92,
-        "avgJitter": 13.88
-      }
-    },
-    {
-      "id": 36111,
-      "ip": "eteaf.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "eteaf.cf.3666888.xyz",
-        "dxLatencyEma": 69.16,
-        "dxLossEma": 0.12,
-        "dxJitter": 10.96,
-        "ydLatencyEma": 75.67,
-        "ydLossEma": 1.91,
-        "ydJitter": 21.14,
-        "ltLatencyEma": 179.3,
-        "ltLossEma": 0.61,
-        "ltJitter": 6.02,
-        "avgLatency": 108.04,
-        "avgLoss": 0.88,
-        "avgJitter": 12.71
-      }
-    },
-    {
-      "id": 34800,
-      "ip": "hk.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "hk.cf.3666888.xyz",
-        "dxLatencyEma": 70.44,
-        "dxLossEma": 0.15,
-        "dxJitter": 12.13,
-        "ydLatencyEma": 74.11,
-        "ydLossEma": 2.06,
-        "ydJitter": 20.04,
-        "ltLatencyEma": 179.24,
-        "ltLossEma": 0.47,
-        "ltJitter": 6.68,
-        "avgLatency": 107.93,
-        "avgLoss": 0.89,
-        "avgJitter": 12.95
+        "ip": "cloudflare.rainyfall.com",
+        "dxLatencyEma": 87.1,
+        "dxLossEma": 0.82,
+        "dxJitter": 19.48,
+        "ydLatencyEma": 75.63,
+        "ydLossEma": 2.21,
+        "ydJitter": 21.5,
+        "ltLatencyEma": 179.29,
+        "ltLossEma": 0.67,
+        "ltJitter": 4.99,
+        "avgLatency": 114.01,
+        "avgLoss": 1.23,
+        "avgJitter": 15.32
       }
     },
     {
@@ -2301,63 +2301,6 @@
       }
     },
     {
-      "id": 49020,
-      "ip": "cf.neko.cloudd.eu.org",
-      "data_30day": {
-        "ip": "cf.neko.cloudd.eu.org",
-        "dxLatencyEma": 905.17,
-        "dxLossEma": 17.44,
-        "dxJitter": 2445.51,
-        "ydLatencyEma": 892.4,
-        "ydLossEma": 18.47,
-        "ydJitter": 2450.8,
-        "ltLatencyEma": 975.88,
-        "ltLossEma": 17.0,
-        "ltJitter": 2401.07,
-        "avgLatency": 924.48,
-        "avgLoss": 17.64,
-        "avgJitter": 2432.46
-      }
-    },
-    {
-      "id": 44101,
-      "ip": "cfip-cm.stoeaves.us.ci",
-      "data_30day": {
-        "ip": "cfip-cm.stoeaves.us.ci",
-        "dxLatencyEma": 124.13,
-        "dxLossEma": 2.75,
-        "dxJitter": 26.01,
-        "ydLatencyEma": 74.38,
-        "ydLossEma": 2.01,
-        "ydJitter": 20.41,
-        "ltLatencyEma": 181.42,
-        "ltLossEma": 0.65,
-        "ltJitter": 4.37,
-        "avgLatency": 126.64,
-        "avgLoss": 1.8,
-        "avgJitter": 16.93
-      }
-    },
-    {
-      "id": 41132,
-      "ip": "markmonitor.com",
-      "data_30day": {
-        "ip": "markmonitor.com",
-        "dxLatencyEma": 94.35,
-        "dxLossEma": 0.92,
-        "dxJitter": 24.78,
-        "ydLatencyEma": 138.3,
-        "ydLossEma": 5.8,
-        "ydJitter": 16.05,
-        "ltLatencyEma": 177.79,
-        "ltLossEma": 0.63,
-        "ltJitter": 3.96,
-        "avgLatency": 136.81,
-        "avgLoss": 2.45,
-        "avgJitter": 14.93
-      }
-    },
-    {
       "id": 37533,
       "ip": "run.254301.xyz",
       "data_30day": {
@@ -2374,25 +2317,6 @@
         "avgLatency": 135.2,
         "avgLoss": 1.62,
         "avgJitter": 14.97
-      }
-    },
-    {
-      "id": 36701,
-      "ip": "6.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "6.cf.3666888.xyz",
-        "dxLatencyEma": 72.67,
-        "dxLossEma": 0.2,
-        "dxJitter": 15.77,
-        "ydLatencyEma": 75.42,
-        "ydLossEma": 2.23,
-        "ydJitter": 21.42,
-        "ltLatencyEma": 178.72,
-        "ltLossEma": 0.58,
-        "ltJitter": 5.97,
-        "avgLatency": 108.94,
-        "avgLoss": 1.0,
-        "avgJitter": 14.39
       }
     },
     {
@@ -2415,22 +2339,22 @@
       }
     },
     {
-      "id": 44100,
-      "ip": "cfip-cu.stoeaves.us.ci",
+      "id": 41132,
+      "ip": "markmonitor.com",
       "data_30day": {
-        "ip": "cfip-cu.stoeaves.us.ci",
-        "dxLatencyEma": 140.47,
-        "dxLossEma": 3.56,
-        "dxJitter": 21.4,
-        "ydLatencyEma": 128.47,
-        "ydLossEma": 4.56,
-        "ydJitter": 20.73,
-        "ltLatencyEma": 180.98,
-        "ltLossEma": 0.58,
-        "ltJitter": 4.2,
-        "avgLatency": 149.97,
-        "avgLoss": 2.9,
-        "avgJitter": 15.44
+        "ip": "markmonitor.com",
+        "dxLatencyEma": 94.35,
+        "dxLossEma": 0.92,
+        "dxJitter": 24.78,
+        "ydLatencyEma": 138.3,
+        "ydLossEma": 5.8,
+        "ydJitter": 16.05,
+        "ltLatencyEma": 177.79,
+        "ltLossEma": 0.63,
+        "ltJitter": 3.96,
+        "avgLatency": 136.81,
+        "avgLoss": 2.45,
+        "avgJitter": 14.93
       }
     },
     {
@@ -2491,6 +2415,63 @@
       }
     },
     {
+      "id": 36924,
+      "ip": "cdn.2158.cc",
+      "data_30day": {
+        "ip": "cdn.2158.cc",
+        "dxLatencyEma": 87.08,
+        "dxLossEma": 0.78,
+        "dxJitter": 23.66,
+        "ydLatencyEma": 72.93,
+        "ydLossEma": 3.82,
+        "ydJitter": 16.5,
+        "ltLatencyEma": 181.78,
+        "ltLossEma": 0.61,
+        "ltJitter": 4.44,
+        "avgLatency": 113.93,
+        "avgLoss": 1.74,
+        "avgJitter": 14.87
+      }
+    },
+    {
+      "id": 32001,
+      "ip": "www.sage.com",
+      "data_30day": {
+        "ip": "www.sage.com",
+        "dxLatencyEma": 94.87,
+        "dxLossEma": 0.97,
+        "dxJitter": 25.97,
+        "ydLatencyEma": 117.09,
+        "ydLossEma": 4.5,
+        "ydJitter": 23.23,
+        "ltLatencyEma": 182.0,
+        "ltLossEma": 0.59,
+        "ltJitter": 4.4,
+        "avgLatency": 131.32,
+        "avgLoss": 2.02,
+        "avgJitter": 17.87
+      }
+    },
+    {
+      "id": 46107,
+      "ip": "1.cloudflare.19931110.xyz",
+      "data_30day": {
+        "ip": "1.cloudflare.19931110.xyz",
+        "dxLatencyEma": 78.76,
+        "dxLossEma": 2.71,
+        "dxJitter": 33.69,
+        "ydLatencyEma": 77.87,
+        "ydLossEma": 2.29,
+        "ydJitter": 20.71,
+        "ltLatencyEma": 185.97,
+        "ltLossEma": 0.45,
+        "ltJitter": 4.64,
+        "avgLatency": 114.2,
+        "avgLoss": 1.82,
+        "avgJitter": 19.68
+      }
+    },
+    {
       "id": 36183,
       "ip": "isp.254301.xyz",
       "data_30day": {
@@ -2548,6 +2529,44 @@
       }
     },
     {
+      "id": 34797,
+      "ip": "youxuan.cf.3666888.xyz",
+      "data_30day": {
+        "ip": "youxuan.cf.3666888.xyz",
+        "dxLatencyEma": 70.89,
+        "dxLossEma": 0.05,
+        "dxJitter": 10.32,
+        "ydLatencyEma": 75.29,
+        "ydLossEma": 2.01,
+        "ydJitter": 20.99,
+        "ltLatencyEma": 179.0,
+        "ltLossEma": 0.53,
+        "ltJitter": 6.47,
+        "avgLatency": 108.39,
+        "avgLoss": 0.86,
+        "avgJitter": 12.59
+      }
+    },
+    {
+      "id": 34109,
+      "ip": "d.lma.de5.net",
+      "data_30day": {
+        "ip": "d.lma.de5.net",
+        "dxLatencyEma": 93.43,
+        "dxLossEma": 0.75,
+        "dxJitter": 24.8,
+        "ydLatencyEma": 74.58,
+        "ydLossEma": 1.77,
+        "ydJitter": 20.27,
+        "ltLatencyEma": 180.0,
+        "ltLossEma": 0.33,
+        "ltJitter": 5.1,
+        "avgLatency": 116.0,
+        "avgLoss": 0.95,
+        "avgJitter": 16.72
+      }
+    },
+    {
       "id": 32712,
       "ip": "www.leics.police.uk",
       "data_30day": {
@@ -2567,22 +2586,98 @@
       }
     },
     {
-      "id": 32001,
-      "ip": "www.sage.com",
+      "id": 29154,
+      "ip": "www.speedtest.net",
       "data_30day": {
-        "ip": "www.sage.com",
-        "dxLatencyEma": 94.87,
-        "dxLossEma": 0.97,
-        "dxJitter": 25.97,
-        "ydLatencyEma": 117.09,
-        "ydLossEma": 4.5,
-        "ydJitter": 23.23,
-        "ltLatencyEma": 182.0,
-        "ltLossEma": 0.59,
-        "ltJitter": 4.4,
-        "avgLatency": 131.32,
-        "avgLoss": 2.02,
-        "avgJitter": 17.87
+        "ip": "www.speedtest.net",
+        "dxLatencyEma": 188.74,
+        "dxLossEma": 7.98,
+        "dxJitter": 46.69,
+        "ydLatencyEma": 75.64,
+        "ydLossEma": 1.97,
+        "ydJitter": 21.35,
+        "ltLatencyEma": 183.89,
+        "ltLossEma": 0.04,
+        "ltJitter": 4.25,
+        "avgLatency": 149.42,
+        "avgLoss": 3.33,
+        "avgJitter": 24.1
+      }
+    },
+    {
+      "id": 13423,
+      "ip": "cf.090227.xyz",
+      "data_30day": {
+        "ip": "cf.090227.xyz",
+        "dxLatencyEma": 85.23,
+        "dxLossEma": 0.81,
+        "dxJitter": 23.62,
+        "ydLatencyEma": 81.76,
+        "ydLossEma": 3.77,
+        "ydJitter": 19.72,
+        "ltLatencyEma": 198.62,
+        "ltLossEma": 2.48,
+        "ltJitter": 2.94,
+        "avgLatency": 121.87,
+        "avgLoss": 2.35,
+        "avgJitter": 15.43
+      }
+    },
+    {
+      "id": 40552,
+      "ip": "01-qq.com",
+      "data_30day": {
+        "ip": "01-qq.com",
+        "dxLatencyEma": 81.47,
+        "dxLossEma": 0.34,
+        "dxJitter": 8.75,
+        "ydLatencyEma": 81.34,
+        "ydLossEma": 7.05,
+        "ydJitter": 15.74,
+        "ltLatencyEma": 181.35,
+        "ltLossEma": 0.26,
+        "ltJitter": 4.41,
+        "avgLatency": 114.72,
+        "avgLoss": 2.55,
+        "avgJitter": 9.63
+      }
+    },
+    {
+      "id": 38256,
+      "ip": "www.mfyx.cn",
+      "data_30day": {
+        "ip": "www.mfyx.cn",
+        "dxLatencyEma": 67.95,
+        "dxLossEma": 0.77,
+        "dxJitter": 9.39,
+        "ydLatencyEma": 75.37,
+        "ydLossEma": 2.22,
+        "ydJitter": 22.0,
+        "ltLatencyEma": 178.32,
+        "ltLossEma": 0.63,
+        "ltJitter": 5.47,
+        "avgLatency": 107.21,
+        "avgLoss": 1.21,
+        "avgJitter": 12.29
+      }
+    },
+    {
+      "id": 29388,
+      "ip": "www.5199dy.com",
+      "data_30day": {
+        "ip": "www.5199dy.com",
+        "dxLatencyEma": 80.09,
+        "dxLossEma": 1.84,
+        "dxJitter": 13.37,
+        "ydLatencyEma": 173.11,
+        "ydLossEma": 8.44,
+        "ydJitter": 11.56,
+        "ltLatencyEma": 181.49,
+        "ltLossEma": 0.54,
+        "ltJitter": 4.1,
+        "avgLatency": 144.9,
+        "avgLoss": 3.61,
+        "avgJitter": 9.68
       }
     },
     {
@@ -2605,41 +2700,60 @@
       }
     },
     {
-      "id": 45320,
-      "ip": "cf.xycf.asia",
+      "id": 49021,
+      "ip": "cf.neko.cloudflaree.eu.org",
       "data_30day": {
-        "ip": "cf.xycf.asia",
-        "dxLatencyEma": 68.79,
-        "dxLossEma": 0.0,
-        "dxJitter": 4.22,
-        "ydLatencyEma": 97.28,
-        "ydLossEma": 3.42,
-        "ydJitter": 18.85,
-        "ltLatencyEma": 180.46,
-        "ltLossEma": 0.63,
-        "ltJitter": 4.36,
-        "avgLatency": 115.51,
-        "avgLoss": 1.35,
-        "avgJitter": 9.14
+        "ip": "cf.neko.cloudflaree.eu.org",
+        "dxLatencyEma": 906.16,
+        "dxLossEma": 17.12,
+        "dxJitter": 2444.96,
+        "ydLatencyEma": 892.26,
+        "ydLossEma": 18.11,
+        "ydJitter": 2451.15,
+        "ltLatencyEma": 975.26,
+        "ltLossEma": 17.08,
+        "ltJitter": 2401.24,
+        "avgLatency": 924.56,
+        "avgLoss": 17.44,
+        "avgJitter": 2432.45
       }
     },
     {
-      "id": 40552,
-      "ip": "01-qq.com",
+      "id": 41565,
+      "ip": "cf1.v8.longsays.com",
       "data_30day": {
-        "ip": "01-qq.com",
-        "dxLatencyEma": 81.47,
-        "dxLossEma": 0.34,
-        "dxJitter": 8.75,
-        "ydLatencyEma": 81.34,
-        "ydLossEma": 7.05,
-        "ydJitter": 15.74,
-        "ltLatencyEma": 181.35,
-        "ltLossEma": 0.26,
-        "ltJitter": 4.41,
-        "avgLatency": 114.72,
-        "avgLoss": 2.55,
-        "avgJitter": 9.63
+        "ip": "cf1.v8.longsays.com",
+        "dxLatencyEma": 188.57,
+        "dxLossEma": 8.15,
+        "dxJitter": 46.42,
+        "ydLatencyEma": 166.91,
+        "ydLossEma": 0.93,
+        "ydJitter": 20.45,
+        "ltLatencyEma": 181.97,
+        "ltLossEma": 0.58,
+        "ltJitter": 6.14,
+        "avgLatency": 179.15,
+        "avgLoss": 3.22,
+        "avgJitter": 24.34
+      }
+    },
+    {
+      "id": 38939,
+      "ip": "cmcc.hw.090227.xyz",
+      "data_30day": {
+        "ip": "cmcc.hw.090227.xyz",
+        "dxLatencyEma": 187.92,
+        "dxLossEma": 8.11,
+        "dxJitter": 45.57,
+        "ydLatencyEma": 75.07,
+        "ydLossEma": 2.16,
+        "ydJitter": 20.73,
+        "ltLatencyEma": 180.12,
+        "ltLossEma": 0.48,
+        "ltJitter": 3.89,
+        "avgLatency": 147.7,
+        "avgLoss": 3.58,
+        "avgJitter": 23.4
       }
     },
     {
@@ -2681,79 +2795,22 @@
       }
     },
     {
-      "id": 36400,
-      "ip": "cf.998866.top",
+      "id": 34512,
+      "ip": "f.lma.de5.net",
       "data_30day": {
-        "ip": "cf.998866.top",
-        "dxLatencyEma": 77.81,
-        "dxLossEma": 2.13,
-        "dxJitter": 11.39,
-        "ydLatencyEma": 122.08,
-        "ydLossEma": 9.8,
-        "ydJitter": 18.75,
-        "ltLatencyEma": 181.65,
-        "ltLossEma": 0.65,
-        "ltJitter": 4.48,
-        "avgLatency": 127.18,
-        "avgLoss": 4.19,
-        "avgJitter": 11.54
-      }
-    },
-    {
-      "id": 34797,
-      "ip": "youxuan.cf.3666888.xyz",
-      "data_30day": {
-        "ip": "youxuan.cf.3666888.xyz",
-        "dxLatencyEma": 70.89,
-        "dxLossEma": 0.05,
-        "dxJitter": 10.32,
-        "ydLatencyEma": 75.29,
-        "ydLossEma": 2.01,
-        "ydJitter": 20.99,
-        "ltLatencyEma": 179.0,
-        "ltLossEma": 0.53,
-        "ltJitter": 6.47,
-        "avgLatency": 108.39,
-        "avgLoss": 0.86,
-        "avgJitter": 12.59
-      }
-    },
-    {
-      "id": 29154,
-      "ip": "www.speedtest.net",
-      "data_30day": {
-        "ip": "www.speedtest.net",
-        "dxLatencyEma": 188.74,
-        "dxLossEma": 7.98,
-        "dxJitter": 46.69,
-        "ydLatencyEma": 75.64,
-        "ydLossEma": 1.97,
-        "ydJitter": 21.35,
-        "ltLatencyEma": 183.89,
-        "ltLossEma": 0.04,
-        "ltJitter": 4.25,
-        "avgLatency": 149.42,
-        "avgLoss": 3.33,
-        "avgJitter": 24.1
-      }
-    },
-    {
-      "id": 27268,
-      "ip": "yxip.xxxxxxxx.tk",
-      "data_30day": {
-        "ip": "yxip.xxxxxxxx.tk",
-        "dxLatencyEma": 92.99,
-        "dxLossEma": 0.79,
-        "dxJitter": 23.97,
-        "ydLatencyEma": 97.95,
-        "ydLossEma": 8.21,
-        "ydJitter": 15.15,
-        "ltLatencyEma": 180.57,
-        "ltLossEma": 0.59,
-        "ltJitter": 5.3,
-        "avgLatency": 123.84,
-        "avgLoss": 3.2,
-        "avgJitter": 14.81
+        "ip": "f.lma.de5.net",
+        "dxLatencyEma": 93.28,
+        "dxLossEma": 0.96,
+        "dxJitter": 23.59,
+        "ydLatencyEma": 73.21,
+        "ydLossEma": 1.87,
+        "ydJitter": 21.54,
+        "ltLatencyEma": 181.78,
+        "ltLossEma": 0.73,
+        "ltJitter": 4.64,
+        "avgLatency": 116.09,
+        "avgLoss": 1.19,
+        "avgJitter": 16.59
       }
     },
     {
@@ -2776,6 +2833,25 @@
       }
     },
     {
+      "id": 32351,
+      "ip": "zh-wireguard.com",
+      "data_30day": {
+        "ip": "zh-wireguard.com",
+        "dxLatencyEma": 181.26,
+        "dxLossEma": 8.95,
+        "dxJitter": 18.57,
+        "ydLatencyEma": 210.22,
+        "ydLossEma": 2.22,
+        "ydJitter": 6.7,
+        "ltLatencyEma": 182.65,
+        "ltLossEma": 0.84,
+        "ltJitter": 3.77,
+        "avgLatency": 191.38,
+        "avgLoss": 4.0,
+        "avgJitter": 9.68
+      }
+    },
+    {
       "id": 49022,
       "ip": "neko.cloudd.eu.org",
       "data_30day": {
@@ -2795,60 +2871,60 @@
       }
     },
     {
-      "id": 38256,
-      "ip": "www.mfyx.cn",
+      "id": 44101,
+      "ip": "cfip-cm.stoeaves.us.ci",
       "data_30day": {
-        "ip": "www.mfyx.cn",
-        "dxLatencyEma": 67.95,
-        "dxLossEma": 0.77,
-        "dxJitter": 9.39,
-        "ydLatencyEma": 75.37,
-        "ydLossEma": 2.22,
-        "ydJitter": 22.0,
-        "ltLatencyEma": 178.32,
-        "ltLossEma": 0.63,
-        "ltJitter": 5.47,
-        "avgLatency": 107.21,
-        "avgLoss": 1.21,
-        "avgJitter": 12.29
+        "ip": "cfip-cm.stoeaves.us.ci",
+        "dxLatencyEma": 124.13,
+        "dxLossEma": 2.75,
+        "dxJitter": 26.01,
+        "ydLatencyEma": 74.38,
+        "ydLossEma": 2.01,
+        "ydJitter": 20.41,
+        "ltLatencyEma": 181.42,
+        "ltLossEma": 0.65,
+        "ltJitter": 4.37,
+        "avgLatency": 126.64,
+        "avgLoss": 1.8,
+        "avgJitter": 16.93
       }
     },
     {
-      "id": 36924,
-      "ip": "cdn.2158.cc",
+      "id": 39561,
+      "ip": "china-mobile.cname.cloudflare.468123.xyz",
       "data_30day": {
-        "ip": "cdn.2158.cc",
-        "dxLatencyEma": 87.08,
-        "dxLossEma": 0.78,
-        "dxJitter": 23.66,
-        "ydLatencyEma": 72.93,
-        "ydLossEma": 3.82,
-        "ydJitter": 16.5,
-        "ltLatencyEma": 181.78,
-        "ltLossEma": 0.61,
-        "ltJitter": 4.44,
-        "avgLatency": 113.93,
-        "avgLoss": 1.74,
-        "avgJitter": 14.87
+        "ip": "china-mobile.cname.cloudflare.468123.xyz",
+        "dxLatencyEma": 188.42,
+        "dxLossEma": 8.26,
+        "dxJitter": 44.45,
+        "ydLatencyEma": 75.64,
+        "ydLossEma": 1.86,
+        "ydJitter": 20.8,
+        "ltLatencyEma": 181.09,
+        "ltLossEma": 0.67,
+        "ltJitter": 4.07,
+        "avgLatency": 148.38,
+        "avgLoss": 3.6,
+        "avgJitter": 23.11
       }
     },
     {
-      "id": 29388,
-      "ip": "www.5199dy.com",
+      "id": 39184,
+      "ip": "imooo.de",
       "data_30day": {
-        "ip": "www.5199dy.com",
-        "dxLatencyEma": 80.09,
-        "dxLossEma": 1.84,
-        "dxJitter": 13.37,
-        "ydLatencyEma": 173.11,
-        "ydLossEma": 8.44,
-        "ydJitter": 11.56,
-        "ltLatencyEma": 181.49,
-        "ltLossEma": 0.54,
-        "ltJitter": 4.1,
-        "avgLatency": 144.9,
-        "avgLoss": 3.61,
-        "avgJitter": 9.68
+        "ip": "imooo.de",
+        "dxLatencyEma": 94.47,
+        "dxLossEma": 0.83,
+        "dxJitter": 25.12,
+        "ydLatencyEma": 194.0,
+        "ydLossEma": 9.19,
+        "ydJitter": 1.62,
+        "ltLatencyEma": 180.1,
+        "ltLossEma": 0.91,
+        "ltJitter": 6.38,
+        "avgLatency": 156.19,
+        "avgLoss": 3.64,
+        "avgJitter": 11.04
       }
     },
     {
@@ -2871,41 +2947,41 @@
       }
     },
     {
-      "id": 13423,
-      "ip": "cf.090227.xyz",
+      "id": 20737,
+      "ip": "cmcc.090227.xyz",
       "data_30day": {
-        "ip": "cf.090227.xyz",
-        "dxLatencyEma": 85.23,
-        "dxLossEma": 0.81,
-        "dxJitter": 23.62,
-        "ydLatencyEma": 81.76,
-        "ydLossEma": 3.77,
-        "ydJitter": 19.72,
-        "ltLatencyEma": 198.62,
-        "ltLossEma": 2.48,
-        "ltJitter": 2.94,
-        "avgLatency": 121.87,
-        "avgLoss": 2.35,
-        "avgJitter": 15.43
+        "ip": "cmcc.090227.xyz",
+        "dxLatencyEma": 188.02,
+        "dxLossEma": 8.45,
+        "dxJitter": 45.21,
+        "ydLatencyEma": 75.7,
+        "ydLossEma": 2.34,
+        "ydJitter": 21.49,
+        "ltLatencyEma": 180.68,
+        "ltLossEma": 0.44,
+        "ltJitter": 4.15,
+        "avgLatency": 148.13,
+        "avgLoss": 3.74,
+        "avgJitter": 23.62
       }
     },
     {
-      "id": 32351,
-      "ip": "zh-wireguard.com",
+      "id": 32000,
+      "ip": "dango.co",
       "data_30day": {
-        "ip": "zh-wireguard.com",
-        "dxLatencyEma": 181.26,
-        "dxLossEma": 8.95,
-        "dxJitter": 18.57,
-        "ydLatencyEma": 210.22,
-        "ydLossEma": 2.22,
-        "ydJitter": 6.7,
-        "ltLatencyEma": 182.65,
-        "ltLossEma": 0.84,
-        "ltJitter": 3.77,
-        "avgLatency": 191.38,
-        "avgLoss": 4.0,
-        "avgJitter": 9.68
+        "ip": "dango.co",
+        "dxLatencyEma": 191.14,
+        "dxLossEma": 7.59,
+        "dxJitter": 6.14,
+        "ydLatencyEma": 219.12,
+        "ydLossEma": 0.74,
+        "ydJitter": 8.77,
+        "ltLatencyEma": 186.53,
+        "ltLossEma": 0.83,
+        "ltJitter": 4.45,
+        "avgLatency": 198.93,
+        "avgLoss": 3.05,
+        "avgJitter": 6.45
       }
     },
     {
@@ -2947,111 +3023,6 @@
       }
     },
     {
-      "id": 44716,
-      "ip": "yd.hhhhh.eu.org",
-      "data_30day": {
-        "ip": "yd.hhhhh.eu.org",
-        "dxLatencyEma": 188.96,
-        "dxLossEma": 7.86,
-        "dxJitter": 46.18,
-        "ydLatencyEma": 145.67,
-        "ydLossEma": 4.42,
-        "ydJitter": 18.26,
-        "ltLatencyEma": 181.13,
-        "ltLossEma": 0.37,
-        "ltJitter": 4.34,
-        "avgLatency": 171.92,
-        "avgLoss": 4.22,
-        "avgJitter": 22.93
-      }
-    },
-    {
-      "id": 42440,
-      "ip": "ct.721660.xyz",
-      "data_30day": {
-        "ip": "ct.721660.xyz",
-        "dxLatencyEma": 93.54,
-        "dxLossEma": 0.93,
-        "dxJitter": 24.26,
-        "ydLatencyEma": 194.85,
-        "ydLossEma": 9.39,
-        "ydJitter": 1.6,
-        "ltLatencyEma": 181.47,
-        "ltLossEma": 0.52,
-        "ltJitter": 3.28,
-        "avgLatency": 156.62,
-        "avgLoss": 3.61,
-        "avgJitter": 9.71
-      }
-    },
-    {
-      "id": 38939,
-      "ip": "cmcc.hw.090227.xyz",
-      "data_30day": {
-        "ip": "cmcc.hw.090227.xyz",
-        "dxLatencyEma": 187.92,
-        "dxLossEma": 8.11,
-        "dxJitter": 45.57,
-        "ydLatencyEma": 75.07,
-        "ydLossEma": 2.16,
-        "ydJitter": 20.73,
-        "ltLatencyEma": 180.12,
-        "ltLossEma": 0.48,
-        "ltJitter": 3.89,
-        "avgLatency": 147.7,
-        "avgLoss": 3.58,
-        "avgJitter": 23.4
-      }
-    },
-    {
-      "id": 34512,
-      "ip": "f.lma.de5.net",
-      "data_30day": {
-        "ip": "f.lma.de5.net",
-        "dxLatencyEma": 93.28,
-        "dxLossEma": 0.96,
-        "dxJitter": 23.59,
-        "ydLatencyEma": 73.21,
-        "ydLossEma": 1.87,
-        "ydJitter": 21.54,
-        "ltLatencyEma": 181.78,
-        "ltLossEma": 0.73,
-        "ltJitter": 4.64,
-        "avgLatency": 116.09,
-        "avgLoss": 1.19,
-        "avgJitter": 16.59
-      }
-    },
-    {
-      "id": 20895,
-      "ip": "www.visa.com.hk",
-      "data_30day": {
-        "ip": "www.visa.com.hk",
-        "dxLatencyEma": 187.35,
-        "dxLossEma": 7.99,
-        "dxJitter": 44.22,
-        "ydLatencyEma": 216.18,
-        "ydLossEma": 0.4,
-        "ydJitter": 6.91,
-        "ltLatencyEma": 179.6,
-        "ltLossEma": 0.54,
-        "ltJitter": 5.09,
-        "avgLatency": 194.38,
-        "avgLoss": 2.98,
-        "avgJitter": 18.74
-      }
-    },
-    {
-      "id": 60998,
-      "ip": "lt.1930812.xyz",
-      "data_30day": null
-    },
-    {
-      "id": 53833,
-      "ip": "images.chesscomfiles.com",
-      "data_30day": null
-    },
-    {
       "id": 47976,
       "ip": "yx.oracle-img.eu.org",
       "data_30day": {
@@ -3090,250 +3061,41 @@
       }
     },
     {
-      "id": 41320,
-      "ip": "cf.duun.eu.cc",
+      "id": 42440,
+      "ip": "ct.721660.xyz",
       "data_30day": {
-        "ip": "cf.duun.eu.cc",
-        "dxLatencyEma": 94.48,
+        "ip": "ct.721660.xyz",
+        "dxLatencyEma": 93.54,
         "dxLossEma": 0.93,
-        "dxJitter": 24.63,
-        "ydLatencyEma": 194.5,
-        "ydLossEma": 9.33,
-        "ydJitter": 1.65,
-        "ltLatencyEma": 180.96,
+        "dxJitter": 24.26,
+        "ydLatencyEma": 194.85,
+        "ydLossEma": 9.39,
+        "ydJitter": 1.6,
+        "ltLatencyEma": 181.47,
         "ltLossEma": 0.52,
-        "ltJitter": 3.78,
-        "avgLatency": 156.65,
-        "avgLoss": 3.59,
-        "avgJitter": 10.02
+        "ltJitter": 3.28,
+        "avgLatency": 156.62,
+        "avgLoss": 3.61,
+        "avgJitter": 9.71
       }
     },
     {
-      "id": 40551,
-      "ip": "01-cctv.com",
+      "id": 39186,
+      "ip": "ctlmt.info",
       "data_30day": {
-        "ip": "01-cctv.com",
-        "dxLatencyEma": 80.15,
-        "dxLossEma": 0.21,
-        "dxJitter": 9.36,
-        "ydLatencyEma": 83.8,
-        "ydLossEma": 7.5,
-        "ydJitter": 16.59,
-        "ltLatencyEma": 180.97,
-        "ltLossEma": 0.19,
-        "ltJitter": 4.97,
-        "avgLatency": 114.97,
-        "avgLoss": 2.63,
-        "avgJitter": 10.31
-      }
-    },
-    {
-      "id": 39561,
-      "ip": "china-mobile.cname.cloudflare.468123.xyz",
-      "data_30day": {
-        "ip": "china-mobile.cname.cloudflare.468123.xyz",
-        "dxLatencyEma": 188.42,
-        "dxLossEma": 8.26,
-        "dxJitter": 44.45,
-        "ydLatencyEma": 75.64,
-        "ydLossEma": 1.86,
-        "ydJitter": 20.8,
-        "ltLatencyEma": 181.09,
-        "ltLossEma": 0.67,
-        "ltJitter": 4.07,
-        "avgLatency": 148.38,
-        "avgLoss": 3.6,
-        "avgJitter": 23.11
-      }
-    },
-    {
-      "id": 39559,
-      "ip": "china-telecom.cname.cloudflare.468123.xyz",
-      "data_30day": {
-        "ip": "china-telecom.cname.cloudflare.468123.xyz",
-        "dxLatencyEma": 74.29,
-        "dxLossEma": 1.43,
-        "dxJitter": 8.73,
-        "ydLatencyEma": 183.25,
-        "ydLossEma": 9.03,
-        "ydJitter": 9.32,
-        "ltLatencyEma": 181.08,
-        "ltLossEma": 0.52,
-        "ltJitter": 3.95,
-        "avgLatency": 146.21,
-        "avgLoss": 3.66,
-        "avgJitter": 7.33
-      }
-    },
-    {
-      "id": 35907,
-      "ip": "cdn.555586.xyz",
-      "data_30day": {
-        "ip": "cdn.555586.xyz",
-        "dxLatencyEma": 94.86,
-        "dxLossEma": 0.85,
-        "dxJitter": 25.56,
-        "ydLatencyEma": 128.24,
-        "ydLossEma": 5.72,
-        "ydJitter": 53.44,
-        "ltLatencyEma": 177.03,
-        "ltLossEma": 0.47,
-        "ltJitter": 5.09,
-        "avgLatency": 133.38,
-        "avgLoss": 2.35,
-        "avgJitter": 28.03
-      }
-    },
-    {
-      "id": 30696,
-      "ip": "dynadot.com",
-      "data_30day": {
-        "ip": "dynadot.com",
-        "dxLatencyEma": 186.6,
-        "dxLossEma": 7.94,
-        "dxJitter": 44.56,
-        "ydLatencyEma": 135.83,
-        "ydLossEma": 5.52,
-        "ydJitter": 18.42,
-        "ltLatencyEma": 180.21,
-        "ltLossEma": 0.7,
-        "ltJitter": 4.28,
-        "avgLatency": 167.55,
-        "avgLoss": 4.72,
-        "avgJitter": 22.42
-      }
-    },
-    {
-      "id": 31756,
-      "ip": "stlouiscountymo.gov",
-      "data_30day": {
-        "ip": "stlouiscountymo.gov",
-        "dxLatencyEma": 186.99,
-        "dxLossEma": 8.69,
-        "dxJitter": 43.78,
-        "ydLatencyEma": 193.0,
-        "ydLossEma": 6.13,
-        "ydJitter": 4.09,
-        "ltLatencyEma": 180.26,
-        "ltLossEma": 0.51,
-        "ltJitter": 4.01,
-        "avgLatency": 186.75,
-        "avgLoss": 5.11,
-        "avgJitter": 17.29
-      }
-    },
-    {
-      "id": 31543,
-      "ip": "redis.io",
-      "data_30day": {
-        "ip": "redis.io",
-        "dxLatencyEma": 190.02,
-        "dxLossEma": 7.68,
-        "dxJitter": 47.72,
-        "ydLatencyEma": 222.65,
-        "ydLossEma": 0.43,
-        "ydJitter": 7.64,
-        "ltLatencyEma": 181.09,
-        "ltLossEma": 0.53,
-        "ltJitter": 3.49,
-        "avgLatency": 197.92,
-        "avgLoss": 2.88,
-        "avgJitter": 19.62
-      }
-    },
-    {
-      "id": 30751,
-      "ip": "yapuyapu.com",
-      "data_30day": {
-        "ip": "yapuyapu.com",
-        "dxLatencyEma": 197.12,
-        "dxLossEma": 8.01,
-        "dxJitter": 3.83,
-        "ydLatencyEma": 215.55,
-        "ydLossEma": 0.6,
-        "ydJitter": 8.78,
-        "ltLatencyEma": 204.45,
-        "ltLossEma": 0.93,
-        "ltJitter": 2.2,
-        "avgLatency": 205.71,
-        "avgLoss": 3.18,
-        "avgJitter": 4.94
-      }
-    },
-    {
-      "id": 24943,
-      "ip": "nrt.xxxxxxxx.nyc.mn",
-      "data_30day": {
-        "ip": "nrt.xxxxxxxx.nyc.mn",
-        "dxLatencyEma": 196.96,
-        "dxLossEma": 7.81,
-        "dxJitter": 3.88,
-        "ydLatencyEma": 212.06,
-        "ydLossEma": 1.42,
-        "ydJitter": 2.89,
-        "ltLatencyEma": 180.61,
-        "ltLossEma": 0.77,
-        "ltJitter": 4.24,
-        "avgLatency": 196.54,
-        "avgLoss": 3.33,
-        "avgJitter": 3.67
-      }
-    },
-    {
-      "id": 21252,
-      "ip": "www.ntu.edu.sg",
-      "data_30day": {
-        "ip": "www.ntu.edu.sg",
-        "dxLatencyEma": 183.51,
-        "dxLossEma": 0.16,
-        "dxJitter": 48.29,
-        "ydLatencyEma": 193.67,
-        "ydLossEma": 8.84,
-        "ydJitter": 1.5,
-        "ltLatencyEma": 180.73,
-        "ltLossEma": 0.59,
-        "ltJitter": 6.3,
-        "avgLatency": 185.97,
-        "avgLoss": 3.2,
-        "avgJitter": 18.7
-      }
-    },
-    {
-      "id": 43370,
-      "ip": "chrono24.com",
-      "data_30day": {
-        "ip": "chrono24.com",
-        "dxLatencyEma": 187.62,
-        "dxLossEma": 7.65,
-        "dxJitter": 45.6,
-        "ydLatencyEma": 74.83,
-        "ydLossEma": 1.82,
-        "ydJitter": 21.02,
-        "ltLatencyEma": 178.9,
-        "ltLossEma": 0.57,
-        "ltJitter": 5.27,
-        "avgLatency": 147.12,
-        "avgLoss": 3.35,
-        "avgJitter": 23.96
-      }
-    },
-    {
-      "id": 39184,
-      "ip": "imooo.de",
-      "data_30day": {
-        "ip": "imooo.de",
-        "dxLatencyEma": 94.47,
-        "dxLossEma": 0.83,
-        "dxJitter": 25.12,
-        "ydLatencyEma": 194.0,
-        "ydLossEma": 9.19,
+        "ip": "ctlmt.info",
+        "dxLatencyEma": 93.0,
+        "dxLossEma": 0.99,
+        "dxJitter": 25.75,
+        "ydLatencyEma": 194.89,
+        "ydLossEma": 9.4,
         "ydJitter": 1.62,
-        "ltLatencyEma": 180.1,
-        "ltLossEma": 0.91,
-        "ltJitter": 6.38,
-        "avgLatency": 156.19,
-        "avgLoss": 3.64,
-        "avgJitter": 11.04
+        "ltLatencyEma": 180.85,
+        "ltLossEma": 0.65,
+        "ltJitter": 7.83,
+        "avgLatency": 156.25,
+        "avgLoss": 3.68,
+        "avgJitter": 11.73
       }
     },
     {
@@ -3356,41 +3118,79 @@
       }
     },
     {
-      "id": 38104,
-      "ip": "www.yutank.com",
+      "id": 35907,
+      "ip": "cdn.555586.xyz",
       "data_30day": {
-        "ip": "www.yutank.com",
-        "dxLatencyEma": 186.97,
-        "dxLossEma": 7.8,
-        "dxJitter": 44.13,
-        "ydLatencyEma": 192.67,
-        "ydLossEma": 5.88,
-        "ydJitter": 4.02,
-        "ltLatencyEma": 183.66,
-        "ltLossEma": 0.62,
-        "ltJitter": 4.53,
-        "avgLatency": 187.77,
-        "avgLoss": 4.77,
-        "avgJitter": 17.56
+        "ip": "cdn.555586.xyz",
+        "dxLatencyEma": 94.86,
+        "dxLossEma": 0.85,
+        "dxJitter": 25.56,
+        "ydLatencyEma": 128.24,
+        "ydLossEma": 5.72,
+        "ydJitter": 53.44,
+        "ltLatencyEma": 177.03,
+        "ltLossEma": 0.47,
+        "ltJitter": 5.09,
+        "avgLatency": 133.38,
+        "avgLoss": 2.35,
+        "avgJitter": 28.03
       }
     },
     {
-      "id": 37348,
-      "ip": "yg9.ygkkk.dpdns.org",
+      "id": 30751,
+      "ip": "yapuyapu.com",
       "data_30day": {
-        "ip": "yg9.ygkkk.dpdns.org",
-        "dxLatencyEma": 125.54,
-        "dxLossEma": 3.76,
-        "dxJitter": 48.47,
-        "ydLatencyEma": 142.42,
-        "ydLossEma": 1.33,
-        "ydJitter": 64.04,
-        "ltLatencyEma": 193.64,
-        "ltLossEma": 0.65,
-        "ltJitter": 11.22,
-        "avgLatency": 153.87,
-        "avgLoss": 1.91,
-        "avgJitter": 41.24
+        "ip": "yapuyapu.com",
+        "dxLatencyEma": 197.12,
+        "dxLossEma": 8.01,
+        "dxJitter": 3.83,
+        "ydLatencyEma": 215.55,
+        "ydLossEma": 0.6,
+        "ydJitter": 8.78,
+        "ltLatencyEma": 204.45,
+        "ltLossEma": 0.93,
+        "ltJitter": 2.2,
+        "avgLatency": 205.71,
+        "avgLoss": 3.18,
+        "avgJitter": 4.94
+      }
+    },
+    {
+      "id": 27268,
+      "ip": "yxip.xxxxxxxx.tk",
+      "data_30day": {
+        "ip": "yxip.xxxxxxxx.tk",
+        "dxLatencyEma": 92.99,
+        "dxLossEma": 0.79,
+        "dxJitter": 23.97,
+        "ydLatencyEma": 97.95,
+        "ydLossEma": 8.21,
+        "ydJitter": 15.15,
+        "ltLatencyEma": 180.57,
+        "ltLossEma": 0.59,
+        "ltJitter": 5.3,
+        "avgLatency": 123.84,
+        "avgLoss": 3.2,
+        "avgJitter": 14.81
+      }
+    },
+    {
+      "id": 21019,
+      "ip": "www.visa.cn",
+      "data_30day": {
+        "ip": "www.visa.cn",
+        "dxLatencyEma": 197.3,
+        "dxLossEma": 8.52,
+        "dxJitter": 3.77,
+        "ydLatencyEma": 215.25,
+        "ydLossEma": 0.56,
+        "ydJitter": 8.82,
+        "ltLatencyEma": 204.66,
+        "ltLossEma": 0.78,
+        "ltJitter": 1.98,
+        "avgLatency": 205.74,
+        "avgLoss": 3.29,
+        "avgJitter": 4.86
       }
     },
     {
@@ -3410,25 +3210,6 @@
         "avgLatency": 197.06,
         "avgLoss": 3.2,
         "avgJitter": 19.01
-      }
-    },
-    {
-      "id": 20737,
-      "ip": "cmcc.090227.xyz",
-      "data_30day": {
-        "ip": "cmcc.090227.xyz",
-        "dxLatencyEma": 188.02,
-        "dxLossEma": 8.45,
-        "dxJitter": 45.21,
-        "ydLatencyEma": 75.7,
-        "ydLossEma": 2.34,
-        "ydJitter": 21.49,
-        "ltLatencyEma": 180.68,
-        "ltLossEma": 0.44,
-        "ltJitter": 4.15,
-        "avgLatency": 148.13,
-        "avgLoss": 3.74,
-        "avgJitter": 23.62
       }
     },
     {
@@ -3470,478 +3251,136 @@
       }
     },
     {
-      "id": 31691,
-      "ip": "www.ox.ac.uk",
+      "id": 31756,
+      "ip": "stlouiscountymo.gov",
       "data_30day": {
-        "ip": "www.ox.ac.uk",
-        "dxLatencyEma": 179.0,
-        "dxLossEma": 0.0,
-        "dxJitter": 4.08,
-        "ydLatencyEma": 195.17,
-        "ydLossEma": 10.28,
-        "ydJitter": 1.46,
-        "ltLatencyEma": 180.23,
-        "ltLossEma": 0.55,
-        "ltJitter": 5.85,
-        "avgLatency": 184.8,
-        "avgLoss": 3.61,
-        "avgJitter": 3.8
-      }
-    },
-    {
-      "id": 14831,
-      "ip": "visa.com",
-      "data_30day": {
-        "ip": "visa.com",
-        "dxLatencyEma": 188.05,
-        "dxLossEma": 8.6,
-        "dxJitter": 5.82,
-        "ydLatencyEma": 182.2,
-        "ydLossEma": 0.46,
-        "ydJitter": 15.23,
-        "ltLatencyEma": 214.48,
-        "ltLossEma": 2.62,
-        "ltJitter": 2.32,
-        "avgLatency": 194.91,
-        "avgLoss": 3.89,
-        "avgJitter": 7.79
-      }
-    },
-    {
-      "id": 13427,
-      "ip": "cfip.1323123.xyz",
-      "data_30day": {
-        "ip": "cfip.1323123.xyz",
-        "dxLatencyEma": 180.87,
-        "dxLossEma": 7.99,
-        "dxJitter": 18.46,
-        "ydLatencyEma": 178.7,
-        "ydLossEma": 3.15,
-        "ydJitter": 8.53,
-        "ltLatencyEma": 208.34,
-        "ltLossEma": 2.41,
-        "ltJitter": 7.02,
-        "avgLatency": 189.3,
-        "avgLoss": 4.52,
-        "avgJitter": 11.34
-      }
-    },
-    {
-      "id": 41565,
-      "ip": "cf1.v8.longsays.com",
-      "data_30day": {
-        "ip": "cf1.v8.longsays.com",
-        "dxLatencyEma": 188.57,
-        "dxLossEma": 8.15,
-        "dxJitter": 46.42,
-        "ydLatencyEma": 166.91,
-        "ydLossEma": 0.93,
-        "ydJitter": 20.45,
-        "ltLatencyEma": 181.97,
-        "ltLossEma": 0.58,
-        "ltJitter": 6.14,
-        "avgLatency": 179.15,
-        "avgLoss": 3.22,
-        "avgJitter": 24.34
-      }
-    },
-    {
-      "id": 39186,
-      "ip": "ctlmt.info",
-      "data_30day": {
-        "ip": "ctlmt.info",
-        "dxLatencyEma": 93.0,
-        "dxLossEma": 0.99,
-        "dxJitter": 25.75,
-        "ydLatencyEma": 194.89,
-        "ydLossEma": 9.4,
-        "ydJitter": 1.62,
-        "ltLatencyEma": 180.85,
-        "ltLossEma": 0.65,
-        "ltJitter": 7.83,
-        "avgLatency": 156.25,
-        "avgLoss": 3.68,
-        "avgJitter": 11.73
-      }
-    },
-    {
-      "id": 28864,
-      "ip": "bestcfv4.030101.xyz",
-      "data_30day": {
-        "ip": "bestcfv4.030101.xyz",
-        "dxLatencyEma": 188.58,
-        "dxLossEma": 8.32,
-        "dxJitter": 47.74,
-        "ydLatencyEma": 76.32,
-        "ydLossEma": 2.03,
-        "ydJitter": 21.18,
-        "ltLatencyEma": 182.63,
-        "ltLossEma": 0.68,
-        "ltJitter": 5.09,
-        "avgLatency": 149.18,
-        "avgLoss": 3.68,
-        "avgJitter": 24.67
-      }
-    },
-    {
-      "id": 26757,
-      "ip": "cloudflare.cfgo.cc",
-      "data_30day": {
-        "ip": "cloudflare.cfgo.cc",
-        "dxLatencyEma": 142.38,
-        "dxLossEma": 4.58,
-        "dxJitter": 45.07,
-        "ydLatencyEma": 84.06,
-        "ydLossEma": 4.81,
-        "ydJitter": 22.05,
-        "ltLatencyEma": 183.11,
-        "ltLossEma": 0.55,
-        "ltJitter": 4.61,
-        "avgLatency": 136.52,
-        "avgLoss": 3.31,
-        "avgJitter": 23.91
-      }
-    },
-    {
-      "id": 39541,
-      "ip": "investor.apple.com",
-      "data_30day": {
-        "ip": "investor.apple.com",
-        "dxLatencyEma": 186.6,
-        "dxLossEma": 7.88,
-        "dxJitter": 2.4,
-        "ydLatencyEma": 216.76,
-        "ydLossEma": 0.71,
-        "ydJitter": 7.61,
-        "ltLatencyEma": 186.02,
-        "ltLossEma": 0.72,
-        "ltJitter": 1.88,
-        "avgLatency": 196.46,
-        "avgLoss": 3.1,
-        "avgJitter": 3.96
-      }
-    },
-    {
-      "id": 37346,
-      "ip": "yg7.ygkkk.dpdns.org",
-      "data_30day": {
-        "ip": "yg7.ygkkk.dpdns.org",
-        "dxLatencyEma": 2021.06,
-        "dxLossEma": 43.23,
-        "dxJitter": 2484.15,
-        "ydLatencyEma": 2042.1,
-        "ydLossEma": 42.17,
-        "ydJitter": 2459.27,
-        "ltLatencyEma": 2037.74,
-        "ltLossEma": 39.31,
-        "ltJitter": 2451.24,
-        "avgLatency": 2033.63,
-        "avgLoss": 41.57,
-        "avgJitter": 2464.89
-      }
-    },
-    {
-      "id": 31838,
-      "ip": "mskcc.org",
-      "data_30day": {
-        "ip": "mskcc.org",
-        "dxLatencyEma": 185.66,
-        "dxLossEma": 7.92,
-        "dxJitter": 43.34,
-        "ydLatencyEma": 192.61,
-        "ydLossEma": 5.75,
-        "ydJitter": 4.21,
-        "ltLatencyEma": 180.43,
-        "ltLossEma": 0.62,
-        "ltJitter": 3.38,
-        "avgLatency": 186.23,
-        "avgLoss": 4.76,
-        "avgJitter": 16.98
-      }
-    },
-    {
-      "id": 31495,
-      "ip": "www.postman.com",
-      "data_30day": {
-        "ip": "www.postman.com",
-        "dxLatencyEma": 191.17,
-        "dxLossEma": 8.41,
-        "dxJitter": 4.0,
-        "ydLatencyEma": 213.77,
-        "ydLossEma": 0.98,
-        "ydJitter": 15.17,
-        "ltLatencyEma": 186.3,
-        "ltLossEma": 0.73,
-        "ltJitter": 1.62,
-        "avgLatency": 197.08,
-        "avgLoss": 3.37,
-        "avgJitter": 6.93
-      }
-    },
-    {
-      "id": 21019,
-      "ip": "www.visa.cn",
-      "data_30day": {
-        "ip": "www.visa.cn",
-        "dxLatencyEma": 197.3,
-        "dxLossEma": 8.52,
-        "dxJitter": 3.77,
-        "ydLatencyEma": 215.25,
-        "ydLossEma": 0.56,
-        "ydJitter": 8.82,
-        "ltLatencyEma": 204.66,
-        "ltLossEma": 0.78,
-        "ltJitter": 1.98,
-        "avgLatency": 205.74,
-        "avgLoss": 3.29,
-        "avgJitter": 4.86
-      }
-    },
-    {
-      "id": 42573,
-      "ip": "visa.com.tw",
-      "data_30day": {
-        "ip": "visa.com.tw",
-        "dxLatencyEma": 197.1,
-        "dxLossEma": 8.04,
-        "dxJitter": 4.02,
-        "ydLatencyEma": 214.56,
-        "ydLossEma": 0.6,
-        "ydJitter": 8.19,
-        "ltLatencyEma": 204.38,
-        "ltLossEma": 0.68,
-        "ltJitter": 2.21,
-        "avgLatency": 205.35,
-        "avgLoss": 3.11,
-        "avgJitter": 4.81
-      }
-    },
-    {
-      "id": 39120,
-      "ip": "www.6i5.com",
-      "data_30day": {
-        "ip": "www.6i5.com",
-        "dxLatencyEma": 127.89,
-        "dxLossEma": 3.06,
-        "dxJitter": 22.82,
-        "ydLatencyEma": 192.94,
-        "ydLossEma": 9.12,
-        "ydJitter": 7.13,
-        "ltLatencyEma": 180.41,
-        "ltLossEma": 0.81,
-        "ltJitter": 5.62,
-        "avgLatency": 167.08,
-        "avgLoss": 4.33,
-        "avgJitter": 11.86
-      }
-    },
-    {
-      "id": 38458,
-      "ip": "www.mlkj888.com",
-      "data_30day": {
-        "ip": "www.mlkj888.com",
-        "dxLatencyEma": 80.49,
-        "dxLossEma": 0.12,
-        "dxJitter": 7.86,
-        "ydLatencyEma": 85.18,
-        "ydLossEma": 6.83,
-        "ydJitter": 17.41,
-        "ltLatencyEma": 181.46,
-        "ltLossEma": 0.12,
-        "ltJitter": 4.3,
-        "avgLatency": 115.71,
-        "avgLoss": 2.36,
-        "avgJitter": 9.86
-      }
-    },
-    {
-      "id": 32729,
-      "ip": "jobsdb.com",
-      "data_30day": {
-        "ip": "jobsdb.com",
-        "dxLatencyEma": 94.07,
-        "dxLossEma": 0.82,
-        "dxJitter": 24.9,
-        "ydLatencyEma": 117.47,
-        "ydLossEma": 16.83,
-        "ydJitter": 14.45,
-        "ltLatencyEma": 179.49,
-        "ltLossEma": 0.63,
-        "ltJitter": 6.17,
-        "avgLatency": 130.34,
-        "avgLoss": 6.09,
-        "avgJitter": 15.17
-      }
-    },
-    {
-      "id": 25076,
-      "ip": "cf.877771.xyz",
-      "data_30day": {
-        "ip": "cf.877771.xyz",
-        "dxLatencyEma": 196.73,
-        "dxLossEma": 8.24,
-        "dxJitter": 3.71,
-        "ydLatencyEma": 209.11,
-        "ydLossEma": 3.5,
-        "ydJitter": 5.93,
-        "ltLatencyEma": 196.0,
-        "ltLossEma": 0.81,
-        "ltJitter": 3.58,
-        "avgLatency": 200.61,
-        "avgLoss": 4.18,
-        "avgJitter": 4.41
-      }
-    },
-    {
-      "id": 13197,
-      "ip": "bestcf.top",
-      "data_30day": {
-        "ip": "bestcf.top",
-        "dxLatencyEma": 175.92,
+        "ip": "stlouiscountymo.gov",
+        "dxLatencyEma": 186.99,
         "dxLossEma": 8.69,
-        "dxJitter": 38.17,
-        "ydLatencyEma": 126.07,
-        "ydLossEma": 5.64,
-        "ydJitter": 19.16,
-        "ltLatencyEma": 178.35,
-        "ltLossEma": 0.15,
-        "ltJitter": 4.33,
-        "avgLatency": 160.11,
-        "avgLoss": 4.83,
-        "avgJitter": 20.55
+        "dxJitter": 43.78,
+        "ydLatencyEma": 193.0,
+        "ydLossEma": 6.13,
+        "ydJitter": 4.09,
+        "ltLatencyEma": 180.26,
+        "ltLossEma": 0.51,
+        "ltJitter": 4.01,
+        "avgLatency": 186.75,
+        "avgLoss": 5.11,
+        "avgJitter": 17.29
       }
     },
     {
-      "id": 33122,
-      "ip": "stonexbullion.com",
+      "id": 24943,
+      "ip": "nrt.xxxxxxxx.nyc.mn",
       "data_30day": {
-        "ip": "stonexbullion.com",
-        "dxLatencyEma": 192.73,
-        "dxLossEma": 7.69,
-        "dxJitter": 3.72,
-        "ydLatencyEma": 194.63,
-        "ydLossEma": 9.06,
-        "ydJitter": 1.42,
-        "ltLatencyEma": 183.44,
-        "ltLossEma": 0.44,
-        "ltJitter": 4.25,
-        "avgLatency": 190.27,
-        "avgLoss": 5.73,
-        "avgJitter": 3.13
+        "ip": "nrt.xxxxxxxx.nyc.mn",
+        "dxLatencyEma": 196.96,
+        "dxLossEma": 7.81,
+        "dxJitter": 3.88,
+        "ydLatencyEma": 212.06,
+        "ydLossEma": 1.42,
+        "ydJitter": 2.89,
+        "ltLatencyEma": 180.61,
+        "ltLossEma": 0.77,
+        "ltJitter": 4.24,
+        "avgLatency": 196.54,
+        "avgLoss": 3.33,
+        "avgJitter": 3.67
       }
     },
     {
-      "id": 32000,
-      "ip": "dango.co",
+      "id": 21252,
+      "ip": "www.ntu.edu.sg",
       "data_30day": {
-        "ip": "dango.co",
-        "dxLatencyEma": 191.14,
-        "dxLossEma": 7.59,
-        "dxJitter": 6.14,
-        "ydLatencyEma": 219.12,
-        "ydLossEma": 0.74,
-        "ydJitter": 8.77,
-        "ltLatencyEma": 186.53,
-        "ltLossEma": 0.83,
-        "ltJitter": 4.45,
-        "avgLatency": 198.93,
-        "avgLoss": 3.05,
-        "avgJitter": 6.45
+        "ip": "www.ntu.edu.sg",
+        "dxLatencyEma": 183.51,
+        "dxLossEma": 0.16,
+        "dxJitter": 48.29,
+        "ydLatencyEma": 193.67,
+        "ydLossEma": 8.84,
+        "ydJitter": 1.5,
+        "ltLatencyEma": 180.73,
+        "ltLossEma": 0.59,
+        "ltJitter": 6.3,
+        "avgLatency": 185.97,
+        "avgLoss": 3.2,
+        "avgJitter": 18.7
       }
     },
     {
-      "id": 31835,
-      "ip": "go1.dematic.com",
+      "id": 20895,
+      "ip": "www.visa.com.hk",
       "data_30day": {
-        "ip": "go1.dematic.com",
-        "dxLatencyEma": 186.21,
-        "dxLossEma": 7.23,
-        "dxJitter": 44.33,
-        "ydLatencyEma": 194.48,
-        "ydLossEma": 9.18,
-        "ydJitter": 1.38,
-        "ltLatencyEma": 180.93,
-        "ltLossEma": 0.57,
-        "ltJitter": 5.14,
-        "avgLatency": 187.21,
-        "avgLoss": 5.66,
-        "avgJitter": 16.95
+        "ip": "www.visa.com.hk",
+        "dxLatencyEma": 187.35,
+        "dxLossEma": 7.99,
+        "dxJitter": 44.22,
+        "ydLatencyEma": 216.18,
+        "ydLossEma": 0.4,
+        "ydJitter": 6.91,
+        "ltLatencyEma": 179.6,
+        "ltLossEma": 0.54,
+        "ltJitter": 5.09,
+        "avgLatency": 194.38,
+        "avgLoss": 2.98,
+        "avgJitter": 18.74
       }
     },
     {
-      "id": 44593,
-      "ip": "vps.cheng2001.top",
+      "id": 44100,
+      "ip": "cfip-cu.stoeaves.us.ci",
       "data_30day": {
-        "ip": "vps.cheng2001.top",
-        "dxLatencyEma": 78.63,
-        "dxLossEma": 14.78,
-        "dxJitter": 13.18,
-        "ydLatencyEma": 150.13,
-        "ydLossEma": 0.97,
-        "ydJitter": 68.14,
-        "ltLatencyEma": 179.13,
-        "ltLossEma": 0.5,
-        "ltJitter": 6.58,
-        "avgLatency": 135.96,
-        "avgLoss": 5.42,
-        "avgJitter": 29.3
+        "ip": "cfip-cu.stoeaves.us.ci",
+        "dxLatencyEma": 140.47,
+        "dxLossEma": 3.56,
+        "dxJitter": 21.4,
+        "ydLatencyEma": 128.47,
+        "ydLossEma": 4.56,
+        "ydJitter": 20.73,
+        "ltLatencyEma": 180.98,
+        "ltLossEma": 0.58,
+        "ltJitter": 4.2,
+        "avgLatency": 149.97,
+        "avgLoss": 2.9,
+        "avgJitter": 15.44
       }
     },
     {
-      "id": 43247,
-      "ip": "cf.legspcpd.furry.bz",
+      "id": 41320,
+      "ip": "cf.duun.eu.cc",
       "data_30day": {
-        "ip": "cf.legspcpd.furry.bz",
-        "dxLatencyEma": 77.53,
-        "dxLossEma": 15.39,
-        "dxJitter": 13.56,
-        "ydLatencyEma": 80.42,
-        "ydLossEma": 3.37,
-        "ydJitter": 21.68,
-        "ltLatencyEma": 180.57,
-        "ltLossEma": 0.49,
-        "ltJitter": 5.37,
-        "avgLatency": 112.84,
-        "avgLoss": 6.42,
-        "avgJitter": 13.54
+        "ip": "cf.duun.eu.cc",
+        "dxLatencyEma": 94.48,
+        "dxLossEma": 0.93,
+        "dxJitter": 24.63,
+        "ydLatencyEma": 194.5,
+        "ydLossEma": 9.33,
+        "ydJitter": 1.65,
+        "ltLatencyEma": 180.96,
+        "ltLossEma": 0.52,
+        "ltJitter": 3.78,
+        "avgLatency": 156.65,
+        "avgLoss": 3.59,
+        "avgJitter": 10.02
       }
     },
     {
-      "id": 42213,
-      "ip": "www.trumpinternationalrealty.com",
+      "id": 40551,
+      "ip": "01-cctv.com",
       "data_30day": {
-        "ip": "www.trumpinternationalrealty.com",
-        "dxLatencyEma": 188.55,
-        "dxLossEma": 8.18,
-        "dxJitter": 47.92,
-        "ydLatencyEma": 136.82,
-        "ydLossEma": 5.97,
-        "ydJitter": 15.77,
-        "ltLatencyEma": 180.24,
-        "ltLossEma": 0.71,
-        "ltJitter": 5.26,
-        "avgLatency": 168.54,
-        "avgLoss": 4.95,
-        "avgJitter": 22.98
-      }
-    },
-    {
-      "id": 40294,
-      "ip": "cfgo.timelate.com",
-      "data_30day": {
-        "ip": "cfgo.timelate.com",
-        "dxLatencyEma": 85.3,
-        "dxLossEma": 0.51,
-        "dxJitter": 19.63,
-        "ydLatencyEma": 163.98,
-        "ydLossEma": 7.97,
-        "ydJitter": 40.49,
-        "ltLatencyEma": 180.03,
-        "ltLossEma": 0.74,
-        "ltJitter": 5.36,
-        "avgLatency": 143.1,
-        "avgLoss": 3.07,
-        "avgJitter": 21.83
+        "ip": "01-cctv.com",
+        "dxLatencyEma": 80.15,
+        "dxLossEma": 0.21,
+        "dxJitter": 9.36,
+        "ydLatencyEma": 83.8,
+        "ydLossEma": 7.5,
+        "ydJitter": 16.59,
+        "ltLatencyEma": 180.97,
+        "ltLossEma": 0.19,
+        "ltJitter": 4.97,
+        "avgLatency": 114.97,
+        "avgLoss": 2.63,
+        "avgJitter": 10.31
       }
     },
     {
@@ -3964,60 +3403,635 @@
       }
     },
     {
-      "id": 37411,
-      "ip": "www.sofi.com",
+      "id": 39559,
+      "ip": "china-telecom.cname.cloudflare.468123.xyz",
       "data_30day": {
-        "ip": "www.sofi.com",
-        "dxLatencyEma": 93.43,
-        "dxLossEma": 0.76,
-        "dxJitter": 24.38,
-        "ydLatencyEma": 118.16,
-        "ydLossEma": 16.68,
-        "ydJitter": 15.54,
-        "ltLatencyEma": 183.85,
+        "ip": "china-telecom.cname.cloudflare.468123.xyz",
+        "dxLatencyEma": 74.29,
+        "dxLossEma": 1.43,
+        "dxJitter": 8.73,
+        "ydLatencyEma": 183.25,
+        "ydLossEma": 9.03,
+        "ydJitter": 9.32,
+        "ltLatencyEma": 181.08,
+        "ltLossEma": 0.52,
+        "ltJitter": 3.95,
+        "avgLatency": 146.21,
+        "avgLoss": 3.66,
+        "avgJitter": 7.33
+      }
+    },
+    {
+      "id": 38458,
+      "ip": "www.mlkj888.com",
+      "data_30day": {
+        "ip": "www.mlkj888.com",
+        "dxLatencyEma": 80.49,
+        "dxLossEma": 0.12,
+        "dxJitter": 7.86,
+        "ydLatencyEma": 85.18,
+        "ydLossEma": 6.83,
+        "ydJitter": 17.41,
+        "ltLatencyEma": 181.46,
+        "ltLossEma": 0.12,
+        "ltJitter": 4.3,
+        "avgLatency": 115.71,
+        "avgLoss": 2.36,
+        "avgJitter": 9.86
+      }
+    },
+    {
+      "id": 37348,
+      "ip": "yg9.ygkkk.dpdns.org",
+      "data_30day": {
+        "ip": "yg9.ygkkk.dpdns.org",
+        "dxLatencyEma": 125.54,
+        "dxLossEma": 3.76,
+        "dxJitter": 48.47,
+        "ydLatencyEma": 142.42,
+        "ydLossEma": 1.33,
+        "ydJitter": 64.04,
+        "ltLatencyEma": 193.64,
+        "ltLossEma": 0.65,
+        "ltJitter": 11.22,
+        "avgLatency": 153.87,
+        "avgLoss": 1.91,
+        "avgJitter": 41.24
+      }
+    },
+    {
+      "id": 36400,
+      "ip": "cf.998866.top",
+      "data_30day": {
+        "ip": "cf.998866.top",
+        "dxLatencyEma": 77.81,
+        "dxLossEma": 2.13,
+        "dxJitter": 11.39,
+        "ydLatencyEma": 122.08,
+        "ydLossEma": 9.8,
+        "ydJitter": 18.75,
+        "ltLatencyEma": 181.65,
+        "ltLossEma": 0.65,
+        "ltJitter": 4.48,
+        "avgLatency": 127.18,
+        "avgLoss": 4.19,
+        "avgJitter": 11.54
+      }
+    },
+    {
+      "id": 30696,
+      "ip": "dynadot.com",
+      "data_30day": {
+        "ip": "dynadot.com",
+        "dxLatencyEma": 186.6,
+        "dxLossEma": 7.94,
+        "dxJitter": 44.56,
+        "ydLatencyEma": 135.83,
+        "ydLossEma": 5.52,
+        "ydJitter": 18.42,
+        "ltLatencyEma": 180.21,
+        "ltLossEma": 0.7,
+        "ltJitter": 4.28,
+        "avgLatency": 167.55,
+        "avgLoss": 4.72,
+        "avgJitter": 22.42
+      }
+    },
+    {
+      "id": 44158,
+      "ip": "yd.zhuqq.qzz.io",
+      "data_30day": {
+        "ip": "yd.zhuqq.qzz.io",
+        "dxLatencyEma": 188.11,
+        "dxLossEma": 7.91,
+        "dxJitter": 47.17,
+        "ydLatencyEma": 157.46,
+        "ydLossEma": 3.36,
+        "ydJitter": 30.17,
+        "ltLatencyEma": 180.17,
+        "ltLossEma": 0.74,
+        "ltJitter": 4.48,
+        "avgLatency": 175.25,
+        "avgLoss": 4.0,
+        "avgJitter": 27.27
+      }
+    },
+    {
+      "id": 39541,
+      "ip": "investor.apple.com",
+      "data_30day": {
+        "ip": "investor.apple.com",
+        "dxLatencyEma": 186.6,
+        "dxLossEma": 7.88,
+        "dxJitter": 2.4,
+        "ydLatencyEma": 216.76,
+        "ydLossEma": 0.71,
+        "ydJitter": 7.61,
+        "ltLatencyEma": 186.02,
+        "ltLossEma": 0.72,
+        "ltJitter": 1.88,
+        "avgLatency": 196.46,
+        "avgLoss": 3.1,
+        "avgJitter": 3.96
+      }
+    },
+    {
+      "id": 31691,
+      "ip": "www.ox.ac.uk",
+      "data_30day": {
+        "ip": "www.ox.ac.uk",
+        "dxLatencyEma": 179.0,
+        "dxLossEma": 0.0,
+        "dxJitter": 4.08,
+        "ydLatencyEma": 195.17,
+        "ydLossEma": 10.28,
+        "ydJitter": 1.46,
+        "ltLatencyEma": 180.23,
+        "ltLossEma": 0.55,
+        "ltJitter": 5.85,
+        "avgLatency": 184.8,
+        "avgLoss": 3.61,
+        "avgJitter": 3.8
+      }
+    },
+    {
+      "id": 31543,
+      "ip": "redis.io",
+      "data_30day": {
+        "ip": "redis.io",
+        "dxLatencyEma": 190.02,
+        "dxLossEma": 7.68,
+        "dxJitter": 47.72,
+        "ydLatencyEma": 222.65,
+        "ydLossEma": 0.43,
+        "ydJitter": 7.64,
+        "ltLatencyEma": 181.09,
+        "ltLossEma": 0.53,
+        "ltJitter": 3.49,
+        "avgLatency": 197.92,
+        "avgLoss": 2.88,
+        "avgJitter": 19.62
+      }
+    },
+    {
+      "id": 31495,
+      "ip": "www.postman.com",
+      "data_30day": {
+        "ip": "www.postman.com",
+        "dxLatencyEma": 191.17,
+        "dxLossEma": 8.41,
+        "dxJitter": 4.0,
+        "ydLatencyEma": 213.77,
+        "ydLossEma": 0.98,
+        "ydJitter": 15.17,
+        "ltLatencyEma": 186.3,
+        "ltLossEma": 0.73,
+        "ltJitter": 1.62,
+        "avgLatency": 197.08,
+        "avgLoss": 3.37,
+        "avgJitter": 6.93
+      }
+    },
+    {
+      "id": 43370,
+      "ip": "chrono24.com",
+      "data_30day": {
+        "ip": "chrono24.com",
+        "dxLatencyEma": 187.62,
+        "dxLossEma": 7.65,
+        "dxJitter": 45.6,
+        "ydLatencyEma": 74.83,
+        "ydLossEma": 1.82,
+        "ydJitter": 21.02,
+        "ltLatencyEma": 178.9,
         "ltLossEma": 0.57,
-        "ltJitter": 4.96,
-        "avgLatency": 131.81,
-        "avgLoss": 6.0,
-        "avgJitter": 14.96
+        "ltJitter": 5.27,
+        "avgLatency": 147.12,
+        "avgLoss": 3.35,
+        "avgJitter": 23.96
       }
     },
     {
-      "id": 34109,
-      "ip": "d.lma.de5.net",
+      "id": 39120,
+      "ip": "www.6i5.com",
       "data_30day": {
-        "ip": "d.lma.de5.net",
-        "dxLatencyEma": 93.43,
-        "dxLossEma": 0.75,
-        "dxJitter": 24.8,
-        "ydLatencyEma": 74.58,
-        "ydLossEma": 1.77,
-        "ydJitter": 20.27,
-        "ltLatencyEma": 180.0,
-        "ltLossEma": 0.33,
-        "ltJitter": 5.1,
-        "avgLatency": 116.0,
-        "avgLoss": 0.95,
-        "avgJitter": 16.72
+        "ip": "www.6i5.com",
+        "dxLatencyEma": 127.89,
+        "dxLossEma": 3.06,
+        "dxJitter": 22.82,
+        "ydLatencyEma": 192.94,
+        "ydLossEma": 9.12,
+        "ydJitter": 7.13,
+        "ltLatencyEma": 180.41,
+        "ltLossEma": 0.81,
+        "ltJitter": 5.62,
+        "avgLatency": 167.08,
+        "avgLoss": 4.33,
+        "avgJitter": 11.86
       }
     },
     {
-      "id": 31836,
-      "ip": "page.mercer.com",
+      "id": 31838,
+      "ip": "mskcc.org",
       "data_30day": {
-        "ip": "page.mercer.com",
-        "dxLatencyEma": 185.06,
-        "dxLossEma": 6.91,
-        "dxJitter": 45.37,
-        "ydLatencyEma": 194.47,
-        "ydLossEma": 9.37,
-        "ydJitter": 1.31,
-        "ltLatencyEma": 180.76,
-        "ltLossEma": 0.5,
-        "ltJitter": 5.37,
-        "avgLatency": 186.76,
-        "avgLoss": 5.59,
-        "avgJitter": 17.35
+        "ip": "mskcc.org",
+        "dxLatencyEma": 185.66,
+        "dxLossEma": 7.92,
+        "dxJitter": 43.34,
+        "ydLatencyEma": 192.61,
+        "ydLossEma": 5.75,
+        "ydJitter": 4.21,
+        "ltLatencyEma": 180.43,
+        "ltLossEma": 0.62,
+        "ltJitter": 3.38,
+        "avgLatency": 186.23,
+        "avgLoss": 4.76,
+        "avgJitter": 16.98
+      }
+    },
+    {
+      "id": 28864,
+      "ip": "bestcfv4.030101.xyz",
+      "data_30day": {
+        "ip": "bestcfv4.030101.xyz",
+        "dxLatencyEma": 188.58,
+        "dxLossEma": 8.32,
+        "dxJitter": 47.74,
+        "ydLatencyEma": 76.32,
+        "ydLossEma": 2.03,
+        "ydJitter": 21.18,
+        "ltLatencyEma": 182.63,
+        "ltLossEma": 0.68,
+        "ltJitter": 5.09,
+        "avgLatency": 149.18,
+        "avgLoss": 3.68,
+        "avgJitter": 24.67
+      }
+    },
+    {
+      "id": 26009,
+      "ip": "www.visa.com",
+      "data_30day": {
+        "ip": "www.visa.com",
+        "dxLatencyEma": 185.8,
+        "dxLossEma": 8.01,
+        "dxJitter": 43.45,
+        "ydLatencyEma": 192.81,
+        "ydLossEma": 5.44,
+        "ydJitter": 3.87,
+        "ltLatencyEma": 182.73,
+        "ltLossEma": 0.75,
+        "ltJitter": 4.54,
+        "avgLatency": 187.11,
+        "avgLoss": 4.73,
+        "avgJitter": 17.29
+      }
+    },
+    {
+      "id": 13427,
+      "ip": "cfip.1323123.xyz",
+      "data_30day": {
+        "ip": "cfip.1323123.xyz",
+        "dxLatencyEma": 180.87,
+        "dxLossEma": 7.99,
+        "dxJitter": 18.46,
+        "ydLatencyEma": 178.7,
+        "ydLossEma": 3.15,
+        "ydJitter": 8.53,
+        "ltLatencyEma": 208.34,
+        "ltLossEma": 2.41,
+        "ltJitter": 7.02,
+        "avgLatency": 189.3,
+        "avgLoss": 4.52,
+        "avgJitter": 11.34
+      }
+    },
+    {
+      "id": 44716,
+      "ip": "yd.hhhhh.eu.org",
+      "data_30day": {
+        "ip": "yd.hhhhh.eu.org",
+        "dxLatencyEma": 188.96,
+        "dxLossEma": 7.86,
+        "dxJitter": 46.18,
+        "ydLatencyEma": 145.67,
+        "ydLossEma": 4.42,
+        "ydJitter": 18.26,
+        "ltLatencyEma": 181.13,
+        "ltLossEma": 0.37,
+        "ltJitter": 4.34,
+        "avgLatency": 171.92,
+        "avgLoss": 4.22,
+        "avgJitter": 22.93
+      }
+    },
+    {
+      "id": 42573,
+      "ip": "visa.com.tw",
+      "data_30day": {
+        "ip": "visa.com.tw",
+        "dxLatencyEma": 197.1,
+        "dxLossEma": 8.04,
+        "dxJitter": 4.02,
+        "ydLatencyEma": 214.56,
+        "ydLossEma": 0.6,
+        "ydJitter": 8.19,
+        "ltLatencyEma": 204.38,
+        "ltLossEma": 0.68,
+        "ltJitter": 2.21,
+        "avgLatency": 205.35,
+        "avgLoss": 3.11,
+        "avgJitter": 4.81
+      }
+    },
+    {
+      "id": 32711,
+      "ip": "store.epicgames.com",
+      "data_30day": {
+        "ip": "store.epicgames.com",
+        "dxLatencyEma": 187.89,
+        "dxLossEma": 7.82,
+        "dxJitter": 46.22,
+        "ydLatencyEma": 192.68,
+        "ydLossEma": 6.0,
+        "ydJitter": 4.53,
+        "ltLatencyEma": 180.77,
+        "ltLossEma": 0.52,
+        "ltJitter": 5.08,
+        "avgLatency": 187.11,
+        "avgLoss": 4.78,
+        "avgJitter": 18.61
+      }
+    },
+    {
+      "id": 14831,
+      "ip": "visa.com",
+      "data_30day": {
+        "ip": "visa.com",
+        "dxLatencyEma": 188.05,
+        "dxLossEma": 8.6,
+        "dxJitter": 5.82,
+        "ydLatencyEma": 182.2,
+        "ydLossEma": 0.46,
+        "ydJitter": 15.23,
+        "ltLatencyEma": 214.48,
+        "ltLossEma": 2.62,
+        "ltJitter": 2.32,
+        "avgLatency": 194.91,
+        "avgLoss": 3.89,
+        "avgJitter": 7.79
+      }
+    },
+    {
+      "id": 38104,
+      "ip": "www.yutank.com",
+      "data_30day": {
+        "ip": "www.yutank.com",
+        "dxLatencyEma": 186.97,
+        "dxLossEma": 7.8,
+        "dxJitter": 44.13,
+        "ydLatencyEma": 192.67,
+        "ydLossEma": 5.88,
+        "ydJitter": 4.02,
+        "ltLatencyEma": 183.66,
+        "ltLossEma": 0.62,
+        "ltJitter": 4.53,
+        "avgLatency": 187.77,
+        "avgLoss": 4.77,
+        "avgJitter": 17.56
+      }
+    },
+    {
+      "id": 26757,
+      "ip": "cloudflare.cfgo.cc",
+      "data_30day": {
+        "ip": "cloudflare.cfgo.cc",
+        "dxLatencyEma": 142.38,
+        "dxLossEma": 4.58,
+        "dxJitter": 45.07,
+        "ydLatencyEma": 84.06,
+        "ydLossEma": 4.81,
+        "ydJitter": 22.05,
+        "ltLatencyEma": 183.11,
+        "ltLossEma": 0.55,
+        "ltJitter": 4.61,
+        "avgLatency": 136.52,
+        "avgLoss": 3.31,
+        "avgJitter": 23.91
+      }
+    },
+    {
+      "id": 13197,
+      "ip": "bestcf.top",
+      "data_30day": {
+        "ip": "bestcf.top",
+        "dxLatencyEma": 175.92,
+        "dxLossEma": 8.69,
+        "dxJitter": 38.17,
+        "ydLatencyEma": 126.07,
+        "ydLossEma": 5.64,
+        "ydJitter": 19.16,
+        "ltLatencyEma": 178.35,
+        "ltLossEma": 0.15,
+        "ltJitter": 4.33,
+        "avgLatency": 160.11,
+        "avgLoss": 4.83,
+        "avgJitter": 20.55
+      }
+    },
+    {
+      "id": 31835,
+      "ip": "go1.dematic.com",
+      "data_30day": {
+        "ip": "go1.dematic.com",
+        "dxLatencyEma": 186.21,
+        "dxLossEma": 7.23,
+        "dxJitter": 44.33,
+        "ydLatencyEma": 194.48,
+        "ydLossEma": 9.18,
+        "ydJitter": 1.38,
+        "ltLatencyEma": 180.93,
+        "ltLossEma": 0.57,
+        "ltJitter": 5.14,
+        "avgLatency": 187.21,
+        "avgLoss": 5.66,
+        "avgJitter": 16.95
+      }
+    },
+    {
+      "id": 28686,
+      "ip": "www.whoer.net",
+      "data_30day": {
+        "ip": "www.whoer.net",
+        "dxLatencyEma": 189.45,
+        "dxLossEma": 8.39,
+        "dxJitter": 4.14,
+        "ydLatencyEma": 193.99,
+        "ydLossEma": 6.57,
+        "ydJitter": 6.25,
+        "ltLatencyEma": 189.7,
+        "ltLossEma": 0.73,
+        "ltJitter": 3.29,
+        "avgLatency": 191.05,
+        "avgLoss": 5.23,
+        "avgJitter": 4.56
+      }
+    },
+    {
+      "id": 53833,
+      "ip": "images.chesscomfiles.com",
+      "data_30day": null
+    },
+    {
+      "id": 42213,
+      "ip": "www.trumpinternationalrealty.com",
+      "data_30day": {
+        "ip": "www.trumpinternationalrealty.com",
+        "dxLatencyEma": 188.55,
+        "dxLossEma": 8.18,
+        "dxJitter": 47.92,
+        "ydLatencyEma": 136.82,
+        "ydLossEma": 5.97,
+        "ydJitter": 15.77,
+        "ltLatencyEma": 180.24,
+        "ltLossEma": 0.71,
+        "ltJitter": 5.26,
+        "avgLatency": 168.54,
+        "avgLoss": 4.95,
+        "avgJitter": 22.98
+      }
+    },
+    {
+      "id": 33122,
+      "ip": "stonexbullion.com",
+      "data_30day": {
+        "ip": "stonexbullion.com",
+        "dxLatencyEma": 192.73,
+        "dxLossEma": 7.69,
+        "dxJitter": 3.72,
+        "ydLatencyEma": 194.63,
+        "ydLossEma": 9.06,
+        "ydJitter": 1.42,
+        "ltLatencyEma": 183.44,
+        "ltLossEma": 0.44,
+        "ltJitter": 4.25,
+        "avgLatency": 190.27,
+        "avgLoss": 5.73,
+        "avgJitter": 3.13
+      }
+    },
+    {
+      "id": 45320,
+      "ip": "cf.xycf.asia",
+      "data_30day": {
+        "ip": "cf.xycf.asia",
+        "dxLatencyEma": 68.79,
+        "dxLossEma": 0.0,
+        "dxJitter": 4.22,
+        "ydLatencyEma": 97.28,
+        "ydLossEma": 3.42,
+        "ydJitter": 18.85,
+        "ltLatencyEma": 180.46,
+        "ltLossEma": 0.63,
+        "ltJitter": 4.36,
+        "avgLatency": 115.51,
+        "avgLoss": 1.35,
+        "avgJitter": 9.14
+      }
+    },
+    {
+      "id": 40294,
+      "ip": "cfgo.timelate.com",
+      "data_30day": {
+        "ip": "cfgo.timelate.com",
+        "dxLatencyEma": 85.3,
+        "dxLossEma": 0.51,
+        "dxJitter": 19.63,
+        "ydLatencyEma": 163.98,
+        "ydLossEma": 7.97,
+        "ydJitter": 40.49,
+        "ltLatencyEma": 180.03,
+        "ltLossEma": 0.74,
+        "ltJitter": 5.36,
+        "avgLatency": 143.1,
+        "avgLoss": 3.07,
+        "avgJitter": 21.83
+      }
+    },
+    {
+      "id": 39117,
+      "ip": "hzytjy.cn",
+      "data_30day": {
+        "ip": "hzytjy.cn",
+        "dxLatencyEma": 106.48,
+        "dxLossEma": 3.51,
+        "dxJitter": 17.17,
+        "ydLatencyEma": 117.57,
+        "ydLossEma": 7.34,
+        "ydJitter": 23.68,
+        "ltLatencyEma": 180.85,
+        "ltLossEma": 0.75,
+        "ltJitter": 4.26,
+        "avgLatency": 134.97,
+        "avgLoss": 3.87,
+        "avgJitter": 15.04
+      }
+    },
+    {
+      "id": 37345,
+      "ip": "yg6.ygkkk.dpdns.org",
+      "data_30day": {
+        "ip": "yg6.ygkkk.dpdns.org",
+        "dxLatencyEma": 93.15,
+        "dxLossEma": 0.84,
+        "dxJitter": 24.79,
+        "ydLatencyEma": 115.37,
+        "ydLossEma": 17.02,
+        "ydJitter": 19.88,
+        "ltLatencyEma": 182.66,
+        "ltLossEma": 0.55,
+        "ltJitter": 4.36,
+        "avgLatency": 130.39,
+        "avgLoss": 6.14,
+        "avgJitter": 16.34
+      }
+    },
+    {
+      "id": 32729,
+      "ip": "jobsdb.com",
+      "data_30day": {
+        "ip": "jobsdb.com",
+        "dxLatencyEma": 94.07,
+        "dxLossEma": 0.82,
+        "dxJitter": 24.9,
+        "ydLatencyEma": 117.47,
+        "ydLossEma": 16.83,
+        "ydJitter": 14.45,
+        "ltLatencyEma": 179.49,
+        "ltLossEma": 0.63,
+        "ltJitter": 6.17,
+        "avgLatency": 130.34,
+        "avgLoss": 6.09,
+        "avgJitter": 15.17
+      }
+    },
+    {
+      "id": 30816,
+      "ip": "da.mfa.gov.ua",
+      "data_30day": {
+        "ip": "da.mfa.gov.ua",
+        "dxLatencyEma": 93.39,
+        "dxLossEma": 0.93,
+        "dxJitter": 25.53,
+        "ydLatencyEma": 114.74,
+        "ydLossEma": 16.88,
+        "ydJitter": 12.03,
+        "ltLatencyEma": 182.85,
+        "ltLossEma": 0.48,
+        "ltJitter": 4.44,
+        "avgLatency": 130.33,
+        "avgLoss": 6.1,
+        "avgJitter": 14.0
       }
     },
     {
@@ -4059,79 +4073,22 @@
       }
     },
     {
-      "id": 14829,
-      "ip": "cloudflare.182682.xyz",
+      "id": 41128,
+      "ip": "shabak.gov.il",
       "data_30day": {
-        "ip": "cloudflare.182682.xyz",
-        "dxLatencyEma": 78.69,
-        "dxLossEma": 0.12,
-        "dxJitter": 7.35,
-        "ydLatencyEma": 80.93,
-        "ydLossEma": 7.39,
-        "ydJitter": 16.7,
-        "ltLatencyEma": 179.92,
-        "ltLossEma": 0.1,
-        "ltJitter": 4.76,
-        "avgLatency": 113.18,
-        "avgLoss": 2.54,
-        "avgJitter": 9.6
-      }
-    },
-    {
-      "id": 44158,
-      "ip": "yd.zhuqq.qzz.io",
-      "data_30day": {
-        "ip": "yd.zhuqq.qzz.io",
-        "dxLatencyEma": 188.11,
-        "dxLossEma": 7.91,
-        "dxJitter": 47.17,
-        "ydLatencyEma": 157.46,
-        "ydLossEma": 3.36,
-        "ydJitter": 30.17,
-        "ltLatencyEma": 180.17,
-        "ltLossEma": 0.74,
-        "ltJitter": 4.48,
-        "avgLatency": 175.25,
-        "avgLoss": 4.0,
-        "avgJitter": 27.27
-      }
-    },
-    {
-      "id": 32711,
-      "ip": "store.epicgames.com",
-      "data_30day": {
-        "ip": "store.epicgames.com",
-        "dxLatencyEma": 187.89,
-        "dxLossEma": 7.82,
-        "dxJitter": 46.22,
-        "ydLatencyEma": 192.68,
-        "ydLossEma": 6.0,
-        "ydJitter": 4.53,
-        "ltLatencyEma": 180.77,
-        "ltLossEma": 0.52,
-        "ltJitter": 5.08,
-        "avgLatency": 187.11,
-        "avgLoss": 4.78,
-        "avgJitter": 18.61
-      }
-    },
-    {
-      "id": 28686,
-      "ip": "www.whoer.net",
-      "data_30day": {
-        "ip": "www.whoer.net",
-        "dxLatencyEma": 189.45,
-        "dxLossEma": 8.39,
-        "dxJitter": 4.14,
-        "ydLatencyEma": 193.99,
-        "ydLossEma": 6.57,
-        "ydJitter": 6.25,
-        "ltLatencyEma": 189.7,
-        "ltLossEma": 0.73,
-        "ltJitter": 3.29,
-        "avgLatency": 191.05,
-        "avgLoss": 5.23,
-        "avgJitter": 4.56
+        "ip": "shabak.gov.il",
+        "dxLatencyEma": 187.59,
+        "dxLossEma": 7.7,
+        "dxJitter": 44.66,
+        "ydLatencyEma": 192.69,
+        "ydLossEma": 5.96,
+        "ydJitter": 3.65,
+        "ltLatencyEma": 181.22,
+        "ltLossEma": 0.64,
+        "ltJitter": 4.75,
+        "avgLatency": 187.17,
+        "avgLoss": 4.77,
+        "avgJitter": 17.69
       }
     },
     {
@@ -4154,196 +4111,6 @@
       }
     },
     {
-      "id": 44409,
-      "ip": "trump.com",
-      "data_30day": {
-        "ip": "trump.com",
-        "dxLatencyEma": 186.18,
-        "dxLossEma": 7.66,
-        "dxJitter": 43.19,
-        "ydLatencyEma": 194.56,
-        "ydLossEma": 9.16,
-        "ydJitter": 1.45,
-        "ltLatencyEma": 179.71,
-        "ltLossEma": 0.53,
-        "ltJitter": 4.97,
-        "avgLatency": 186.82,
-        "avgLoss": 5.78,
-        "avgJitter": 16.54
-      }
-    },
-    {
-      "id": 37345,
-      "ip": "yg6.ygkkk.dpdns.org",
-      "data_30day": {
-        "ip": "yg6.ygkkk.dpdns.org",
-        "dxLatencyEma": 93.15,
-        "dxLossEma": 0.84,
-        "dxJitter": 24.79,
-        "ydLatencyEma": 115.37,
-        "ydLossEma": 17.02,
-        "ydJitter": 19.88,
-        "ltLatencyEma": 182.66,
-        "ltLossEma": 0.55,
-        "ltJitter": 4.36,
-        "avgLatency": 130.39,
-        "avgLoss": 6.14,
-        "avgJitter": 16.34
-      }
-    },
-    {
-      "id": 36915,
-      "ip": "china.mfa.gov.ua",
-      "data_30day": {
-        "ip": "china.mfa.gov.ua",
-        "dxLatencyEma": 93.01,
-        "dxLossEma": 0.71,
-        "dxJitter": 25.16,
-        "ydLatencyEma": 112.26,
-        "ydLossEma": 17.45,
-        "ydJitter": 19.64,
-        "ltLatencyEma": 182.99,
-        "ltLossEma": 0.7,
-        "ltJitter": 4.85,
-        "avgLatency": 129.42,
-        "avgLoss": 6.29,
-        "avgJitter": 16.55
-      }
-    },
-    {
-      "id": 35908,
-      "ip": "saas.072159.xyz",
-      "data_30day": {
-        "ip": "saas.072159.xyz",
-        "dxLatencyEma": 80.57,
-        "dxLossEma": 15.1,
-        "dxJitter": 15.11,
-        "ydLatencyEma": 74.93,
-        "ydLossEma": 1.81,
-        "ydJitter": 20.61,
-        "ltLatencyEma": 180.86,
-        "ltLossEma": 0.83,
-        "ltJitter": 3.93,
-        "avgLatency": 112.12,
-        "avgLoss": 5.91,
-        "avgJitter": 13.22
-      }
-    },
-    {
-      "id": 31829,
-      "ip": "serviceshub.samsclub.com",
-      "data_30day": {
-        "ip": "serviceshub.samsclub.com",
-        "dxLatencyEma": 95.19,
-        "dxLossEma": 0.97,
-        "dxJitter": 25.6,
-        "ydLatencyEma": 116.95,
-        "ydLossEma": 17.05,
-        "ydJitter": 18.11,
-        "ltLatencyEma": 182.99,
-        "ltLossEma": 0.61,
-        "ltJitter": 5.51,
-        "avgLatency": 131.71,
-        "avgLoss": 6.21,
-        "avgJitter": 16.41
-      }
-    },
-    {
-      "id": 31136,
-      "ip": "ddk.cfyx.20237737.xyz",
-      "data_30day": {
-        "ip": "ddk.cfyx.20237737.xyz",
-        "dxLatencyEma": 78.67,
-        "dxLossEma": 15.42,
-        "dxJitter": 12.58,
-        "ydLatencyEma": 74.6,
-        "ydLossEma": 1.88,
-        "ydJitter": 21.01,
-        "ltLatencyEma": 193.14,
-        "ltLossEma": 0.76,
-        "ltJitter": 2.02,
-        "avgLatency": 115.47,
-        "avgLoss": 6.02,
-        "avgJitter": 11.87
-      }
-    },
-    {
-      "id": 30816,
-      "ip": "da.mfa.gov.ua",
-      "data_30day": {
-        "ip": "da.mfa.gov.ua",
-        "dxLatencyEma": 93.39,
-        "dxLossEma": 0.93,
-        "dxJitter": 25.53,
-        "ydLatencyEma": 114.74,
-        "ydLossEma": 16.88,
-        "ydJitter": 12.03,
-        "ltLatencyEma": 182.85,
-        "ltLossEma": 0.48,
-        "ltJitter": 4.44,
-        "avgLatency": 130.33,
-        "avgLoss": 6.1,
-        "avgJitter": 14.0
-      }
-    },
-    {
-      "id": 28082,
-      "ip": "ct.877774.xyz",
-      "data_30day": {
-        "ip": "ct.877774.xyz",
-        "dxLatencyEma": 77.93,
-        "dxLossEma": 14.1,
-        "dxJitter": 13.41,
-        "ydLatencyEma": 75.24,
-        "ydLossEma": 1.97,
-        "ydJitter": 21.01,
-        "ltLatencyEma": 181.24,
-        "ltLossEma": 0.57,
-        "ltJitter": 5.18,
-        "avgLatency": 111.47,
-        "avgLoss": 5.55,
-        "avgJitter": 13.2
-      }
-    },
-    {
-      "id": 14832,
-      "ip": "zero-trust-client.cloudflareclient.com",
-      "data_30day": {
-        "ip": "zero-trust-client.cloudflareclient.com",
-        "dxLatencyEma": 202.96,
-        "dxLossEma": 9.59,
-        "dxJitter": 3.19,
-        "ydLatencyEma": 206.29,
-        "ydLossEma": 0.49,
-        "ydJitter": 12.26,
-        "ltLatencyEma": 194.97,
-        "ltLossEma": 2.27,
-        "ltJitter": 10.69,
-        "avgLatency": 201.41,
-        "avgLoss": 4.12,
-        "avgJitter": 8.71
-      }
-    },
-    {
-      "id": 46293,
-      "ip": "cf.itv888.cn",
-      "data_30day": {
-        "ip": "cf.itv888.cn",
-        "dxLatencyEma": 73.8,
-        "dxLossEma": 9.78,
-        "dxJitter": 7.21,
-        "ydLatencyEma": 125.03,
-        "ydLossEma": 4.66,
-        "ydJitter": 51.83,
-        "ltLatencyEma": 180.81,
-        "ltLossEma": 0.72,
-        "ltJitter": 5.0,
-        "avgLatency": 126.55,
-        "avgLoss": 5.05,
-        "avgJitter": 21.35
-      }
-    },
-    {
       "id": 45647,
       "ip": "mail.murata.com",
       "data_30day": {
@@ -4363,236 +4130,41 @@
       }
     },
     {
-      "id": 42212,
-      "ip": "www.trumpgolf.com",
+      "id": 44593,
+      "ip": "vps.cheng2001.top",
       "data_30day": {
-        "ip": "www.trumpgolf.com",
-        "dxLatencyEma": 187.81,
-        "dxLossEma": 8.21,
-        "dxJitter": 45.57,
-        "ydLatencyEma": 193.92,
-        "ydLossEma": 7.99,
-        "ydJitter": 1.94,
-        "ltLatencyEma": 182.82,
-        "ltLossEma": 0.71,
-        "ltJitter": 4.83,
-        "avgLatency": 188.18,
-        "avgLoss": 5.64,
-        "avgJitter": 17.45
+        "ip": "vps.cheng2001.top",
+        "dxLatencyEma": 78.63,
+        "dxLossEma": 14.78,
+        "dxJitter": 13.18,
+        "ydLatencyEma": 150.13,
+        "ydLossEma": 0.97,
+        "ydJitter": 68.14,
+        "ltLatencyEma": 179.13,
+        "ltLossEma": 0.5,
+        "ltJitter": 6.58,
+        "avgLatency": 135.96,
+        "avgLoss": 5.42,
+        "avgJitter": 29.3
       }
     },
     {
-      "id": 42210,
-      "ip": "www.trump.com",
+      "id": 44409,
+      "ip": "trump.com",
       "data_30day": {
-        "ip": "www.trump.com",
-        "dxLatencyEma": 187.25,
-        "dxLossEma": 7.87,
-        "dxJitter": 44.8,
+        "ip": "trump.com",
+        "dxLatencyEma": 186.18,
+        "dxLossEma": 7.66,
+        "dxJitter": 43.19,
         "ydLatencyEma": 194.56,
-        "ydLossEma": 9.45,
-        "ydJitter": 1.4,
-        "ltLatencyEma": 180.74,
-        "ltLossEma": 0.55,
-        "ltJitter": 5.41,
-        "avgLatency": 187.52,
-        "avgLoss": 5.96,
-        "avgJitter": 17.2
-      }
-    },
-    {
-      "id": 21842,
-      "ip": "cf.877774.xyz",
-      "data_30day": {
-        "ip": "cf.877774.xyz",
-        "dxLatencyEma": 78.24,
-        "dxLossEma": 15.14,
-        "dxJitter": 12.27,
-        "ydLatencyEma": 75.46,
-        "ydLossEma": 1.99,
-        "ydJitter": 21.07,
-        "ltLatencyEma": 180.96,
-        "ltLossEma": 0.66,
-        "ltJitter": 5.38,
-        "avgLatency": 111.55,
-        "avgLoss": 5.93,
-        "avgJitter": 12.91
-      }
-    },
-    {
-      "id": 32737,
-      "ip": "spirol.com",
-      "data_30day": {
-        "ip": "spirol.com",
-        "dxLatencyEma": 188.45,
-        "dxLossEma": 7.98,
-        "dxJitter": 46.09,
-        "ydLatencyEma": 193.53,
-        "ydLossEma": 9.45,
-        "ydJitter": 1.8,
-        "ltLatencyEma": 181.04,
-        "ltLossEma": 0.46,
-        "ltJitter": 4.9,
-        "avgLatency": 187.67,
-        "avgLoss": 5.96,
-        "avgJitter": 17.6
-      }
-    },
-    {
-      "id": 31854,
-      "ip": "encryptedsni.com",
-      "data_30day": {
-        "ip": "encryptedsni.com",
-        "dxLatencyEma": 191.84,
-        "dxLossEma": 7.6,
-        "dxJitter": 3.72,
-        "ydLatencyEma": 195.44,
-        "ydLossEma": 8.7,
-        "ydJitter": 1.57,
-        "ltLatencyEma": 180.56,
-        "ltLossEma": 0.54,
-        "ltJitter": 5.47,
-        "avgLatency": 189.28,
-        "avgLoss": 5.61,
-        "avgJitter": 3.59
-      }
-    },
-    {
-      "id": 53980,
-      "ip": "cdn.ctn32.us.kg",
-      "data_30day": null
-    },
-    {
-      "id": 44847,
-      "ip": "pubs.acs.org",
-      "data_30day": {
-        "ip": "pubs.acs.org",
-        "dxLatencyEma": 168.41,
-        "dxLossEma": 7.46,
-        "dxJitter": 60.81,
-        "ydLatencyEma": 176.57,
-        "ydLossEma": 8.31,
-        "ydJitter": 66.69,
-        "ltLatencyEma": 179.67,
-        "ltLossEma": 0.55,
-        "ltJitter": 4.85,
-        "avgLatency": 174.88,
-        "avgLoss": 5.44,
-        "avgJitter": 44.12
-      }
-    },
-    {
-      "id": 41131,
-      "ip": "shanghai.mfa.gov.ua",
-      "data_30day": {
-        "ip": "shanghai.mfa.gov.ua",
-        "dxLatencyEma": 94.6,
-        "dxLossEma": 0.87,
-        "dxJitter": 24.99,
-        "ydLatencyEma": 122.41,
-        "ydLossEma": 16.64,
-        "ydJitter": 19.26,
-        "ltLatencyEma": 182.97,
-        "ltLossEma": 0.61,
-        "ltJitter": 4.4,
-        "avgLatency": 133.33,
-        "avgLoss": 6.04,
-        "avgJitter": 16.22
-      }
-    },
-    {
-      "id": 39117,
-      "ip": "hzytjy.cn",
-      "data_30day": {
-        "ip": "hzytjy.cn",
-        "dxLatencyEma": 106.48,
-        "dxLossEma": 3.51,
-        "dxJitter": 17.17,
-        "ydLatencyEma": 117.57,
-        "ydLossEma": 7.34,
-        "ydJitter": 23.68,
-        "ltLatencyEma": 180.85,
-        "ltLossEma": 0.75,
-        "ltJitter": 4.26,
-        "avgLatency": 134.97,
-        "avgLoss": 3.87,
-        "avgJitter": 15.04
-      }
-    },
-    {
-      "id": 31994,
-      "ip": "envato.com",
-      "data_30day": {
-        "ip": "envato.com",
-        "dxLatencyEma": 188.18,
-        "dxLossEma": 8.02,
-        "dxJitter": 45.68,
-        "ydLatencyEma": 194.48,
-        "ydLossEma": 8.85,
-        "ydJitter": 1.79,
-        "ltLatencyEma": 179.98,
-        "ltLossEma": 0.62,
-        "ltJitter": 3.64,
-        "avgLatency": 187.55,
-        "avgLoss": 5.83,
-        "avgJitter": 17.04
-      }
-    },
-    {
-      "id": 25619,
-      "ip": "mfa.gov.ua",
-      "data_30day": {
-        "ip": "mfa.gov.ua",
-        "dxLatencyEma": 94.58,
-        "dxLossEma": 0.89,
-        "dxJitter": 24.6,
-        "ydLatencyEma": 112.33,
-        "ydLossEma": 17.53,
-        "ydJitter": 19.87,
-        "ltLatencyEma": 182.7,
-        "ltLossEma": 0.64,
-        "ltJitter": 4.34,
-        "avgLatency": 129.87,
-        "avgLoss": 6.35,
-        "avgJitter": 16.27
-      }
-    },
-    {
-      "id": 20747,
-      "ip": "www.visa.com.tw",
-      "data_30day": {
-        "ip": "www.visa.com.tw",
-        "dxLatencyEma": 190.69,
-        "dxLossEma": 7.64,
-        "dxJitter": 49.28,
-        "ydLatencyEma": 192.84,
-        "ydLossEma": 5.84,
-        "ydJitter": 4.15,
-        "ltLatencyEma": 182.91,
-        "ltLossEma": 0.77,
-        "ltJitter": 3.65,
-        "avgLatency": 188.81,
-        "avgLoss": 4.75,
-        "avgJitter": 19.03
-      }
-    },
-    {
-      "id": 13438,
-      "ip": "xn--b6gac.eu.org",
-      "data_30day": {
-        "ip": "xn--b6gac.eu.org",
-        "dxLatencyEma": 204.31,
-        "dxLossEma": 8.17,
-        "dxJitter": 6.9,
-        "ydLatencyEma": 128.87,
-        "ydLossEma": 14.14,
-        "ydJitter": 39.66,
-        "ltLatencyEma": 176.69,
-        "ltLossEma": 1.58,
-        "ltJitter": 10.0,
-        "avgLatency": 169.96,
-        "avgLoss": 7.96,
-        "avgJitter": 18.85
+        "ydLossEma": 9.16,
+        "ydJitter": 1.45,
+        "ltLatencyEma": 179.71,
+        "ltLossEma": 0.53,
+        "ltJitter": 4.97,
+        "avgLatency": 186.82,
+        "avgLoss": 5.78,
+        "avgJitter": 16.54
       }
     },
     {
@@ -4615,41 +4187,312 @@
       }
     },
     {
-      "id": 44906,
-      "ip": "cf.nyanya.moe",
+      "id": 42212,
+      "ip": "www.trumpgolf.com",
       "data_30day": {
-        "ip": "cf.nyanya.moe",
-        "dxLatencyEma": 74.25,
-        "dxLossEma": 6.35,
-        "dxJitter": 5.87,
-        "ydLatencyEma": 76.71,
-        "ydLossEma": 2.05,
-        "ydJitter": 21.04,
-        "ltLatencyEma": 184.87,
-        "ltLossEma": 0.22,
-        "ltJitter": 7.67,
-        "avgLatency": 111.94,
-        "avgLoss": 2.87,
-        "avgJitter": 11.53
+        "ip": "www.trumpgolf.com",
+        "dxLatencyEma": 187.81,
+        "dxLossEma": 8.21,
+        "dxJitter": 45.57,
+        "ydLatencyEma": 193.92,
+        "ydLossEma": 7.99,
+        "ydJitter": 1.94,
+        "ltLatencyEma": 182.82,
+        "ltLossEma": 0.71,
+        "ltJitter": 4.83,
+        "avgLatency": 188.18,
+        "avgLoss": 5.64,
+        "avgJitter": 17.45
       }
     },
     {
-      "id": 43584,
-      "ip": "cf.553314.xyz",
+      "id": 37411,
+      "ip": "www.sofi.com",
       "data_30day": {
-        "ip": "cf.553314.xyz",
-        "dxLatencyEma": 96.78,
-        "dxLossEma": 3.33,
-        "dxJitter": 15.98,
-        "ydLatencyEma": 58.32,
-        "ydLossEma": 7.3,
-        "ydJitter": 7.56,
-        "ltLatencyEma": 193.4,
-        "ltLossEma": 0.99,
-        "ltJitter": 2.95,
-        "avgLatency": 116.17,
-        "avgLoss": 3.87,
-        "avgJitter": 8.83
+        "ip": "www.sofi.com",
+        "dxLatencyEma": 93.43,
+        "dxLossEma": 0.76,
+        "dxJitter": 24.38,
+        "ydLatencyEma": 118.16,
+        "ydLossEma": 16.68,
+        "ydJitter": 15.54,
+        "ltLatencyEma": 183.85,
+        "ltLossEma": 0.57,
+        "ltJitter": 4.96,
+        "avgLatency": 131.81,
+        "avgLoss": 6.0,
+        "avgJitter": 14.96
+      }
+    },
+    {
+      "id": 25076,
+      "ip": "cf.877771.xyz",
+      "data_30day": {
+        "ip": "cf.877771.xyz",
+        "dxLatencyEma": 196.73,
+        "dxLossEma": 8.24,
+        "dxJitter": 3.71,
+        "ydLatencyEma": 209.11,
+        "ydLossEma": 3.5,
+        "ydJitter": 5.93,
+        "ltLatencyEma": 196.0,
+        "ltLossEma": 0.81,
+        "ltJitter": 3.58,
+        "avgLatency": 200.61,
+        "avgLoss": 4.18,
+        "avgJitter": 4.41
+      }
+    },
+    {
+      "id": 20747,
+      "ip": "www.visa.com.tw",
+      "data_30day": {
+        "ip": "www.visa.com.tw",
+        "dxLatencyEma": 190.69,
+        "dxLossEma": 7.64,
+        "dxJitter": 49.28,
+        "ydLatencyEma": 192.84,
+        "ydLossEma": 5.84,
+        "ydJitter": 4.15,
+        "ltLatencyEma": 182.91,
+        "ltLossEma": 0.77,
+        "ltJitter": 3.65,
+        "avgLatency": 188.81,
+        "avgLoss": 4.75,
+        "avgJitter": 19.03
+      }
+    },
+    {
+      "id": 37346,
+      "ip": "yg7.ygkkk.dpdns.org",
+      "data_30day": {
+        "ip": "yg7.ygkkk.dpdns.org",
+        "dxLatencyEma": 2021.06,
+        "dxLossEma": 43.23,
+        "dxJitter": 2484.15,
+        "ydLatencyEma": 2042.1,
+        "ydLossEma": 42.17,
+        "ydJitter": 2459.27,
+        "ltLatencyEma": 2037.74,
+        "ltLossEma": 39.31,
+        "ltJitter": 2451.24,
+        "avgLatency": 2033.63,
+        "avgLoss": 41.57,
+        "avgJitter": 2464.89
+      }
+    },
+    {
+      "id": 31854,
+      "ip": "encryptedsni.com",
+      "data_30day": {
+        "ip": "encryptedsni.com",
+        "dxLatencyEma": 191.84,
+        "dxLossEma": 7.6,
+        "dxJitter": 3.72,
+        "ydLatencyEma": 195.44,
+        "ydLossEma": 8.7,
+        "ydJitter": 1.57,
+        "ltLatencyEma": 180.56,
+        "ltLossEma": 0.54,
+        "ltJitter": 5.47,
+        "avgLatency": 189.28,
+        "avgLoss": 5.61,
+        "avgJitter": 3.59
+      }
+    },
+    {
+      "id": 31836,
+      "ip": "page.mercer.com",
+      "data_30day": {
+        "ip": "page.mercer.com",
+        "dxLatencyEma": 185.06,
+        "dxLossEma": 6.91,
+        "dxJitter": 45.37,
+        "ydLatencyEma": 194.47,
+        "ydLossEma": 9.37,
+        "ydJitter": 1.31,
+        "ltLatencyEma": 180.76,
+        "ltLossEma": 0.5,
+        "ltJitter": 5.37,
+        "avgLatency": 186.76,
+        "avgLoss": 5.59,
+        "avgJitter": 17.35
+      }
+    },
+    {
+      "id": 14832,
+      "ip": "zero-trust-client.cloudflareclient.com",
+      "data_30day": {
+        "ip": "zero-trust-client.cloudflareclient.com",
+        "dxLatencyEma": 202.96,
+        "dxLossEma": 9.59,
+        "dxJitter": 3.19,
+        "ydLatencyEma": 206.29,
+        "ydLossEma": 0.49,
+        "ydJitter": 12.26,
+        "ltLatencyEma": 194.97,
+        "ltLossEma": 2.27,
+        "ltJitter": 10.69,
+        "avgLatency": 201.41,
+        "avgLoss": 4.12,
+        "avgJitter": 8.71
+      }
+    },
+    {
+      "id": 41131,
+      "ip": "shanghai.mfa.gov.ua",
+      "data_30day": {
+        "ip": "shanghai.mfa.gov.ua",
+        "dxLatencyEma": 94.6,
+        "dxLossEma": 0.87,
+        "dxJitter": 24.99,
+        "ydLatencyEma": 122.41,
+        "ydLossEma": 16.64,
+        "ydJitter": 19.26,
+        "ltLatencyEma": 182.97,
+        "ltLossEma": 0.61,
+        "ltJitter": 4.4,
+        "avgLatency": 133.33,
+        "avgLoss": 6.04,
+        "avgJitter": 16.22
+      }
+    },
+    {
+      "id": 36915,
+      "ip": "china.mfa.gov.ua",
+      "data_30day": {
+        "ip": "china.mfa.gov.ua",
+        "dxLatencyEma": 93.01,
+        "dxLossEma": 0.71,
+        "dxJitter": 25.16,
+        "ydLatencyEma": 112.26,
+        "ydLossEma": 17.45,
+        "ydJitter": 19.64,
+        "ltLatencyEma": 182.99,
+        "ltLossEma": 0.7,
+        "ltJitter": 4.85,
+        "avgLatency": 129.42,
+        "avgLoss": 6.29,
+        "avgJitter": 16.55
+      }
+    },
+    {
+      "id": 31994,
+      "ip": "envato.com",
+      "data_30day": {
+        "ip": "envato.com",
+        "dxLatencyEma": 188.18,
+        "dxLossEma": 8.02,
+        "dxJitter": 45.68,
+        "ydLatencyEma": 194.48,
+        "ydLossEma": 8.85,
+        "ydJitter": 1.79,
+        "ltLatencyEma": 179.98,
+        "ltLossEma": 0.62,
+        "ltJitter": 3.64,
+        "avgLatency": 187.55,
+        "avgLoss": 5.83,
+        "avgJitter": 17.04
+      }
+    },
+    {
+      "id": 31829,
+      "ip": "serviceshub.samsclub.com",
+      "data_30day": {
+        "ip": "serviceshub.samsclub.com",
+        "dxLatencyEma": 95.19,
+        "dxLossEma": 0.97,
+        "dxJitter": 25.6,
+        "ydLatencyEma": 116.95,
+        "ydLossEma": 17.05,
+        "ydJitter": 18.11,
+        "ltLatencyEma": 182.99,
+        "ltLossEma": 0.61,
+        "ltJitter": 5.51,
+        "avgLatency": 131.71,
+        "avgLoss": 6.21,
+        "avgJitter": 16.41
+      }
+    },
+    {
+      "id": 30454,
+      "ip": "tajikistan.mfa.gov.ua",
+      "data_30day": {
+        "ip": "tajikistan.mfa.gov.ua",
+        "dxLatencyEma": 94.05,
+        "dxLossEma": 0.82,
+        "dxJitter": 24.26,
+        "ydLatencyEma": 112.49,
+        "ydLossEma": 17.61,
+        "ydJitter": 17.04,
+        "ltLatencyEma": 182.55,
+        "ltLossEma": 0.69,
+        "ltJitter": 4.06,
+        "avgLatency": 129.7,
+        "avgLoss": 6.37,
+        "avgJitter": 15.12
+      }
+    },
+    {
+      "id": 25619,
+      "ip": "mfa.gov.ua",
+      "data_30day": {
+        "ip": "mfa.gov.ua",
+        "dxLatencyEma": 94.58,
+        "dxLossEma": 0.89,
+        "dxJitter": 24.6,
+        "ydLatencyEma": 112.33,
+        "ydLossEma": 17.53,
+        "ydJitter": 19.87,
+        "ltLatencyEma": 182.7,
+        "ltLossEma": 0.64,
+        "ltJitter": 4.34,
+        "avgLatency": 129.87,
+        "avgLoss": 6.35,
+        "avgJitter": 16.27
+      }
+    },
+    {
+      "id": 14829,
+      "ip": "cloudflare.182682.xyz",
+      "data_30day": {
+        "ip": "cloudflare.182682.xyz",
+        "dxLatencyEma": 78.69,
+        "dxLossEma": 0.12,
+        "dxJitter": 7.35,
+        "ydLatencyEma": 80.93,
+        "ydLossEma": 7.39,
+        "ydJitter": 16.7,
+        "ltLatencyEma": 179.92,
+        "ltLossEma": 0.1,
+        "ltJitter": 4.76,
+        "avgLatency": 113.18,
+        "avgLoss": 2.54,
+        "avgJitter": 9.6
+      }
+    },
+    {
+      "id": 53980,
+      "ip": "cdn.ctn32.us.kg",
+      "data_30day": null
+    },
+    {
+      "id": 49007,
+      "ip": "appstorrent.ru",
+      "data_30day": {
+        "ip": "appstorrent.ru",
+        "dxLatencyEma": 919.1,
+        "dxLossEma": 22.25,
+        "dxJitter": 2351.3,
+        "ydLatencyEma": 925.67,
+        "ydLossEma": 19.1,
+        "ydJitter": 2347.76,
+        "ltLatencyEma": 900.15,
+        "ltLossEma": 15.51,
+        "ltJitter": 2361.64,
+        "avgLatency": 914.97,
+        "avgLoss": 18.95,
+        "avgJitter": 2353.57
       }
     },
     {
@@ -4691,60 +4534,103 @@
       }
     },
     {
-      "id": 30454,
-      "ip": "tajikistan.mfa.gov.ua",
+      "id": 28082,
+      "ip": "ct.877774.xyz",
       "data_30day": {
-        "ip": "tajikistan.mfa.gov.ua",
-        "dxLatencyEma": 94.05,
-        "dxLossEma": 0.82,
-        "dxJitter": 24.26,
-        "ydLatencyEma": 112.49,
-        "ydLossEma": 17.61,
-        "ydJitter": 17.04,
-        "ltLatencyEma": 182.55,
-        "ltLossEma": 0.69,
-        "ltJitter": 4.06,
-        "avgLatency": 129.7,
-        "avgLoss": 6.37,
-        "avgJitter": 15.12
+        "ip": "ct.877774.xyz",
+        "dxLatencyEma": 77.93,
+        "dxLossEma": 14.1,
+        "dxJitter": 13.41,
+        "ydLatencyEma": 75.24,
+        "ydLossEma": 1.97,
+        "ydJitter": 21.01,
+        "ltLatencyEma": 181.24,
+        "ltLossEma": 0.57,
+        "ltJitter": 5.18,
+        "avgLatency": 111.47,
+        "avgLoss": 5.55,
+        "avgJitter": 13.2
       }
     },
     {
-      "id": 26009,
-      "ip": "www.visa.com",
+      "id": 42210,
+      "ip": "www.trump.com",
       "data_30day": {
-        "ip": "www.visa.com",
-        "dxLatencyEma": 185.8,
-        "dxLossEma": 8.01,
-        "dxJitter": 43.45,
-        "ydLatencyEma": 192.81,
-        "ydLossEma": 5.44,
-        "ydJitter": 3.87,
-        "ltLatencyEma": 182.73,
-        "ltLossEma": 0.75,
-        "ltJitter": 4.54,
-        "avgLatency": 187.11,
-        "avgLoss": 4.73,
-        "avgJitter": 17.29
+        "ip": "www.trump.com",
+        "dxLatencyEma": 187.25,
+        "dxLossEma": 7.87,
+        "dxJitter": 44.8,
+        "ydLatencyEma": 194.56,
+        "ydLossEma": 9.45,
+        "ydJitter": 1.4,
+        "ltLatencyEma": 180.74,
+        "ltLossEma": 0.55,
+        "ltJitter": 5.41,
+        "avgLatency": 187.52,
+        "avgLoss": 5.96,
+        "avgJitter": 17.2
       }
     },
     {
-      "id": 6726,
-      "ip": "cf.0sm.com",
+      "id": 32737,
+      "ip": "spirol.com",
       "data_30day": {
-        "ip": "cf.0sm.com",
-        "dxLatencyEma": 209.67,
-        "dxLossEma": 8.19,
-        "dxJitter": 46.53,
-        "ydLatencyEma": 223.71,
-        "ydLossEma": 9.65,
-        "ydJitter": 20.1,
-        "ltLatencyEma": 191.02,
-        "ltLossEma": 1.95,
-        "ltJitter": 8.76,
-        "avgLatency": 208.13,
-        "avgLoss": 6.6,
-        "avgJitter": 25.13
+        "ip": "spirol.com",
+        "dxLatencyEma": 188.45,
+        "dxLossEma": 7.98,
+        "dxJitter": 46.09,
+        "ydLatencyEma": 193.53,
+        "ydLossEma": 9.45,
+        "ydJitter": 1.8,
+        "ltLatencyEma": 181.04,
+        "ltLossEma": 0.46,
+        "ltJitter": 4.9,
+        "avgLatency": 187.67,
+        "avgLoss": 5.96,
+        "avgJitter": 17.6
+      }
+    },
+    {
+      "id": 60998,
+      "ip": "lt.1930812.xyz",
+      "data_30day": null
+    },
+    {
+      "id": 44847,
+      "ip": "pubs.acs.org",
+      "data_30day": {
+        "ip": "pubs.acs.org",
+        "dxLatencyEma": 168.41,
+        "dxLossEma": 7.46,
+        "dxJitter": 60.81,
+        "ydLatencyEma": 176.57,
+        "ydLossEma": 8.31,
+        "ydJitter": 66.69,
+        "ltLatencyEma": 179.67,
+        "ltLossEma": 0.55,
+        "ltJitter": 4.85,
+        "avgLatency": 174.88,
+        "avgLoss": 5.44,
+        "avgJitter": 44.12
+      }
+    },
+    {
+      "id": 43247,
+      "ip": "cf.legspcpd.furry.bz",
+      "data_30day": {
+        "ip": "cf.legspcpd.furry.bz",
+        "dxLatencyEma": 77.53,
+        "dxLossEma": 15.39,
+        "dxJitter": 13.56,
+        "ydLatencyEma": 80.42,
+        "ydLossEma": 3.37,
+        "ydJitter": 21.68,
+        "ltLatencyEma": 180.57,
+        "ltLossEma": 0.49,
+        "ltJitter": 5.37,
+        "avgLatency": 112.84,
+        "avgLoss": 6.42,
+        "avgJitter": 13.54
       }
     },
     {
@@ -4767,98 +4653,22 @@
       }
     },
     {
-      "id": 22258,
-      "ip": "i.111666.best",
+      "id": 31760,
+      "ip": "email.lg.com",
       "data_30day": {
-        "ip": "i.111666.best",
-        "dxLatencyEma": 202.34,
-        "dxLossEma": 8.05,
-        "dxJitter": 2.75,
-        "ydLatencyEma": 199.01,
-        "ydLossEma": 7.77,
-        "ydJitter": 3.87,
-        "ltLatencyEma": 181.87,
-        "ltLossEma": 0.59,
-        "ltJitter": 5.12,
-        "avgLatency": 194.41,
-        "avgLoss": 5.47,
-        "avgJitter": 3.91
-      }
-    },
-    {
-      "id": 49007,
-      "ip": "appstorrent.ru",
-      "data_30day": {
-        "ip": "appstorrent.ru",
-        "dxLatencyEma": 919.1,
-        "dxLossEma": 22.25,
-        "dxJitter": 2351.3,
-        "ydLatencyEma": 925.67,
-        "ydLossEma": 19.1,
-        "ydJitter": 2347.76,
-        "ltLatencyEma": 900.15,
-        "ltLossEma": 15.51,
-        "ltJitter": 2361.64,
-        "avgLatency": 914.97,
-        "avgLoss": 18.95,
-        "avgJitter": 2353.57
-      }
-    },
-    {
-      "id": 41130,
-      "ip": "www.government.is",
-      "data_30day": {
-        "ip": "www.government.is",
-        "dxLatencyEma": 186.94,
-        "dxLossEma": 7.64,
-        "dxJitter": 4.27,
-        "ydLatencyEma": 195.27,
-        "ydLossEma": 9.79,
-        "ydJitter": 1.35,
-        "ltLatencyEma": 182.29,
-        "ltLossEma": 0.54,
-        "ltJitter": 2.21,
-        "avgLatency": 188.17,
-        "avgLoss": 5.99,
-        "avgJitter": 2.61
-      }
-    },
-    {
-      "id": 6751,
-      "ip": "digitalocean.com",
-      "data_30day": {
-        "ip": "digitalocean.com",
-        "dxLatencyEma": 200.4,
-        "dxLossEma": 8.77,
-        "dxJitter": 32.46,
-        "ydLatencyEma": 192.86,
-        "ydLossEma": 10.55,
-        "ydJitter": 4.57,
-        "ltLatencyEma": 175.72,
-        "ltLossEma": 0.64,
-        "ltJitter": 5.23,
-        "avgLatency": 189.66,
-        "avgLoss": 6.65,
-        "avgJitter": 14.09
-      }
-    },
-    {
-      "id": 43766,
-      "ip": "cdn.788555.xyz",
-      "data_30day": {
-        "ip": "cdn.788555.xyz",
-        "dxLatencyEma": 80.3,
-        "dxLossEma": 7.19,
-        "dxJitter": 13.89,
-        "ydLatencyEma": 114.77,
-        "ydLossEma": 4.32,
-        "ydJitter": 52.42,
-        "ltLatencyEma": 180.46,
-        "ltLossEma": 0.73,
-        "ltJitter": 5.36,
-        "avgLatency": 125.18,
-        "avgLoss": 4.08,
-        "avgJitter": 23.89
+        "ip": "email.lg.com",
+        "dxLatencyEma": 193.22,
+        "dxLossEma": 7.77,
+        "dxJitter": 22.87,
+        "ydLatencyEma": 128.31,
+        "ydLossEma": 13.0,
+        "ydJitter": 18.02,
+        "ltLatencyEma": 183.57,
+        "ltLossEma": 0.75,
+        "ltJitter": 3.56,
+        "avgLatency": 168.37,
+        "avgLoss": 7.17,
+        "avgJitter": 14.82
       }
     },
     {
@@ -4881,98 +4691,136 @@
       }
     },
     {
-      "id": 31699,
-      "ip": "help.x.com",
+      "id": 31136,
+      "ip": "ddk.cfyx.20237737.xyz",
       "data_30day": {
-        "ip": "help.x.com",
-        "dxLatencyEma": 194.58,
-        "dxLossEma": 9.54,
-        "dxJitter": 26.16,
-        "ydLatencyEma": 131.19,
-        "ydLossEma": 13.92,
-        "ydJitter": 19.75,
-        "ltLatencyEma": 189.54,
-        "ltLossEma": 1.08,
-        "ltJitter": 7.83,
-        "avgLatency": 171.77,
-        "avgLoss": 8.18,
-        "avgJitter": 17.91
+        "ip": "ddk.cfyx.20237737.xyz",
+        "dxLatencyEma": 78.67,
+        "dxLossEma": 15.42,
+        "dxJitter": 12.58,
+        "ydLatencyEma": 74.6,
+        "ydLossEma": 1.88,
+        "ydJitter": 21.01,
+        "ltLatencyEma": 193.14,
+        "ltLossEma": 0.76,
+        "ltJitter": 2.02,
+        "avgLatency": 115.47,
+        "avgLoss": 6.02,
+        "avgJitter": 11.87
       }
     },
     {
-      "id": 31203,
-      "ip": "www.wuduanyun.com",
+      "id": 22258,
+      "ip": "i.111666.best",
       "data_30day": {
-        "ip": "www.wuduanyun.com",
-        "dxLatencyEma": 77.77,
-        "dxLossEma": 15.29,
-        "dxJitter": 13.11,
-        "ydLatencyEma": 75.01,
-        "ydLossEma": 1.92,
-        "ydJitter": 20.98,
-        "ltLatencyEma": 180.46,
-        "ltLossEma": 0.65,
-        "ltJitter": 4.91,
-        "avgLatency": 111.08,
-        "avgLoss": 5.95,
-        "avgJitter": 13.0
+        "ip": "i.111666.best",
+        "dxLatencyEma": 202.34,
+        "dxLossEma": 8.05,
+        "dxJitter": 2.75,
+        "ydLatencyEma": 199.01,
+        "ydLossEma": 7.77,
+        "ydJitter": 3.87,
+        "ltLatencyEma": 181.87,
+        "ltLossEma": 0.59,
+        "ltJitter": 5.12,
+        "avgLatency": 194.41,
+        "avgLoss": 5.47,
+        "avgJitter": 3.91
       }
     },
     {
-      "id": 41128,
-      "ip": "shabak.gov.il",
+      "id": 44906,
+      "ip": "cf.nyanya.moe",
       "data_30day": {
-        "ip": "shabak.gov.il",
-        "dxLatencyEma": 187.59,
-        "dxLossEma": 7.7,
-        "dxJitter": 44.66,
-        "ydLatencyEma": 192.69,
-        "ydLossEma": 5.96,
-        "ydJitter": 3.65,
-        "ltLatencyEma": 181.22,
-        "ltLossEma": 0.64,
-        "ltJitter": 4.75,
-        "avgLatency": 187.17,
-        "avgLoss": 4.77,
-        "avgJitter": 17.69
+        "ip": "cf.nyanya.moe",
+        "dxLatencyEma": 74.25,
+        "dxLossEma": 6.35,
+        "dxJitter": 5.87,
+        "ydLatencyEma": 76.71,
+        "ydLossEma": 2.05,
+        "ydJitter": 21.04,
+        "ltLatencyEma": 184.87,
+        "ltLossEma": 0.22,
+        "ltJitter": 7.67,
+        "avgLatency": 111.94,
+        "avgLoss": 2.87,
+        "avgJitter": 11.53
       }
     },
     {
-      "id": 49014,
-      "ip": "www.mediafire.com",
+      "id": 43584,
+      "ip": "cf.553314.xyz",
       "data_30day": {
-        "ip": "www.mediafire.com",
-        "dxLatencyEma": 894.89,
-        "dxLossEma": 21.89,
-        "dxJitter": 2360.99,
-        "ydLatencyEma": 912.91,
-        "ydLossEma": 23.26,
-        "ydJitter": 2354.75,
-        "ltLatencyEma": 900.26,
-        "ltLossEma": 15.44,
-        "ltJitter": 2361.62,
-        "avgLatency": 902.69,
-        "avgLoss": 20.2,
-        "avgJitter": 2359.12
+        "ip": "cf.553314.xyz",
+        "dxLatencyEma": 96.78,
+        "dxLossEma": 3.33,
+        "dxJitter": 15.98,
+        "ydLatencyEma": 58.32,
+        "ydLossEma": 7.3,
+        "ydJitter": 7.56,
+        "ltLatencyEma": 193.4,
+        "ltLossEma": 0.99,
+        "ltJitter": 2.95,
+        "avgLatency": 116.17,
+        "avgLoss": 3.87,
+        "avgJitter": 8.83
       }
     },
     {
-      "id": 13436,
-      "ip": "cdn.tzpro.xyz",
+      "id": 21842,
+      "ip": "cf.877774.xyz",
       "data_30day": {
-        "ip": "cdn.tzpro.xyz",
-        "dxLatencyEma": 206.76,
-        "dxLossEma": 8.4,
-        "dxJitter": 16.56,
-        "ydLatencyEma": 125.24,
-        "ydLossEma": 13.6,
-        "ydJitter": 37.82,
-        "ltLatencyEma": 178.93,
-        "ltLossEma": 1.47,
+        "ip": "cf.877774.xyz",
+        "dxLatencyEma": 78.24,
+        "dxLossEma": 15.14,
+        "dxJitter": 12.27,
+        "ydLatencyEma": 75.46,
+        "ydLossEma": 1.99,
+        "ydJitter": 21.07,
+        "ltLatencyEma": 180.96,
+        "ltLossEma": 0.66,
         "ltJitter": 5.38,
-        "avgLatency": 170.31,
-        "avgLoss": 7.82,
-        "avgJitter": 19.92
+        "avgLatency": 111.55,
+        "avgLoss": 5.93,
+        "avgJitter": 12.91
+      }
+    },
+    {
+      "id": 6751,
+      "ip": "digitalocean.com",
+      "data_30day": {
+        "ip": "digitalocean.com",
+        "dxLatencyEma": 200.4,
+        "dxLossEma": 8.77,
+        "dxJitter": 32.46,
+        "ydLatencyEma": 192.86,
+        "ydLossEma": 10.55,
+        "ydJitter": 4.57,
+        "ltLatencyEma": 175.72,
+        "ltLossEma": 0.64,
+        "ltJitter": 5.23,
+        "avgLatency": 189.66,
+        "avgLoss": 6.65,
+        "avgJitter": 14.09
+      }
+    },
+    {
+      "id": 46293,
+      "ip": "cf.itv888.cn",
+      "data_30day": {
+        "ip": "cf.itv888.cn",
+        "dxLatencyEma": 73.8,
+        "dxLossEma": 9.78,
+        "dxJitter": 7.21,
+        "ydLatencyEma": 125.03,
+        "ydLossEma": 4.66,
+        "ydJitter": 51.83,
+        "ltLatencyEma": 180.81,
+        "ltLossEma": 0.72,
+        "ltJitter": 5.0,
+        "avgLatency": 126.55,
+        "avgLoss": 5.05,
+        "avgJitter": 21.35
       }
     },
     {
@@ -4995,6 +4843,44 @@
       }
     },
     {
+      "id": 31088,
+      "ip": "cfyx.dnspod.20237737.xyz",
+      "data_30day": {
+        "ip": "cfyx.dnspod.20237737.xyz",
+        "dxLatencyEma": 93.76,
+        "dxLossEma": 1.1,
+        "dxJitter": 24.37,
+        "ydLatencyEma": 39.61,
+        "ydLossEma": 23.4,
+        "ydJitter": 6.1,
+        "ltLatencyEma": 193.86,
+        "ltLossEma": 0.65,
+        "ltJitter": 3.57,
+        "avgLatency": 109.08,
+        "avgLoss": 8.38,
+        "avgJitter": 11.35
+      }
+    },
+    {
+      "id": 6726,
+      "ip": "cf.0sm.com",
+      "data_30day": {
+        "ip": "cf.0sm.com",
+        "dxLatencyEma": 209.67,
+        "dxLossEma": 8.19,
+        "dxJitter": 46.53,
+        "ydLatencyEma": 223.71,
+        "ydLossEma": 9.65,
+        "ydJitter": 20.1,
+        "ltLatencyEma": 191.02,
+        "ltLossEma": 1.95,
+        "ltJitter": 8.76,
+        "avgLatency": 208.13,
+        "avgLoss": 6.6,
+        "avgJitter": 25.13
+      }
+    },
+    {
       "id": 49990,
       "ip": "224322.xyz",
       "data_30day": {
@@ -5014,41 +4900,136 @@
       }
     },
     {
-      "id": 31760,
-      "ip": "email.lg.com",
+      "id": 42313,
+      "ip": "zeas.top",
       "data_30day": {
-        "ip": "email.lg.com",
-        "dxLatencyEma": 193.22,
-        "dxLossEma": 7.77,
-        "dxJitter": 22.87,
-        "ydLatencyEma": 128.31,
-        "ydLossEma": 13.0,
-        "ydJitter": 18.02,
-        "ltLatencyEma": 183.57,
-        "ltLossEma": 0.75,
-        "ltJitter": 3.56,
-        "avgLatency": 168.37,
-        "avgLoss": 7.17,
-        "avgJitter": 14.82
+        "ip": "zeas.top",
+        "dxLatencyEma": 85.73,
+        "dxLossEma": 0.63,
+        "dxJitter": 21.91,
+        "ydLatencyEma": 61.91,
+        "ydLossEma": 13.08,
+        "ydJitter": 33.0,
+        "ltLatencyEma": 182.07,
+        "ltLossEma": 0.64,
+        "ltJitter": 4.51,
+        "avgLatency": 109.9,
+        "avgLoss": 4.78,
+        "avgJitter": 19.81
       }
     },
     {
-      "id": 31088,
-      "ip": "cfyx.dnspod.20237737.xyz",
+      "id": 31699,
+      "ip": "help.x.com",
       "data_30day": {
-        "ip": "cfyx.dnspod.20237737.xyz",
-        "dxLatencyEma": 93.76,
-        "dxLossEma": 1.1,
-        "dxJitter": 24.37,
-        "ydLatencyEma": 39.61,
-        "ydLossEma": 23.4,
-        "ydJitter": 6.1,
-        "ltLatencyEma": 193.86,
+        "ip": "help.x.com",
+        "dxLatencyEma": 194.58,
+        "dxLossEma": 9.54,
+        "dxJitter": 26.16,
+        "ydLatencyEma": 131.19,
+        "ydLossEma": 13.92,
+        "ydJitter": 19.75,
+        "ltLatencyEma": 189.54,
+        "ltLossEma": 1.08,
+        "ltJitter": 7.83,
+        "avgLatency": 171.77,
+        "avgLoss": 8.18,
+        "avgJitter": 17.91
+      }
+    },
+    {
+      "id": 13438,
+      "ip": "xn--b6gac.eu.org",
+      "data_30day": {
+        "ip": "xn--b6gac.eu.org",
+        "dxLatencyEma": 204.31,
+        "dxLossEma": 8.17,
+        "dxJitter": 6.9,
+        "ydLatencyEma": 128.87,
+        "ydLossEma": 14.14,
+        "ydJitter": 39.66,
+        "ltLatencyEma": 176.69,
+        "ltLossEma": 1.58,
+        "ltJitter": 10.0,
+        "avgLatency": 169.96,
+        "avgLoss": 7.96,
+        "avgJitter": 18.85
+      }
+    },
+    {
+      "id": 41130,
+      "ip": "www.government.is",
+      "data_30day": {
+        "ip": "www.government.is",
+        "dxLatencyEma": 186.94,
+        "dxLossEma": 7.64,
+        "dxJitter": 4.27,
+        "ydLatencyEma": 195.27,
+        "ydLossEma": 9.79,
+        "ydJitter": 1.35,
+        "ltLatencyEma": 182.29,
+        "ltLossEma": 0.54,
+        "ltJitter": 2.21,
+        "avgLatency": 188.17,
+        "avgLoss": 5.99,
+        "avgJitter": 2.61
+      }
+    },
+    {
+      "id": 49014,
+      "ip": "www.mediafire.com",
+      "data_30day": {
+        "ip": "www.mediafire.com",
+        "dxLatencyEma": 894.89,
+        "dxLossEma": 21.89,
+        "dxJitter": 2360.99,
+        "ydLatencyEma": 912.91,
+        "ydLossEma": 23.26,
+        "ydJitter": 2354.75,
+        "ltLatencyEma": 900.26,
+        "ltLossEma": 15.44,
+        "ltJitter": 2361.62,
+        "avgLatency": 902.69,
+        "avgLoss": 20.2,
+        "avgJitter": 2359.12
+      }
+    },
+    {
+      "id": 35908,
+      "ip": "saas.072159.xyz",
+      "data_30day": {
+        "ip": "saas.072159.xyz",
+        "dxLatencyEma": 80.57,
+        "dxLossEma": 15.1,
+        "dxJitter": 15.11,
+        "ydLatencyEma": 74.93,
+        "ydLossEma": 1.81,
+        "ydJitter": 20.61,
+        "ltLatencyEma": 180.86,
+        "ltLossEma": 0.83,
+        "ltJitter": 3.93,
+        "avgLatency": 112.12,
+        "avgLoss": 5.91,
+        "avgJitter": 13.22
+      }
+    },
+    {
+      "id": 31203,
+      "ip": "www.wuduanyun.com",
+      "data_30day": {
+        "ip": "www.wuduanyun.com",
+        "dxLatencyEma": 77.77,
+        "dxLossEma": 15.29,
+        "dxJitter": 13.11,
+        "ydLatencyEma": 75.01,
+        "ydLossEma": 1.92,
+        "ydJitter": 20.98,
+        "ltLatencyEma": 180.46,
         "ltLossEma": 0.65,
-        "ltJitter": 3.57,
-        "avgLatency": 109.08,
-        "avgLoss": 8.38,
-        "avgJitter": 11.35
+        "ltJitter": 4.91,
+        "avgLatency": 111.08,
+        "avgLoss": 5.95,
+        "avgJitter": 13.0
       }
     },
     {
@@ -5452,6 +5433,25 @@
       }
     },
     {
+      "id": 43766,
+      "ip": "cdn.788555.xyz",
+      "data_30day": {
+        "ip": "cdn.788555.xyz",
+        "dxLatencyEma": 80.3,
+        "dxLossEma": 7.19,
+        "dxJitter": 13.89,
+        "ydLatencyEma": 114.77,
+        "ydLossEma": 4.32,
+        "ydJitter": 52.42,
+        "ltLatencyEma": 180.46,
+        "ltLossEma": 0.73,
+        "ltJitter": 5.36,
+        "avgLatency": 125.18,
+        "avgLoss": 4.08,
+        "avgJitter": 23.89
+      }
+    },
+    {
       "id": 43345,
       "ip": "prizepicks.com",
       "data_30day": {
@@ -5544,25 +5544,6 @@
         "avgLatency": 118.32,
         "avgLoss": 1.22,
         "avgJitter": 17.8
-      }
-    },
-    {
-      "id": 42313,
-      "ip": "zeas.top",
-      "data_30day": {
-        "ip": "zeas.top",
-        "dxLatencyEma": 85.73,
-        "dxLossEma": 0.63,
-        "dxJitter": 21.91,
-        "ydLatencyEma": 61.91,
-        "ydLossEma": 13.08,
-        "ydJitter": 33.0,
-        "ltLatencyEma": 182.07,
-        "ltLossEma": 0.64,
-        "ltJitter": 4.51,
-        "avgLatency": 109.9,
-        "avgLoss": 4.78,
-        "avgJitter": 19.81
       }
     },
     {
@@ -5734,6 +5715,25 @@
         "avgLatency": 156.86,
         "avgLoss": 3.91,
         "avgJitter": 12.14
+      }
+    },
+    {
+      "id": 41065,
+      "ip": "dns.163189.xyz",
+      "data_30day": {
+        "ip": "dns.163189.xyz",
+        "dxLatencyEma": 174.13,
+        "dxLossEma": 6.76,
+        "dxJitter": 25.23,
+        "ydLatencyEma": 160.47,
+        "ydLossEma": 11.09,
+        "ydJitter": 16.4,
+        "ltLatencyEma": 182.0,
+        "ltLossEma": 0.6,
+        "ltJitter": 2.85,
+        "avgLatency": 172.2,
+        "avgLoss": 6.15,
+        "avgJitter": 14.83
       }
     },
     {
@@ -7048,25 +7048,6 @@
       }
     },
     {
-      "id": 29696,
-      "ip": "yong.880805.xyz",
-      "data_30day": {
-        "ip": "yong.880805.xyz",
-        "dxLatencyEma": 201.73,
-        "dxLossEma": 8.57,
-        "dxJitter": 3.5,
-        "ydLatencyEma": 127.79,
-        "ydLossEma": 12.65,
-        "ydJitter": 29.83,
-        "ltLatencyEma": 177.69,
-        "ltLossEma": 0.41,
-        "ltJitter": 5.37,
-        "avgLatency": 169.07,
-        "avgLoss": 7.21,
-        "avgJitter": 12.9
-      }
-    },
-    {
       "id": 29572,
       "ip": "cf.130519.xyz",
       "data_30day": {
@@ -7352,6 +7333,25 @@
       }
     },
     {
+      "id": 22536,
+      "ip": "iili.io",
+      "data_30day": {
+        "ip": "iili.io",
+        "dxLatencyEma": 202.82,
+        "dxLossEma": 7.8,
+        "dxJitter": 2.85,
+        "ydLatencyEma": 134.1,
+        "ydLossEma": 11.96,
+        "ydJitter": 30.88,
+        "ltLatencyEma": 182.4,
+        "ltLossEma": 0.45,
+        "ltJitter": 5.87,
+        "avgLatency": 173.11,
+        "avgLoss": 6.74,
+        "avgJitter": 13.2
+      }
+    },
+    {
       "id": 22254,
       "ip": "bestcf.030101.xyz",
       "data_30day": {
@@ -7463,6 +7463,25 @@
         "avgLatency": 131.33,
         "avgLoss": 4.3,
         "avgJitter": 28.84
+      }
+    },
+    {
+      "id": 13436,
+      "ip": "cdn.tzpro.xyz",
+      "data_30day": {
+        "ip": "cdn.tzpro.xyz",
+        "dxLatencyEma": 206.76,
+        "dxLossEma": 8.4,
+        "dxJitter": 16.56,
+        "ydLatencyEma": 125.24,
+        "ydLossEma": 13.6,
+        "ydJitter": 37.82,
+        "ltLatencyEma": 178.93,
+        "ltLossEma": 1.47,
+        "ltJitter": 5.38,
+        "avgLatency": 170.31,
+        "avgLoss": 7.82,
+        "avgJitter": 19.92
       }
     },
     {
@@ -7652,25 +7671,6 @@
       }
     },
     {
-      "id": 41065,
-      "ip": "dns.163189.xyz",
-      "data_30day": {
-        "ip": "dns.163189.xyz",
-        "dxLatencyEma": 174.13,
-        "dxLossEma": 6.76,
-        "dxJitter": 25.23,
-        "ydLatencyEma": 160.47,
-        "ydLossEma": 11.09,
-        "ydJitter": 16.4,
-        "ltLatencyEma": 182.0,
-        "ltLossEma": 0.6,
-        "ltJitter": 2.85,
-        "avgLatency": 172.2,
-        "avgLoss": 6.15,
-        "avgJitter": 14.83
-      }
-    },
-    {
       "id": 40177,
       "ip": "abuse.cloudflare.com",
       "data_30day": {
@@ -7706,25 +7706,6 @@
         "avgLatency": 187.02,
         "avgLoss": 4.94,
         "avgJitter": 17.64
-      }
-    },
-    {
-      "id": 34110,
-      "ip": "e.lma.de5.net",
-      "data_30day": {
-        "ip": "e.lma.de5.net",
-        "dxLatencyEma": 196.53,
-        "dxLossEma": 7.78,
-        "dxJitter": 4.2,
-        "ydLatencyEma": 215.12,
-        "ydLossEma": 0.6,
-        "ydJitter": 9.1,
-        "ltLatencyEma": 204.33,
-        "ltLossEma": 0.94,
-        "ltJitter": 2.36,
-        "avgLatency": 205.33,
-        "avgLoss": 3.11,
-        "avgJitter": 5.22
       }
     },
     {
@@ -7842,6 +7823,25 @@
       }
     },
     {
+      "id": 32018,
+      "ip": "rocketreach.co",
+      "data_30day": {
+        "ip": "rocketreach.co",
+        "dxLatencyEma": 180.78,
+        "dxLossEma": 8.15,
+        "dxJitter": 33.68,
+        "ydLatencyEma": 197.13,
+        "ydLossEma": 7.25,
+        "ydJitter": 12.23,
+        "ltLatencyEma": 180.0,
+        "ltLossEma": 0.91,
+        "ltJitter": 4.88,
+        "avgLatency": 185.97,
+        "avgLoss": 5.44,
+        "avgJitter": 16.93
+      }
+    },
+    {
       "id": 32015,
       "ip": "elegantthemes.com",
       "data_30day": {
@@ -7956,6 +7956,25 @@
       }
     },
     {
+      "id": 29696,
+      "ip": "yong.880805.xyz",
+      "data_30day": {
+        "ip": "yong.880805.xyz",
+        "dxLatencyEma": 201.73,
+        "dxLossEma": 8.57,
+        "dxJitter": 3.5,
+        "ydLatencyEma": 127.79,
+        "ydLossEma": 12.65,
+        "ydJitter": 29.83,
+        "ltLatencyEma": 177.69,
+        "ltLossEma": 0.41,
+        "ltJitter": 5.37,
+        "avgLatency": 169.07,
+        "avgLoss": 7.21,
+        "avgJitter": 12.9
+      }
+    },
+    {
       "id": 23358,
       "ip": "pages.cloudflare.com",
       "data_30day": {
@@ -7975,44 +7994,6 @@
       }
     },
     {
-      "id": 22536,
-      "ip": "iili.io",
-      "data_30day": {
-        "ip": "iili.io",
-        "dxLatencyEma": 202.82,
-        "dxLossEma": 7.8,
-        "dxJitter": 2.85,
-        "ydLatencyEma": 134.1,
-        "ydLossEma": 11.96,
-        "ydJitter": 30.88,
-        "ltLatencyEma": 182.4,
-        "ltLossEma": 0.45,
-        "ltJitter": 5.87,
-        "avgLatency": 173.11,
-        "avgLoss": 6.74,
-        "avgJitter": 13.2
-      }
-    },
-    {
-      "id": 20745,
-      "ip": "skk.moe",
-      "data_30day": {
-        "ip": "skk.moe",
-        "dxLatencyEma": 200.91,
-        "dxLossEma": 7.41,
-        "dxJitter": 3.31,
-        "ydLatencyEma": 173.79,
-        "ydLossEma": 11.55,
-        "ydJitter": 16.89,
-        "ltLatencyEma": 179.95,
-        "ltLossEma": 0.39,
-        "ltJitter": 5.19,
-        "avgLatency": 184.88,
-        "avgLoss": 6.45,
-        "avgJitter": 8.46
-      }
-    },
-    {
       "id": 60763,
       "ip": "www.loc.gov",
       "data_30day": null
@@ -8025,6 +8006,11 @@
     {
       "id": 60760,
       "ip": "my.vultr.com",
+      "data_30day": null
+    },
+    {
+      "id": 60448,
+      "ip": "cloudflare.com",
       "data_30day": null
     },
     {
@@ -8104,6 +8090,25 @@
       }
     },
     {
+      "id": 39309,
+      "ip": "www.apnic.net",
+      "data_30day": {
+        "ip": "www.apnic.net",
+        "dxLatencyEma": 191.9,
+        "dxLossEma": 8.21,
+        "dxJitter": 53.66,
+        "ydLatencyEma": 195.62,
+        "ydLossEma": 9.62,
+        "ydJitter": 2.7,
+        "ltLatencyEma": 180.67,
+        "ltLossEma": 0.76,
+        "ltJitter": 6.46,
+        "avgLatency": 189.4,
+        "avgLoss": 6.2,
+        "avgJitter": 20.94
+      }
+    },
+    {
       "id": 39297,
       "ip": "investorrelations.medtronic.com",
       "data_30day": {
@@ -8120,25 +8125,6 @@
         "avgLatency": 188.89,
         "avgLoss": 6.22,
         "avgJitter": 17.9
-      }
-    },
-    {
-      "id": 37075,
-      "ip": "emos.prlo.de",
-      "data_30day": {
-        "ip": "emos.prlo.de",
-        "dxLatencyEma": 202.0,
-        "dxLossEma": 7.37,
-        "dxJitter": 2.98,
-        "ydLatencyEma": 118.43,
-        "ydLossEma": 13.84,
-        "ydJitter": 17.75,
-        "ltLatencyEma": 180.97,
-        "ltLossEma": 0.45,
-        "ltJitter": 5.22,
-        "avgLatency": 167.13,
-        "avgLoss": 7.22,
-        "avgJitter": 8.65
       }
     },
     {
@@ -8234,25 +8220,6 @@
         "avgLatency": 194.81,
         "avgLoss": 2.99,
         "avgJitter": 20.93
-      }
-    },
-    {
-      "id": 32018,
-      "ip": "rocketreach.co",
-      "data_30day": {
-        "ip": "rocketreach.co",
-        "dxLatencyEma": 180.78,
-        "dxLossEma": 8.15,
-        "dxJitter": 33.68,
-        "ydLatencyEma": 197.13,
-        "ydLossEma": 7.25,
-        "ydJitter": 12.23,
-        "ltLatencyEma": 180.0,
-        "ltLossEma": 0.91,
-        "ltJitter": 4.88,
-        "avgLatency": 185.97,
-        "avgLoss": 5.44,
-        "avgJitter": 16.93
       }
     },
     {
@@ -8484,6 +8451,25 @@
       }
     },
     {
+      "id": 31830,
+      "ip": "development.ihg.com",
+      "data_30day": {
+        "ip": "development.ihg.com",
+        "dxLatencyEma": 193.38,
+        "dxLossEma": 7.11,
+        "dxJitter": 50.01,
+        "ydLatencyEma": 192.03,
+        "ydLossEma": 5.38,
+        "ydJitter": 5.55,
+        "ltLatencyEma": 177.99,
+        "ltLossEma": 0.58,
+        "ltJitter": 4.81,
+        "avgLatency": 187.8,
+        "avgLoss": 4.36,
+        "avgJitter": 20.12
+      }
+    },
+    {
       "id": 30545,
       "ip": "www.visa.com.au",
       "data_30day": {
@@ -8560,13 +8546,46 @@
       }
     },
     {
-      "id": 60654,
-      "ip": "i.jpg.dog",
-      "data_30day": null
+      "id": 21965,
+      "ip": "videodelivery.net",
+      "data_30day": {
+        "ip": "videodelivery.net",
+        "dxLatencyEma": 190.62,
+        "dxLossEma": 8.18,
+        "dxJitter": 51.71,
+        "ydLatencyEma": 163.07,
+        "ydLossEma": 8.94,
+        "ydJitter": 44.53,
+        "ltLatencyEma": 181.74,
+        "ltLossEma": 0.57,
+        "ltJitter": 5.87,
+        "avgLatency": 178.48,
+        "avgLoss": 5.9,
+        "avgJitter": 34.04
+      }
     },
     {
-      "id": 60448,
-      "ip": "cloudflare.com",
+      "id": 20745,
+      "ip": "skk.moe",
+      "data_30day": {
+        "ip": "skk.moe",
+        "dxLatencyEma": 200.91,
+        "dxLossEma": 7.41,
+        "dxJitter": 3.31,
+        "ydLatencyEma": 173.79,
+        "ydLossEma": 11.55,
+        "ydJitter": 16.89,
+        "ltLatencyEma": 179.95,
+        "ltLossEma": 0.39,
+        "ltJitter": 5.19,
+        "avgLatency": 184.88,
+        "avgLoss": 6.45,
+        "avgJitter": 8.46
+      }
+    },
+    {
+      "id": 60654,
+      "ip": "i.jpg.dog",
       "data_30day": null
     },
     {
@@ -8656,22 +8675,22 @@
       }
     },
     {
-      "id": 39309,
-      "ip": "www.apnic.net",
+      "id": 37075,
+      "ip": "emos.prlo.de",
       "data_30day": {
-        "ip": "www.apnic.net",
-        "dxLatencyEma": 191.9,
-        "dxLossEma": 8.21,
-        "dxJitter": 53.66,
-        "ydLatencyEma": 195.62,
-        "ydLossEma": 9.62,
-        "ydJitter": 2.7,
-        "ltLatencyEma": 180.67,
-        "ltLossEma": 0.76,
-        "ltJitter": 6.46,
-        "avgLatency": 189.4,
-        "avgLoss": 6.2,
-        "avgJitter": 20.94
+        "ip": "emos.prlo.de",
+        "dxLatencyEma": 202.0,
+        "dxLossEma": 7.37,
+        "dxJitter": 2.98,
+        "ydLatencyEma": 118.43,
+        "ydLossEma": 13.84,
+        "ydJitter": 17.75,
+        "ltLatencyEma": 180.97,
+        "ltLossEma": 0.45,
+        "ltJitter": 5.22,
+        "avgLatency": 167.13,
+        "avgLoss": 7.22,
+        "avgJitter": 8.65
       }
     },
     {
@@ -8691,6 +8710,25 @@
         "avgLatency": 190.65,
         "avgLoss": 4.93,
         "avgJitter": 4.5
+      }
+    },
+    {
+      "id": 37072,
+      "ip": "pttime.org",
+      "data_30day": {
+        "ip": "pttime.org",
+        "dxLatencyEma": 202.35,
+        "dxLossEma": 7.57,
+        "dxJitter": 2.73,
+        "ydLatencyEma": 198.74,
+        "ydLossEma": 8.76,
+        "ydJitter": 3.56,
+        "ltLatencyEma": 178.85,
+        "ltLossEma": 0.56,
+        "ltJitter": 7.04,
+        "avgLatency": 193.31,
+        "avgLoss": 5.63,
+        "avgJitter": 4.44
       }
     },
     {
@@ -8770,6 +8808,25 @@
       }
     },
     {
+      "id": 32013,
+      "ip": "moodle.org",
+      "data_30day": {
+        "ip": "moodle.org",
+        "dxLatencyEma": 196.32,
+        "dxLossEma": 8.14,
+        "dxJitter": 3.61,
+        "ydLatencyEma": 194.45,
+        "ydLossEma": 8.98,
+        "ydJitter": 2.61,
+        "ltLatencyEma": 183.11,
+        "ltLossEma": 0.43,
+        "ltJitter": 4.47,
+        "avgLatency": 191.29,
+        "avgLoss": 5.85,
+        "avgJitter": 3.56
+      }
+    },
+    {
       "id": 32006,
       "ip": "syncfusion.com",
       "data_30day": {
@@ -8824,25 +8881,6 @@
         "avgLatency": 190.71,
         "avgLoss": 4.91,
         "avgJitter": 3.22
-      }
-    },
-    {
-      "id": 31830,
-      "ip": "development.ihg.com",
-      "data_30day": {
-        "ip": "development.ihg.com",
-        "dxLatencyEma": 193.38,
-        "dxLossEma": 7.11,
-        "dxJitter": 50.01,
-        "ydLatencyEma": 192.03,
-        "ydLossEma": 5.38,
-        "ydJitter": 5.55,
-        "ltLatencyEma": 177.99,
-        "ltLossEma": 0.58,
-        "ltJitter": 4.81,
-        "avgLatency": 187.8,
-        "avgLoss": 4.36,
-        "avgJitter": 20.12
       }
     },
     {
@@ -8998,25 +9036,6 @@
       }
     },
     {
-      "id": 21965,
-      "ip": "videodelivery.net",
-      "data_30day": {
-        "ip": "videodelivery.net",
-        "dxLatencyEma": 190.62,
-        "dxLossEma": 8.18,
-        "dxJitter": 51.71,
-        "ydLatencyEma": 163.07,
-        "ydLossEma": 8.94,
-        "ydJitter": 44.53,
-        "ltLatencyEma": 181.74,
-        "ltLossEma": 0.57,
-        "ltJitter": 5.87,
-        "avgLatency": 178.48,
-        "avgLoss": 5.9,
-        "avgJitter": 34.04
-      }
-    },
-    {
       "id": 60762,
       "ip": "cdnjs.loli.net",
       "data_30day": null
@@ -9034,6 +9053,11 @@
     {
       "id": 60655,
       "ip": "i.pixiv.nl",
+      "data_30day": null
+    },
+    {
+      "id": 53832,
+      "ip": "s.ee",
       "data_30day": null
     },
     {
@@ -9059,11 +9083,6 @@
     {
       "id": 53720,
       "ip": "www2.rarbggo.to",
-      "data_30day": null
-    },
-    {
-      "id": 53719,
-      "ip": "rargb.to",
       "data_30day": null
     },
     {
@@ -9262,25 +9281,6 @@
       }
     },
     {
-      "id": 42577,
-      "ip": "kernelsu.com",
-      "data_30day": {
-        "ip": "kernelsu.com",
-        "dxLatencyEma": 201.97,
-        "dxLossEma": 7.86,
-        "dxJitter": 2.71,
-        "ydLatencyEma": 206.29,
-        "ydLossEma": 5.05,
-        "ydJitter": 6.43,
-        "ltLatencyEma": 178.39,
-        "ltLossEma": 0.78,
-        "ltJitter": 4.37,
-        "avgLatency": 195.55,
-        "avgLoss": 4.56,
-        "avgJitter": 4.5
-      }
-    },
-    {
       "id": 42209,
       "ip": "www.trumpstruth.org",
       "data_30day": {
@@ -9316,6 +9316,25 @@
         "avgLatency": 193.65,
         "avgLoss": 3.18,
         "avgJitter": 19.84
+      }
+    },
+    {
+      "id": 40550,
+      "ip": "ys2046.cv",
+      "data_30day": {
+        "ip": "ys2046.cv",
+        "dxLatencyEma": 195.62,
+        "dxLossEma": 8.73,
+        "dxJitter": 21.72,
+        "ydLatencyEma": 197.97,
+        "ydLossEma": 4.81,
+        "ydJitter": 25.17,
+        "ltLatencyEma": 180.72,
+        "ltLossEma": 0.74,
+        "ltJitter": 5.47,
+        "avgLatency": 191.44,
+        "avgLoss": 4.76,
+        "avgJitter": 17.45
       }
     },
     {
@@ -9392,25 +9411,6 @@
         "avgLatency": 196.18,
         "avgLoss": 6.33,
         "avgJitter": 4.33
-      }
-    },
-    {
-      "id": 38158,
-      "ip": "47bt.com",
-      "data_30day": {
-        "ip": "47bt.com",
-        "dxLatencyEma": 201.66,
-        "dxLossEma": 8.9,
-        "dxJitter": 3.23,
-        "ydLatencyEma": 203.9,
-        "ydLossEma": 4.74,
-        "ydJitter": 7.48,
-        "ltLatencyEma": 180.33,
-        "ltLossEma": 0.51,
-        "ltJitter": 5.49,
-        "avgLatency": 195.3,
-        "avgLoss": 4.72,
-        "avgJitter": 5.4
       }
     },
     {
@@ -9506,25 +9506,6 @@
         "avgLatency": 194.81,
         "avgLoss": 5.19,
         "avgJitter": 4.12
-      }
-    },
-    {
-      "id": 37072,
-      "ip": "pttime.org",
-      "data_30day": {
-        "ip": "pttime.org",
-        "dxLatencyEma": 202.35,
-        "dxLossEma": 7.57,
-        "dxJitter": 2.73,
-        "ydLatencyEma": 198.74,
-        "ydLossEma": 8.76,
-        "ydJitter": 3.56,
-        "ltLatencyEma": 178.85,
-        "ltLossEma": 0.56,
-        "ltJitter": 7.04,
-        "avgLatency": 193.31,
-        "avgLoss": 5.63,
-        "avgJitter": 4.44
       }
     },
     {
@@ -9677,44 +9658,6 @@
         "avgLatency": 191.8,
         "avgLoss": 4.81,
         "avgJitter": 4.56
-      }
-    },
-    {
-      "id": 32960,
-      "ip": "www.timbuktutravel.com",
-      "data_30day": {
-        "ip": "www.timbuktutravel.com",
-        "dxLatencyEma": 196.48,
-        "dxLossEma": 8.9,
-        "dxJitter": 3.54,
-        "ydLatencyEma": 193.19,
-        "ydLossEma": 6.03,
-        "ydJitter": 4.5,
-        "ltLatencyEma": 197.02,
-        "ltLossEma": 0.69,
-        "ltJitter": 3.04,
-        "avgLatency": 195.56,
-        "avgLoss": 5.21,
-        "avgJitter": 3.69
-      }
-    },
-    {
-      "id": 32958,
-      "ip": "support.communilink.net",
-      "data_30day": {
-        "ip": "support.communilink.net",
-        "dxLatencyEma": 193.5,
-        "dxLossEma": 8.31,
-        "dxJitter": 3.99,
-        "ydLatencyEma": 192.69,
-        "ydLossEma": 6.15,
-        "ydJitter": 5.62,
-        "ltLatencyEma": 196.08,
-        "ltLossEma": 0.97,
-        "ltJitter": 5.06,
-        "avgLatency": 194.09,
-        "avgLoss": 5.14,
-        "avgJitter": 4.89
       }
     },
     {
@@ -9927,6 +9870,25 @@
       }
     },
     {
+      "id": 32726,
+      "ip": "sellerlogic.com",
+      "data_30day": {
+        "ip": "sellerlogic.com",
+        "dxLatencyEma": 194.01,
+        "dxLossEma": 8.7,
+        "dxJitter": 4.16,
+        "ydLatencyEma": 192.91,
+        "ydLossEma": 7.13,
+        "ydJitter": 4.17,
+        "ltLatencyEma": 195.69,
+        "ltLossEma": 0.99,
+        "ltJitter": 2.6,
+        "avgLatency": 194.2,
+        "avgLoss": 5.61,
+        "avgJitter": 3.64
+      }
+    },
+    {
       "id": 32187,
       "ip": "uptimerobot.com",
       "data_30day": {
@@ -9965,25 +9927,6 @@
       }
     },
     {
-      "id": 32013,
-      "ip": "moodle.org",
-      "data_30day": {
-        "ip": "moodle.org",
-        "dxLatencyEma": 196.32,
-        "dxLossEma": 8.14,
-        "dxJitter": 3.61,
-        "ydLatencyEma": 194.45,
-        "ydLossEma": 8.98,
-        "ydJitter": 2.61,
-        "ltLatencyEma": 183.11,
-        "ltLossEma": 0.43,
-        "ltJitter": 4.47,
-        "avgLatency": 191.29,
-        "avgLoss": 5.85,
-        "avgJitter": 3.56
-      }
-    },
-    {
       "id": 32010,
       "ip": "packtpub.com",
       "data_30day": {
@@ -10019,6 +9962,25 @@
         "avgLatency": 194.26,
         "avgLoss": 6.26,
         "avgJitter": 3.84
+      }
+    },
+    {
+      "id": 31988,
+      "ip": "628gr.cc",
+      "data_30day": {
+        "ip": "628gr.cc",
+        "dxLatencyEma": 201.21,
+        "dxLossEma": 8.55,
+        "dxJitter": 3.47,
+        "ydLatencyEma": 202.88,
+        "ydLossEma": 10.33,
+        "ydJitter": 1.94,
+        "ltLatencyEma": 179.81,
+        "ltLossEma": 0.41,
+        "ltJitter": 6.99,
+        "avgLatency": 194.63,
+        "avgLoss": 6.43,
+        "avgJitter": 4.13
       }
     },
     {
@@ -10136,6 +10098,25 @@
       }
     },
     {
+      "id": 31753,
+      "ip": "ncdc.gov.ng",
+      "data_30day": {
+        "ip": "ncdc.gov.ng",
+        "dxLatencyEma": 201.6,
+        "dxLossEma": 7.0,
+        "dxJitter": 3.04,
+        "ydLatencyEma": 207.68,
+        "ydLossEma": 4.65,
+        "ydJitter": 5.61,
+        "ltLatencyEma": 180.24,
+        "ltLossEma": 0.85,
+        "ltJitter": 5.54,
+        "avgLatency": 196.51,
+        "avgLoss": 4.17,
+        "avgJitter": 4.73
+      }
+    },
+    {
       "id": 31617,
       "ip": "vueframework.com",
       "data_30day": {
@@ -10193,25 +10174,6 @@
       }
     },
     {
-      "id": 30814,
-      "ip": "278vd.cc",
-      "data_30day": {
-        "ip": "278vd.cc",
-        "dxLatencyEma": 202.32,
-        "dxLossEma": 8.3,
-        "dxJitter": 3.46,
-        "ydLatencyEma": 205.72,
-        "ydLossEma": 4.63,
-        "ydJitter": 5.22,
-        "ltLatencyEma": 179.17,
-        "ltLossEma": 0.65,
-        "ltJitter": 4.49,
-        "avgLatency": 195.74,
-        "avgLoss": 4.53,
-        "avgJitter": 4.39
-      }
-    },
-    {
       "id": 30753,
       "ip": "www.libvio.site",
       "data_30day": {
@@ -10228,6 +10190,25 @@
         "avgLatency": 194.27,
         "avgLoss": 5.11,
         "avgJitter": 3.53
+      }
+    },
+    {
+      "id": 30621,
+      "ip": "snipaste1.speedip.eu.org",
+      "data_30day": {
+        "ip": "snipaste1.speedip.eu.org",
+        "dxLatencyEma": 188.97,
+        "dxLossEma": 8.1,
+        "dxJitter": 4.79,
+        "ydLatencyEma": 199.7,
+        "ydLossEma": 10.69,
+        "ydJitter": 15.42,
+        "ltLatencyEma": 192.53,
+        "ltLossEma": 0.69,
+        "ltJitter": 5.14,
+        "avgLatency": 193.73,
+        "avgLoss": 6.49,
+        "avgJitter": 8.45
       }
     },
     {
@@ -10364,6 +10345,25 @@
       }
     },
     {
+      "id": 23548,
+      "ip": "chat.hashi.sbs",
+      "data_30day": {
+        "ip": "chat.hashi.sbs",
+        "dxLatencyEma": 202.64,
+        "dxLossEma": 8.11,
+        "dxJitter": 3.54,
+        "ydLatencyEma": 200.05,
+        "ydLossEma": 9.94,
+        "ydJitter": 2.82,
+        "ltLatencyEma": 181.22,
+        "ltLossEma": 0.56,
+        "ltJitter": 5.13,
+        "avgLatency": 194.64,
+        "avgLoss": 6.2,
+        "avgJitter": 3.83
+      }
+    },
+    {
       "id": 23547,
       "ip": "hashi.sbs",
       "data_30day": {
@@ -10418,25 +10418,6 @@
         "avgLatency": 195.52,
         "avgLoss": 3.92,
         "avgJitter": 4.82
-      }
-    },
-    {
-      "id": 22259,
-      "ip": "img.imgdd.com",
-      "data_30day": {
-        "ip": "img.imgdd.com",
-        "dxLatencyEma": 202.52,
-        "dxLossEma": 7.75,
-        "dxJitter": 2.84,
-        "ydLatencyEma": 197.62,
-        "ydLossEma": 8.13,
-        "ydJitter": 4.27,
-        "ltLatencyEma": 184.54,
-        "ltLossEma": 0.56,
-        "ltJitter": 3.78,
-        "avgLatency": 194.89,
-        "avgLoss": 5.48,
-        "avgJitter": 3.63
       }
     },
     {
@@ -10535,30 +10516,6 @@
       }
     },
     {
-      "id": 20743,
-      "ip": "xiaoqi.de",
-      "data_30day": {
-        "ip": "xiaoqi.de",
-        "dxLatencyEma": 201.1,
-        "dxLossEma": 8.1,
-        "dxJitter": 3.56,
-        "ydLatencyEma": 203.27,
-        "ydLossEma": 9.55,
-        "ydJitter": 2.46,
-        "ltLatencyEma": 181.33,
-        "ltLossEma": 1.09,
-        "ltJitter": 7.08,
-        "avgLatency": 195.23,
-        "avgLoss": 6.25,
-        "avgJitter": 4.37
-      }
-    },
-    {
-      "id": 53832,
-      "ip": "s.ee",
-      "data_30day": null
-    },
-    {
       "id": 53742,
       "ip": "i.pixiv.re",
       "data_30day": null
@@ -10566,6 +10523,11 @@
     {
       "id": 53729,
       "ip": "www.pixelexperience.org",
+      "data_30day": null
+    },
+    {
+      "id": 53719,
+      "ip": "rargb.to",
       "data_30day": null
     },
     {
@@ -10688,6 +10650,25 @@
       }
     },
     {
+      "id": 42577,
+      "ip": "kernelsu.com",
+      "data_30day": {
+        "ip": "kernelsu.com",
+        "dxLatencyEma": 201.97,
+        "dxLossEma": 7.86,
+        "dxJitter": 2.71,
+        "ydLatencyEma": 206.29,
+        "ydLossEma": 5.05,
+        "ydJitter": 6.43,
+        "ltLatencyEma": 178.39,
+        "ltLossEma": 0.78,
+        "ltJitter": 4.37,
+        "avgLatency": 195.55,
+        "avgLoss": 4.56,
+        "avgJitter": 4.5
+      }
+    },
+    {
       "id": 41941,
       "ip": "zen-browser.app",
       "data_30day": {
@@ -10726,25 +10707,6 @@
       }
     },
     {
-      "id": 40550,
-      "ip": "ys2046.cv",
-      "data_30day": {
-        "ip": "ys2046.cv",
-        "dxLatencyEma": 195.62,
-        "dxLossEma": 8.73,
-        "dxJitter": 21.72,
-        "ydLatencyEma": 197.97,
-        "ydLossEma": 4.81,
-        "ydJitter": 25.17,
-        "ltLatencyEma": 180.72,
-        "ltLossEma": 0.74,
-        "ltJitter": 5.47,
-        "avgLatency": 191.44,
-        "avgLoss": 4.76,
-        "avgJitter": 17.45
-      }
-    },
-    {
       "id": 40355,
       "ip": "zmxf.qzz.io",
       "data_30day": {
@@ -10761,6 +10723,25 @@
         "avgLatency": 198.23,
         "avgLoss": 5.15,
         "avgJitter": 5.61
+      }
+    },
+    {
+      "id": 38158,
+      "ip": "47bt.com",
+      "data_30day": {
+        "ip": "47bt.com",
+        "dxLatencyEma": 201.66,
+        "dxLossEma": 8.9,
+        "dxJitter": 3.23,
+        "ydLatencyEma": 203.9,
+        "ydLossEma": 4.74,
+        "ydJitter": 7.48,
+        "ltLatencyEma": 180.33,
+        "ltLossEma": 0.51,
+        "ltJitter": 5.49,
+        "avgLatency": 195.3,
+        "avgLoss": 4.72,
+        "avgJitter": 5.4
       }
     },
     {
@@ -10821,6 +10802,25 @@
       }
     },
     {
+      "id": 32960,
+      "ip": "www.timbuktutravel.com",
+      "data_30day": {
+        "ip": "www.timbuktutravel.com",
+        "dxLatencyEma": 196.48,
+        "dxLossEma": 8.9,
+        "dxJitter": 3.54,
+        "ydLatencyEma": 193.19,
+        "ydLossEma": 6.03,
+        "ydJitter": 4.5,
+        "ltLatencyEma": 197.02,
+        "ltLossEma": 0.69,
+        "ltJitter": 3.04,
+        "avgLatency": 195.56,
+        "avgLoss": 5.21,
+        "avgJitter": 3.69
+      }
+    },
+    {
       "id": 32959,
       "ip": "www.petronaftco.com",
       "data_30day": {
@@ -10840,6 +10840,25 @@
       }
     },
     {
+      "id": 32958,
+      "ip": "support.communilink.net",
+      "data_30day": {
+        "ip": "support.communilink.net",
+        "dxLatencyEma": 193.5,
+        "dxLossEma": 8.31,
+        "dxJitter": 3.99,
+        "ydLatencyEma": 192.69,
+        "ydLossEma": 6.15,
+        "ydJitter": 5.62,
+        "ltLatencyEma": 196.08,
+        "ltLossEma": 0.97,
+        "ltJitter": 5.06,
+        "avgLatency": 194.09,
+        "avgLoss": 5.14,
+        "avgJitter": 4.89
+      }
+    },
+    {
       "id": 32728,
       "ip": "duggal.com",
       "data_30day": {
@@ -10856,25 +10875,6 @@
         "avgLatency": 194.81,
         "avgLoss": 4.55,
         "avgJitter": 4.19
-      }
-    },
-    {
-      "id": 32726,
-      "ip": "sellerlogic.com",
-      "data_30day": {
-        "ip": "sellerlogic.com",
-        "dxLatencyEma": 194.01,
-        "dxLossEma": 8.7,
-        "dxJitter": 4.16,
-        "ydLatencyEma": 192.91,
-        "ydLossEma": 7.13,
-        "ydJitter": 4.17,
-        "ltLatencyEma": 195.69,
-        "ltLossEma": 0.99,
-        "ltJitter": 2.6,
-        "avgLatency": 194.2,
-        "avgLoss": 5.61,
-        "avgJitter": 3.64
       }
     },
     {
@@ -10935,25 +10935,6 @@
       }
     },
     {
-      "id": 31988,
-      "ip": "628gr.cc",
-      "data_30day": {
-        "ip": "628gr.cc",
-        "dxLatencyEma": 201.21,
-        "dxLossEma": 8.55,
-        "dxJitter": 3.47,
-        "ydLatencyEma": 202.88,
-        "ydLossEma": 10.33,
-        "ydJitter": 1.94,
-        "ltLatencyEma": 179.81,
-        "ltLossEma": 0.41,
-        "ltJitter": 6.99,
-        "avgLatency": 194.63,
-        "avgLoss": 6.43,
-        "avgJitter": 4.13
-      }
-    },
-    {
       "id": 31918,
       "ip": "www.jsdelivr.com",
       "data_30day": {
@@ -11011,22 +10992,22 @@
       }
     },
     {
-      "id": 30621,
-      "ip": "snipaste1.speedip.eu.org",
+      "id": 30814,
+      "ip": "278vd.cc",
       "data_30day": {
-        "ip": "snipaste1.speedip.eu.org",
-        "dxLatencyEma": 188.97,
-        "dxLossEma": 8.1,
-        "dxJitter": 4.79,
-        "ydLatencyEma": 199.7,
-        "ydLossEma": 10.69,
-        "ydJitter": 15.42,
-        "ltLatencyEma": 192.53,
-        "ltLossEma": 0.69,
-        "ltJitter": 5.14,
-        "avgLatency": 193.73,
-        "avgLoss": 6.49,
-        "avgJitter": 8.45
+        "ip": "278vd.cc",
+        "dxLatencyEma": 202.32,
+        "dxLossEma": 8.3,
+        "dxJitter": 3.46,
+        "ydLatencyEma": 205.72,
+        "ydLossEma": 4.63,
+        "ydJitter": 5.22,
+        "ltLatencyEma": 179.17,
+        "ltLossEma": 0.65,
+        "ltJitter": 4.49,
+        "avgLatency": 195.74,
+        "avgLoss": 4.53,
+        "avgJitter": 4.39
       }
     },
     {
@@ -11046,25 +11027,6 @@
         "avgLatency": 195.1,
         "avgLoss": 4.9,
         "avgJitter": 3.5
-      }
-    },
-    {
-      "id": 23548,
-      "ip": "chat.hashi.sbs",
-      "data_30day": {
-        "ip": "chat.hashi.sbs",
-        "dxLatencyEma": 202.64,
-        "dxLossEma": 8.11,
-        "dxJitter": 3.54,
-        "ydLatencyEma": 200.05,
-        "ydLossEma": 9.94,
-        "ydJitter": 2.82,
-        "ltLatencyEma": 181.22,
-        "ltLossEma": 0.56,
-        "ltJitter": 5.13,
-        "avgLatency": 194.64,
-        "avgLoss": 6.2,
-        "avgJitter": 3.83
       }
     },
     {
@@ -11106,22 +11068,41 @@
       }
     },
     {
-      "id": 20751,
-      "ip": "cf.996616.xyz",
+      "id": 22259,
+      "ip": "img.imgdd.com",
       "data_30day": {
-        "ip": "cf.996616.xyz",
-        "dxLatencyEma": 203.52,
-        "dxLossEma": 7.87,
-        "dxJitter": 3.71,
-        "ydLatencyEma": 210.83,
-        "ydLossEma": 4.89,
-        "ydJitter": 8.59,
-        "ltLatencyEma": 181.72,
+        "ip": "img.imgdd.com",
+        "dxLatencyEma": 202.52,
+        "dxLossEma": 7.75,
+        "dxJitter": 2.84,
+        "ydLatencyEma": 197.62,
+        "ydLossEma": 8.13,
+        "ydJitter": 4.27,
+        "ltLatencyEma": 184.54,
         "ltLossEma": 0.56,
-        "ltJitter": 4.99,
-        "avgLatency": 198.69,
-        "avgLoss": 4.44,
-        "avgJitter": 5.76
+        "ltJitter": 3.78,
+        "avgLatency": 194.89,
+        "avgLoss": 5.48,
+        "avgJitter": 3.63
+      }
+    },
+    {
+      "id": 20743,
+      "ip": "xiaoqi.de",
+      "data_30day": {
+        "ip": "xiaoqi.de",
+        "dxLatencyEma": 201.1,
+        "dxLossEma": 8.1,
+        "dxJitter": 3.56,
+        "ydLatencyEma": 203.27,
+        "ydLossEma": 9.55,
+        "ydJitter": 2.46,
+        "ltLatencyEma": 181.33,
+        "ltLossEma": 1.09,
+        "ltJitter": 7.08,
+        "avgLatency": 195.23,
+        "avgLoss": 6.25,
+        "avgJitter": 4.37
       }
     },
     {
@@ -11144,22 +11125,41 @@
       }
     },
     {
-      "id": 31753,
-      "ip": "ncdc.gov.ng",
+      "id": 20751,
+      "ip": "cf.996616.xyz",
       "data_30day": {
-        "ip": "ncdc.gov.ng",
-        "dxLatencyEma": 201.6,
-        "dxLossEma": 7.0,
-        "dxJitter": 3.04,
-        "ydLatencyEma": 207.68,
-        "ydLossEma": 4.65,
-        "ydJitter": 5.61,
-        "ltLatencyEma": 180.24,
-        "ltLossEma": 0.85,
-        "ltJitter": 5.54,
-        "avgLatency": 196.51,
-        "avgLoss": 4.17,
-        "avgJitter": 4.73
+        "ip": "cf.996616.xyz",
+        "dxLatencyEma": 203.52,
+        "dxLossEma": 7.87,
+        "dxJitter": 3.71,
+        "ydLatencyEma": 210.83,
+        "ydLossEma": 4.89,
+        "ydJitter": 8.59,
+        "ltLatencyEma": 181.72,
+        "ltLossEma": 0.56,
+        "ltJitter": 4.99,
+        "avgLatency": 198.69,
+        "avgLoss": 4.44,
+        "avgJitter": 5.76
+      }
+    },
+    {
+      "id": 34110,
+      "ip": "e.lma.de5.net",
+      "data_30day": {
+        "ip": "e.lma.de5.net",
+        "dxLatencyEma": 196.53,
+        "dxLossEma": 7.78,
+        "dxJitter": 4.2,
+        "ydLatencyEma": 215.12,
+        "ydLossEma": 0.6,
+        "ydJitter": 9.1,
+        "ltLatencyEma": 204.33,
+        "ltLossEma": 0.94,
+        "ltJitter": 2.36,
+        "avgLatency": 205.33,
+        "avgLoss": 3.11,
+        "avgJitter": 5.22
       }
     },
     {
@@ -12227,6 +12227,25 @@
       }
     },
     {
+      "id": 29149,
+      "ip": "cloudflare-dl.byoip.top",
+      "data_30day": {
+        "ip": "cloudflare-dl.byoip.top",
+        "dxLatencyEma": 5000.0,
+        "dxLossEma": 100.0,
+        "dxJitter": 0.0,
+        "ydLatencyEma": 5000.0,
+        "ydLossEma": 100.0,
+        "ydJitter": 0.0,
+        "ltLatencyEma": 5000.0,
+        "ltLossEma": 100.0,
+        "ltJitter": 0.0,
+        "avgLatency": 5000.0,
+        "avgLoss": 100.0,
+        "avgJitter": 0.0
+      }
+    },
+    {
       "id": 28851,
       "ip": "cf.tencentapp.cn",
       "data_30day": {
@@ -12420,25 +12439,6 @@
       "id": 62603,
       "ip": "www.090902.xyz",
       "data_30day": null
-    },
-    {
-      "id": 29149,
-      "ip": "cloudflare-dl.byoip.top",
-      "data_30day": {
-        "ip": "cloudflare-dl.byoip.top",
-        "dxLatencyEma": 5000.0,
-        "dxLossEma": 100.0,
-        "dxJitter": 0.0,
-        "ydLatencyEma": 5000.0,
-        "ydLossEma": 100.0,
-        "ydJitter": 0.0,
-        "ltLatencyEma": 5000.0,
-        "ltLossEma": 100.0,
-        "ltJitter": 0.0,
-        "avgLatency": 5000.0,
-        "avgLoss": 100.0,
-        "avgJitter": 0.0
-      }
     }
   ],
   "top100_pool": {
@@ -16508,8 +16508,6 @@
     }
   },
   "logs": [
-    "[2026-08-04 14:03:08] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-04 14:08:05] ✅ candidates 测速缓存已刷新。",
     "[2026-08-04 19:27:26] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-04 19:31:38] ✅ candidates 测速缓存已刷新。",
     "[2026-08-05 02:10:19] 🔄 开始刷新大池测速数据 (30天历史模式)...",
@@ -16607,6 +16605,8 @@
     "[2026-08-17 01:03:31] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-17 01:07:06] ✅ candidates 测速缓存已刷新。",
     "[2026-08-17 06:47:30] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-17 06:51:09] ✅ candidates 测速缓存已刷新。"
+    "[2026-08-17 06:51:09] ✅ candidates 测速缓存已刷新。",
+    "[2026-08-17 12:36:45] 🔄 开始刷新大池测速数据 (30天历史模式)...",
+    "[2026-08-17 12:40:04] ✅ candidates 测速缓存已刷新。"
   ]
 }
