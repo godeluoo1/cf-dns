@@ -1,8 +1,8 @@
 {
-  "last_api_update_time": 1787467046.7596123,
-  "last_top100_time": 1787467097.0456605,
-  "last_top20_time": 1787467099.5762978,
-  "last_top5_time": 1787467122.5286705,
+  "last_api_update_time": 1787488496.0772188,
+  "last_top100_time": 1787488545.6213207,
+  "last_top20_time": 1787488547.4938114,
+  "last_top5_time": 1787488548.9768555,
   "last_switch_time": {
     "cf": 1787467099.592772,
     "cfs": 1787467099.592772
@@ -25,11 +25,11 @@
     "cf": {
       "Dianxin": {
         "cname": "ping.ctrl.li",
-        "count": 4
+        "count": 5
       },
       "Yidong": {
         "cname": "ctsg.cfyx.aliyun.20237737.xyz",
-        "count": 3
+        "count": 4
       },
       "Liantong": {
         "cname": "blog.raindew.576555.xyz",
@@ -37,17 +37,17 @@
       },
       "default_view": {
         "cname": "cdn.667891.xyz",
-        "count": 3
+        "count": 4
       }
     },
     "cfs": {
       "Dianxin": {
         "cname": "ping.ctrl.li",
-        "count": 4
+        "count": 5
       },
       "Yidong": {
         "cname": "ctsg.cfyx.aliyun.20237737.xyz",
-        "count": 3
+        "count": 4
       },
       "Liantong": {
         "cname": "blog.raindew.576555.xyz",
@@ -55,7 +55,7 @@
       },
       "default_view": {
         "cname": "cdn.667891.xyz",
-        "count": 3
+        "count": 4
       }
     }
   },
@@ -332,7 +332,8 @@
         "aaa.cloudflare.182682.xyz": 35,
         "cfdl.3666888.xyz": 35,
         "7.cf.3666888.xyz": 35,
-        "d.lma.de5.net": 35
+        "d.lma.de5.net": 35,
+        "blog.raindew.576555.xyz": 51
       },
       "default_view": {
         "komga.aqua-aria.company": 65,
@@ -658,7 +659,8 @@
         "aaa.cloudflare.182682.xyz": 35,
         "cfdl.3666888.xyz": 35,
         "7.cf.3666888.xyz": 35,
-        "d.lma.de5.net": 35
+        "d.lma.de5.net": 35,
+        "blog.raindew.576555.xyz": 51
       },
       "default_view": {
         "komga.aqua-aria.company": 65,
@@ -2380,6 +2382,25 @@
         "avgLatency": 127.65,
         "avgLoss": 1.58,
         "avgJitter": 22.11
+      }
+    },
+    {
+      "id": 20688,
+      "ip": "cdns.doon.eu.org",
+      "data_30day": {
+        "ip": "cdns.doon.eu.org",
+        "dxLatencyEma": 116.57,
+        "dxLossEma": 1.53,
+        "dxJitter": 38.86,
+        "ydLatencyEma": 85.07,
+        "ydLossEma": 2.69,
+        "ydJitter": 23.4,
+        "ltLatencyEma": 182.21,
+        "ltLossEma": 0.97,
+        "ltJitter": 6.78,
+        "avgLatency": 127.95,
+        "avgLoss": 1.73,
+        "avgJitter": 23.01
       }
     },
     {
@@ -5512,25 +5533,6 @@
         "avgLatency": 191.17,
         "avgLoss": 4.56,
         "avgJitter": 3.07
-      }
-    },
-    {
-      "id": 20688,
-      "ip": "cdns.doon.eu.org",
-      "data_30day": {
-        "ip": "cdns.doon.eu.org",
-        "dxLatencyEma": 116.57,
-        "dxLossEma": 1.53,
-        "dxJitter": 38.86,
-        "ydLatencyEma": 85.07,
-        "ydLossEma": 2.69,
-        "ydJitter": 23.4,
-        "ltLatencyEma": 182.21,
-        "ltLossEma": 0.97,
-        "ltJitter": 6.78,
-        "avgLatency": 127.95,
-        "avgLoss": 1.73,
-        "avgJitter": 23.01
       }
     },
     {
@@ -11325,6 +11327,16 @@
         "avgLoss": 60.41,
         "avgJitter": 1415.08
       }
+    },
+    {
+      "id": 67904,
+      "ip": "js.org",
+      "data_30day": null
+    },
+    {
+      "id": 67858,
+      "ip": "www.spacex.com",
+      "data_30day": null
     }
   ],
   "top100_pool": {
@@ -12504,7 +12516,7 @@
         },
         {
           "ip": "cf.tencentapp.cn",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "store.epicgames.com",
@@ -15394,8 +15406,6 @@
     }
   },
   "logs": [
-    "[2026-08-11 12:55:51] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-08-11 12:58:52] ✅ candidates 测速缓存已刷新。",
     "[2026-08-11 18:57:41] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-11 19:00:24] ✅ candidates 测速缓存已刷新。",
     "[2026-08-12 01:40:40] 🔄 开始刷新大池测速数据 (30天历史模式)...",
@@ -15493,6 +15503,8 @@
     "[2026-08-23 06:34:59] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-23 06:37:26] ✅ candidates 测速缓存已刷新。",
     "[2026-08-23 06:38:20] 🔥 防抖达成！cf 联通 切换为 [blog.raindew.576555.xyz]",
-    "[2026-08-23 06:38:21] 🔥 防抖达成！cfs 联通 切换为 [blog.raindew.576555.xyz]"
+    "[2026-08-23 06:38:21] 🔥 防抖达成！cfs 联通 切换为 [blog.raindew.576555.xyz]",
+    "[2026-08-23 12:32:27] 🔄 开始刷新大池测速数据 (30天历史模式)...",
+    "[2026-08-23 12:34:56] ✅ candidates 测速缓存已刷新。"
   ]
 }
