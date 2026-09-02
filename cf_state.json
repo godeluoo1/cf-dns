@@ -1,8 +1,8 @@
 {
   "last_api_update_time": 1788364660.0096729,
-  "last_top100_time": 1788364709.1670768,
-  "last_top20_time": 1788364711.4524062,
-  "last_top5_time": 1788364712.6998034,
+  "last_top100_time": 1788380927.604586,
+  "last_top20_time": 1788380929.3280876,
+  "last_top5_time": 1788380929.62883,
   "last_switch_time": {
     "cf": 1788345425.4562333,
     "cfs": 1788345425.4562333
@@ -122,7 +122,7 @@
         "sg.cf.3666888.xyz": 35,
         "coke.cf.3666888.xyz": 45,
         "avido.cf.3666888.xyz": 45,
-        "cdn.7zz.cn": 51
+        "cdn.7zz.cn": 52
       },
       "Yidong": {
         "newsroom.avalara.com": 64,
@@ -139,7 +139,7 @@
         "uac.cf.3666888.xyz": 0,
         "komga.aqua-aria.company": 0,
         "avido.cf.3666888.xyz": 0,
-        "auto.dolby.dpdns.org": 1,
+        "auto.dolby.dpdns.org": 2,
         "sanwang.cf.3666888.xyz": 15,
         "g.lma.de5.net": 0,
         "my.dnshe.com": 30,
@@ -423,7 +423,7 @@
         "v.recipes": 30,
         "cfyx.ip.du0.org": 30,
         "www.redboxtools.com": 15,
-        "stores.staples.com": 31,
+        "stores.staples.com": 32,
         "china-unicom.cname.cloudflare.468123.xyz": 35,
         "eii.at": 35,
         "shanghai.mfa.gov.ua": 20,
@@ -496,7 +496,7 @@
         "cf.cf.3666888.xyz": 44,
         "cf1s.cf.3666888.xyz": 5,
         "hk.cf.3666888.xyz": 30,
-        "cf.92555.xyz": 50,
+        "cf.92555.xyz": 51,
         "vip.cf.3666888.xyz": 30,
         "3.cf.3666888.xyz": 35,
         "keji.cf.3666888.xyz": 35,
@@ -565,7 +565,7 @@
         "sg.cf.3666888.xyz": 35,
         "coke.cf.3666888.xyz": 45,
         "avido.cf.3666888.xyz": 45,
-        "cdn.7zz.cn": 51
+        "cdn.7zz.cn": 52
       },
       "Yidong": {
         "newsroom.avalara.com": 64,
@@ -575,7 +575,7 @@
         "uac.cf.3666888.xyz": 0,
         "komga.aqua-aria.company": 0,
         "avido.cf.3666888.xyz": 0,
-        "auto.dolby.dpdns.org": 1,
+        "auto.dolby.dpdns.org": 2,
         "sanwang.cf.3666888.xyz": 15,
         "cdn.cf.3666888.xyz": 0,
         "b.lma.de5.net": 25,
@@ -781,7 +781,7 @@
         "api.cloudflare.com": 20,
         "grass.io": 35,
         "kernelsu.com": 15,
-        "dianomi.com": 5,
+        "dianomi.com": 0,
         "kniu.cc": 10,
         "cu.877774.xyz": 35,
         "278vd.cc": 35,
@@ -864,7 +864,7 @@
         "v.recipes": 30,
         "cfyx.ip.du0.org": 30,
         "www.redboxtools.com": 15,
-        "stores.staples.com": 31,
+        "stores.staples.com": 32,
         "china-unicom.cname.cloudflare.468123.xyz": 35,
         "eii.at": 35,
         "shanghai.mfa.gov.ua": 20,
@@ -938,7 +938,7 @@
         "cf1s.cf.3666888.xyz": 5,
         "cf.cf.3666888.xyz": 49,
         "hk.cf.3666888.xyz": 30,
-        "cf.92555.xyz": 50,
+        "cf.92555.xyz": 51,
         "vip.cf.3666888.xyz": 30,
         "3.cf.3666888.xyz": 35,
         "keji.cf.3666888.xyz": 35,
@@ -14679,7 +14679,7 @@
         },
         {
           "ip": "cf.tencentapp.cn",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "test.509666.xyz",
@@ -15651,7 +15651,7 @@
         },
         {
           "ip": "cf.tencentapp.cn",
-          "healthy": true
+          "healthy": false
         },
         {
           "ip": "test.509666.xyz",
@@ -15980,6 +15980,10 @@
           "healthy": true
         },
         {
+          "ip": "cf.tencentapp.cn",
+          "healthy": true
+        },
+        {
           "ip": "test.509666.xyz",
           "healthy": true
         },
@@ -16009,10 +16013,6 @@
         },
         {
           "ip": "www.leics.police.uk",
-          "healthy": true
-        },
-        {
-          "ip": "dianomi.com",
           "healthy": true
         }
       ],
@@ -16283,7 +16283,6 @@
     }
   },
   "logs": [
-    "[2026-08-23 06:38:20] 🔥 防抖达成！cf 联通 切换为 [blog.raindew.576555.xyz]",
     "[2026-08-23 06:38:21] 🔥 防抖达成！cfs 联通 切换为 [blog.raindew.576555.xyz]",
     "[2026-08-23 12:32:27] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-23 12:34:56] ✅ candidates 测速缓存已刷新。",
@@ -16382,6 +16381,7 @@
     "[2026-09-02 10:37:06] 🔥 防抖达成！cfs 移动 切换为 [auto.dolby.dpdns.org]",
     "[2026-09-02 10:37:06] 🔥 防抖达成！cfs 联通 切换为 [stores.staples.com]",
     "[2026-09-02 15:55:11] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-09-02 15:57:40] ✅ candidates 测速缓存已刷新。"
+    "[2026-09-02 15:57:40] ✅ candidates 测速缓存已刷新。",
+    "[2026-09-02 20:28:29] 🔄 开始刷新大池测速数据 (30天历史模式)..."
   ]
 }
