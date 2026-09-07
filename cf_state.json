@@ -1,8 +1,8 @@
 {
   "last_api_update_time": 1788724816.9548857,
-  "last_top100_time": 1788724890.1503065,
-  "last_top20_time": 1788724894.0594156,
-  "last_top5_time": 1788724897.8541598,
+  "last_top100_time": 1788749213.0231512,
+  "last_top20_time": 1788749214.3865337,
+  "last_top5_time": 1788749214.7141528,
   "last_switch_time": {
     "cf": 1788689791.417678,
     "cfs": 1788689791.417678
@@ -127,7 +127,7 @@
         "www.galgamex.net": 41,
         "7.cf.3666888.xyz": 20,
         "11.cf.3666888.xyz": 30,
-        "jp.cf.3666888.xyz": 47,
+        "jp.cf.3666888.xyz": 48,
         "fw8je9.cf.3666888.xyz": 35
       },
       "Yidong": {
@@ -264,7 +264,7 @@
         "6.cf.3666888.xyz": 35,
         "cmcc.090227.xyz": 35,
         "www.bangbenjiaju.com": 35,
-        "cf-ip-site.vov.moe": 52,
+        "cf-ip-site.vov.moe": 53,
         "play.mc.js.cool": 35,
         "cf.itv888.cn": 35,
         "so.360832.xyz": 45
@@ -369,7 +369,7 @@
         "debot.ai": 35,
         "ping.ctrl.li": 15,
         "tinyurl.com": 35,
-        "ex.warspite.dpdns.org": 5,
+        "ex.warspite.dpdns.org": 0,
         "cf.affection.dpdns.org": 30,
         "cf.92555.xyz": 30,
         "qoj.ac": 35,
@@ -452,7 +452,7 @@
         "www.5199dy.com": 35,
         "test.509666.xyz": 40,
         "cdn.204910.best": 35,
-        "thebeat.gehealthcare.com": 56,
+        "thebeat.gehealthcare.com": 57,
         "serviceshub.samsclub.com": 35,
         "cf.duun.eu.cc": 35
       },
@@ -525,7 +525,7 @@
         "coke.cf.3666888.xyz": 20,
         "cdn.cf.3666888.xyz": 20,
         "123.cf.3666888.xyz": 35,
-        "cf-ip-site.vov.moe": 52
+        "cf-ip-site.vov.moe": 53
       }
     },
     "cfs": {
@@ -594,7 +594,7 @@
         "www.galgamex.net": 41,
         "7.cf.3666888.xyz": 20,
         "11.cf.3666888.xyz": 30,
-        "jp.cf.3666888.xyz": 47,
+        "jp.cf.3666888.xyz": 48,
         "fw8je9.cf.3666888.xyz": 35
       },
       "Yidong": {
@@ -730,7 +730,7 @@
         "6.cf.3666888.xyz": 35,
         "cmcc.090227.xyz": 35,
         "www.bangbenjiaju.com": 35,
-        "cf-ip-site.vov.moe": 52,
+        "cf-ip-site.vov.moe": 53,
         "play.mc.js.cool": 35,
         "cf.itv888.cn": 35,
         "so.360832.xyz": 45
@@ -918,7 +918,7 @@
         "www.5199dy.com": 35,
         "test.509666.xyz": 45,
         "cdn.204910.best": 35,
-        "thebeat.gehealthcare.com": 56
+        "thebeat.gehealthcare.com": 57
       },
       "default_view": {
         "komga.aqua-aria.company": 65,
@@ -989,7 +989,7 @@
         "coke.cf.3666888.xyz": 20,
         "cdn.cf.3666888.xyz": 20,
         "123.cf.3666888.xyz": 35,
-        "cf-ip-site.vov.moe": 52
+        "cf-ip-site.vov.moe": 53
       }
     }
   },
@@ -13122,7 +13122,7 @@
         },
         {
           "ip": "cf.tencentapp.cn",
-          "healthy": false
+          "healthy": true
         },
         {
           "ip": "serviceshub.samsclub.com",
@@ -15703,6 +15703,10 @@
           "healthy": true
         },
         {
+          "ip": "cf.tencentapp.cn",
+          "healthy": true
+        },
+        {
           "ip": "serviceshub.samsclub.com",
           "healthy": true
         },
@@ -15744,10 +15748,6 @@
         },
         {
           "ip": "neko.cloudflaree.eu.org",
-          "healthy": true
-        },
-        {
-          "ip": "ex.warspite.dpdns.org",
           "healthy": true
         }
       ],
@@ -16348,7 +16348,6 @@
     }
   },
   "logs": [
-    "[2026-08-28 21:45:12] 🔥 防抖达成！cfs 默认 切换为 [cfvip.cf.3666888.xyz]",
     "[2026-08-29 05:31:16] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-08-29 05:33:44] ✅ candidates 测速缓存已刷新。",
     "[2026-08-29 12:14:17] 🔄 开始刷新大池测速数据 (30天历史模式)...",
@@ -16447,6 +16446,7 @@
     "[2026-09-06 14:53:00] 🔄 开始刷新大池测速数据 (30天历史模式)...",
     "[2026-09-06 14:55:29] ✅ candidates 测速缓存已刷新。",
     "[2026-09-06 19:57:47] 🔄 开始刷新大池测速数据 (30天历史模式)...",
-    "[2026-09-06 20:00:16] ✅ candidates 测速缓存已刷新。"
+    "[2026-09-06 20:00:16] ✅ candidates 测速缓存已刷新。",
+    "[2026-09-07 02:46:05] 🔄 开始刷新大池测速数据 (30天历史模式)..."
   ]
 }
